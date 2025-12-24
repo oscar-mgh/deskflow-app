@@ -1,3 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: 'custom';
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
 
-@import "tailwindcss";
+  /* Base colors - Deep Midnight Indigo */
+  --color-base-100: oklch(19% 0.001 234);
+  --color-base-200: oklch(14% 0.029 265);
+  --color-base-300: oklch(10% 0.029 265);
+  --color-base-content: oklch(95% 0.029 265);
+
+  /* Primary - Vibrant Indigo */
+  --color-primary: oklch(65% 0.22 265);
+  --color-primary-content: oklch(100% 0 0);
+
+  /* Secondary - Softer Lavender/Indigo */
+  --color-secondary: oklch(75% 0.22 265);
+  --color-secondary-content: oklch(20% 0.029 265); 
+
+  /* Accent - High contrast Electric Purple */
+  --color-accent: oklch(70% 0.22 300);
+  --color-accent-content: oklch(100% 0 0);
+
+  /* Neutral - Muted Slate Indigo */
+  --color-neutral: oklch(25% 0.22 265);
+  --color-neutral-content: oklch(90% 0.22 265);
+
+  /* Status colors */
+  --color-info: oklch(70% 0.22 230);
+  --color-success: oklch(75% 0.22 150);
+  --color-warning: oklch(80% 0.22 85);
+  --color-error: oklch(65% 0.22 25);
+
+  /* UI Styling */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
