@@ -18,10 +18,6 @@ export class NavbarComponent implements OnInit {
     this.userEmail = this.authService.getUserEmail();
   }
 
-  isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
-  }
-
   logout(): void {
     this.authService.clearToken();
     this.userEmail = null;

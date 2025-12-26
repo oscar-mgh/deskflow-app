@@ -1,0 +1,47 @@
+<section
+	class="relative w-full min-h-[96vh] rounded-2xl bg-base-300 flex flex-col justify-center items-center text-center fade-in-up px-6 py-20 overflow-hidden">
+
+	<h1 class="text-6xl font-black text-white mb-12 tracking-tight">
+		<span class="bg-linear-to-r from-indigo-300 via-blue-300 to-sky-300 bg-clip-text text-transparent">DeskFlow</span>
+	</h1>
+
+	<h2 class="text-2xl md:text-3xl font-light text-gray-100 mb-8 max-w-2xl">
+		Donde la claridad y la rapidez se encuentran
+	</h2>
+
+	<p class="text-lg text-gray-400 max-w-xl leading-relaxed mb-10">
+		Gestiona, asigna y resuelve incidencias con una plataforma diseñada para
+		<span class="text-white font-medium">maximizar la velocidad</span> y el
+		trabajo en equipo.
+	</p>
+
+	<div class="flex flex-col sm:flex-row gap-4">
+		<a routerLink="/guest/demo"
+			class="btn btn-neutral btn-outline text-sky-100 border-gray-500 px-10 py-3 text-lg rounded-xl shadow-lg hover:bg-white/80 hover:text-zinc-800">
+			Probar DeskFlow
+		</a>
+		<a routerLink="/auth/login"
+			class="btn btn-primary px-10 py-3 text-lg rounded-xl shadow-lg">
+			Iniciar sesión
+		</a>
+	</div>
+
+	<p class="mt-10 text-gray-500">
+		¿Aún no tienes una cuenta?
+		<a routerLink="/auth/register"
+			class="text-primary font-bold hover:underline ml-1 select-none cursor-pointer">Regístrate
+			ahora</a>
+	</p>
+
+	<a routerLink="/premium"
+		class="my-8 group flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium hover:bg-primary/20 transition-all cursor-pointer select-none">
+		<span class="relative flex h-2 w-2">
+			<span
+				class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+			<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+		</span>
+		¡Descubre lo que <span class="text-green-100 font-bold">DeskFlow Premium</span> tiene para ti!
+		<i
+			class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
+	</a>
+</section>

@@ -1,14 +1,9 @@
-<div class="navbar bg-base-100 shadow px-2">
+<div class="navbar bg-base-100 shadow-xl px-2">
 	<div class="flex-1">
-		<a class="btn btn-ghost text-xl">DeskFlow</a>
+		<a class="pl-2 text-xl font-bold text-white">DeskFlow</a>
 	</div>
 
 	<div class="flex items-center gap-4">
-		@if (!isLoggedIn()) {
-		<div>
-			<a routerLink="/auth/login" class="btn btn-secondary">Iniciar sesión</a>
-		</div>
-		} @else {
 		<div class="dropdown dropdown-end">
 			<div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
 				<div
@@ -23,6 +18,5 @@
 				<li><a (click)="logout()">Cerrar sesión</a></li>
 			</ul>
 		</div>
-		}
 	</div>
 </div>
