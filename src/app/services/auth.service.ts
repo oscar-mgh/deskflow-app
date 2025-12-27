@@ -73,4 +73,17 @@ export class AuthService {
       return '';
     }
   }
+
+  handleAuthError(err: HttpErrorResponse): string {
+    switch (err.status) {
+      case 401:
+        return 'Credenciales inválidas, verifica tu correo y contraseña';
+      case 409:
+        return 'El correo electrónico ya está registrado';
+      case 0:
+        return 'No se pudo conectar con el servidor';
+      default:
+        return 'Ocurrió un error inesperado';
+    }
+  }
 }

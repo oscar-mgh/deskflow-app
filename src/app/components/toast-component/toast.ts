@@ -7,7 +7,7 @@ type ToastType = 'primary' | 'success' | 'error' | 'warning' | 'info';
   selector: 'app-toast',
   imports: [CommonModule],
   templateUrl: './toast.html',
-  styles: ``,
+  standalone: true
 })
 export class ToastComponent {
   @Input() message: string | null = null;
