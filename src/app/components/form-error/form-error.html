@@ -2,7 +2,7 @@
 
 <p class="text-error text-xs text-left mt-1 px-2">
 	@if (control.errors['required']) {
-	{{ label }} es obligatorio
+	Este campo es obligatorio
 	}
 
 	@if (control.errors['email']) {
@@ -10,7 +10,7 @@
 	}
 
 	@if (control.errors['minlength']) {
-	Debe tener al menos {{ control.errors['minlength'].requiredLength }} caracteres
+	Se requieren al menos {{ control.errors['minlength'].requiredLength }} caracteres
 	}
 </p>
 }

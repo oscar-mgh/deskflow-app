@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import url("node_modules/bootstrap-icons/font/bootstrap-icons.css");
+@import url('node_modules/bootstrap-icons/font/bootstrap-icons.css');
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: 'custom';
@@ -38,18 +38,27 @@
   --noise: 0;
 }
 
+:root {
+  --primary: #5da329;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
 
 ::selection {
-  background: #5da329;
+  background: var(--primary);
   color: #212121;
   text-shadow: none;
 }
 
 ::-moz-selection {
-  background: #5da329;
+  background: var(--primary);
   color: #eee;
   text-shadow: none;
 }
