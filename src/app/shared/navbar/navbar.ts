@@ -1,26 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.html'
+  templateUrl: './navbar.html',
 })
-export class NavbarComponent implements OnInit {
-  userEmail: string | null = null;
+export class Navbar implements OnInit {
+  userEmail = signal<string>('');
+  showUserButton = signal<boolean>(false);
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.userEmail = this.authService.getUserEmail();
+    this.userEmail.set(this.authService.getUserEmail());
+    this.showUserButton.set(this.router.url.startsWith('/tickets/'));
   }
 
   logout(): void {
     this.authService.clearToken();
-    this.userEmail = null;
-    this.router.navigate(['/auth/login']);
+    this.userEmail.set('');
+    this.router.navigate(['/']);
   }
 }

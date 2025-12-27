@@ -1,35 +1,35 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
+import { ApiService } from './api.service';
 
-interface LoginResponse {
-  token: string;
+interface LoginRequest {
+  email: string;
+  password: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private tokenKey = 'deskflow_jwt';
+  private tokenKey = 'identity';
 
-  constructor(
-    private http: HttpClient,
-    private api: ApiService
-  ) { }
+  constructor(private http: HttpClient, private api: ApiService) {}
 
-  login(email: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(
+  login({ email, password }: LoginRequest): Observable<string> {
+    return this.http.post(
       this.api.endpoint('/auth/login'),
-      { email, password }
+      { email, password },
+      { responseType: 'text' as 'text' }
     );
   }
 
-  register(name: string, email: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(
-      this.api.endpoint('/auth/register'),
-      { fullName: name, email, password }
-    );
+  register(name: string, email: string, password: string): Observable<string> {
+    return this.http.post<string>(this.api.endpoint('/auth/register'), {
+      fullName: name,
+      email,
+      password,
+    });
   }
 
   getToken(): string | null {
@@ -56,14 +56,15 @@ export class AuthService {
     }
   }
 
-  getUserEmail(): string | null {
+  getUserEmail(): string {
     const token = this.getToken();
-    if (!token) return null;
+    if (!token) return '';
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
       return payload.sub;
-    } catch {
-      return null;
+    } catch (err: any) {
+      console.error(err);
+      return '';
     }
   }
 }

@@ -1,0 +1,63 @@
+<section
+	class="relative w-full h-screen rounded-lg bg-base-300 flex flex-col justify-center items-center text-center fade px-6 py-12 overflow-hidden">
+
+	<div class="mb-10">
+		<h1 class="text-4xl font-black text-white tracking-tight cursor-pointer"
+			routerLink="/">
+			<span
+				class="bg-linear-to-r from-indigo-300 via-blue-300 to-sky-300 bg-clip-text text-transparent">DeskFlow</span>
+		</h1>
+		<p class="text-zinc-400 mt-2">Bienvenido de nuevo</p>
+	</div>
+
+	<div
+		class="w-full max-w-md bg-white/5 backdrop-blur-md border border-neutral-900 p-8 rounded-lg shadow-xl">
+		<h2 class="text-2xl font-bold text-primary mb-6 mt-2">Iniciar sesión</h2>
+
+		<form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-5">
+			<div class="form-control">
+				<label class="label">
+					<span class="label-text text-zinc-300 mb-2">Correo
+						electrónico</span>
+				</label>
+				<input type="email" placeholder="email@example.com"
+					class="input input-bordered bg-base-100/50 border-zinc-700 text-white w-full rounded-lg focus:border-primary focus:border-2"
+					required formControlName="email" name="email" />
+			</div>
+
+			<div class="form-control">
+				<label class="label">
+					<span
+						class="label-text text-zinc-300 mb-2">Contraseña</span>
+				</label>
+				<input type="password" placeholder="••••••••"
+					class="input input-bordered bg-base-100/50 border-zinc-700 focus:border-primary focus:border-2 text-white w-full rounded-lg"
+					required formControlName="password" name="password" />
+				<label class="label mt-1">
+					<a
+						class="label-text-alt link link-hover text-zinc-500 my-4 select-none">¿Olvidaste
+						tu contraseña?</a>
+				</label>
+			</div>
+
+			<button type="submit"
+				class="btn btn-primary w-full py-3 text-lg rounded-lg shadow-lg">
+				Ingresar
+			</button>
+		</form>
+
+		<div class="divider text-zinc-500 text-xs my-8 uppercase tracking-widest">O
+			continúa con</div>
+
+		<button
+			class="btn btn-neutral btn-outline w-full border-zinc-600 text-zinc-300 hover:bg-white hover:text-zinc-900 rounded-lg">
+			<i class="bi bi-google mr-2"></i> Google
+		</button>
+	</div>
+
+	<p class="mt-8 text-zinc-500">
+		¿No tienes cuenta?
+		<a routerLink="/auth/register"
+			class="text-primary font-bold hover:underline ml-1">Crea una ahora</a>
+	</p>
+</section>

@@ -1,22 +1,27 @@
-<div class="navbar bg-base-100 shadow-xl px-2">
+<div class="navbar px-4 bg-base-100 shadow-xl">
 	<div class="flex-1">
-		<a class="pl-2 text-xl font-bold text-white">DeskFlow</a>
+		<a class="text-xl font-bold text-white">DeskFlow</a>
 	</div>
 
-	<div class="flex items-center gap-4">
-		<div class="dropdown dropdown-end">
-			<div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-				<div
-					class="w-10 rounded-full bg-primary text-white flex items-center justify-center">
-					{{ userEmail?.charAt(0)?.toUpperCase() }}
+	@if (showUserButton()) {
+		<div class="flex items-center gap-4">
+			<div class="dropdown dropdown-end">
+				<div tabindex="0" role="button"
+					class="btn btn-ghost btn-circle avatar placeholder">
+					<div
+						class="w-10 h-10 rounded bg-warning text-primary-content flex items-center justify-center">
+						<span class="text-xl font-semibold">
+							{{ userEmail().charAt(0).toUpperCase() }}
+						</span>
+					</div>
 				</div>
+				<ul
+					tabindex="0"
+					class="menu menu-sm dropdown-content mt-3 z-9 p-2 shadow bg-base-300 w-30 gap-1 rounded">
+					<li><a class="justify-between">Perfil</a></li>
+					<li><a (click)="logout()">Cerrar sesión</a></li>
+				</ul>
 			</div>
-			<ul
-				tabindex="0"
-				class="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52">
-				<li><a class="justify-between">Perfil</a></li>
-				<li><a (click)="logout()">Cerrar sesión</a></li>
-			</ul>
 		</div>
-	</div>
+	}
 </div>
