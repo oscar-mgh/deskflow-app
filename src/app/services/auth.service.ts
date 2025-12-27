@@ -1,11 +1,15 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { ApiService } from './api.service';
 
-interface LoginRequest {
+export interface LoginRequest {
   email: string;
   password: string;
+}
+
+export interface AuthResponse {
+  token: string;
 }
 
 @Injectable({
@@ -16,20 +20,22 @@ export class AuthService {
 
   constructor(private http: HttpClient, private api: ApiService) {}
 
-  login({ email, password }: LoginRequest): Observable<string> {
-    return this.http.post(
-      this.api.endpoint('/auth/login'),
-      { email, password },
-      { responseType: 'text' as 'text' }
-    );
+  login({ email, password }: LoginRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(this.api.endpoint('/auth/login'), { email, password });
   }
 
-  register(name: string, email: string, password: string): Observable<string> {
-    return this.http.post<string>(this.api.endpoint('/auth/register'), {
-      fullName: name,
-      email,
-      password,
-    });
+  register(fullName: string, email: string, password: string): Observable<AuthResponse> {
+    return this.http
+      .post<AuthResponse>(this.api.endpoint('/auth/register'), {
+        fullName,
+        email,
+        password,
+      })
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          return throwError(() => err);
+        })
+      );
   }
 
   getToken(): string | null {

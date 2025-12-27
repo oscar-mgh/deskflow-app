@@ -1,20 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { catchError, of, tap } from 'rxjs';
+import { FormError } from '../../components/form-error/form-error';
+import { ToastComponent } from '../../components/toast-component/toast';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormError, ToastComponent],
   templateUrl: './login-page.html',
-  styles: ``,
 })
 export class LoginPage implements OnInit {
   loginForm!: FormGroup;
@@ -35,8 +30,7 @@ export class LoginPage implements OnInit {
   onLogin() {
     if (this.loginForm.invalid) return;
     this._authService.login(this.loginForm.value).subscribe({
-      next: (token) => {
-        console.log(token);
+      next: ({ token }) => {
         this._authService.setToken(token);
         this.router.navigate(['/dashboard']);
       },

@@ -10,15 +10,15 @@ export class Navbar implements OnInit {
   userEmail = signal<string>('');
   showUserButton = signal<boolean>(false);
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private _authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.userEmail.set(this.authService.getUserEmail());
-    this.showUserButton.set(this.router.url.startsWith('/tickets/'));
+    this.userEmail.set(this._authService.getUserEmail());
+    this.showUserButton.set(this.router.url.startsWith('/tickets/') || this.router.url === '/dashboard');
   }
 
   logout(): void {
-    this.authService.clearToken();
+    this._authService.clearToken();
     this.userEmail.set('');
     this.router.navigate(['/']);
   }

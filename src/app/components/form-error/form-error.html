@@ -1,0 +1,16 @@
+@if (control && control.touched && control.errors) {
+
+<p class="text-error text-xs text-left mt-1 px-2">
+	@if (control.errors['required']) {
+	{{ label }} es obligatorio
+	}
+
+	@if (control.errors['email']) {
+	Ingresa un correo válido
+	}
+
+	@if (control.errors['minlength']) {
+	Debe tener al menos {{ control.errors['minlength'].requiredLength }} caracteres
+	}
+</p>
+}

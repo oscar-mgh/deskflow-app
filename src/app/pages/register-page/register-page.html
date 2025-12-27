@@ -1,1 +1,90 @@
-<p>register-page works!</p>
+<section
+	class="relative w-full h-screen bg-base-300 flex flex-col justify-center items-center text-center fade px-6 py-12">
+	<div class="mb-10">
+		<h1 routerLink="/" class="text-4xl font-black text-white tracking-tight cursor-pointer">
+			<span
+				class="bg-linear-to-r from-indigo-300 via-blue-300 to-sky-300 bg-clip-text text-transparent">DeskFlow</span>
+		</h1>
+		<p class="text-zinc-400 mt-2">Crea tu cuenta hoy mismo</p>
+	</div>
+
+	<div class="w-full max-w-md bg-white/5 backdrop-blur-md border border-neutral-900 p-8 rounded-lg shadow-xl">
+		<h2 class="text-2xl font-bold text-primary mb-6 mt-2">Registrarse</h2>
+
+		<form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="space-y-5">
+			<!-- Full Name -->
+			<div class="form-control">
+				<label class="px-2 label flex flex-col items-start">
+					<span class="label-text text-base-content mb-1 text-left">Nombre completo</span>
+				</label>
+				<input type="text" formControlName="fullName" placeholder="Ej. Juan Pérez" class="input input-bordered bg-base-100/50 border-zinc-700 text-white w-full rounded-lg
+         focus:outline-none focus:ring-0 focus:border-primary focus:border" [ngClass]="{
+            'input-error':
+              registerForm.controls['fullName'].touched &&
+              registerForm.controls['fullName'].invalid
+          }" />
+
+				@if (
+				registerForm.controls['fullName'].touched &&
+				registerForm.controls['fullName'].errors
+				) {
+				<app-form-error [control]="registerForm.controls['fullName']" label="El nombre"></app-form-error>
+				}
+			</div>
+
+			<!-- Email -->
+			<div class="form-control">
+				<label class="px-2 label flex flex-col items-start">
+					<span class="label-text text-base-content mb-1 text-left">Correo electrónico</span>
+				</label>
+				<input type="email" formControlName="email" placeholder="email@example.com" class="input input-bordered bg-base-100/50 border-zinc-700 text-white w-full rounded-lg
+         focus:outline-none focus:ring-0 focus:border-primary focus:border" [ngClass]="{
+            'input-error':
+              registerForm.controls['email'].touched &&
+              registerForm.controls['email'].invalid
+          }" />
+
+				@if (registerForm.controls['email'].touched && registerForm.controls['email'].errors) {
+				<app-form-error [control]="registerForm.controls['email']" label="El correo"></app-form-error>
+				}
+			</div>
+
+			<!-- Password -->
+			<div class="form-control">
+				<label class="px-2 label flex flex-col items-start">
+					<span class="label-text text-base-content mb-1 text-left">Contraseña</span>
+				</label>
+				<input type="password" formControlName="password" placeholder="••••••••" class="input input-bordered bg-base-100/50 border-zinc-700 text-white w-full rounded-lg
+         focus:outline-none focus:ring-0 focus:border-primary focus:border" [ngClass]="{
+            'input-error':
+              registerForm.controls['password'].touched &&
+              registerForm.controls['password'].invalid
+          }" />
+
+				@if (
+				registerForm.controls['password'].touched &&
+				registerForm.controls['password'].errors
+				) {
+				<app-form-error [control]="registerForm.controls['password']" label="La contraseña"></app-form-error>
+				}
+			</div>
+
+			<button type="submit" class="btn btn-primary w-full py-3 text-lg rounded-lg shadow-lg mt-4"
+				[disabled]="registerForm.invalid">
+				Crear cuenta
+			</button>
+		</form>
+
+		<div class="divider text-zinc-500 text-xs my-8 uppercase tracking-widest">o</div>
+		<p class="text-zinc-500 text-sm">
+			Al registrarte, aceptas nuestros términos y condiciones.
+		</p>
+	</div>
+
+	<p class="mt-8 text-zinc-500">
+		¿Ya tienes cuenta?
+		<a routerLink="/auth/login" class="text-primary font-bold hover:underline ml-1">Inicia sesión</a>
+	</p>
+</section>
+
+<app-toast #toast></app-toast>
