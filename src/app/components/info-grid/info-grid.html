@@ -1,53 +1,57 @@
 <main class="flex flex-col flex-1 p-8 gap-8 overflow-hidden ml-16">
 
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-			<div class="card bg-base-100 shadow-xl border border-base-300">
+			<div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body text-center">
-					<i class="bi bi-ticket-perforated text-3xl text-[#78d692]"></i>
+					<i class="bi bi-ticket-perforated text-3xl text-[#4fb5ff]"></i>
 					<h2 class="card-title justify-center">24</h2>
-					<p class="opacity-70">Tickets Abiertos</p>
+					<p class="opacity-80">Tickets Abiertos</p>
 				</div>
 			</div>
-			<div class="card bg-base-100 shadow-xl border border-base-300">
+			<div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body text-center">
-					<i class="bi bi-hourglass-split text-3xl text-[#f5d451]"></i>
+					<i class="bi bi-hourglass-split text-3xl text-[#e2d02e]"></i>
 					<h2 class="card-title justify-center">12</h2>
-					<p class="opacity-70">En Progreso</p>
+					<p class="opacity-80">En Progreso</p>
 				</div>
 			</div>
-			<div class="card bg-base-100 shadow-xl border border-base-300">
+			<div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body text-center">
-					<i class="bi bi-check-circle text-3xl text-[#68b6ee]"></i>
+					<i class="bi bi-check-circle text-3xl text-[#7dda97]"></i>
 					<h2 class="card-title justify-center">8</h2>
-					<p class="opacity-70">Resueltos</p>
+					<p class="opacity-80">Resueltos</p>
 				</div>
 			</div>
-			<div class="card bg-base-100 shadow-xl border border-base-300">
+			<div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body text-center">
-					<i class="bi bi-exclamation-triangle text-3xl text-[#ef616b]"></i>
+					<i class="bi bi-exclamation-triangle text-3xl text-[#fc525d]"></i>
 					<h2 class="card-title justify-center">5</h2>
-					<p class="opacity-70">SLA Vencidos</p>
+					<p class="opacity-80">SLA Vencidos</p>
 				</div>
 			</div>
 		</section>
 
 		<section class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-[calc(100vh-15.4rem)]">
 
-			<div class="card bg-base-100 shadow-xl border border-base-300">
+			<div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body">
 					<h3 class="card-title text-primary">Tickets Recientes</h3>
 					<ul class="divide-y divide-base-200">
 						<li class="py-3 flex justify-between items-center">
 							<span>#1023 - Error en login</span>
-							<span class="badge badge-warning">En progreso</span>
+							<app-status-badge status="IN_PROGRESS"></app-status-badge>
 						</li>
 						<li class="py-3 flex justify-between items-center">
 							<span>#1024 - Nueva funcionalidad</span>
-							<span class="badge badge-info">Pendiente</span>
+							<app-status-badge status="OPEN"></app-status-badge>
 						</li>
 						<li class="py-3 flex justify-between items-center">
 							<span>#1025 - Bug en dashboard</span>
-							<span class="badge badge-success">Resuelto</span>
+							<app-status-badge status="RESOLVED"></app-status-badge>
+						</li>
+						<li class="py-3 flex justify-between items-center">
+							<span>#1026 - Error de conexión</span>
+							<app-status-badge status="CLOSED"></app-status-badge>
 						</li>
 					</ul>
 					<a routerLink="/tickets"
@@ -56,7 +60,7 @@
 				</div>
 			</div>
 
-			<div class="card bg-base-100 shadow-xl border border-base-300">
+			<div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body">
 					<h3 class="card-title text-primary mb-2">Tickets siendo atendidos</h3>
 					<ul class="space-y-1 text-base-content">
@@ -94,6 +98,16 @@
 								<i class="bi bi-person-circle"></i> Ricardo Soto
 							</span>
 						</li>
+						<li
+							class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
+							<div class="flex items-center">
+								<i class="bi bi-ticket-perforated-fill text-warning mr-3 text-lg"></i>
+								<span class="font-medium select-neutral">#1248 - Error de conexión</span>
+							</div>
+							<span class="badge badge-ghost gap-2">
+								<i class="bi bi-person-circle"></i> Oscar Vargas
+							</span>
+						</li>
 					</ul>
 					<a routerLink="/tickets"
 						class="btn btn-link text-primary p-0 no-underline hover:underline hover:text-white mt-auto">Ver
@@ -101,7 +115,7 @@
 				</div>
 			</div>
 
-			<div class="card bg-base-100 shadow-xl border border-base-300">
+			<div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body">
 					<h3 class="card-title text-primary mb-4">Actividad Reciente</h3>
 					<ul class="space-y-4 text-base-content">
@@ -120,7 +134,7 @@
 				</div>
 			</div>
 
-			<div class="card bg-base-100 shadow-xl border border-base-300">
+			<div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body">
 					<h3 class="card-title text-primary mb-4">Notificaciones</h3>
 					<div class="space-y-4">

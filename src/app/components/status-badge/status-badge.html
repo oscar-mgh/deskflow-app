@@ -1,0 +1,9 @@
+@if (status() === 'OPEN') {
+	<span class="badge px-3 py-2 badge-warning">Pendiente</span>
+} @else if (status() === 'IN_PROGRESS') {
+	<span class="badge px-3 py-2 bg-[#4fb5ff] text-zinc-800">En Progreso</span>
+} @else if (status() === 'CLOSED') {
+	<span class="badge px-3 py-2 bg-red-400 text-zinc-800">Cancelado</span>
+} @else if (status() === 'RESOLVED') {
+	<span class="badge px-3 py-2 badge-primary">Resuelto</span>
+}

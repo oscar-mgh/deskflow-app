@@ -15,6 +15,16 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadComponent: () => import('./pages/dashboard/dashboard').then((m) => m.Dashboard),
+        children: [
+          {
+            path: 'ticket-create',
+            loadComponent: () => import('./pages/ticket/ticket-page').then((m) => m.TicketPage),
+          },
+          {
+            path: 'ticket/:id',
+            loadComponent: () => import('./pages/ticket/ticket-page').then((m) => m.TicketPage),
+          },
+        ],
         canActivate: [authGuard],
       },
       {
