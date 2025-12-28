@@ -1,12 +1,6 @@
-<section class="w-full min-h-screen bg-base-100 flex flex-col overflow-hidden select-neutral">
-
+<section class="w-full min-h-screen bg-base-100 flex flex-col select-neutral">
 	<app-sidebar></app-sidebar>
-
-	@if (creatingTicket() || consultingTicket()) {
-	<router-outlet></router-outlet>
-	} @else if (userHasTickets()) {
-	<app-info-grid></app-info-grid>
-	} @else {
-	<app-emtpy-space></app-emtpy-space>
-	}
+	<div class="min-w-7xl max-w-7xl min-h-[85vh] mx-auto">
+		<router-outlet></router-outlet>
+	</div>
 </section>

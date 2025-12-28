@@ -1,9 +1,14 @@
-@if (status() === 'OPEN') {
-	<span class="badge px-3 py-2 badge-warning">Pendiente</span>
-} @else if (status() === 'IN_PROGRESS') {
-	<span class="badge px-3 py-2 bg-[#4fb5ff] text-zinc-800">En Progreso</span>
-} @else if (status() === 'CLOSED') {
-	<span class="badge px-3 py-2 bg-red-400 text-zinc-800">Cancelado</span>
-} @else if (status() === 'RESOLVED') {
-	<span class="badge px-3 py-2 badge-primary">Resuelto</span>
+@switch (status()) {
+	@case ('OPEN') {
+		<span [class]="`${styles()} bg-orange-400`">Pendiente</span>
+	}
+	@case ('IN_PROGRESS') {
+		<span [class]="`${styles()} bg-blue-400`">En Progreso</span>
+	}
+	@case ('CLOSED') {
+		<span [class]="`${styles()} badge-error`">Cancelado</span>
+	}
+	@case ('RESOLVED') {
+		<span [class]="`${styles()} bg-lime-400`">Resuelto</span>
+	}
 }

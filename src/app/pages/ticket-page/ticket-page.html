@@ -1,8 +1,8 @@
-@if (!ticketId()) {
+@if (!id()) {
 <div class="min-h-[95vh] flex justify-center items-center px-6">
 	<div class="w-full max-w-3xl bg-base-200 border border-base-300 shadow-lg rounded-lg p-10">
 
-		<h2 class="text-3xl font-extrabold text-center mb-10">
+		<h2 class="text-3xl font-bold text-center mb-10">
 			Crear Ticket
 		</h2>
 
@@ -17,11 +17,11 @@
 
 				<div class="form-control">
 					<label class="label mb-1"><span class="font-semibold">Categoría</span></label>
-					<select id="category" formControlName="category" class="select select-bordered w-full">
+					<select id="categoryName" formControlName="categoryName" class="select select-bordered w-full">
 						<option value="">Seleccione una categoría</option>
-						<option value="bug">Bug</option>
-						<option value="feature">Solicitud de característica</option>
-						<option value="support">Soporte</option>
+							@for (category of categories(); track category.id) {
+								<option [value]="category.name">{{ category.name }}</option>
+							}
 					</select>
 				</div>
 			</div>
@@ -33,22 +33,31 @@
 					class="textarea textarea-bordered w-full"></textarea>
 			</div>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<div class="grid gap-6"
+				[class]="this.isPremium() ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-1'">
 				<div class="form-control">
 					<label class="label mb-1"><span class="font-semibold">Prioridad</span></label>
 					<select id="priority" formControlName="priority" class="select select-bordered w-full">
 						<option value="">Seleccione la prioridad</option>
-						<option value="low">Baja</option>
-						<option value="medium">Media</option>
-						<option value="high">Alta</option>
+						@if (this.isPremium()) {
+							@for (priority of premiumPriorities(); track priority) {
+								<option [value]="priority">{{ priority | priority }}</option>
+							}
+						} @else {
+							@for (priority of priorities(); track priority) {
+								<option [value]="priority">{{ priority | priority }}</option>
+							}
+						}
 					</select>
 				</div>
 
+				@if (this.isPremium()) {
 				<div class="form-control">
 					<label class="label mb-1"><span class="font-semibold">Adjuntar archivo</span></label>
 					<input id="attachment" type="file" (change)="onFileSelected($event)"
 						class="file-input file-input-bordered w-full" />
 				</div>
+				}
 			</div>
 
 			<button type="submit"
@@ -58,8 +67,9 @@
 		</form>
 	</div>
 </div>
-}
-@else {
+
+} @else {
+
 <div class="min-h-[95vh] flex justify-center items-center px-6">
 	<div class="w-full max-w-3xl bg-base-200 border border-base-300 shadow-xl rounded-lg p-10">
 
@@ -68,16 +78,14 @@
 			<h3 class="text-2xl font-bold mb-8 text-center">Detalles del Ticket</h3>
 
 			<div class="space-y-4 text-lg">
+				<div class="flex justify-between border-b border-t border-base-300 py-2"><strong>Título:</strong> {{
+					ticket()?.title }}</div>
 				<div class="flex justify-between border-b border-t border-base-300 py-2"><strong>Fecha:</strong> {{
 					ticket()?.createdAt | date }}
 				</div>
-				<div class="flex justify-between border-b border-t border-base-300 py-2"><strong>ID:</strong> {{
-					ticket()?.ticketId }}</div>
-				<div class="flex justify-between border-b border-t border-base-300 py-2"><strong>Título:</strong> {{
-					ticket()?.title }}</div>
 
 				<div class="flex justify-between border-b border-t border-base-300 py-2"><strong>Categoría:</strong> {{
-					ticket()?.category | titlecase }}
+					ticket()?.categoryName | titlecase }}
 				</div>
 				<div class="flex justify-between border-b border-t border-base-300 py-2"><strong>Prioridad:</strong> {{
 					ticket()?.priority! | priority }}

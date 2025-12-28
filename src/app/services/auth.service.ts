@@ -2,31 +2,23 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { ApiService } from './api.service';
-
-export interface LoginRequest {
-  email: string;
-  password: string;
-}
-
-export interface AuthResponse {
-  token: string;
-}
+import { LoginRequest, AuthResponse, UserClaims } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private tokenKey = 'identity';
+  private _tokenKey = 'identity';
 
-  constructor(private http: HttpClient, private api: ApiService) {}
+  constructor(private _http: HttpClient, private _api: ApiService) {}
 
   login({ email, password }: LoginRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(this.api.endpoint('/auth/login'), { email, password });
+    return this._http.post<AuthResponse>(this._api.endpoint('/auth/login'), { email, password });
   }
 
   register(fullName: string, email: string, password: string): Observable<AuthResponse> {
-    return this.http
-      .post<AuthResponse>(this.api.endpoint('/auth/register'), {
+    return this._http
+      .post<AuthResponse>(this._api.endpoint('/auth/register'), {
         fullName,
         email,
         password,
@@ -38,16 +30,16 @@ export class AuthService {
       );
   }
 
-  getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+  getToken(): string {
+    return localStorage.getItem(this._tokenKey) || '';
   }
 
   setToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token);
+    localStorage.setItem(this._tokenKey, token);
   }
 
   clearToken(): void {
-    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this._tokenKey);
   }
 
   isLoggedIn(): boolean {
@@ -62,19 +54,20 @@ export class AuthService {
     }
   }
 
-  getUserInfo(): { email: string; fullName: string } {
+  getUserInfo(): UserClaims {
     const token = this.getToken();
-    if (!token) return { email: '', fullName: '' };
+    if (!token) return { sub: '', username: '', role: '' };
 
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
       return {
-        email: payload.sub || '',
-        fullName: payload.full_name || '',
+        sub: payload.sub || '',
+        username: payload.username || '',
+        role: payload.role || '',
       };
     } catch (err: any) {
       console.error(err);
-      return { email: '', fullName: '' };
+      return { sub: '', username: '', role: '' };
     }
   }
 

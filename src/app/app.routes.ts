@@ -17,22 +17,47 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/dashboard/dashboard').then((m) => m.Dashboard),
         children: [
           {
+            path: '',
+            loadComponent: () => import('./pages/panel/panel').then((m) => m.Panel),
+          },
+          {
+            path: 'tickets',
+            loadComponent: () =>
+              import('./pages/tickets-page/tickets-page').then((m) => m.TicketsPage),
+          },
+          {
             path: 'ticket-create',
-            loadComponent: () => import('./pages/ticket/ticket-page').then((m) => m.TicketPage),
+            loadComponent: () =>
+              import('./pages/ticket-page/ticket-page').then((m) => m.TicketPage),
           },
           {
             path: 'ticket/:id',
-            loadComponent: () => import('./pages/ticket/ticket-page').then((m) => m.TicketPage),
+            loadComponent: () =>
+              import('./pages/ticket-page/ticket-page').then((m) => m.TicketPage),
+          },
+          {
+            path: 'reports',
+            loadComponent: () =>
+              import('./pages/report-page/report-page').then((m) => m.ReportPage),
+          },
+          {
+            path: 'profile',
+            loadComponent: () =>
+              import('./pages/profile-page/profile-page').then((m) => m.ProfilePage),
+          },
+          {
+            path: 'admin',
+            loadComponent: () =>
+              import('./pages/profile-page/profile-page').then((m) => m.ProfilePage),
           },
         ],
         canActivate: [authGuard],
       },
-      {
-        path: 'trial',
-        loadComponent: () => import('./pages/trial-page/trial-page').then((m) => m.TrialPage),
-        canActivate: [authGuard],
-      },
     ],
+  },
+  {
+    path: 'trial',
+    loadComponent: () => import('./pages/trial-page/trial-page').then((m) => m.TrialPage),
   },
   {
     path: 'discover-premium',

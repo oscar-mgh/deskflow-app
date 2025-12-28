@@ -1,0 +1,83 @@
+<div class="min-h-[85vh] w-full px-6 py-10">
+	<div class="px-5 mx-auto space-y-10">
+
+		<!-- Header -->
+		<div class="flex items-center justify-between">
+			<h2 class="text-3xl font-bold">Mis Tickets</h2>
+			<button routerLink="/dashboard/ticket-create" class="btn btn-primary rounded-xl shadow-md hover:shadow-xl transition">
+				Crear nuevo ticket
+			</button>
+		</div>
+
+		<!-- Empty State -->
+		@if (!tickets() || tickets().length == 0) {
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-12">
+			<div class="card bg-base-200 p-6 text-center border-dashed border-2 border-base-300">
+				<span class="text-primary font-bold text-xl">1</span>
+				<p class="text-sm font-medium">Haz clic en "Crear nuevo ticket"</p>
+			</div>
+			<div class="card bg-base-200 p-6 text-center border-dashed border-2 border-base-300">
+				<span class="text-primary font-bold text-xl">2</span>
+				<p class="text-sm font-medium">Describe el problema o solicitud</p>
+			</div>
+			<div class="card bg-base-200 p-6 text-center border-dashed border-2 border-base-300">
+				<span class="text-primary font-bold text-xl">3</span>
+				<p class="text-sm font-medium">Recibe soporte de nuestro equipo</p>
+			</div>
+		</div>
+		}
+
+		<!-- Tickets Grid -->
+		@if (tickets() && tickets().length > 0) {
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+			@for (ticket of tickets(); track ticket.id) {
+			<div class="card bg-base-200 border border-base-300 shadow-lg rounded-2xl p-6 hover:shadow-xl transition cursor-pointer animate-fade-in"
+				(click)="openTicket(ticket.id)">
+				<div class="space-y-3">
+					<!-- Title -->
+					<h3 class="font-bold text-lg leading-tight line-clamp-2">
+						{{ ticket.title }}
+					</h3>
+
+					<!-- Description -->
+					<p class="text-sm text-base-content/80 line-clamp-3 min-h-14">
+						{{ ticket.description }}
+					</p>
+
+					<div class="h-px w-full bg-base-300"></div>
+
+					<!-- Category + Priority -->
+					<div class="flex items-center justify-between">
+						<span class="badge badge-outline text-xs">
+							{{ ticket.categoryName }}
+						</span>
+
+						<priority-badge [priority]="ticket.priority"></priority-badge>
+					</div>
+
+					<!-- Status -->
+					<div class="flex items-center justify-between text pt-1">
+						<span class="font-medium">Estado:</span>
+						<app-status-badge [status]="ticket.status"></app-status-badge>
+					</div>
+
+					<!-- Dates -->
+					<div class="text-sm opacity-60 pt-2 flex flex-col gap-x-0.5">
+						<span>Creado: {{ ticket.createdAt | date }}</span>
+						@if (ticket.updatedAt) {
+						<span>Actualizado: {{ ticket.updatedAt | date }}</span>
+						}
+					</div>
+
+					<!-- CTA -->
+					<button class="btn btn-sm btn-accent text-white w-full rounded mt-4"
+						(click)="openTicket(ticket.id); $event.stopPropagation()">
+						Ver detalles
+					</button>
+				</div>
+			</div>
+			}
+		</div>
+		}
+	</div>
+</div>

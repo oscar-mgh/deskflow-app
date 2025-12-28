@@ -1,0 +1,14 @@
+@switch (priority()) {
+	@case ('LOW') {
+		<span [class]="`${styles()} bg-green-400`">Bajo</span>
+	}
+	@case ('MEDIUM') {
+		<span [class]="`${styles()} bg-yellow-400`">Medio</span>
+	}
+	@case ('HIGH') {
+		<span [class]="`${styles()} bg-red-400`">Alto</span>
+	}
+	@case ('CRITICAL') {
+		<span [class]="`${styles()} bg-red-500`">Crítico</span>
+	}
+}

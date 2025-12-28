@@ -1,22 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, computed, signal } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './sidebar.html',
-  styles: ``,
 })
 export class Sidebar {
-  public userName = signal<string>('');
-  public userHasTickets = signal<boolean>(false);
+  public userName = computed<string>(() => this._authService.getUserInfo().username);
+  public userRole = computed<string>(() => this._authService.getUserInfo().role);
+  public isAdmin = computed<boolean>(() => this.userRole() === 'ADMIN');
 
   constructor(private _authService: AuthService, private router: Router) {}
-
-  ngOnInit() {
-    this.userName.set(this._authService.getUserInfo().fullName);
-  }
 
   logout(): void {
     this._authService.clearToken();
