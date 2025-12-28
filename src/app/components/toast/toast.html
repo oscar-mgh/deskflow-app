@@ -8,7 +8,7 @@
         'alert-info': toastService.type() === 'info'
       }">
     <span class="text-sm">{{ toastService.message() }}</span>
-    <button class="btn btn-xs btn-ghost ml-auto text-white" (click)="toastService.close()">✕</button>
+    <button class="btn btn-xs btn-ghost ml-auto text-white border-none" (click)="toastService.close()">✕</button>
   </div>
 </div>
 }

@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'dash-empty',
   imports: [RouterLink],
   templateUrl: './dash-empty.html',
-  styles: ``,
+  
 })
 export class DashEmpty {
 

@@ -5,7 +5,6 @@ import { AbstractControl } from '@angular/forms';
   selector: 'app-form-error',
   imports: [],
   templateUrl: './form-error.html',
-  styles: ``,
 })
 export class FormError {
   @Input() control!: AbstractControl | null;

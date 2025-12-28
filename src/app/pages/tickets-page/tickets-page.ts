@@ -1,14 +1,14 @@
 import { DatePipe } from '@angular/common';
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { StatusBadge } from '../../components/status-badge/status-badge';
 import { TicketPagination } from '../../models/ticket.model';
+import { PriorityPipe } from '../../pipes/priority.pipe';
+import { StatusPipe } from '../../pipes/status.pipe';
 import { TicketsService } from '../../services/tickets.service';
-import { PriorityBadge } from "../../components/priority-badge/priority-badge";
 
 @Component({
   selector: 'app-tickets-page',
-  imports: [DatePipe, StatusBadge, RouterLink, PriorityBadge],
+  imports: [DatePipe, RouterLink, PriorityPipe, StatusPipe],
   templateUrl: './tickets-page.html',
 })
 export class TicketsPage implements OnInit {

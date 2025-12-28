@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-discover-premium',
   imports: [RouterLink],
   templateUrl: './discover-premium.html',
-  styles: ``,
+  
 })
 export class DiscoverPremium {
   @ViewChild('checkoutModal') checkoutModal!: HTMLDialogElement;

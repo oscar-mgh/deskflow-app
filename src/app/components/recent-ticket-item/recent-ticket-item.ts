@@ -4,8 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-recent-ticket-item',
   imports: [],
   templateUrl: './recent-ticket-item.html',
-  styles: ``,
 })
-export class RecentTicketItem {
-
-}
+export class RecentTicketItem {}

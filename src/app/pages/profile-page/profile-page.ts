@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-profile-page',
   imports: [],
   templateUrl: './profile-page.html',
-  styles: ``,
+  
 })
 export class ProfilePage {
 
