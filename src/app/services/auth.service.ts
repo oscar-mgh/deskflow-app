@@ -62,15 +62,19 @@ export class AuthService {
     }
   }
 
-  getUserEmail(): string {
+  getUserInfo(): { email: string; fullName: string } {
     const token = this.getToken();
-    if (!token) return '';
+    if (!token) return { email: '', fullName: '' };
+
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
-      return payload.sub;
+      return {
+        email: payload.sub || '',
+        fullName: payload.full_name || '',
+      };
     } catch (err: any) {
       console.error(err);
-      return '';
+      return { email: '', fullName: '' };
     }
   }
 

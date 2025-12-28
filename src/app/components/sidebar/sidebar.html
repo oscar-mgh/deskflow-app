@@ -1,0 +1,47 @@
+<aside class="group fixed top-0 left-0 h-screen w-16 hover:w-58 bg-base-300 border-r border-base-100 flex flex-col shadow-xl
+  transition-[width] duration-300 ease-out z-50">
+
+		<div
+			class="px-4 py-4 mb-10 flex items-center justify-center group-hover:justify-start transition-all duration-500 ease-in-out">
+			<i class="bi bi-chat-square-text-fill text-2xl text-lime-400 group-hover:hidden"></i>
+			<h1 class="text-xl font-black text-primary tracking-tight hidden group-hover:block text-center mx-auto">
+				DeskFlow</h1>
+		</div>
+
+		<nav class="flex-1 px-2 flex flex-col gap-2 text-base-content mt-4">
+			<a routerLink="/tickets/create"
+				class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
+				<i class="bi bi-plus-circle"></i> <span class="hidden group-hover:inline">Nuevo</span>
+			</a>
+			<a routerLink="/tickets"
+				class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
+				<i class="bi bi-ticket-perforated"></i> <span class="hidden group-hover:inline">Tickets</span>
+			</a>
+			<a routerLink="/dashboard"
+				class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
+				<i class="bi bi-speedometer2"></i> <span class="hidden group-hover:inline">Panel</span>
+			</a>
+			<a routerLink="/reports"
+				class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
+				<i class="bi bi-bar-chart"></i> <span class="hidden group-hover:inline">Reportes</span>
+			</a>
+			<a routerLink="/profile"
+				class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
+				<i class="bi bi-person-circle"></i> <span class="hidden group-hover:inline">Perfil</span>
+			</a>
+			<a routerLink="/admin"
+				class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
+				<i class="bi bi-gear"></i> <span class="hidden group-hover:inline">Administrar</span>
+			</a>
+
+		</nav>
+
+		<div class="p-4 flex items-center gap-3">
+			<div class="hidden group-hover:flex flex-col flex-1">
+				<p class="text-sm font-bold text-base-content truncate text-center mb-2">{{
+					userName() }}</p>
+				<button (click)="logout()" class="btn bg-red-300 mt-2 font-semibold text-black">Cerrar
+					sesión</button>
+			</div>
+		</div>
+	</aside>

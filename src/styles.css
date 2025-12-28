@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import url('node_modules/bootstrap-icons/font/bootstrap-icons.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: 'custom';
@@ -11,12 +12,12 @@
   --color-base-200: oklch(21.3% 0 0);
   --color-base-300: oklch(24.5% 0 0);
   --color-base-400: oklch(27% 0 0);
-  --color-base-content: oklch(84% 0 30);
+  --color-base-content: oklch(86% 0 30);
 
   --color-primary: oklch(69% 0.18 135);
   --color-primary-content: oklch(22% 0.007 139);
 
-  --color-secondary: oklch(40% 0.16 139);
+  --color-secondary: oklch(28% 0.005 135);
   --color-secondary-content: oklch(98% 0.01 140);
 
   --color-accent: oklch(40% 0.16 260);
@@ -48,13 +49,22 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
 }
 
 ::selection {
   background: var(--primary);
   color: #212121;
   text-shadow: none;
+}
+
+.select-neutral *::selection {
+  background: #DFDFDF;
+  color: #212121;
 }
 
 ::-moz-selection {

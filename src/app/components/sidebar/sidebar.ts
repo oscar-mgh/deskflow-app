@@ -1,16 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmtpySpace } from '../../components/emtpy-space/emtpy-space';
-import { InfoGrid } from '../../components/info-grid/info-grid';
-import { Sidebar } from '../../components/sidebar/sidebar';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-dashboard',
-  imports: [EmtpySpace, InfoGrid, Sidebar],
-  templateUrl: './dashboard.html',
+  selector: 'app-sidebar',
+  imports: [],
+  templateUrl: './sidebar.html',
+  styles: ``,
 })
-export class Dashboard {
+export class Sidebar {
   public userName = signal<string>('');
   public userHasTickets = signal<boolean>(false);
 

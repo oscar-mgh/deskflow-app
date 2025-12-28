@@ -8,16 +8,17 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   const isLoggedIn = authService.isLoggedIn();
   const isAuthRoute = state.url.startsWith('/auth');
+  const isHomeRoute = state.url === '/' || state.url === '';
 
   if (isLoggedIn) {
-    if (isAuthRoute) {
+    if (isAuthRoute || isHomeRoute) {
       router.navigate(['/dashboard']);
       return false;
     }
     return true;
   }
 
-  if (isAuthRoute) {
+  if (isAuthRoute || isHomeRoute) {
     return true;
   }
 
