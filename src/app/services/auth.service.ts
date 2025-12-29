@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
+import { AuthResponse, LoginRequest, RegisterRequest, UserClaims } from '../models/auth.model';
 import { ApiService } from './api.service';
-import { LoginRequest, AuthResponse, UserClaims } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,17 +12,13 @@ export class AuthService {
 
   constructor(private _http: HttpClient, private _api: ApiService) {}
 
-  login({ email, password }: LoginRequest): Observable<AuthResponse> {
+  public login({ email, password }: LoginRequest): Observable<AuthResponse> {
     return this._http.post<AuthResponse>(this._api.endpoint('/auth/login'), { email, password });
   }
 
-  register(fullName: string, email: string, password: string): Observable<AuthResponse> {
+  public register(registerRequest: RegisterRequest): Observable<AuthResponse> {
     return this._http
-      .post<AuthResponse>(this._api.endpoint('/auth/register'), {
-        fullName,
-        email,
-        password,
-      })
+      .post<AuthResponse>(this._api.endpoint('/auth/register'), registerRequest)
       .pipe(
         catchError((err: HttpErrorResponse) => {
           return throwError(() => err);
@@ -30,19 +26,19 @@ export class AuthService {
       );
   }
 
-  getToken(): string {
+  public getToken(): string {
     return localStorage.getItem(this._tokenKey) || '';
   }
 
-  setToken(token: string): void {
+  public setToken(token: string): void {
     localStorage.setItem(this._tokenKey, token);
   }
 
-  clearToken(): void {
+  public clearToken(): void {
     localStorage.removeItem(this._tokenKey);
   }
 
-  isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     const token = this.getToken();
     if (!token) return false;
 
@@ -54,9 +50,15 @@ export class AuthService {
     }
   }
 
-  getUserInfo(): UserClaims {
+  public getUserInfo(): UserClaims {
     const token = this.getToken();
-    if (!token) return { sub: '', username: '', role: '' };
+    const emptyUser: UserClaims = {
+      sub: '',
+      username: '',
+      role: '',
+      company: '',
+    };
+    if (!token) return emptyUser;
 
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
@@ -64,15 +66,18 @@ export class AuthService {
         sub: payload.sub || '',
         username: payload.username || '',
         role: payload.role || '',
+        company: payload.company || '',
       };
     } catch (err: any) {
       console.error(err);
-      return { sub: '', username: '', role: '' };
+      return emptyUser;
     }
   }
 
-  handleAuthError(err: HttpErrorResponse): string {
+  public handleAuthError(err: HttpErrorResponse): string {
     switch (err.status) {
+      case 400:
+        return 'Algo salió mal, verifica que los datos ingresados sean validos';
       case 401:
         return 'Credenciales inválidas, verifica tu correo y contraseña';
       case 409:

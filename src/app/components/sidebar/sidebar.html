@@ -1,50 +1,74 @@
-<aside class="group fixed top-0 left-0 h-screen w-16 hover:w-58 bg-base-200 border-r border-base-100 flex flex-col shadow-xl
-  transition-[width] duration-300 ease-out z-50">
+<aside
+	class="group fixed top-0 left-0 h-screen w-16 hover:w-56 bg-base-200 border-r border-white/5 flex flex-col transition-[width] duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] z-50 overflow-hidden">
 
-	<div
-		class="px-4 py-4 mb-10 flex items-center justify-center group-hover:justify-start transition-all duration-500 ease-in-out">
-		<i class="bi bi-fan text-2xl text-white group-hover:hidden"></i>
-		<h1 class="text-xl font-bold text-primary tracking-tight hidden group-hover:block text-center mx-auto">
-			DeskFlow</h1>
+	<div class="h-20 flex items-center px-4 mb-2 relative overflow-hidden">
+		<div class="min-w-8 flex justify-center">
+			<i class="bi bi-fan text-xl text-primary animate-[spin_4s_linear_infinite]"></i>
+		</div>
+		<h1
+			class="ml-4 text-xl font-black text-white tracking-tighter opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+			Desk<span class="text-primary">Flow</span>
+		</h1>
 	</div>
 
-	<nav class="flex-1 px-2 flex flex-col gap-2 text-base-content mt-4 select-none">
-		<a routerLink="/dashboard" routerLinkActive="bg-primary text-primary-content"
-			[routerLinkActiveOptions]="{ exact: true }"
-			class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
-			<i class="bi bi-speedometer2"></i> <span class="hidden group-hover:inline">Panel</span>
-		</a>
-		<a routerLink="/dashboard/ticket-create" routerLinkActive="bg-primary text-primary-content"
-			class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
-			<i class="bi bi-plus-circle"></i> <span class="hidden group-hover:inline">Nuevo</span>
-		</a>
-		<a routerLink="/dashboard/tickets" routerLinkActive="bg-primary text-primary-content"
-			class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
-			<i class="bi bi-ticket-perforated"></i> <span class="hidden group-hover:inline">Tickets</span>
-		</a>
-		<a routerLink="/dashboard/reports" routerLinkActive="bg-primary text-primary-content"
-			class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
-			<i class="bi bi-bar-chart"></i> <span class="hidden group-hover:inline">Reportes</span>
-		</a>
-		<a routerLink="/dashboard/profile" routerLinkActive="bg-primary text-primary-content"
-			class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
-			<i class="bi bi-person-circle"></i> <span class="hidden group-hover:inline">Perfil</span>
-		</a>
-		@if (isAdmin()) {
-		<a routerLink="/dashboard/admin" routerLinkActive="bg-primary text-primary-content"
-			class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors hover:bg-primary hover:text-primary-content font-semibold cursor-pointer">
-			<i class="bi bi-gear"></i> <span class="hidden group-hover:inline">Administrar</span>
+	<nav class="flex-1 px-2 flex flex-col gap-1.5 select-none">
+		@for (item of [
+		{ link: '/dashboard', icon: 'bi-grid-1x2-fill', label: 'Panel', exact: true },
+		{ link: '/dashboard/ticket-create', icon: 'bi-plus-square-fill', label: 'Nuevo Ticket' },
+		{ link: '/dashboard/tickets', icon: 'bi-ticket-detailed-fill', label: 'Mis Tickets' },
+		{ link: '/dashboard/reports', icon: 'bi-pie-chart-fill', label: 'Estadísticas' },
+		{ link: '/dashboard/profile', icon: 'bi-person-badge-fill', label: 'Mi Perfil' }
+		]; track item.link) {
+		<a [routerLink]="item.link" routerLinkActive="bg-primary/10 text-primary border-primary/20"
+			[routerLinkActiveOptions]="{ exact: item.exact || false }"
+			class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-white/5 hover:text-white group/item overflow-hidden">
+			<div class="min-w-6 flex justify-center items-center">
+				<i class="bi {{item.icon}} text-base transition-transform group-hover/item:scale-110"></i>
+			</div>
+			<span
+				class="ml-4 font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap uppercase text-[11px]" >
+				{{item.label}}
+			</span>
 		</a>
 		}
 
+		@if (isAdmin()) {
+		<div class="my-2 mx-4 h-px bg-white/5"></div>
+		<a routerLink="/dashboard/admin" routerLinkActive="bg-lime-500/10 text-lime-400 border-lime-500/20"
+			class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-white/5 hover:text-lime-400 group/item overflow-hidden">
+			<div class="min-w-6 flex justify-center items-center">
+				<i class="bi bi-shield-lock-fill text-base"></i>
+			</div>
+			<span
+				class="ml-4 font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap uppercase text-[11px]" >
+				Admin
+			</span>
+		</a>
+		}
 	</nav>
 
-	<div class="p-4 flex items-center gap-3">
-		<div class="hidden group-hover:flex flex-col flex-1">
-			<p class="text-sm font-bold text-base-content truncate text-center mb-2">{{
-				userName() }}</p>
-			<button (click)="logout()" class="btn bg-red-400 mt-2 font-semibold text-black">Cerrar
-				sesión</button>
+	<div class="p-2 border-t border-white/5">
+		<div class="flex items-center p-2 rounded-xl transition-colors duration-300 group-hover:bg-white/5">
+			<div
+				class="min-w-8 h-8 rounded-lg bg-linear-to-br from-primary to-lime-500 flex items-center justify-center text-zinc-950 text-xs font-black">
+				{{ userName().charAt(0).toUpperCase() }}
+			</div>
+			<div
+				class="ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden whitespace-nowrap text-left">
+				<p class="text-[9px] font-black text-gray-500 uppercase  tracking-widest leading-none mb-1">Usuario</p>
+				<p class="text-[11px] font-bold text-white truncate w-28 leading-none">{{ userName() }}</p>
+			</div>
 		</div>
+
+		<button (click)="logout()"
+			class="mt-2 flex items-center h-10 w-full rounded-xl bg-red-500/5 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-500 overflow-hidden group/btn relative">
+			<div class="min-w-10 h-full flex items-center justify-center">
+				<i class="bi bi-power text-lg"></i>
+			</div>
+			<span
+				class="font-black text-[11px] uppercase  tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+				Salir
+			</span>
+		</button>
 	</div>
 </aside>

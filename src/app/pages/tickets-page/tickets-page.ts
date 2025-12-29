@@ -27,4 +27,11 @@ export class TicketsPage implements OnInit {
   openTicket(id: string) {
     console.log(id);
   }
+
+  changePage(delta: number) {
+    const nextPage = (this.ticketsPage()?.page ?? 0) + delta;
+    this._ticketsService.getTicketsPaginated(nextPage).subscribe((data) => {
+      this._ticketsPage.set(data);
+    });
+  }
 }

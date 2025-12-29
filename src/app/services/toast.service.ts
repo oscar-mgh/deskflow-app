@@ -10,7 +10,7 @@ export class ToastService {
   type = signal<ToastType>('primary');
   visible = signal(false);
 
-  show(message: string, type: ToastType = 'primary', duration: number = 4000) {
+  public show(message: string, type: ToastType = 'primary', duration: number = 4000) {
     this.message.set(message);
     this.type.set(type);
     this.visible.set(true);
@@ -18,7 +18,7 @@ export class ToastService {
     setTimeout(() => this.close(), duration);
   }
 
-  close() {
+  public close() {
     this.visible.set(false);
   }
 }

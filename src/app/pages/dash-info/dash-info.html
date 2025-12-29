@@ -1,121 +1,116 @@
-<main class="w-full min-h-full flex flex-col flex-1 p-8 gap-8 fade">
-
-		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-			<div class="card bg-base-200 shadow-xl border border-base-300">
-				<div class="card-body text-center">
-					<i class="bi bi-ticket-perforated-fill text-3xl text-amber-300"></i>
-					<h2 class="card-title justify-center">24</h2>
-					<p class="opacity-80">Tickets Abiertos</p>
-				</div>
+<main class="w-full min-h-full flex flex-col flex-1 p-8 gap-8 fade px-8 lg:pl-24">
+	<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-1 gap-6">
+		<div class="card bg-base-200 shadow-xl border border-base-300">
+			<div class="card-body text-center">
+				<i class="bi bi-ticket-perforated-fill text-3xl text-amber-300"></i>
+				<h2 class="card-title justify-center">24</h2>
+				<p class="opacity-80">Tickets Abiertos</p>
 			</div>
-			<div class="card bg-base-200 shadow-xl border border-base-300">
-				<div class="card-body text-center">
-					<i class="bi bi-hourglass-split text-3xl text-purple-300"></i>
-					<h2 class="card-title justify-center">12</h2>
-					<p class="opacity-80">En Progreso</p>
-				</div>
+		</div>
+		<div class="card bg-base-200 shadow-xl border border-base-300">
+			<div class="card-body text-center">
+				<i class="bi bi-hourglass-split text-3xl text-purple-300"></i>
+				<h2 class="card-title justify-center">12</h2>
+				<p class="opacity-80">En Progreso</p>
 			</div>
-			<div class="card bg-base-200 shadow-xl border border-base-300">
-				<div class="card-body text-center">
-					<i class="bi bi-check-circle text-3xl text-lime-400"></i>
-					<h2 class="card-title justify-center">8</h2>
-					<p class="opacity-80">Resueltos</p>
-				</div>
+		</div>
+		<div class="card bg-base-200 shadow-xl border border-base-300">
+			<div class="card-body text-center">
+				<i class="bi bi-check-circle text-3xl text-lime-400"></i>
+				<h2 class="card-title justify-center">8</h2>
+				<p class="opacity-80">Resueltos</p>
 			</div>
-			<div class="card bg-base-200 shadow-xl border border-base-300">
-				<div class="card-body text-center">
-					<i class="bi bi-exclamation-triangle text-3xl text-[#fc525d]"></i>
-					<h2 class="card-title justify-center">5</h2>
-					<p class="opacity-80">SLA Vencidos</p>
-				</div>
+		</div>
+		<div class="card bg-base-200 shadow-xl border border-base-300">
+			<div class="card-body text-center">
+				<i class="bi bi-exclamation-triangle text-3xl text-[#fc525d]"></i>
+				<h2 class="card-title justify-center">5</h2>
+				<p class="opacity-80">SLA Vencidos</p>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<section class="grid grid-cols-2 gap-6 min-h-full">
+	<section class="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-full">
 
-			<div class="card bg-base-200 shadow-xl border border-base-300">
-				<div class="card-body">
-					<h3 class="card-title text-primary mx-auto">Tickets Recientes</h3>
-					<ul class="divide-y divide-base-200">
-						<li class="py-3 flex justify-between items-center">
-							<span>#1023 - Error en login</span>
-							<app-status-badge status="IN_PROGRESS"></app-status-badge>
-						</li>
-						<li class="py-3 flex justify-between items-center">
-							<span>#1024 - Nueva funcionalidad</span>
-							<app-status-badge status="OPEN"></app-status-badge>
-						</li>
-						<li class="py-3 flex justify-between items-center">
-							<span>#1025 - Bug en dashboard</span>
-							<app-status-badge status="RESOLVED"></app-status-badge>
-						</li>
-						<li class="py-3 flex justify-between items-center">
-							<span>#1026 - Error de conexión</span>
-							<app-status-badge status="CLOSED"></app-status-badge>
-						</li>
-					</ul>
-					<a routerLink="/tickets"
-						class="btn btn-link text-primary p-0 no-underline hover:underline hover:text-white mt-auto">Ver
-						todo</a>
-				</div>
+		<div class="card bg-base-200 shadow-xl border border-base-300">
+			<div class="card-body">
+				<h3 class="card-title text-primary mx-auto">Tickets Recientes</h3>
+				<ul class="divide-y divide-base-200">
+					<li class="py-3 flex justify-between items-center">
+						<span>#1023 - Error en login</span>
+						<app-status-badge status="IN_PROGRESS"></app-status-badge>
+					</li>
+					<li class="py-3 flex justify-between items-center">
+						<span>#1024 - Nueva funcionalidad</span>
+						<app-status-badge status="OPEN"></app-status-badge>
+					</li>
+					<li class="py-3 flex justify-between items-center">
+						<span>#1025 - Bug en dashboard</span>
+						<app-status-badge status="RESOLVED"></app-status-badge>
+					</li>
+					<li class="py-3 flex justify-between items-center">
+						<span>#1026 - Error de conexión</span>
+						<app-status-badge status="CLOSED"></app-status-badge>
+					</li>
+				</ul>
+				<a routerLink="/tickets"
+					class="btn btn-link text-primary p-0 no-underline hover:underline hover:text-white mt-auto">Ver
+					todo</a>
 			</div>
+		</div>
 
-			<div class="card bg-base-200 shadow-xl border border-base-300">
-				<div class="card-body">
-					<h3 class="card-title text-primary mb-2 mx-auto">Tickets siendo atendidos</h3>
-					<ul class="space-y-1 text-base-content">
-						<li
-							class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
-							<div class="flex items-center">
-								<i class="bi bi-ticket-perforated-fill text-sky-300 mr-3 text-lg"></i>
-								<span class="font-medium select-neutral">#1245 - Error de Login</span>
-							</div>
-							<span class="badge badge-ghost gap-2">
-								<i class="bi bi-person-circle"></i> Juan Pérez
-							</span>
-						</li>
+		<div class="card bg-base-200 shadow-xl border border-base-300">
+			<div class="card-body">
+				<h3 class="card-title text-primary mb-2 mx-auto">Tickets siendo atendidos</h3>
+				<ul class="space-y-1 text-base-content">
+					<li class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
+						<div class="flex items-center">
+							<i class="bi bi-ticket-perforated-fill text-sky-300 mr-3 text-lg"></i>
+							<span class="font-medium select-neutral">#1245 - Error de Login</span>
+						</div>
+						<span class="badge badge-ghost gap-2">
+							<i class="bi bi-person-circle"></i> Juan Pérez
+						</span>
+					</li>
 
-						<li
-							class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
-							<div class="flex items-center">
-								<i class="bi bi-ticket-perforated-fill text-sky-300 mr-3 text-lg"></i>
-								<span class="font-medium select-neutral">#1246 - Caída de
-									Servidor</span>
-							</div>
-							<span class="badge badge-ghost gap-2">
-								<i class="bi bi-person-circle"></i> María García
-							</span>
-						</li>
+					<li class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
+						<div class="flex items-center">
+							<i class="bi bi-ticket-perforated-fill text-sky-300 mr-3 text-lg"></i>
+							<span class="font-medium select-neutral">#1246 - Caída de
+								Servidor</span>
+						</div>
+						<span class="badge badge-ghost gap-2">
+							<i class="bi bi-person-circle"></i> María García
+						</span>
+					</li>
 
-						<li
-							class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
-							<div class="flex items-center">
-								<i class="bi bi-ticket-perforated-fill text-sky-300 mr-3 text-lg"></i>
-								<span class="font-medium select-neutral">#1247 - Reset de
-									Password</span>
-							</div>
-							<span class="badge badge-ghost gap-2">
-								<i class="bi bi-person-circle"></i> Ricardo Soto
-							</span>
-						</li>
-						<li
-							class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
-							<div class="flex items-center">
-								<i class="bi bi-ticket-perforated-fill text-sky-300 mr-3 text-lg"></i>
-								<span class="font-medium select-neutral">#1248 - Error de conexión</span>
-							</div>
-							<span class="badge badge-ghost gap-2">
-								<i class="bi bi-person-circle"></i> Oscar Vargas
-							</span>
-						</li>
-					</ul>
-					<a routerLink="/tickets"
-						class="btn btn-link text-primary p-0 no-underline hover:underline hover:text-white mt-auto">Ver
-						todo</a>
-				</div>
+					<li class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
+						<div class="flex items-center">
+							<i class="bi bi-ticket-perforated-fill text-sky-300 mr-3 text-lg"></i>
+							<span class="font-medium select-neutral">#1247 - Reset de
+								Password</span>
+						</div>
+						<span class="badge badge-ghost gap-2">
+							<i class="bi bi-person-circle"></i> Ricardo Soto
+						</span>
+					</li>
+					<li class="flex justify-between items-center p-2 rounded-lg hover:bg-base-300 transition-colors">
+						<div class="flex items-center">
+							<i class="bi bi-ticket-perforated-fill text-sky-300 mr-3 text-lg"></i>
+							<span class="font-medium select-neutral">#1248 - Error de conexión</span>
+						</div>
+						<span class="badge badge-ghost gap-2">
+							<i class="bi bi-person-circle"></i> Oscar Vargas
+						</span>
+					</li>
+				</ul>
+				<a routerLink="/tickets"
+					class="btn btn-link text-primary p-0 no-underline hover:underline hover:text-white mt-auto">Ver
+					todo</a>
 			</div>
+		</div>
 
-			<!-- <div class="card bg-base-200 shadow-xl border border-base-300">
+		<!-- <div class="card bg-base-200 shadow-xl border border-base-300">
 				<div class="card-body">
 					<h3 class="card-title text-primary mb-4">Actividad Reciente</h3>
 					<ul class="space-y-4 text-base-content">
@@ -158,6 +153,6 @@
 				</div>
 			</div> -->
 
-		</section>
+	</section>
 
-	</main>
+</main>

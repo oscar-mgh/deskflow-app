@@ -1,56 +1,78 @@
 <section
-	class="relative w-full min-h-screen bg-base-200 flex flex-col justify-center items-center text-center px-6 py-32 fade">
+  class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-20 overflow-hidden fade"
+>
+  <h1 class="text-5xl md:text-7xl mb-8 tracking-tighter relative z-10">
+    <span
+      class="font-black bg-linear-to-b from-white via-white to-zinc-500 bg-clip-text text-transparent"
+    >
+      Desk
+      <span
+        class="font-black bg-linear-to-r from-primary to-lime-300 bg-clip-text text-transparent"
+      >
+        Flow
+      </span>
+    </span>
+  </h1>
 
-	<h1 class="text-6xl mb-12 tracking-tight relative z-10">
-		<span
-			class="font-black bg-linear-to-r from-primary to-lime-300 bg-clip-text text-transparent">
-			DeskFlow
-		</span>
-	</h1>
+  <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 max-w-3xl relative z-10 tracking-tight">
+    Respuestas claras en <span class="text-primary italic">tiempo récord</span>
+  </h2>
 
-	<h2
-		class="text-2xl font-light text-gray-200 mb-6 max-w-2xl relative z-10">
-		Respuestas claras en tiempo récord.
-	</h2>
+  <p class="text-lg text-zinc-400 leading-relaxed mb-14 max-w-2xl relative z-10 font-medium">
+    Gestiona, asigna y resuelve incidencias con una plataforma diseñada para
+    <span class="text-zinc-100 border-b-2 border-primary/30">maximizar la velocidad</span> y
+    potenciar el trabajo en equipo.
+  </p>
 
-	<p class="text-lg text-gray-400 leading-relaxed mb-14 max-w-2xl relative z-10">
-		Gestiona, asigna y resuelve incidencias con una plataforma diseñada para
-		<span class="text-white font-semibold">maximizar la velocidad</span> y
-		potenciar el trabajo en equipo.
-	</p>
+  <div
+    class="relative z-10 flex flex-col sm:flex-row gap-6 mb-10 w-full justify-center items-center"
+  >
+    <a
+      routerLink="/trial"
+      class="btn btn-ghost bg-white/5 hover:bg-white/10 border-white/10 text-white px-10 h-16 text-lg rounded-2xl backdrop-blur-md transition-all duration-300 group w-full sm:w-auto"
+    >
+      <i
+        class="bi bi-lightning-charge-fill text-primary group-hover:scale-125 transition-transform"
+      ></i>
+      Probar Demo
+    </a>
 
-	<div class="relative z-10 flex flex-col sm:flex-row gap-5 mb-8">
-		<a routerLink="/trial"
-			class="btn btn-neutral btn-outline text-sky-100 border-gray-500 px-12 py-3 text-lg rounded-xl hover:bg-white/80 hover:text-zinc-900 hover:border-transparent shadow-lg transition-all duration-200">
-			⚡ Probar DeskFlow
-		</a>
+    <a
+      routerLink="/auth/login"
+      class="btn btn-primary px-12 h-16 text-lg rounded-2xl shadow-2xl shadow-primary/20 border-none font-black w-full sm:w-auto"
+    >
+      Iniciar sesión
+    </a>
+  </div>
 
-		<a routerLink="/auth/login"
-			class="btn btn-primary px-12 py-3 text-lg rounded-xl shadow-xl">
-			Iniciar sesión
-		</a>
-	</div>
+  <p class="text-zinc-500 relative z-10 text-sm font-medium">
+    ¿Aún no tienes una cuenta?
+    <a
+      routerLink="/auth/register"
+      class="text-white hover:text-primary transition-colors font-bold underline underline-offset-4 ml-1"
+    >
+      Regístrate ahora
+    </a>
+  </p>
 
-	<p class="text-gray-500 relative z-10 text-sm">
-		¿Aún no tienes una cuenta?
-		<a routerLink="/auth/register"
-			class="text-primary font-bold hover:underline ml-1">
-			Regístrate ahora
-		</a>
-	</p>
-
-	<a routerLink="/discover-premium"
-		class="mt-14 group flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium hover:bg-primary/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/20 transition-all cursor-pointer select-none relative z-10">
-		<span class="relative flex h-2 w-2">
-			<span
-				class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-			<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-		</span>
-		<span class="text-white">
-			¡Descubre lo que <strong class="text-green-200 font-bold">DeskFlow
-				Premium</strong> tiene para ti!
-		</span>
-		<i
-			class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
-	</a>
+  <a
+    routerLink="/discover-premium"
+    class="mt-20 group flex items-center gap-4 px-8 py-4 rounded-2xl bg-zinc-900/50 border border-white/5 text-sm font-bold hover:border-primary/30 hover:bg-zinc-900 transition-all cursor-pointer relative z-10 backdrop-blur-sm shadow-2xl"
+  >
+    <span class="relative flex h-3 w-3">
+      <span
+        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+      ></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+    </span>
+    <span class="text-base group-hover:text-white transition-colors">
+      Explora el potencial de
+      <strong class="text-primary font-black uppercase tracking-wider">Premium</strong>
+    </span>
+    <div
+      class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-primary group-hover:text-zinc-950 transition-all"
+    >
+      <i class="bi bi-arrow-right"></i>
+    </div>
+  </a>
 </section>

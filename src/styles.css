@@ -17,7 +17,7 @@
   --color-primary: oklch(69% 0.18 135);
   --color-primary-content: oklch(22% 0.007 139);
 
-  --color-secondary: oklch(28% 0.005 135);
+  --color-secondary: oklch(26% 0 0);
   --color-secondary-content: oklch(98% 0 140);
 
   --color-accent: oklch(55% 0.22 260);
@@ -46,7 +46,7 @@
 }
 
 html {
-  scrollbar-width: thin;
+  scrollbar-width: auto;
   scrollbar-color: var(--primary) transparent;
 }
 

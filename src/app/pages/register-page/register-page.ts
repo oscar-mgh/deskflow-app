@@ -4,6 +4,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { FormError } from '../../components/form-error/form-error';
+import { RegisterRequest } from '../../models/auth.model';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 
@@ -25,6 +26,7 @@ export class RegisterPage {
     this.registerForm = this._fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
+      company: ['', [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
@@ -35,9 +37,7 @@ export class RegisterPage {
       return;
     }
 
-    const { fullName, email, password } = this.registerForm.value;
-
-    this._authService.register(fullName, email, password).subscribe({
+    this._authService.register(this.registerForm.value as RegisterRequest).subscribe({
       next: ({ token }) => {
         this._authService.setToken(token);
         this._router.navigate(['/dashboard']);

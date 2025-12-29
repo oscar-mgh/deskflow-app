@@ -1,84 +1,66 @@
-<div class="min-h-[85vh] w-full px-6 py-10 fade">
-	<div class="px-5 mx-auto space-y-10">
-
-		<div class="flex items-center justify-between">
-			<h2 class="text-4xl font-black tracking-tight">Mis Tickets</h2>
+<section class="min-h-screen bg-base-100 text-zinc-100 px-8 lg:pl-24 mt-6 fade">
+	<div>
+		<header class="flex justify-center md:justify-between mb-4">
+			<h1 class="text-4xl font-black tracking-tight">
+				Mis <span class="text-primary">Tickets</span>
+			</h1>
 			<button routerLink="/dashboard/ticket-create"
-				class="btn btn-primary rounded-xl shadow-md hover:shadow-xl transition">
+				class="absolute -bottom-16 md:block md:relative md:top-0 btn btn-primary font-bold rounded-2xl shadow-lg hover:opacity-90 mt-1">
 				Crear nuevo ticket
 			</button>
-		</div>
+		</header>
 
-		@if (!tickets() || tickets().length == 0) {
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-12">
-			<div class="card bg-base-200 p-6 text-center border-dashed border-2 border-base-300">
-				<span class="text-primary font-bold text-xl">1</span>
-				<p class="text-sm font-medium">Haz clic en "Crear nuevo ticket"</p>
-			</div>
-			<div class="card bg-base-200 p-6 text-center border-dashed border-2 border-base-300">
-				<span class="text-primary font-bold text-xl">2</span>
-				<p class="text-sm font-medium">Describe el problema o solicitud</p>
-			</div>
-			<div class="card bg-base-200 p-6 text-center border-dashed border-2 border-base-300">
-				<span class="text-primary font-bold text-xl">3</span>
-				<p class="text-sm font-medium">Recibe soporte de nuestro equipo</p>
-			</div>
-		</div>
-		}
 
 		@if (tickets() && tickets().length > 0) {
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 items-stretch">
 			@for (ticket of tickets(); track ticket.id) {
 			<div
-				class="card bg-base-200 border border-base-300 shadow-lg rounded-2xl p-6 hover:shadow-xl transition animate-fade-in">
-				<div class="space-y-3">
-					<h3 class="font-bold text-lg leading-tight line-clamp-2">
+				class="bg-zinc-900 border border-white/10 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition animate-fade-in flex flex-col">
+
+
+				<div class="flex-1 space-y-4">
+					<h3 class="font-bold text-lg leading-tight text-zinc-100 line-clamp-2">
 						{{ ticket.title }}
 					</h3>
 
-					<p class="text-sm text-base-content/80 line-clamp-3 min-h-14">
+					<p class="text-sm text-zinc-400 line-clamp-3 min-h-2">
 						{{ ticket.description }}
 					</p>
 
-					<div class="h-px w-full bg-base-300"></div>
+					<div class="h-px w-full bg-white/10"></div>
 
-					<div class="flex items-center justify-between">
-						<span class="font-medium">Categoría:</span>
-						<span class="font-bold text-xs">
-							{{ ticket.categoryName }}
-						</span>
+					<div class="flex justify-between text-sm">
+						<span class="font-medium text-zinc-400">Categoría:</span>
+						<span class="font-bold text-primary">{{ ticket.categoryName }}</span>
 					</div>
 
-					<div class="flex items-center justify-between">
-						<span class="font-medium">Prioridad:</span>
-						<span class="font-bold text-xs">
-							{{ ticket.priority | priority }}
-						</span>
+					<div class="flex justify-between text-sm">
+						<span class="font-medium text-zinc-400">Prioridad:</span>
+						<span class="font-bold">{{ ticket.priority | priority }}</span>
 					</div>
 
-					<div class="flex items-center justify-between text pt-1">
-						<span class="font-medium">Estado:</span>
-						<span class="font-bold text-xs">
-							{{ ticket.status | status }}
-						</span>
+					<div class="flex justify-between text-sm">
+						<span class="font-medium text-zinc-400">Estado:</span>
+						<span class="font-bold">{{ ticket.status | status }}</span>
 					</div>
 
-					<div class="text-sm opacity-60 pt-2 flex flex-col gap-x-0.5">
+					<div class="text-xs text-zinc-500 pt-2 flex flex-col gap-0.5">
 						<span>Creado: {{ ticket.createdAt | date }}</span>
 						@if (ticket.updatedAt) {
 						<span>Actualizado: {{ ticket.updatedAt | date }}</span>
 						}
 					</div>
-
-					<button
-						class="btn btn-sm py-5 shadow-none btn-neutral btn-outline text-shadow-zinc-900 font-bold w-full rounded-xl mt-4"
-						(click)="openTicket(ticket.id); $event.stopPropagation()">
-						Ver detalles
-					</button>
 				</div>
+
+
+				<button class="btn btn-sm btn-secondary font-bold w-full rounded-2xl mt-4 border-none shadow-none"
+					(click)="openTicket(ticket.id); $event.stopPropagation()">
+					Ver detalles
+				</button>
 			</div>
 			}
 		</div>
 		}
+
 	</div>
-</div>
+</section>

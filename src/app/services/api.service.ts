@@ -7,11 +7,11 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   private baseUrl = environment.apiBaseUrl;
 
-  get apiUrl(): string {
+  public get apiUrl(): string {
     return this.baseUrl;
   }
 
-  endpoint(path: string): string {
+  public endpoint(path: string): string {
     return `${this.baseUrl}${path}`;
   }
 }

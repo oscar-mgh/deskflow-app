@@ -73,11 +73,7 @@ export class TicketPage implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Sending... before valid');
-    console.log(this.ticketForm.value);
-    console.log(this.ticketForm.valid);
     if (this.ticketForm.invalid) return;
-    console.log('Sending... after valid');
 
     this._ticketsService.newTicket(this.ticketForm.value).subscribe({
       next: () => {
