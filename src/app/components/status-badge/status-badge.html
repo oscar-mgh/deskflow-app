@@ -1,14 +1,14 @@
 @switch (status()) {
-	@case ('OPEN') {
-		<span [class]="`${styles()} bg-orange-400`">Pendiente</span>
-	}
-	@case ('IN_PROGRESS') {
-		<span [class]="`${styles()} bg-blue-400`">En Progreso</span>
-	}
-	@case ('CLOSED') {
-		<span [class]="`${styles()} badge-error`">Cancelado</span>
-	}
-	@case ('RESOLVED') {
-		<span [class]="`${styles()} bg-lime-400`">Resuelto</span>
-	}
+    @case ('OPEN') {
+        <span [class]="styles() + ' bg-orange-900/30 text-neutral-200 border border-orange-900'">Pendiente</span>
+    }
+    @case ('IN_PROGRESS') {
+        <span [class]="styles() + ' bg-indigo-800/30 text-neutral-200 border border-indigo-600'">En Progreso</span>
+    }
+    @case ('CLOSED') {
+        <span [class]="styles() + ' bg-neutral-800 text-neutral-200 border border-neutral-700'">Cancelado</span>
+    }
+    @case ('RESOLVED') {
+        <span [class]="styles() + ' bg-green-900/30 text-neutral-200 border border-green-800'">Resuelto</span>
+    }
 }

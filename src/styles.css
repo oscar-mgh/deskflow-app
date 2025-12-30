@@ -48,6 +48,7 @@
 html {
   scrollbar-width: auto;
   scrollbar-color: var(--primary) transparent;
+  scroll-behavior: smooth;
 }
 
 ::selection {
@@ -81,7 +82,7 @@ html {
 .fade {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 650ms ease-out, transform 650ms ease-out;
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
 
   @starting-style {
     opacity: 0;

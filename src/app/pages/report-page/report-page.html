@@ -1,19 +1,29 @@
-<section class="min-h-screen bg-base-100 text-gray-100 fade px-8 lg:pl-24">
+<section class="min-h-screen bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 pb-20">
 
-  <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12 mt-6">
-    <div class="flex flex-col items-center md:items-start">
-      <h1 class="text-4xl font-black tracking-tight mb-2">Reportes - <span class="text-primary">SLA</span></h1>
-      <p class="text-center md:text-left text-gray-500 font-medium">Panel analítico de rendimiento y cumplimiento de
-        objetivos.</p>
+  <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 mt-6">
+    <div class="flex flex-col items-start text-left">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-2">
+        Reportes - <span class="text-primary">SLA</span>
+      </h1>
+      <p class="text-neutral-500 font-medium text-sm">
+        Panel analítico de rendimiento y cumplimiento de objetivos.
+      </p>
     </div>
-    <div class="flex items-center gap-3 bg-zinc-900/50 p-2 rounded-2xl border border-white/5 shadow-inner">
-      <button class="btn btn-ghost btn-sm text-gray-400">Últimos 30 días</button>
-      <div class="divider divider-horizontal m-0"></div>
-      <button class="btn btn-primary btn-sm px-6 shadow-none border-none hover:opacity-90">Descargar Reporte</button>
+
+    <div
+      class="flex items-center justify-between md:justify-start gap-3 bg-neutral-900 p-2 w-full md:w-auto rounded-2xl border border-neutral-700 shadow-none">
+      <button class="btn btn-ghost btn-sm text-neutral-400 font-bold hover:bg-neutral-800 rounded-xl text-sm">
+        Últimos 30 días
+      </button>
+      <div class="w-px h-6 bg-neutral-700 mx-1"></div>
+      <button
+        class="btn btn-primary btn-sm px-6 font-bold rounded-xl border-none shadow-none hover:bg-primary/70 text-sm">
+        Descargar
+      </button>
     </div>
   </header>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
     @for (kpi of [
     { label: 'Total Tickets', val: totalTickets(), color: 'text-white' },
     { label: 'SLA Global', val: slaCompliance() + '%', color: 'text-primary' },
@@ -21,47 +31,49 @@
     { label: 'Satisfacción', val: '4.8/5', color: 'text-lime-400' }
     ]; track kpi.label) {
     <div
-      class="bg-zinc-900/40 backdrop-blur-sm border border-white/5 p-6 rounded-3xl hover:border-primary/20 transition-all group">
-      <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-zinc-500 mb-2">{{ kpi.label }}</p>
-      <h2 class="text-3xl font-black {{ kpi.color }}">{{ kpi.val }}</h2>
+      class="bg-neutral-900 border border-neutral-700 p-6 rounded-2xl hover:border-primary/40 transition-all shadow-none">
+      <p class="text-sm font-bold text-neutral-500 mb-2">{{ kpi.label }}</p>
+      <h2 class="text-2xl md:text-3xl font-bold {{ kpi.color }}">{{ kpi.val }}</h2>
     </div>
     }
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
 
-    <div class="lg:col-span-8 bg-zinc-900/40 border border-white/5 p-8 rounded-4xl shadow-2xl">
-      <h3 class="text-lg font-bold mb-8 flex items-center gap-3">
+    <div class="lg:col-span-8 bg-neutral-900 border border-neutral-700 p-6 md:p-8 rounded-2xl shadow-none">
+      <h3 class="text-base md:text-lg font-bold mb-6 md:mb-8 flex items-center gap-3">
         <span class="w-2 h-2 rounded-full bg-primary"></span> Tendencia de Actividad
       </h3>
-      <div #trendChart class="w-full h-[400px]"></div>
+      <div #trendChart class="w-full h-64 md:h-96"></div>
     </div>
 
-    <div class="lg:col-span-4 bg-zinc-900/40 border border-white/5 p-8 rounded-4xl shadow-2xl relative overflow-hidden">
-      <h3 class="text-lg font-bold mb-8">Carga por Prioridad</h3>
-      <div #priorityChart class="w-full h-[300px]"></div>
-      <div class="mt-4 space-y-2">
-        <div class="flex justify-between text-xs font-bold"><span class="text-zinc-500 uppercase">Crítico</span> <span
-            class="text-red-500">12%</span></div>
-        <div class="w-full bg-zinc-800 h-1.5 rounded-full">
+    <div class="lg:col-span-4 bg-neutral-900 border border-neutral-700 p-6 md:p-8 rounded-2xl shadow-none">
+      <h3 class="text-base md:text-lg font-bold mb-6 md:mb-8">Carga por Prioridad</h3>
+      <div #priorityChart class="w-full h-60 md:h-72"></div>
+      <div class="mt-4 space-y-3">
+        <div class="flex justify-between text-sm font-bold">
+          <span class="text-neutral-500">Crítico</span>
+          <span class="text-red-500">12%</span>
+        </div>
+        <div class="w-full bg-neutral-800 h-2 rounded-full overflow-hidden">
           <div class="bg-red-500 h-full rounded-full" style="width: 12%"></div>
         </div>
       </div>
     </div>
 
-    <div class="lg:col-span-4 bg-zinc-900/40 border border-white/5 p-8 rounded-4xl">
-      <h3 class="text-lg font-bold mb-6 italic">SLA por Departamento</h3>
-      <div #slaChart class="w-full h-[250px]"></div>
+    <div class="lg:col-span-4 bg-neutral-900 border border-neutral-700 p-6 md:p-8 rounded-2xl shadow-none">
+      <h3 class="text-base md:text-lg font-bold mb-6">SLA por Departamento</h3>
+      <div #slaChart class="w-full h-56 md:h-64"></div>
     </div>
 
-    <div class="lg:col-span-4 bg-zinc-900/40 border border-white/5 p-8 rounded-4xl">
-      <h3 class="text-lg font-bold mb-6">Eficiencia Agentes</h3>
-      <div #agentsChart class="w-full h-[250px]"></div>
+    <div class="lg:col-span-4 bg-neutral-900 border border-neutral-700 p-6 md:p-8 rounded-2xl shadow-none">
+      <h3 class="text-base md:text-lg font-bold mb-6">Eficiencia Agentes</h3>
+      <div #agentsChart class="w-full h-56 md:h-64"></div>
     </div>
 
-    <div class="lg:col-span-4 bg-zinc-900/40 border border-white/5 p-8 rounded-4xl">
-      <h3 class="text-lg font-bold mb-6">Métricas Holísticas</h3>
-      <div #efficiencyChart class="w-full h-[250px]"></div>
+    <div class="lg:col-span-4 bg-neutral-900 border border-neutral-700 p-6 md:p-8 rounded-2xl shadow-none">
+      <h3 class="text-base md:text-lg font-bold mb-6">Métricas Holísticas</h3>
+      <div #efficiencyChart class="w-full h-56 md:h-64"></div>
     </div>
 
   </div>

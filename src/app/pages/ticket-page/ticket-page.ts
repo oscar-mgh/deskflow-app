@@ -1,4 +1,4 @@
-import { DatePipe, TitleCasePipe, NgClass } from '@angular/common';
+import { DatePipe, TitleCasePipe } from '@angular/common';
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-ticket',
-  imports: [ReactiveFormsModule, DatePipe, StatusBadge, PriorityPipe, TitleCasePipe, NgClass],
+  imports: [ReactiveFormsModule, DatePipe, StatusBadge, PriorityPipe, TitleCasePipe],
   templateUrl: './ticket-page.html',
 })
 export class TicketPage implements OnInit {

@@ -1,14 +1,23 @@
 @switch (priority()) {
-	@case ('LOW') {
-		<span [class]="`${styles()} bg-green-400`">Bajo</span>
-	}
-	@case ('MEDIUM') {
-		<span [class]="`${styles()} bg-yellow-400`">Medio</span>
-	}
-	@case ('HIGH') {
-		<span [class]="`${styles()} bg-red-400`">Alto</span>
-	}
-	@case ('CRITICAL') {
-		<span [class]="`${styles()} bg-red-500`">Crítico</span>
-	}
+@case ('LOW') {
+<span [class]="styles() + ' bg-emerald-900/30 text-neutral-200 border border-emerald-800'">
+	Bajo
+</span>
+}
+@case ('MEDIUM') {
+<span [class]="styles() + ' bg-cyan-900/30 text-neutral-200 border border-cyan-800'">
+	Medio
+</span>
+}
+@case ('HIGH') {
+<span [class]="styles() + ' bg-amber-900/30 text-neutral-200 border border-amber-800'">
+	Alto
+</span>
+}
+@case ('CRITICAL') {
+<span
+	[class]="styles() + ' bg-red-900/40 text-neutral-200 border border-red-800 font-extrabold uppercase tracking-tight'">
+	Crítico
+</span>
+}
 }

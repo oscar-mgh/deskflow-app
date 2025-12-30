@@ -1,55 +1,40 @@
 <section
-  class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-20 overflow-hidden fade"
+  class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-20 fade"
 >
-  <h1 class="text-5xl md:text-7xl mb-8 tracking-tighter relative z-10">
-    <span
-      class="font-black bg-linear-to-b from-white via-white to-zinc-500 bg-clip-text text-transparent"
-    >
-      Desk
-      <span
-        class="font-black bg-linear-to-r from-primary to-lime-300 bg-clip-text text-transparent"
-      >
-        Flow
-      </span>
-    </span>
+  <h1 class="text-4xl md:text-6xl mb-6 font-extrabold text-white tracking-tight">
+    Desk<span class="text-primary">Flow</span>
   </h1>
 
-  <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 max-w-3xl relative z-10 tracking-tight">
+  <h2 class="text-xl md:text-2xl font-semibold text-zinc-200 mb-6 max-w-2xl">
     Respuestas claras en <span class="text-primary italic">tiempo récord</span>
   </h2>
 
-  <p class="text-lg text-zinc-400 leading-relaxed mb-14 max-w-2xl relative z-10 font-medium">
+  <p class="text-base text-zinc-400 leading-relaxed mb-12 max-w-xl">
     Gestiona, asigna y resuelve incidencias con una plataforma diseñada para
-    <span class="text-zinc-100 border-b-2 border-primary/30">maximizar la velocidad</span> y
-    potenciar el trabajo en equipo.
+    <span class="text-zinc-100 font-semibold">maximizar la velocidad</span> y potenciar el trabajo en equipo.
   </p>
 
-  <div
-    class="relative z-10 flex flex-col sm:flex-row gap-6 mb-10 w-full justify-center items-center"
-  >
+  <div class="flex flex-col sm:flex-row gap-6 mb-8 w-full justify-center items-center">
     <a
       routerLink="/trial"
-      class="btn btn-ghost bg-white/5 hover:bg-white/10 border-white/10 text-white px-10 h-16 text-lg rounded-2xl backdrop-blur-md transition-all duration-300 group w-full sm:w-auto"
+      class="btn border border-zinc-600 text-zinc-200 px-8 h-12 text-base rounded-xl hover:bg-zinc-800 transition-colors w-full sm:w-auto"
     >
-      <i
-        class="bi bi-lightning-charge-fill text-primary group-hover:scale-125 transition-transform"
-      ></i>
       Probar Demo
     </a>
 
     <a
       routerLink="/auth/login"
-      class="btn btn-primary px-12 h-16 text-lg rounded-2xl shadow-2xl shadow-primary/20 border-none font-black w-full sm:w-auto"
+      class="btn bg-primary text-secondary px-10 h-12 text-base rounded-xl font-bold hover:bg-primary/90 transition-colors w-full sm:w-auto"
     >
       Iniciar sesión
     </a>
   </div>
 
-  <p class="text-zinc-500 relative z-10 text-sm font-medium">
+  <p class="text-zinc-500 text-sm">
     ¿Aún no tienes una cuenta?
     <a
       routerLink="/auth/register"
-      class="text-white hover:text-primary transition-colors font-bold underline underline-offset-4 ml-1"
+      class="text-primary font-semibold underline underline-offset-2 hover:text-primary/80 ml-1"
     >
       Regístrate ahora
     </a>
@@ -57,22 +42,10 @@
 
   <a
     routerLink="/discover-premium"
-    class="mt-20 group flex items-center gap-4 px-8 py-4 rounded-2xl bg-zinc-900/50 border border-white/5 text-sm font-bold hover:border-primary/30 hover:bg-zinc-900 transition-all cursor-pointer relative z-10 backdrop-blur-sm shadow-2xl"
+    class="mt-16 flex items-center gap-3 px-6 py-3 rounded-xl border border-zinc-700 text-sm font-semibold text-zinc-200 hover:border-primary hover:text-primary transition-colors"
   >
-    <span class="relative flex h-3 w-3">
-      <span
-        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
-      ></span>
-      <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-    </span>
-    <span class="text-base group-hover:text-white transition-colors">
-      Explora el potencial de
-      <strong class="text-primary font-black uppercase tracking-wider">Premium</strong>
-    </span>
-    <div
-      class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-primary group-hover:text-zinc-950 transition-all"
-    >
-      <i class="bi bi-arrow-right"></i>
-    </div>
+    <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
+    <span class="text-base">Explora el potencial de <strong class="text-primary">Premium</strong></span>
+    <i class="bi bi-arrow-right"></i>
   </a>
 </section>

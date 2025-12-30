@@ -7,5 +7,5 @@ import { Component, input, signal } from '@angular/core';
 })
 export class StatusBadge {
   public status = input.required<string>();
-  public styles = signal<string>('badge badge-sm font-medium text-zinc-900');
+  public styles = signal<string>('badge badge-sm font-medium');
 }

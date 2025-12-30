@@ -1,84 +1,98 @@
-<section
-  class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-12 overflow-hidden fade">
+<section class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-12 overflow-hidden">
 
-  <div class="mb-10 relative z-10">
-    <h1 routerLink="/" class="text-5xl font-black text-white tracking-tighter cursor-pointer group">
-      Desk<span
-        class="bg-linear-to-r from-primary to-lime-300 bg-clip-text text-transparent group-hover:brightness-110 transition-all">Flow</span>
+  <div class="mb-10 relative z-10 text-center">
+    <h1 routerLink="/" class="text-5xl font-bold text-white tracking-tighter cursor-pointer group">
+      Desk<span class="text-primary group-hover:brightness-110 transition-all">Flow</span>
     </h1>
-    <p class="text-zinc-500 font-medium mt-3 tracking-wide">Crea tu infraestructura de soporte hoy mismo</p>
+    <p class="text-neutral-500 font-medium mt-3">Crea tu infraestructura de soporte hoy mismo</p>
   </div>
 
-  <div
-    class="w-full max-w-lg bg-zinc-900/50 backdrop-blur-2xl border border-white/5 p-10 md:p-12 rounded-[2.5rem] shadow-2xl relative z-10">
+  <div class="w-full max-w-lg bg-neutral-900 border border-neutral-700 p-10 md:p-12 rounded-2xl relative z-10 shadow-none">
 
-    <div class="flex items-center justify-between mb-10">
-      <h2 class="text-3xl font-black text-white tracking-tight">Registro</h2>
-      <div class="w-12 h-1 bg-primary rounded-full"></div>
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-white tracking-tight">Registro</h2>
     </div>
 
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="space-y-6">
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
         <div class="form-control">
-          <label class="px-1 mb-2">
-            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Nombre completo</span>
+          <label class="px-1 mb-2 block text-sm font-semibold text-neutral-400">
+            Nombre completo
           </label>
           <input type="text" formControlName="fullName" placeholder="Juan Pérez"
-            class="input input-bordered bg-zinc-800/50 border-white/5 text-white w-full rounded-xl focus:border-primary focus:outline-none transition-all h-12"
+            class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
             [ngClass]="{'border-red-500/50 bg-red-500/5': registerForm.controls['fullName'].touched && registerForm.controls['fullName'].invalid}" />
+          
+          @if (registerForm.controls['fullName'].touched && registerForm.controls['fullName'].errors) {
+            <div class="mt-2 px-1 text-sm">
+              <app-form-error [control]="registerForm.controls['fullName']" label="El nombre"></app-form-error>
+            </div>
+          }
         </div>
 
         <div class="form-control">
-          <label class="px-1 mb-2">
-            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Empresa</span>
+          <label class="px-1 mb-2 block text-sm font-semibold text-neutral-400">
+            Empresa
           </label>
           <input type="text" formControlName="company" placeholder="Empresa S.A."
-            class="input input-bordered bg-zinc-800/50 border-white/5 text-white w-full rounded-xl focus:border-primary focus:outline-none transition-all h-12" />
+            class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
+            [ngClass]="{'border-red-500/50 bg-red-500/5': registerForm.controls['company'].touched && registerForm.controls['company'].invalid}" />
+          
+          @if (registerForm.controls['company'].touched && registerForm.controls['company'].errors) {
+            <div class="mt-2 px-1 text-sm">
+              <app-form-error [control]="registerForm.controls['company']" label="La empresa"></app-form-error>
+            </div>
+          }
         </div>
       </div>
 
       <div class="form-control text-left">
-        <label class="px-1 mb-2">
-          <span class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Correo electrónico</span>
+        <label class="px-1 mb-2 block text-sm font-semibold text-neutral-400">
+          Correo electrónico
         </label>
         <input type="email" formControlName="email" placeholder="email@example.com"
-          class="input input-bordered bg-zinc-800/50 border-white/5 text-white w-full rounded-xl focus:border-primary focus:outline-none transition-all h-12" />
+          class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
+          [ngClass]="{'border-red-500/50 bg-red-500/5': registerForm.controls['email'].touched && registerForm.controls['email'].invalid}" />
+        
+        @if (registerForm.controls['email'].touched && registerForm.controls['email'].errors) {
+          <div class="mt-2 px-1 text-sm">
+            <app-form-error [control]="registerForm.controls['email']" label="El correo"></app-form-error>
+          </div>
+        }
       </div>
 
       <div class="form-control text-left">
-        <label class="px-1 mb-2">
-          <span class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Contraseña</span>
+        <label class="px-1 mb-2 block text-sm font-semibold text-neutral-400">
+          Contraseña
         </label>
         <div class="relative">
           <input type="password" formControlName="password" placeholder="••••••••"
-            class="input input-bordered bg-zinc-800/50 border-white/5 text-white w-full rounded-xl focus:border-primary focus:outline-none transition-all h-12" />
-          <i class="bi bi-shield-lock absolute right-4 top-1/2 -translate-y-1/2 text-zinc-600"></i>
+            class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
+            [ngClass]="{'border-red-500/50 bg-red-500/5': registerForm.controls['password'].touched && registerForm.controls['password'].invalid}" />
+          <i class="bi bi-shield-lock absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500"></i>
         </div>
-      </div>
-
-      <div class="min-h-5">
-        @if (registerForm.touched && registerForm.invalid) {
-        <p class="text-[10px] font-bold text-red-400 uppercase tracking-widest animate-pulse">
-          Por favor, revisa los campos marcados
-        </p>
+        
+        @if (registerForm.controls['password'].touched && registerForm.controls['password'].errors) {
+          <div class="mt-2 px-1 text-sm">
+            <app-form-error [control]="registerForm.controls['password']" label="La contraseña"></app-form-error>
+          </div>
         }
       </div>
 
       <button type="submit"
-        class="btn btn-primary w-full h-14 text-lg font-black rounded-2xl border-none mt-4 group"
+        class="btn btn-primary w-full h-12 text-base font-bold rounded-xl mt-4 border-none shadow-none hover:bg-primary/70 transition-colors"
         [disabled]="registerForm.invalid">
-        <span>Crear Cuenta</span>
-        <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        Crear Cuenta
       </button>
     </form>
 
   </div>
 
-  <p class="mt-12 text-zinc-500 font-medium relative z-10">
+  <p class="mt-12 text-neutral-500 font-medium relative z-10">
     ¿Ya eres parte de la red?
     <a routerLink="/auth/login"
-      class="text-white font-black hover:text-primary transition-colors underline underline-offset-8 ml-2">
+      class="text-white font-bold hover:text-primary transition-colors underline underline-offset-8 ml-1">
       Inicia sesión
     </a>
   </p>

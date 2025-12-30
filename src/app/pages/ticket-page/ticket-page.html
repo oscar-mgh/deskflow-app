@@ -1,141 +1,141 @@
 @if (!id()) {
+<section
+	class="min-h-screen bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center">
+	<div class="w-full max-w-3xl">
+		<header class="text-center md:text-left mb-8">
+			<h1 class="text-4xl font-bold tracking-tight">
+				Crear <span class="text-primary">Ticket</span>
+			</h1>
+			<p class="text-neutral-500 font-medium text-sm mt-2">Completa la información para recibir asistencia.</p>
+		</header>
 
-<section class="min-h-screen bg-base-100 text-zinc-100 fade px-8 lg:pl-24 flex flex-col items-center justify-center">
-  <div class="">
-	<header class="flex justify-center md:justify-between mb-8">
-	  <h1 class="text-center  text-4xl font-black tracking-tight ml-2">
-		Crear <span class="text-primary">Ticket</span>
-	  </h1>
-	</header>
-	<div class="bg-zinc-900 border border-white/5 rounded-3xl p-10 shadow-xl">
-	  <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="space-y-10">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-		  <div>
-			<label class="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2 block"
-			  >Título</label
-			>
-			<input
-			  id="title"
-			  type="text"
-			  formControlName="title"
-			  placeholder="Ej. Error al iniciar sesión"
-			  class="input bg-base-100 border-white/10 rounded-2xl w-full"
-			/>
-		  </div>
-		  <div>
-			<label class="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2 block"
-			  >Categoría</label
-			>
-			<select
-			  id="categoryName"
-			  formControlName="categoryName"
-			  class="select bg-base-100 border-white/10 rounded-2xl w-full"
-			>
-			  <option value="">Seleccione una categoría</option>
-			  @for (category of categories(); track category.id) {
-			  <option [value]="category.name">{{ category.name }}</option>
-			  }
-			</select>
-		  </div>
+		<div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 md:p-10 shadow-none">
+			<form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="space-y-6">
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<div class="form-control">
+						<label class="mb-2 block text-sm font-semibold text-neutral-400">Título</label>
+						<input type="text" formControlName="title" placeholder="Ej. Error al iniciar sesión"
+							class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
+					</div>
+
+					<div class="form-control">
+						<label class="mb-2 block text-sm font-semibold text-neutral-400">Categoría</label>
+						<select formControlName="categoryName"
+							class="select w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
+							<option value="" class="text-zinc-200 font-regular bg-neutral-800">Seleccione una categoría
+							</option>
+							@for (category of categories(); track category.id) {
+							<option [value]="category.name" class="text-zinc-200 font-regular bg-neutral-800">{{
+								category.name }}</option>
+							}
+						</select>
+					</div>
+				</div>
+
+				<div class="form-control">
+					<label class="mb-2 block text-sm font-semibold text-neutral-400">Descripción</label>
+					<textarea formControlName="description" rows="5" placeholder="Describe el problema o solicitud..."
+						class="w-full bg-neutral-800 border border-neutral-700 text-white p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none"></textarea>
+				</div>
+
+				<div class="grid gap-6" [class]="this.isPremium() ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'">
+					<div class="form-control">
+						<label class="mb-2 block text-sm font-semibold text-neutral-400">Prioridad</label>
+						<select formControlName="priority"
+							class="select w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
+							<option value="" class="text-zinc-200 font-regular bg-neutral-800">Seleccione la prioridad
+							</option>
+							@if (this.isPremium()) {
+							@for (priority of premiumPriorities(); track priority) {
+							<option [value]="priority" class="text-zinc-200 font-regular bg-neutral-800">{{ priority |
+								priority }}</option>
+							}
+							} @else {
+							@for (priority of priorities(); track priority) {
+							<option [value]="priority" class="text-zinc-200 font-regular bg-neutral-800">{{ priority |
+								priority }}</option>
+							}
+							}
+						</select>
+					</div>
+
+					@if (this.isPremium()) {
+					<div class="form-control">
+						<label class="mb-2 block text-sm font-semibold text-neutral-400">Adjuntar Archivo</label>
+						<input type="file" (change)="onFileSelected($event)"
+							class="file-input bg-neutral-800 border border-neutral-700 text-white rounded-xl w-full h-12 text-sm" />
+					</div>
+					}
+				</div>
+
+				<button type="submit"
+					class="btn btn-primary w-full h-12 text-base disabled:text-zinc-500 text-zinc-900 font-bold rounded-xl mt-4 border-none shadow-none hover:bg-primary/70 transition-colors">
+					Enviar Ticket
+				</button>
+			</form>
 		</div>
-		<div>
-		  <label class="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2 block"
-			>Descripción</label
-		  >
-		  <textarea
-			id="description"
-			formControlName="description"
-			rows="5"
-			placeholder="Describe el problema o solicitud..."
-			class="textarea bg-base-100 border-white/10 rounded-2xl w-full"
-		  ></textarea>
-		</div>
-		<div
-		  class="grid gap-8"
-		  [class]="this.isPremium() ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-1'"
-		>
-		  <div>
-			<label class="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2 block"
-			  >Prioridad</label
-			>
-			<select
-			  id="priority"
-			  formControlName="priority"
-			  class="select bg-base-100 border-white/10 rounded-2xl w-full"
-			>
-			  <option value="">Seleccione la prioridad</option>
-			  @if (this.isPremium()) { @for (priority of premiumPriorities(); track priority) {
-			  <option [value]="priority">{{ priority | priority }}</option>
-			  } } @else { @for (priority of priorities(); track priority) {
-			  <option [value]="priority">{{ priority | priority }}</option>
-			  } }
-			</select>
-		  </div>
-		  @if (this.isPremium()) {
-		  <div>
-			<label class="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2 block"
-			  >Adjuntar Archivo</label
-			>
-			<input
-			  id="attachment"
-			  type="file"
-			  (change)="onFileSelected($event)"
-			  class="file-input bg-base-100 border-white/10 rounded-2xl w-full"
-			/>
-		  </div>
-		  }
-		</div>
-		<button
-		  type="submit"
-		  class="btn btn-primary font-bold rounded-2xl w-full h-12 shadow-lg hover:opacity-90"
-		>
-		  Enviar Ticket
-		</button>
-	  </form>
 	</div>
-  </div>
 </section>
 
 } @else {
 
-<section class="min-h-screen bg-base-100 text-zinc-100 p-6 md:p-12 ml-20 fade">
-  <div class="max-w-4xl mx-auto">
-    <header class="mb-12">
-      <h1 class="text-5xl font-bold tracking-tight uppercase">
-        Ticket <span class="text-primary">Detalles</span>
-      </h1>
-      <div class="h-1 w-24 bg-primary mt-4 rounded-full"></div>
-    </header>
+<section class="min-h-screen bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center">
+	<div class="w-full max-w-3xl">
+		<header class="mb-10 text-center md:text-left">
+			<h1 class="text-4xl font-bold tracking-tight">
+				Detalle del <span class="text-primary">Ticket</span>
+			</h1>
+			<p class="text-neutral-500 font-medium text-sm mt-2">Información completa sobre la solicitud.</p>
+		</header>
 
-    <div class="bg-zinc-900 border border-white/5 rounded-3xl p-10 shadow-xl">
-      @if (ticket()) {
-      <div class="space-y-6 text-lg">
-        <div class="flex justify-between border-b border-white/10 py-3">
-          <strong>Título:</strong> {{ ticket()?.title }}
-        </div>
-        <div class="flex justify-between border-b border-white/10 py-3">
-          <strong>Fecha:</strong> {{ ticket()?.createdAt | date }}
-        </div>
-        <div class="flex justify-between border-b border-white/10 py-3">
-          <strong>Categoría:</strong> {{ ticket()?.categoryName | titlecase }}
-        </div>
-        <div class="flex justify-between border-b border-white/10 py-3">
-          <strong>Prioridad:</strong> {{ ticket()?.priority! | priority }}
-        </div>
-        <div class="flex justify-between border-b border-white/10 py-3">
-          <strong>Status:</strong>
-          <app-status-badge [status]="ticket()?.status!"></app-status-badge>
-        </div>
+		<div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 md:p-10 shadow-none">
+			@if (ticket()) {
+			<div class="space-y-4">
+				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
+					<span class="text-sm font-bold text-neutral-500">Título:</span>
+					<span class="text-sm font-semibold text-white">{{ ticket()?.title }}</span>
+				</div>
 
-        <div>
-          <strong class="text-zinc-300 text-base block mb-2">Descripción:</strong>
-          <p class="text-sm text-zinc-400 font-light leading-relaxed">
-            {{ ticket()?.description }}
-          </p>
-        </div>
-      </div>
-      }
-    </div>
-  </div>
+				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
+					<span class="text-sm font-bold text-neutral-500">Fecha de creación:</span>
+					<span class="text-sm font-semibold text-white">{{ ticket()?.createdAt | date:'mediumDate' }}</span>
+				</div>
+
+				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
+					<span class="text-sm font-bold text-neutral-500">Categoría:</span>
+					<span class="text-sm font-semibold text-primary">{{ ticket()?.categoryName | titlecase }}</span>
+				</div>
+
+				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
+					<span class="text-sm font-bold text-neutral-500">Prioridad:</span>
+					<span class="text-sm font-semibold text-white">{{ ticket()?.priority! | priority }}</span>
+				</div>
+
+				<div
+					class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1 items-start md:items-center">
+					<span class="text-sm font-bold text-neutral-500">Estado actual:</span>
+					<app-status-badge [status]="ticket()?.status!"></app-status-badge>
+				</div>
+
+				<div class="pt-4">
+					<span class="text-sm font-bold text-neutral-500 block mb-3">Descripción detallada:</span>
+					<div class="bg-neutral-800 border border-neutral-700 p-4 rounded-xl">
+						<p class="text-sm text-neutral-300 leading-relaxed">
+							{{ ticket()?.description }}
+						</p>
+					</div>
+				</div>
+			</div>
+			}
+		</div>
+
+		<div class="mt-8 flex justify-center md:justify-start">
+			<button routerLink="/dashboard/tickets"
+				class="text-sm font-bold text-neutral-500 hover:text-primary transition-colors flex items-center gap-2">
+				<i class="bi bi-arrow-left"></i> Volver a mis tickets
+			</button>
+		</div>
+	</div>
 </section>
 }

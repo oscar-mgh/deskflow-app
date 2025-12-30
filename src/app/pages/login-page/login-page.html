@@ -1,79 +1,84 @@
-<section class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-12 overflow-hidden fade">
-    
+<section
+    class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-12 overflow-hidden fade">
 
-    <div class="mb-10 relative z-10">
-        <h1 routerLink="/" class="text-5xl font-black text-white tracking-tighter cursor-pointer group">
-            Desk<span class="bg-linear-to-r from-primary to-lime-300 bg-clip-text text-transparent group-hover:brightness-110 transition-all">Flow</span>
+    <div class="mb-10 relative z-10 text-center">
+        <h1 routerLink="/" class="text-5xl font-bold text-white tracking-tighter cursor-pointer group">
+            Desk<span class="text-primary group-hover:brightness-110 transition-all">Flow</span>
         </h1>
-        <p class="text-zinc-500 font-medium mt-3 tracking-wide">Accede a tu centro de control</p>
+        <p class="text-neutral-500 font-medium mt-3">Accede a tu centro de control</p>
     </div>
 
-    <div class="w-full max-w-md bg-zinc-900/40 backdrop-blur-2xl border border-white/5 p-10 md:p-12 rounded-[2.5rem] shadow-2xl relative z-10">
-        
-        <div class="flex items-center justify-between mb-10">
-            <h2 class="text-3xl font-black text-white tracking-tight">Login</h2>
-            <div class="w-12 h-1 bg-primary rounded-full"></div>
+    <div
+        class="w-full max-w-md bg-neutral-900 border border-neutral-700 p-10 md:p-12 rounded-2xl relative z-10 shadow-none">
+
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-white tracking-tight">Login</h2>
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-6">
+
             <div class="form-control text-left">
-                <label class="px-1 mb-2">
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Credencial de acceso</span>
+                <label class="px-1 mb-2 block text-sm font-semibold text-neutral-400">
+                    Credencial de acceso
                 </label>
                 <div class="relative">
-                    <input type="email" formControlName="email" placeholder="email@example.com" 
-                        class="input input-bordered bg-zinc-800/50 border-white/5 text-white w-full rounded-xl focus:border-primary focus:outline-none transition-all h-14 pl-12"
+                    <input type="email" formControlName="email" placeholder="email@example.com"
+                        class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 pl-12 rounded-xl focus:border-primary focus:outline-none transition-colors"
                         [ngClass]="{'border-red-500/50 bg-red-500/5': loginForm.controls['email'].touched && loginForm.controls['email'].invalid}" />
-                    <i class="bi bi-envelope absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"></i>
+                    <i class="bi bi-envelope absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500"></i>
                 </div>
-
                 @if (loginForm.controls['email'].touched && loginForm.controls['email'].errors) {
-                    <div class="mt-2 px-1">
-                        <app-form-error [control]="loginForm.controls['email']" label="El correo"></app-form-error>
-                    </div>
+                <div class="mt-2 px-1 text-sm">
+                    <app-form-error [control]="loginForm.controls['email']" label="El correo"></app-form-error>
+                </div>
                 }
             </div>
 
             <div class="form-control text-left">
-                <div class="flex justify-between items-end px-1 mb-2">
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Contraseña</span>
-                    <a class="text-[10px] font-bold text-primary hover:text-white transition-colors cursor-pointer uppercase tracking-wider">¿Olvidaste tu clave?</a>
-                </div>
+                <label class="px-1 mb-2 block text-sm font-semibold text-neutral-400">
+                    Contraseña
+                </label>
                 <div class="relative">
-                    <input type="password" formControlName="password" placeholder="••••••••" 
-                        class="input input-bordered bg-zinc-800/50 border-white/5 text-white w-full rounded-xl focus:border-primary focus:outline-none transition-all h-14 pl-12"
+                    <input type="password" formControlName="password" placeholder="••••••••"
+                        class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 pl-12 rounded-xl focus:border-primary focus:outline-none transition-colors"
                         [ngClass]="{'border-red-500/50 bg-red-500/5': loginForm.controls['password'].touched && loginForm.controls['password'].invalid}" />
-                    <i class="bi bi-shield-lock absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"></i>
+                    <i class="bi bi-shield-lock absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500"></i>
                 </div>
 
                 @if (loginForm.controls['password'].touched && loginForm.controls['password'].errors) {
-                    <div class="mt-2 px-1">
-                        <app-form-error [control]="loginForm.controls['password']" label="La contraseña"></app-form-error>
-                    </div>
+                <div class="mt-2 px-1 text-sm">
+                    <app-form-error [control]="loginForm.controls['password']" label="La contraseña"></app-form-error>
+                </div>
                 }
+                <div class="flex justify-end mt-1 px-1">
+                    <a class="text-xs font-bold text-primary hover:text-white transition-colors cursor-pointer">
+                        ¿Olvidaste tu clave?
+                    </a>
+                </div>
+
             </div>
 
-            <button type="submit" 
-                class="btn btn-primary w-full h-14 text-lg font-black rounded-2xl mt-6 group overflow-hidden relative border-none shadow-none"
+            <button type="submit"
+                class="btn btn-primary w-full h-12 text-base disabled:text-zinc-500 text-zinc-900 font-bold rounded-xl mt-4 border-none shadow-none hover:bg-primary/70 transition-colors"
                 [disabled]="loginForm.invalid">
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                    Ingresar al Sistema
-                    <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </span>
+                Ingresar al Sistema
             </button>
         </form>
 
-        <div class="divider text-zinc-700 text-[10px] my-10 uppercase tracking-[0.3em]">Integraciones</div>
+        <div
+            class="divider before:bg-neutral-800 after:bg-neutral-800 text-neutral-500 text-[10px] my-10 font-bold uppercase tracking-widest">
+            O continúa con</div>
 
-        <button class="btn btn-ghost w-full h-14 border border-white/5 hover:bg-white/5 hover:border-white/10 text-zinc-300 rounded-2xl transition-all normal-case font-bold">
-            <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" class="w-5 h-5 mr-2" alt="Google">
-            Continuar con Google
+        <button type="button"
+            class="btn border border-zinc-600 text-zinc-200 h-12 text-base rounded-xl font-bold hover:bg-zinc-800 transition-colors w-full bg-transparent shadow-none flex items-center justify-center gap-2">
+            <i class="bi bi-google"></i> Continuar con Google
         </button>
     </div>
 
-    <p class="mt-10 text-zinc-500 font-medium relative z-10">
+    <p class="mt-10 text-neutral-500 font-medium relative z-10">
         ¿Eres nuevo en DeskFlow?
-        <a routerLink="/auth/register" class="text-white font-black hover:text-primary transition-colors underline underline-offset-8 ml-2">
+        <a routerLink="/auth/register"
+            class="text-white font-bold hover:text-primary transition-colors underline underline-offset-8 ml-1">
             Crea una cuenta
         </a>
     </p>
