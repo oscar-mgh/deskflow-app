@@ -1,4 +1,4 @@
-<section class="px-8 lg:p-22 lg:max-w-7xl lg:m-auto min-h-[calc(100vh-4rem)] bg-base-100 text-zinc-100 relative lg:pl-24 overflow-hidden">
+<section class="px-8 lg:p-22 lg:max-w-7xl lg:m-auto min-h-[calc(100vh-4rem)] bg-base-100 text-zinc-200 relative lg:pl-24 overflow-hidden">
 
     <header class="mb-12 mt-6">
         <h1 class="text-center md:text-left text-4xl font-bold tracking-tight">
@@ -11,14 +11,14 @@
         <div class="lg:col-span-4 flex flex-col items-center lg:items-start">
             <div class="mb-8">
                 <div class="w-40 h-40 bg-neutral-900 border border-neutral-700 rounded-2xl flex items-center justify-center shadow-none">
-                    <span class="text-6xl font-bold text-white">
+                    <span class="text-6xl font-bold text-zinc-200">
                         {{ userInfo().username.charAt(0).toUpperCase() }}
                     </span>
                 </div>
             </div>
 
             <div class="text-center lg:text-left w-full">
-                <h2 class="text-3xl font-bold text-white mb-1">
+                <h2 class="text-3xl font-bold text-zinc-200 mb-1">
                     {{ userInfo().username }}
                 </h2>
                 <p class="text-neutral-500 font-medium mb-6 text-sm">
@@ -46,14 +46,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                         <p class="text-sm font-bold text-neutral-500 mb-2">Empresa o Grupo</p>
-                        <p class="text-lg font-semibold text-white flex items-center gap-3">
+                        <p class="text-lg font-semibold text-zinc-200 flex items-center gap-3">
                             <i class="bi bi-building text-neutral-500"></i>
                             {{ userInfo().company || 'Sin asignar' }}
                         </p>
                     </div>
                     <div>
                         <p class="text-sm font-bold text-neutral-500 mb-2">Estado de Cuenta</p>
-                        <p class="text-lg font-semibold text-white flex items-center gap-3">
+                        <p class="text-lg font-semibold text-zinc-200 flex items-center gap-3">
                             <i class="bi bi-shield-check text-primary"></i>
                             Usuario Activo
                         </p>
@@ -72,7 +72,7 @@
                             <i class="bi bi-hdd-stack text-xl"></i>
                         </div>
                         <div class="flex-1">
-                            <h4 class="font-bold text-white text-sm mb-1">Permisos de Usuario</h4>
+                            <h4 class="font-bold text-zinc-200 text-sm mb-1">Permisos de Usuario</h4>
                             <p class="text-sm text-neutral-500 leading-relaxed">
                                 Tienes acceso a las herramientas de tickets y reportes de acuerdo a tu nivel de usuario.
                             </p>
@@ -84,7 +84,7 @@
                             <i class="bi bi-safe2 text-xl"></i>
                         </div>
                         <div class="flex-1">
-                            <h4 class="font-bold text-white text-sm mb-1">Protección de Datos</h4>
+                            <h4 class="font-bold text-zinc-200 text-sm mb-1">Protección de Datos</h4>
                             <p class="text-sm text-neutral-500 leading-relaxed">
                                 Tu información personal y profesional está encriptada y protegida bajo estándares de seguridad vigentes.
                             </p>

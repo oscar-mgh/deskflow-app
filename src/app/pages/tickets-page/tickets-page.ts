@@ -1,27 +1,47 @@
 import { DatePipe } from '@angular/common';
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TicketPagination } from '../../models/ticket.model';
-import { PriorityPipe } from '../../pipes/priority.pipe';
-import { StatusPipe } from '../../pipes/status.pipe';
+import { PriorityBadge } from '../../components/priority-badge/priority-badge';
+import { StatusBadge } from '../../components/status-badge/status-badge';
+import { Ticket, TicketPagination } from '../../models/ticket.model';
 import { TicketsService } from '../../services/tickets.service';
 
 @Component({
   selector: 'app-tickets-page',
-  imports: [DatePipe, RouterLink, PriorityPipe, StatusPipe],
+  imports: [DatePipe, RouterLink, PriorityBadge, StatusBadge],
   templateUrl: './tickets-page.html',
 })
 export class TicketsPage implements OnInit {
-  private _ticketsPage = signal<TicketPagination | null>(null);
-  public ticketsPage = this._ticketsPage.asReadonly();
-  public tickets = computed(() => this.ticketsPage()?.content || []);
+  tickets = signal<Ticket[]>([]);
+  paginationData = signal<TicketPagination | null>(null);
+  currentPage = signal<number>(0);
+  pageSize = 8;
 
   constructor(private _ticketsService: TicketsService) {}
 
   ngOnInit(): void {
-    this._ticketsService.getTicketsPaginated().subscribe((data) => {
-      this._ticketsPage.set(data);
+    this.loadTickets(0);
+  }
+
+  loadTickets(page: number) {
+    this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
+      next: (response) => {
+        this.tickets.set(response.content);
+        this.paginationData.set(response);
+        this.currentPage.set(page);
+      },
+      error: (err) => console.error('Error cargando tickets', err),
     });
+  }
+
+  goToPage(page: number): void {
+    if (
+      page < 0 ||
+      (this.paginationData()?.totalPages && page >= this.paginationData()!.totalPages!)
+    ) {
+      return;
+    }
+    this.loadTickets(page);
   }
 
   openTicket(id: string) {
@@ -29,9 +49,7 @@ export class TicketsPage implements OnInit {
   }
 
   changePage(delta: number) {
-    const nextPage = (this.ticketsPage()?.page ?? 0) + delta;
-    this._ticketsService.getTicketsPaginated(nextPage).subscribe((data) => {
-      this._ticketsPage.set(data);
-    });
+    const nextPage = (this.paginationData()?.page ?? 0) + delta;
+    this.loadTickets(nextPage);
   }
 }

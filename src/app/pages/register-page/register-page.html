@@ -1,7 +1,7 @@
 <section class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-12 overflow-hidden">
 
   <div class="mb-10 relative z-10 text-center">
-    <h1 routerLink="/" class="text-5xl font-bold text-white tracking-tighter cursor-pointer group">
+    <h1 routerLink="/" class="text-5xl font-bold text-zinc-200 tracking-tighter cursor-pointer group">
       Desk<span class="text-primary group-hover:brightness-110 transition-all">Flow</span>
     </h1>
     <p class="text-neutral-500 font-medium mt-3">Crea tu infraestructura de soporte hoy mismo</p>
@@ -10,7 +10,7 @@
   <div class="w-full max-w-lg bg-neutral-900 border border-neutral-700 p-10 md:p-12 rounded-2xl relative z-10 shadow-none">
 
     <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold text-white tracking-tight">Registro</h2>
+      <h2 class="text-3xl font-bold text-zinc-200 tracking-tight">Registro</h2>
     </div>
 
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="space-y-6">
@@ -21,7 +21,7 @@
             Nombre completo
           </label>
           <input type="text" formControlName="fullName" placeholder="Juan Pérez"
-            class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
+            class="w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
             [ngClass]="{'border-red-500/50 bg-red-500/5': registerForm.controls['fullName'].touched && registerForm.controls['fullName'].invalid}" />
           
           @if (registerForm.controls['fullName'].touched && registerForm.controls['fullName'].errors) {
@@ -36,7 +36,7 @@
             Empresa
           </label>
           <input type="text" formControlName="company" placeholder="Empresa S.A."
-            class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
+            class="w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
             [ngClass]="{'border-red-500/50 bg-red-500/5': registerForm.controls['company'].touched && registerForm.controls['company'].invalid}" />
           
           @if (registerForm.controls['company'].touched && registerForm.controls['company'].errors) {
@@ -52,7 +52,7 @@
           Correo electrónico
         </label>
         <input type="email" formControlName="email" placeholder="email@example.com"
-          class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
+          class="w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
           [ngClass]="{'border-red-500/50 bg-red-500/5': registerForm.controls['email'].touched && registerForm.controls['email'].invalid}" />
         
         @if (registerForm.controls['email'].touched && registerForm.controls['email'].errors) {
@@ -68,7 +68,7 @@
         </label>
         <div class="relative">
           <input type="password" formControlName="password" placeholder="••••••••"
-            class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
+            class="w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
             [ngClass]="{'border-red-500/50 bg-red-500/5': registerForm.controls['password'].touched && registerForm.controls['password'].invalid}" />
           <i class="bi bi-shield-lock absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500"></i>
         </div>
@@ -92,7 +92,7 @@
   <p class="mt-12 text-neutral-500 font-medium relative z-10">
     ¿Ya eres parte de la red?
     <a routerLink="/auth/login"
-      class="text-white font-bold hover:text-primary transition-colors underline underline-offset-8 ml-1">
+      class="text-zinc-200 font-bold hover:text-primary transition-colors underline underline-offset-8 ml-1">
       Inicia sesión
     </a>
   </p>

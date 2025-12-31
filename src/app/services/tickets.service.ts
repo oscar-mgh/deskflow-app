@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class TicketsService {
-  public getTicketsPaginated(page: number = 1, size: number = 6): Observable<TicketPagination> {
+  public getTicketsPaginated(page: number = 1, size: number = 4): Observable<TicketPagination> {
     return this._http.get<TicketPagination>(
       this._api.endpoint(`/tickets?page=${page}&size=${size}`),
       {

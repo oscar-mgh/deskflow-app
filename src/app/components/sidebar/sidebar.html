@@ -6,7 +6,7 @@
             <i class="bi bi-fan text-xl text-primary animate-[spin_4s_linear_infinite]"></i>
         </div>
         <h1
-            class="ml-4 text-xl font-bold text-white tracking-tighter opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+            class="ml-4 text-xl font-bold text-zinc-200 tracking-tighter opacity-0 group-hover:opacity-100 transition-all duration-300 zinc-200space-nowrap">
             Desk<span class="text-primary">Flow</span>
         </h1>
     </div>
@@ -21,12 +21,12 @@
         ]; track item.link) {
         <a [routerLink]="item.link" routerLinkActive="bg-primary/10 text-primary border-primary/20"
             [routerLinkActiveOptions]="{ exact: item.exact || false }"
-            class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-neutral-800 hover:text-white group/item overflow-hidden">
+            class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-neutral-800 hover:text-zinc-200 group/item overflow-hidden">
             <div class="min-w-6 flex justify-center items-center">
                 <i class="bi {{item.icon}} text-base transition-transform group-hover/item:scale-110"></i>
             </div>
             <span
-                class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
+                class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 zinc-200space-nowrap text-sm">
                 {{item.label}}
             </span>
         </a>
@@ -40,7 +40,7 @@
                 <i class="bi bi-shield-lock-fill text-base"></i>
             </div>
             <span
-                class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
+                class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 zinc-200space-nowrap text-sm">
                 Administración
             </span>
         </a>
@@ -50,23 +50,23 @@
     <div class="p-2 border-t border-neutral-800">
         <div class="flex items-center p-2 rounded-xl transition-colors duration-300 group-hover:bg-neutral-800">
             <div
-                class="min-w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-xs font-bold shadow-none">
+                class="min-w-8 h-8 rounded-lg bg-primary text-zinc-200 flex items-center justify-center text-xs font-bold shadow-none">
                 {{ userName().charAt(0).toUpperCase() }}
             </div>
             <div
-                class="ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden whitespace-nowrap text-left">
+                class="ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden zinc-200space-nowrap text-left">
                 <p class="text-[10px] font-semibold text-neutral-500 leading-none mb-1">Usuario</p>
-                <p class="text-xs font-bold text-white truncate w-28 leading-none">{{ userName() }}</p>
+                <p class="text-xs font-bold text-zinc-200 truncate w-28 leading-none">{{ userName() }}</p>
             </div>
         </div>
 
         <button (click)="logout()"
-            class="mt-2 flex items-center h-10 w-full rounded-xl bg-red-500/5 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 overflow-hidden group/btn relative shadow-none border-none">
+            class="mt-2 flex items-center h-10 w-full rounded-xl bg-red-500/5 text-red-500 hover:bg-red-500 hover:text-zinc-200 transition-all duration-300 overflow-hidden group/btn relative shadow-none border-none">
             <div class="min-w-10 h-full flex items-center justify-center">
                 <i class="bi bi-power text-lg"></i>
             </div>
             <span
-                class="font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                class="font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 zinc-200space-nowrap">
                 Cerrar sesión
             </span>
         </button>

@@ -1,7 +1,7 @@
 import { Component, input, signal } from '@angular/core';
 
 @Component({
-  selector: 'app-status-badge',
+  selector: 'status-badge',
   imports: [],
   templateUrl: './status-badge.html',
 })

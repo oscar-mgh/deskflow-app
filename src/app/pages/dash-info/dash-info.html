@@ -3,25 +3,25 @@
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-amber-500/30">
             <i class="bi bi-ticket-perforated text-3xl text-amber-400 mb-2"></i>
-            <h2 class="text-3xl font-bold text-white">24</h2>
+            <h2 class="text-3xl font-bold text-zinc-200">24</h2>
             <p class="text-sm font-bold text-neutral-500">Tickets Abiertos</p>
         </div>
 
         <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-purple-500/30">
             <i class="bi bi-hourglass-split text-3xl text-purple-500 mb-2"></i>
-            <h2 class="text-3xl font-bold text-white">12</h2>
+            <h2 class="text-3xl font-bold text-zinc-200">12</h2>
             <p class="text-sm font-bold text-neutral-500">En Progreso</p>
         </div>
 
         <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-lime-500/30">
             <i class="bi bi-check-circle text-3xl text-lime-500 mb-2"></i>
-            <h2 class="text-3xl font-bold text-white">8</h2>
+            <h2 class="text-3xl font-bold text-zinc-200">8</h2>
             <p class="text-sm font-bold text-neutral-500">Resueltos</p>
         </div>
 
         <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-red-500/30">
             <i class="bi bi-exclamation-triangle text-3xl text-red-400 mb-2"></i>
-            <h2 class="text-3xl font-bold text-white">5</h2>
+            <h2 class="text-3xl font-bold text-zinc-200">5</h2>
             <p class="text-sm font-bold text-neutral-500">SLA Vencidos</p>
         </div>
     </section>
@@ -29,7 +29,7 @@
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
         <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 md:p-8 flex flex-col shadow-none">
-            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <h3 class="text-lg font-bold text-zinc-200 mb-6 flex items-center gap-2">
                 <span class="w-1.5 h-6 bg-primary rounded-full"></span>
                 Tickets Recientes
             </h3>
@@ -37,30 +37,30 @@
             <ul class="divide-y divide-neutral-800 flex-1">
                 <li class="py-4 flex justify-between items-center transition-colors hover:bg-neutral-800/50 px-2 rounded-xl">
                     <span class="text-sm font-medium text-neutral-200">#1023 - Error en login</span>
-                    <app-status-badge status="IN_PROGRESS"></app-status-badge>
+                    <status-badge status="IN_PROGRESS"></status-badge>
                 </li>
                 <li class="py-4 flex justify-between items-center transition-colors hover:bg-neutral-800/50 px-2 rounded-xl">
                     <span class="text-sm font-medium text-neutral-200">#1024 - Nueva funcionalidad</span>
-                    <app-status-badge status="OPEN"></app-status-badge>
+                    <status-badge status="OPEN"></status-badge>
                 </li>
                 <li class="py-4 flex justify-between items-center transition-colors hover:bg-neutral-800/50 px-2 rounded-xl">
                     <span class="text-sm font-medium text-neutral-200">#1025 - Bug en dashboard</span>
-                    <app-status-badge status="RESOLVED"></app-status-badge>
+                    <status-badge status="RESOLVED"></status-badge>
                 </li>
                 <li class="py-4 flex justify-between items-center transition-colors hover:bg-neutral-800/50 px-2 rounded-xl">
                     <span class="text-sm font-medium text-neutral-200">#1026 - Error de conexión</span>
-                    <app-status-badge status="CLOSED"></app-status-badge>
+                    <status-badge status="CLOSED"></status-badge>
                 </li>
             </ul>
 
             <button routerLink="/tickets" 
-                class="mt-6 text-sm font-bold text-primary hover:text-white transition-colors flex items-center gap-2 self-start">
+                class="mt-6 text-sm font-bold text-primary hover:text-zinc-200 transition-colors flex items-center gap-2 self-start">
                 Ver todo el listado <i class="bi bi-arrow-right"></i>
             </button>
         </div>
 
         <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 md:p-8 flex flex-col shadow-none">
-            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <h3 class="text-lg font-bold text-zinc-200 mb-6 flex items-center gap-2">
                 <span class="w-1.5 h-6 bg-primary rounded-full"></span>
                 Tickets siendo atendidos
             </h3>
@@ -98,7 +98,7 @@
             </ul>
 
             <button routerLink="/tickets" 
-                class="mt-6 text-sm font-bold text-primary hover:text-white transition-colors flex items-center gap-2 self-start">
+                class="mt-6 text-sm font-bold text-primary hover:text-zinc-200 transition-colors flex items-center gap-2 self-start">
                 Gestionar asignaciones <i class="bi bi-arrow-right"></i>
             </button>
         </div>

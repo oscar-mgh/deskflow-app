@@ -25,9 +25,9 @@
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
     @for (kpi of [
-    { label: 'Total Tickets', val: totalTickets(), color: 'text-white' },
+    { label: 'Total Tickets', val: totalTickets(), color: 'text-zinc-200' },
     { label: 'SLA Global', val: slaCompliance() + '%', color: 'text-primary' },
-    { label: 'Resolución Promedio', val: avgResolutionTime(), color: 'text-white' },
+    { label: 'Resolución Promedio', val: avgResolutionTime(), color: 'text-zinc-200' },
     { label: 'Satisfacción', val: '4.8/5', color: 'text-lime-400' }
     ]; track kpi.label) {
     <div

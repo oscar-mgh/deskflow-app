@@ -16,13 +16,13 @@
 					<div class="form-control">
 						<label class="mb-2 block text-sm font-semibold text-neutral-400">Título</label>
 						<input type="text" formControlName="title" placeholder="Ej. Error al iniciar sesión"
-							class="w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
+							class="w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
 					</div>
 
 					<div class="form-control">
 						<label class="mb-2 block text-sm font-semibold text-neutral-400">Categoría</label>
 						<select formControlName="categoryName"
-							class="select w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
+							class="select w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
 							<option value="" class="text-zinc-200 font-regular bg-neutral-800">Seleccione una categoría
 							</option>
 							@for (category of categories(); track category.id) {
@@ -36,14 +36,14 @@
 				<div class="form-control">
 					<label class="mb-2 block text-sm font-semibold text-neutral-400">Descripción</label>
 					<textarea formControlName="description" rows="5" placeholder="Describe el problema o solicitud..."
-						class="w-full bg-neutral-800 border border-neutral-700 text-white p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none"></textarea>
+						class="w-full bg-neutral-800 border border-neutral-700 text-zinc-200 p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none"></textarea>
 				</div>
 
 				<div class="grid gap-6" [class]="this.isPremium() ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'">
 					<div class="form-control">
 						<label class="mb-2 block text-sm font-semibold text-neutral-400">Prioridad</label>
 						<select formControlName="priority"
-							class="select w-full bg-neutral-800 border border-neutral-700 text-white h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
+							class="select w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
 							<option value="" class="text-zinc-200 font-regular bg-neutral-800">Seleccione la prioridad
 							</option>
 							@if (this.isPremium()) {
@@ -64,7 +64,7 @@
 					<div class="form-control">
 						<label class="mb-2 block text-sm font-semibold text-neutral-400">Adjuntar Archivo</label>
 						<input type="file" (change)="onFileSelected($event)"
-							class="file-input bg-neutral-800 border border-neutral-700 text-white rounded-xl w-full h-12 text-sm" />
+							class="file-input bg-neutral-800 border border-neutral-700 text-zinc-200 rounded-xl w-full h-12 text-sm" />
 					</div>
 					}
 				</div>
@@ -94,12 +94,12 @@
 			<div class="space-y-4">
 				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
 					<span class="text-sm font-bold text-neutral-500">Título:</span>
-					<span class="text-sm font-semibold text-white">{{ ticket()?.title }}</span>
+					<span class="text-sm font-semibold text-zinc-200">{{ ticket()?.title }}</span>
 				</div>
 
 				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
 					<span class="text-sm font-bold text-neutral-500">Fecha de creación:</span>
-					<span class="text-sm font-semibold text-white">{{ ticket()?.createdAt | date:'mediumDate' }}</span>
+					<span class="text-sm font-semibold text-zinc-200">{{ ticket()?.createdAt | date:'mediumDate' }}</span>
 				</div>
 
 				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
@@ -109,13 +109,13 @@
 
 				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
 					<span class="text-sm font-bold text-neutral-500">Prioridad:</span>
-					<span class="text-sm font-semibold text-white">{{ ticket()?.priority! | priority }}</span>
+					<span class="text-sm font-semibold text-zinc-200">{{ ticket()?.priority! | priority }}</span>
 				</div>
 
 				<div
 					class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1 items-start md:items-center">
 					<span class="text-sm font-bold text-neutral-500">Estado actual:</span>
-					<app-status-badge [status]="ticket()?.status!"></app-status-badge>
+					<status-badge [status]="ticket()?.status!"></status-badge>
 				</div>
 
 				<div class="pt-4">
