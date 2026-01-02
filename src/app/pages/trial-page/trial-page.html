@@ -80,51 +80,35 @@
             </div>
         </div>
 
-        <div class="lg:col-span-5 flex flex-col">
-            <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-10 h-full flex flex-col justify-center">
-
-                <div class="flex items-center gap-4 mb-8">
-                    <div
-                        class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
-                        <i class="bi bi-gem text-primary text-xl"></i>
+        <div class="lg:col-span-4 flex flex-col">
+            <div class="bg-neutral-900 border border-neutral-800 rounded-3xl p-8 h-full flex flex-col">
+                <div class="flex flex-col items-center text-center mb-8">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center border border-primary/30 mb-4 shadow-inner">
+                        <i class="bi bi-gem text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-zinc-200 tracking-tight">DeskFlow <span
-                            class="text-primary">Premium</span></h3>
+                    <h3 class="text-2xl font-black text-zinc-100">DeskFlow <span class="text-primary">Premium</span></h3>
+                    <p class="text-neutral-500 text-sm mt-2 font-medium">Lleva tu gestión al siguiente nivel.</p>
                 </div>
 
-                <div class="space-y-4 mb-10 text-neutral-400 text-sm font-medium">
-                    <div class="flex items-start gap-3">
-                        <i class="bi bi-patch-check-fill text-primary"></i>
-                        <p>SLAs de respuesta en 15 minutos.</p>
+                <div class="flex-1 space-y-5 mb-8">
+                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-neutral-800/20 border border-neutral-800/50">
+                        <i class="bi bi-lightning-charge-fill text-primary"></i>
+                        <p class="text-xs font-bold text-neutral-300">Respuesta en 20 min.</p>
                     </div>
-                    <div class="flex items-start gap-3">
-                        <i class="bi bi-patch-check-fill text-primary"></i>
-                        <p>Gestión de archivos ilimitada.</p>
+                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-neutral-800/20 border border-neutral-800/50">
+                        <i class="bi bi-cloud-arrow-up-fill text-primary"></i>
+                        <p class="text-xs font-bold text-neutral-300">Archivos ilimitados.</p>
                     </div>
-                    <div class="flex items-start gap-3">
-                        <i class="bi bi-patch-check-fill text-primary"></i>
-                        <p>Reportes de rendimiento avanzado.</p>
+                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-neutral-800/20 border border-neutral-800/50">
+                        <i class="bi bi-graph-up-arrow text-primary"></i>
+                        <p class="text-xs font-bold text-neutral-300">Analytics avanzados.</p>
                     </div>
                 </div>
 
-                <div class="space-y-4">
-                    <button routerLink="/discover-premium"
-                        class="btn btn-primary h-12 text-base rounded-xl font-bold hover:bg-primary/70 transition-colors w-full border-none shadow-none">
-                        Obtener Premium
-                    </button>
-
-                    <div class="flex items-center gap-3 py-1">
-                        <div class="h-px bg-neutral-800 flex-1"></div>
-                        <span class="text-[10px] text-neutral-600 font-bold uppercase tracking-widest">O acceso
-                            rápido</span>
-                        <div class="h-px bg-neutral-800 flex-1"></div>
-                    </div>
-
-                    <button routerLink="/auth/login"
-                        class="btn border border-zinc-600 text-zinc-200 h-12 text-base rounded-xl font-bold hover:bg-zinc-800 transition-colors w-full bg-transparent shadow-none flex items-center justify-center gap-2">
-                        <i class="bi bi-google"></i> Continuar con Google
-                    </button>
-                </div>
+                <button routerLink="/discover-premium"
+                    class="btn bg-zinc-100 hover:bg-zinc-300 text-zinc-900 h-12 rounded-xl font-bold border-none transition-all">
+                    Más sobre premium
+                </button>
             </div>
         </div>
     </div>
@@ -145,7 +129,7 @@
                     minutos</span>.
             </p>
             <div class="w-full">
-                <button routerLink="/auth/register"
+                <button routerLink="/discover-premium"
                     class="btn btn-primary text-zinc-900 h-12 text-base rounded-xl font-bold hover:bg-primary/70 transition-colors w-full border-none shadow-none">
                     Obtener DeskFlow Premium
                 </button>
