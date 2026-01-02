@@ -38,7 +38,7 @@
   --depth: 1;
   --noise: 0;
 
-  --font-sans: "Source Sans 3", ui-sans-serif, system-ui;
+  --font-sans: 'Source Sans 3', ui-sans-serif, system-ui;
 }
 
 :root {
@@ -88,4 +88,8 @@ html {
     opacity: 0;
     transform: translateY(0px);
   }
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
 }
