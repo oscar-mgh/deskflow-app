@@ -114,7 +114,7 @@ export class ReportPage implements OnInit, OnDestroy {
     return {
       backgroundColor: 'transparent',
       xAxis: { type: 'value', splitLine: { show: false } },
-      yAxis: { type: 'category', data: ['IT', 'RRHH', 'Ventas', 'Legal'] },
+      yAxis: { type: 'category', data: ['Seguridad', 'Rendimiento', 'Interfaz', 'Funcionalidad'] },
       series: [
         {
           type: 'bar',

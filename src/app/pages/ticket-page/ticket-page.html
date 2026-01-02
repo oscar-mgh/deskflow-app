@@ -1,6 +1,13 @@
+@if (loading()) {
+<div
+	class="min-h-screen flex items-center justify-center bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 pb-10 overflow-y-auto fade">
+	<loading></loading>
+</div>
+} @else {
+
 @if (!id()) {
 <section
-	class="min-h-screen bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center">
+	class="min-h-screen bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
 	<div class="w-full max-w-3xl">
 		<header class="text-center md:text-left mb-8">
 			<h1 class="text-4xl font-bold tracking-tight">
@@ -21,12 +28,12 @@
 
 					<div class="form-control">
 						<label class="mb-2 block text-sm font-semibold text-neutral-400">Categoría</label>
-						<select formControlName="categoryName"
-							class="select w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
+						<select formControlName="categoryId"
+							class="select w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl transition-colors">
 							<option value="" class="text-zinc-200 font-regular bg-neutral-800">Seleccione una categoría
 							</option>
 							@for (category of categories(); track category.id) {
-							<option [value]="category.name" class="text-zinc-200 font-regular bg-neutral-800">{{
+							<option [value]="category.id" class="text-zinc-200 font-regular bg-neutral-800">{{
 								category.name }}</option>
 							}
 						</select>
@@ -99,7 +106,8 @@
 
 				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
 					<span class="text-sm font-bold text-neutral-500">Fecha de creación:</span>
-					<span class="text-sm font-semibold text-zinc-200">{{ ticket()?.createdAt | date:'mediumDate' }}</span>
+					<span class="text-sm font-semibold text-zinc-200">{{ ticket()?.createdAt | date:'mediumDate'
+						}}</span>
 				</div>
 
 				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
@@ -132,10 +140,12 @@
 
 		<div class="mt-8 flex justify-center md:justify-start">
 			<button routerLink="/dashboard/tickets"
-				class="text-sm font-bold text-neutral-500 hover:text-primary transition-colors flex items-center gap-2">
+				class="text-sm font-bold text-neutral-500 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
 				<i class="bi bi-arrow-left"></i> Volver a mis tickets
 			</button>
 		</div>
 	</div>
 </section>
+}
+
 }

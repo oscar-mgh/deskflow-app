@@ -1,12 +1,18 @@
-<section class="h-full bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 pb-10 overflow-y-auto">
-    <div class="mt-6 max-w-[1600px] mx-auto">
+@if (loading()) {
+    <div class="min-h-screen flex items-center justify-center bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 pb-10 overflow-y-auto fade">
+        <loading></loading>
+    </div>
+} @else {
+
+<section class="h-full bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 pb-10 overflow-y-auto fade">
+    <div class="mt-6 max-w-400 mx-auto">
         <header class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
             <div>
-                <h1 class="text-3xl font-bold tracking-tight">
+                <h1 class="text-4xl font-bold tracking-tight">
                     Mis <span class="text-primary">Tickets</span>
                 </h1>
                 <p class="text-neutral-500 text-sm mt-1">
-                    Gestionando {{ tickets().length }} de {{ paginationData()?.totalElements || 0 }} tickets
+                    Actualmente tienes {{ paginationData()?.totalElements || 0 }} tickets
                 </p>
             </div>
 
@@ -22,8 +28,8 @@
             <div class="overflow-x-auto">
                 <div class="min-w-225">
                     <div
-                        class="grid grid-cols-12 gap-4 px-6 py-4 bg-neutral-800/50 border-b border-neutral-700 text-neutral-400 text-[12px]  tracking-wider font-bold">
-                        <div class="col-span-5">Asunto e ID</div>
+                        class="grid grid-cols-12 gap-4 px-6 py-4 bg-neutral-800/50 border-b border-neutral-700 text-neutral-400 text-xs font-bold">
+                        <div class="col-span-5">Informacion de la incidencia</div>
                         <div class="col-span-2 text-center">Categoría</div>
                         <div class="col-span-2 text-center">Prioridad</div>
                         <div class="col-span-2 text-center">Estado</div>
@@ -34,14 +40,13 @@
                         @for (ticket of tickets(); track ticket.id) {
                         <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-neutral-800/40 transition-all cursor-pointer group"
                             (click)="openTicket(ticket.id)">
-
                             <div class="col-span-5 flex flex-col">
                                 <span
                                     class="font-bold text-zinc-200 text-sm truncate group-hover:text-primary transition-colors">
                                     {{ ticket.title }}
                                 </span>
                                 <span class="text-[11px] text-neutral-500 flex items-center gap-2">
-                                    <span class="text-neutral-600 font-mono">#{{ ticket.id.toString().slice(-6)
+                                    <span class="text-neutral-600 font-mono">#{{ ticket.code
                                         }}</span>
                                     <span class="w-1.5 h-1.5 rounded-full bg-neutral-800"></span>
                                     {{ ticket.createdAt | date:'mediumDate' }}
@@ -81,7 +86,7 @@
 
                 <div class="flex items-center gap-3">
                     <button [disabled]="currentPage() === 0" (click)="goToPage(currentPage() - 1)"
-                        class="p-2.5 bg-neutral-800 border border-neutral-700 text-neutral-400 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed rounded-xl transition-all">
+                        class="p-2.5 bg-neutral-800 border border-neutral-700 text-neutral-400 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed rounded-xl transition-all cursor-pointer">
                         <i class="bi bi-chevron-left"></i>
                     </button>
 
@@ -89,7 +94,7 @@
 
                     <button [disabled]="currentPage() === (paginationData()?.totalPages ?? 1) - 1"
                         (click)="goToPage(currentPage() + 1)"
-                        class="p-2.5 bg-neutral-800 border border-neutral-700 text-neutral-400 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed rounded-xl transition-all">
+                        class="p-2.5 bg-neutral-800 border border-neutral-700 text-neutral-400 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed rounded-xl transition-all cursor-pointer">
                         <i class="bi bi-chevron-right"></i>
                     </button>
                 </div>
@@ -97,10 +102,11 @@
         </div>
         } @else {
         <div
-            class="flex flex-col items-center justify-center py-32 text-neutral-500 bg-neutral-900/30 border border-dashed border-neutral-800 rounded-3xl">
+            class="min-h-[calc(100vh-10rem)] flex flex-col items-center justify-center py-32 text-neutral-500 bg-neutral-900/30 border border-dashed border-neutral-800 rounded-3xl">
             <i class="bi bi-ticket-detailed text-5xl mb-4 opacity-10"></i>
             <p class="text-lg font-bold">No hay tickets disponibles</p>
         </div>
         }
     </div>
 </section>
+}

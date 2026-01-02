@@ -1,5 +1,6 @@
 export interface Ticket {
-  id: string;
+  id: string;  
+  code: string;
   title: string;
   description: string;
   categoryName: string;

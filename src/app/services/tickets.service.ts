@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ticket, TicketPagination } from '../models/ticket.model';
 import { ApiService } from './api.service';
@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class TicketsService {
-  public getTicketsPaginated(page: number = 1, size: number = 4): Observable<TicketPagination> {
+  public getTicketsPaginated(page: number = 1, size: number = 9): Observable<TicketPagination> {
     return this._http.get<TicketPagination>(
       this._api.endpoint(`/tickets?page=${page}&size=${size}`),
       {
@@ -44,6 +44,28 @@ export class TicketsService {
 
   public deleteTicket(id: string): Observable<void> {
     return this._http.delete<void>(this._api.endpoint(`/tickets/${id}`), {
+      headers: { Authorization: `Bearer ${this._authService.getToken()}` },
+    });
+  }
+
+  public getFiles(id: string): Observable<File[]> {
+    return this._http.get<File[]>(this._api.endpoint(`/tickets/${id}/files`), {
+      headers: { Authorization: `Bearer ${this._authService.getToken()}` },
+    });
+  }
+
+  public newFile(id: string, file: File): Observable<File> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this._http.post<File>(this._api.endpoint(`/tickets/${id}/files`), formData, {
+      headers: {
+        Authorization: `Bearer ${this._authService.getToken()}`,
+      },
+    });
+  }
+
+  public deleteFile(id: string): Observable<void> {
+    return this._http.delete<void>(this._api.endpoint(`/tickets/${id}/files`), {
       headers: { Authorization: `Bearer ${this._authService.getToken()}` },
     });
   }

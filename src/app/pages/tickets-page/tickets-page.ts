@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
-import { Component, computed, OnInit, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { Loading } from '../../components/loading/loading';
 import { PriorityBadge } from '../../components/priority-badge/priority-badge';
 import { StatusBadge } from '../../components/status-badge/status-badge';
 import { Ticket, TicketPagination } from '../../models/ticket.model';
@@ -8,33 +9,40 @@ import { TicketsService } from '../../services/tickets.service';
 
 @Component({
   selector: 'app-tickets-page',
-  imports: [DatePipe, RouterLink, PriorityBadge, StatusBadge],
+  imports: [DatePipe, RouterLink, PriorityBadge, StatusBadge, Loading],
   templateUrl: './tickets-page.html',
 })
 export class TicketsPage implements OnInit {
-  tickets = signal<Ticket[]>([]);
-  paginationData = signal<TicketPagination | null>(null);
-  currentPage = signal<number>(0);
-  pageSize = 8;
+  public tickets = signal<Ticket[]>([]);
+  public paginationData = signal<TicketPagination | null>(null);
+  public currentPage = signal<number>(0);
+  public pageSize = 9;
+  public loading = signal<boolean>(false);
 
-  constructor(private _ticketsService: TicketsService) {}
+  constructor(private _ticketsService: TicketsService, private _router: Router) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loadTickets(0);
   }
 
-  loadTickets(page: number) {
+  public loadTickets(page: number) {
+    this.loading.set(true);
     this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
       next: (response) => {
+        console.log(response);
         this.tickets.set(response.content);
         this.paginationData.set(response);
         this.currentPage.set(page);
+        this.loading.set(false);
       },
-      error: (err) => console.error('Error cargando tickets', err),
+      error: (err) => {
+        console.error('Error cargando tickets', err);
+        this.loading.set(false);
+      },
     });
   }
 
-  goToPage(page: number): void {
+  public goToPage(page: number): void {
     if (
       page < 0 ||
       (this.paginationData()?.totalPages && page >= this.paginationData()!.totalPages!)
@@ -44,11 +52,11 @@ export class TicketsPage implements OnInit {
     this.loadTickets(page);
   }
 
-  openTicket(id: string) {
-    console.log(id);
+  public openTicket(id: string) {
+    this._router.navigate(['/dashboard/ticket', id]);
   }
 
-  changePage(delta: number) {
+  public changePage(delta: number) {
     const nextPage = (this.paginationData()?.page ?? 0) + delta;
     this.loadTickets(nextPage);
   }

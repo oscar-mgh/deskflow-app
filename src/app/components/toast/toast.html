@@ -1,14 +1,14 @@
 @if (toastService.visible()) {
 <div class="toast fixed bottom-6 right-6 z-50">
-  <div class="alert shadow-lg flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-200" [ngClass]="{
-        'alert-primary': toastService.type() === 'primary',
-        'alert-success': toastService.type() === 'success',
-        'alert-error': toastService.type() === 'error',
-        'alert-warning': toastService.type() === 'warning',
-        'alert-info': toastService.type() === 'info'
+  <div class="alert shadow-lg flex items-center gap-3 px-4 py-3 rounded-lg" [ngClass]="{
+        'alert-primary text-zinc-900': toastService.type() === 'primary',
+        'alert-success text-zinc-900': toastService.type() === 'success',
+        'alert-error text-zinc-100': toastService.type() === 'error',
+        'alert-warning text-zinc-900': toastService.type() === 'warning',
+        'alert-info text-zinc-900': toastService.type() === 'info'
       }">
-    <span class="text-sm">{{ toastService.message() }}</span>
-    <button class="btn btn-xs btn-ghost ml-auto text-zinc-200 border-none" (click)="toastService.close()">✕</button>
+    <span class="font-medium">{{ toastService.message() }}</span>
+    <button class="btn btn-xs btn-ghost ml-auto border-none" (click)="toastService.close()">✕</button>
   </div>
 </div>
 }
