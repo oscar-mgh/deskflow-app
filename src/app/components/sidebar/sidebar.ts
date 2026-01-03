@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, LOCALE_ID } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ConfigService } from '../../services/theme.service';
@@ -7,12 +7,15 @@ declare var $localize: any;
 
 @Component({
   selector: 'app-sidebar',
+  standalone: true,
   imports: [RouterLink, RouterLinkActive],
   providers: [ConfigService],
   templateUrl: './sidebar.html',
 })
 export class Sidebar {
   public config = inject(ConfigService);
+  public currentLocale = inject(LOCALE_ID);
+
   menuItems = [
     {
       link: '/dashboard',
@@ -46,6 +49,16 @@ export class Sidebar {
   public isAdmin = computed<boolean>(() => this.userRole() === 'ADMIN');
 
   constructor(private _authService: AuthService, private router: Router) {}
+
+  switchLanguage() {
+    const currentLang = this.currentLocale.substring(0, 2);
+    const nextLang = currentLang === 'es' ? 'en' : 'es';
+    const path = window.location.pathname;
+    const pathWithoutLang = path.replace(`/${currentLang}`, '');
+    const newPath = `/${nextLang}${pathWithoutLang}`.replace(/\/+/g, '/');
+
+    window.location.href = newPath;
+  }
 
   logout(): void {
     this._authService.clearToken();
