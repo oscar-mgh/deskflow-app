@@ -4,14 +4,13 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { FormError } from '../../components/form-error/form-error';
-import { ThemeLangBtns } from '../../components/theme-lang-btns/theme-lang-btns';
 import { RegisterRequest } from '../../models/auth.model';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-register-page',
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormError, ThemeLangBtns],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormError],
   templateUrl: './register-page.html',
 })
 export class RegisterPage {

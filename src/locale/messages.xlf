@@ -69,147 +69,147 @@
         <source>Panel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.newTicket" datatype="html">
         <source>Nuevo Ticket</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.myTickets" datatype="html">
         <source>Mis Tickets</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.stats" datatype="html">
         <source>Estadísticas</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.profile" datatype="html">
         <source>Mi Perfil</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.title" datatype="html">
         <source>Panel de Administración</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">10,11</context>
+          <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.subtitle" datatype="html">
         <source>Supervisión global de infraestructura y recursos humanos.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">12,15</context>
+          <context context-type="linenumber">8,11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.btn_settings" datatype="html">
         <source>Configuración</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">18,19</context>
+          <context context-type="linenumber">14,15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.btn_export" datatype="html">
         <source>Exportar Auditoría</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">21,23</context>
+          <context context-type="linenumber">17,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.agents_performance" datatype="html">
         <source>Rendimiento de Agentes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">46,49</context>
+          <context context-type="linenumber">42,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.table_agent" datatype="html">
         <source>Agente</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">53,54</context>
+          <context context-type="linenumber">49,50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.table_status" datatype="html">
         <source>Estado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">54,55</context>
+          <context context-type="linenumber">50,51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.table_workload" datatype="html">
         <source>Carga de Trabajo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">55,56</context>
+          <context context-type="linenumber">51,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.table_action" datatype="html">
         <source>Acción</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">56,57</context>
+          <context context-type="linenumber">52,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.btn_details" datatype="html">
         <source>Detalles</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">89,90</context>
+          <context context-type="linenumber">85,86</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.logs_title" datatype="html">
         <source>Logs de Seguridad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">101,102</context>
+          <context context-type="linenumber">97,98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.logs_desc" datatype="html">
         <source>Revisa intentos de login y accesos inusuales.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">102,103</context>
+          <context context-type="linenumber">98,99</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.btn_open_logs" datatype="html">
         <source>Abrir Logs</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">104,107</context>
+          <context context-type="linenumber">100,103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.api_status" datatype="html">
         <source>Estado de API</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">109,110</context>
+          <context context-type="linenumber">105,106</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.database" datatype="html">
         <source>Base de Datos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">114,115</context>
+          <context context-type="linenumber">110,111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.online" datatype="html">
         <source>Online</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
-          <context context-type="linenumber">123,124</context>
+          <context context-type="linenumber">119,120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.agent_title" datatype="html">
@@ -1186,28 +1186,28 @@
         <source>¡Se creó el ticket!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
-          <context context-type="linenumber">116</context>
+          <context context-type="linenumber">114</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ticket.create.error" datatype="html">
         <source>Error al crear el ticket</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
-          <context context-type="linenumber">121</context>
+          <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ticket.edit.success" datatype="html">
         <source>Ticket editado correctamente</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
-          <context context-type="linenumber">137</context>
+          <context context-type="linenumber">136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ticket.edit.error" datatype="html">
         <source>Error al editar el ticket</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
-          <context context-type="linenumber">143</context>
+          <context context-type="linenumber">142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tickets.list.title" datatype="html">
@@ -1594,6 +1594,48 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipes/status.pipe.ts</context>
           <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.error.badRequest" datatype="html">
+        <source>Algo salió mal, verifica que los datos ingresados sean válidos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth.service.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.error.unauthorized" datatype="html">
+        <source>Credenciales inválidas, verifica tu correo y contraseña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth.service.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.error.notFound" datatype="html">
+        <source>Usuario no encontrado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth.service.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.error.conflict" datatype="html">
+        <source>El correo electrónico ya está registrado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth.service.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.error.noServer" datatype="html">
+        <source>No se pudo conectar con el servidor</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth.service.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.error.unexpected" datatype="html">
+        <source>Ocurrió un error inesperado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth.service.ts</context>
+          <context context-type="linenumber">92</context>
         </context-group>
       </trans-unit>
     </body>

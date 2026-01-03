@@ -79,17 +79,17 @@ export class AuthService {
   public handleAuthError(err: HttpErrorResponse): string {
     switch (err.status) {
       case 400:
-        return 'Algo salió mal, verifica que los datos ingresados sean validos';
+        return $localize`:@@auth.error.badRequest:Algo salió mal, verifica que los datos ingresados sean válidos`;
       case 401:
-        return 'Credenciales inválidas, verifica tu correo y contraseña';
+        return $localize`:@@auth.error.unauthorized:Credenciales inválidas, verifica tu correo y contraseña`;
       case 404:
-        return 'Usuario no encontrado';
+        return $localize`:@@auth.error.notFound:Usuario no encontrado`;
       case 409:
-        return 'El correo electrónico ya está registrado';
+        return $localize`:@@auth.error.conflict:El correo electrónico ya está registrado`;
       case 0:
-        return 'No se pudo conectar con el servidor';
+        return $localize`:@@auth.error.noServer:No se pudo conectar con el servidor`;
       default:
-        return 'Ocurrió un error inesperado';
+        return $localize`:@@auth.error.unexpected:Ocurrió un error inesperado`;
     }
   }
 }

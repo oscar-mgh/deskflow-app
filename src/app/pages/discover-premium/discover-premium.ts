@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ThemeLangBtns } from '../../components/theme-lang-btns/theme-lang-btns';
 
 @Component({
   selector: 'app-discover-premium',
-  imports: [RouterLink, ThemeLangBtns],
+  imports: [RouterLink],
   templateUrl: './discover-premium.html',
 })
 export class DiscoverPremium {
