@@ -2,7 +2,7 @@ import { DatePipe, TitleCasePipe } from '@angular/common';
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { of, switchMap } from 'rxjs';
+import { finalize, of, switchMap } from 'rxjs';
 import { Loading } from '../../components/loading/loading';
 import { StatusBadge } from '../../components/status-badge/status-badge';
 import { Category } from '../../models/category.model';
@@ -85,38 +85,35 @@ export class TicketPage implements OnInit {
     });
   }
 
-  public onFileSelected(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    const file: File = (target.files as FileList)[0];
-    this.ticketForm.patchValue({
-      file: file,
-    });
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.ticketForm.patchValue({ file });
+    }
   }
 
   private _postTicketOptionalFile(): void {
     this.loading.set(true);
+    const fileToUpload = this.ticketForm.get('file')?.value;
+
     this._ticketsService
       .newTicket(this.ticketForm.value)
       .pipe(
         switchMap((ticket) => {
-          if (this.ticketForm.get('file')?.value) {
-            return this._ticketsService.newFile(ticket.id.toString(), this.ticketForm.get('file')?.value);
+          if (fileToUpload instanceof File) {
+            return this._ticketsService.newFile(ticket.id.toString(), fileToUpload);
           }
-          return of(ticket);
-        })
+          return of(null);
+        }),
+        finalize(() => this.loading.set(false))
       )
       .subscribe({
         next: () => {
-          this.ticketForm.reset();
-          this._toastService.show('Ticket creado correctamente', 'success');
+          this._toastService.show('Ticket procesado', 'success');
           this._router.navigate(['/dashboard/tickets']);
         },
-        error: (error) => {
-          console.error(error);
-          this._toastService.show(error.error.message, 'error');
-        },
-        complete: () => {
-          this.loading.set(false);
+        error: (err) => {
+          this._toastService.show(err.error?.message || 'Error', 'error');
         },
       });
   }
