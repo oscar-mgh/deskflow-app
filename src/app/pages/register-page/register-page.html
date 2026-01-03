@@ -1,54 +1,60 @@
-<section class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-12 overflow-hidden">
+<section class="relative w-full min-h-screen bg-base-100 flex flex-col justify-center items-center text-center px-6 py-12 overflow-hidden fade">
 
   <div class="mb-10 relative z-10 text-center">
     <h1 routerLink="/" class="text-5xl font-bold text-base-content tracking-tighter cursor-pointer group">
       Desk<span class="text-primary group-hover:brightness-110 transition-all">Flow</span>
     </h1>
-    <p class="text-base-content/70 font-medium mt-3">Crea tu infraestructura de soporte hoy mismo</p>
+    <p class="text-base-content/70 font-medium mt-3" i18n="@@register.hero_subtitle">
+      Crea tu infraestructura de soporte hoy mismo
+    </p>
   </div>
 
   <div class="w-full max-w-lg bg-base-200 border border-base-content/10 p-10 md:p-12 rounded-2xl relative z-10 shadow-none">
 
     <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold text-base-content tracking-tight">Registro</h2>
+      <h2 class="text-3xl font-bold text-base-content tracking-tight" i18n="@@register.title">Registro</h2>
     </div>
 
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="space-y-6">
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
         <div class="form-control">
-          <label class="px-1 mb-2 block text-sm font-semibold text-base-content/80">
+          <label class="px-1 mb-2 block text-sm font-semibold text-base-content/80" i18n="@@register.label_name">
             Nombre completo
           </label>
           <input type="text" formControlName="fullName" placeholder="Juan Pérez"
+            i18n-placeholder="@@register.placeholder_name"
             class="w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
             [ngClass]="{'border-error/50 bg-error/5': registerForm.controls['fullName'].touched && registerForm.controls['fullName'].invalid}" />
           
           @if (registerForm.controls['fullName'].touched && registerForm.controls['fullName'].errors) {
             <div class="mt-2 px-1 text-sm text-error">
-              <app-form-error [control]="registerForm.controls['fullName']" label="El nombre"></app-form-error>
+              <app-form-error [control]="registerForm.controls['fullName']" 
+                label="El nombre" i18n-label="@@register.error_label_name"></app-form-error>
             </div>
           }
         </div>
 
         <div class="form-control">
-          <label class="px-1 mb-2 block text-sm font-semibold text-base-content/80">
+          <label class="px-1 mb-2 block text-sm font-semibold text-base-content/80" i18n="@@register.label_company">
             Empresa
           </label>
           <input type="text" formControlName="company" placeholder="Empresa S.A."
+            i18n-placeholder="@@register.placeholder_company"
             class="w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors"
             [ngClass]="{'border-error/50 bg-error/5': registerForm.controls['company'].touched && registerForm.controls['company'].invalid}" />
           
           @if (registerForm.controls['company'].touched && registerForm.controls['company'].errors) {
             <div class="mt-2 px-1 text-sm text-error">
-              <app-form-error [control]="registerForm.controls['company']" label="La empresa"></app-form-error>
+              <app-form-error [control]="registerForm.controls['company']" 
+                label="La empresa" i18n-label="@@register.error_label_company"></app-form-error>
             </div>
           }
         </div>
       </div>
 
       <div class="form-control text-left">
-        <label class="px-1 mb-2 block text-sm font-semibold text-base-content/80">
+        <label class="px-1 mb-2 block text-sm font-semibold text-base-content/80" i18n="@@register.label_email">
           Correo electrónico
         </label>
         <input type="email" formControlName="email" placeholder="email@example.com"
@@ -57,13 +63,14 @@
         
         @if (registerForm.controls['email'].touched && registerForm.controls['email'].errors) {
           <div class="mt-2 px-1 text-sm text-error">
-            <app-form-error [control]="registerForm.controls['email']" label="El correo"></app-form-error>
+            <app-form-error [control]="registerForm.controls['email']" 
+              label="El correo" i18n-label="@@register.error_label_email"></app-form-error>
           </div>
         }
       </div>
 
       <div class="form-control text-left">
-        <label class="px-1 mb-2 block text-sm font-semibold text-base-content/80">
+        <label class="px-1 mb-2 block text-sm font-semibold text-base-content/80" i18n="@@register.label_password">
           Contraseña
         </label>
         <div class="relative">
@@ -75,21 +82,23 @@
         
         @if (registerForm.controls['password'].touched && registerForm.controls['password'].errors) {
           <div class="mt-2 px-1 text-sm text-error">
-            <app-form-error [control]="registerForm.controls['password']" label="La contraseña"></app-form-error>
+            <app-form-error [control]="registerForm.controls['password']" 
+              label="La contraseña" i18n-label="@@register.error_label_password"></app-form-error>
           </div>
         }
       </div>
 
       <button type="submit"
         class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
-        [disabled]="registerForm.invalid">
+        [disabled]="registerForm.invalid"
+        i18n="@@register.btn_submit">
         Crear Cuenta
       </button>
     </form>
 
   </div>
 
-  <p class="mt-12 text-base-content/60 font-medium relative z-10">
+  <p class="mt-12 text-base-content/60 font-medium relative z-10" i18n="@@register.login_prompt">
     ¿Ya eres parte de la red?
     <a routerLink="/auth/login"
       class="text-primary font-bold hover:underline underline-offset-8 ml-1 transition-all">

@@ -5,11 +5,13 @@
     Desk<span class="text-primary">Flow</span>
   </h1>
 
-  <h2 class="text-xl md:text-2xl font-semibold text-base-content/90 mb-6 max-w-2xl">
+  <h2 class="text-xl md:text-2xl font-semibold text-base-content/90 mb-6 max-w-2xl" 
+      i18n="@@home.hero_subtitle">
     Respuestas claras en <span class="text-primary italic">tiempo récord</span>
   </h2>
 
-  <p class="text-base text-base-content/70 leading-relaxed mb-12 max-w-xl">
+  <p class="text-base text-base-content/70 leading-relaxed mb-12 max-w-xl" 
+     i18n="@@home.hero_description">
     Gestiona, asigna y resuelve incidencias con una plataforma diseñada para
     <span class="text-base-content font-semibold">maximizar la velocidad</span> y potenciar el trabajo en equipo.
   </p>
@@ -17,17 +19,19 @@
   <div class="flex flex-col sm:flex-row gap-6 mb-8 w-full justify-center items-center">
 
     <a routerLink="/trial"
+      i18n="@@home.btn_demo"
       class="px-8 btn btn-secondary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-secondary/60 transition-colors shadow hover:text-base-content/80 sm:w-auto">
       Probar Demo
     </a>
 
     <a routerLink="/auth/login"
+      i18n="@@home.btn_login"
       class="px-8 btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80 sm:w-auto">
       Iniciar sesión
     </a>
   </div>
 
-  <p class="text-base-content/60 text-sm">
+  <p class="text-base-content/60 text-sm" i18n="@@home.register_prompt">
     ¿Aún no tienes una cuenta?
     <a routerLink="/auth/register"
       class="text-primary font-semibold underline underline-offset-2 hover:brightness-110 ml-1">
@@ -38,7 +42,9 @@
   <a routerLink="/discover-premium"
     class="mt-16 flex items-center gap-3 px-6 py-3 rounded-xl border border-base-content/20 text-sm font-semibold text-base-content/80 hover:border-primary hover:text-primary transition-all">
     <span class="inline-block h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-    <span class="text-base">Explora el potencial de <strong class="text-primary">Premium</strong></span>
+    <span class="text-base" i18n="@@home.premium_banner">
+      Explora el potencial de <strong class="text-primary">Premium</strong>
+    </span>
     <i class="bi bi-arrow-right"></i>
   </a>
 

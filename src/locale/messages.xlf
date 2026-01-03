@@ -1,0 +1,1601 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="nav.admin" datatype="html">
+        <source> Administrador </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.theme" datatype="html">
+        <source>Tema</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.theme.dark" datatype="html">
+        <source>Oscuro</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">57,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.theme.light" datatype="html">
+        <source>Claro</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.lang" datatype="html">
+        <source>Idioma</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">71,72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.lang.es" datatype="html">
+        <source>Español</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">73,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.lang.en" datatype="html">
+        <source>English</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">75,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.user.label" datatype="html">
+        <source> Usuario</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">89,90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.logout" datatype="html">
+        <source> Cerrar sesión </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
+          <context context-type="linenumber">102,103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.dashboard" datatype="html">
+        <source>Panel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.newTicket" datatype="html">
+        <source>Nuevo Ticket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.myTickets" datatype="html">
+        <source>Mis Tickets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.stats" datatype="html">
+        <source>Estadísticas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.profile" datatype="html">
+        <source>Mi Perfil</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.title" datatype="html">
+        <source>Panel de Administración</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.subtitle" datatype="html">
+        <source>Supervisión global de infraestructura y recursos humanos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">12,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.btn_settings" datatype="html">
+        <source>Configuración</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.btn_export" datatype="html">
+        <source>Exportar Auditoría</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.agents_performance" datatype="html">
+        <source>Rendimiento de Agentes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">46,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.table_agent" datatype="html">
+        <source>Agente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.table_status" datatype="html">
+        <source>Estado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.table_workload" datatype="html">
+        <source>Carga de Trabajo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.table_action" datatype="html">
+        <source>Acción</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.btn_details" datatype="html">
+        <source>Detalles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">89,90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.logs_title" datatype="html">
+        <source>Logs de Seguridad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">101,102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.logs_desc" datatype="html">
+        <source>Revisa intentos de login y accesos inusuales.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">102,103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.btn_open_logs" datatype="html">
+        <source>Abrir Logs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">104,107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.api_status" datatype="html">
+        <source>Estado de API</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">109,110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.database" datatype="html">
+        <source>Base de Datos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">114,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.online" datatype="html">
+        <source>Online</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
+          <context context-type="linenumber">123,124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.agent_title" datatype="html">
+        <source>¡Todo al día, equipo!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.agent_description" datatype="html">
+        <source> No tienes tickets pendientes de gestión en este momento. Has procesado todas tus solicitudes asignadas. Tómate un respiro o revisa el historial. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">18,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.label_status" datatype="html">
+        <source>Estatus</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.status_available" datatype="html">
+        <source>Disponible</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">27,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.label_pending" datatype="html">
+        <source>Pendientes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.btn_metrics" datatype="html">
+        <source>Ver mis métricas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.user_title" datatype="html">
+        <source>Nada por aquí</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">49,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.user_description" datatype="html">
+        <source> En <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary font-bold&quot;&gt;"/>DeskFlow<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>, nuestro objetivo es que nada te detenga. Si tienes un problema técnico, una duda o necesitas soporte especializado, estamos a un solo clic de distancia para darte la solución que necesitas. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">53,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.user_hint" datatype="html">
+        <source> Recuerda que en cualquier momento puedes crear tus tickets desde el menú lateral </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">60,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.btn_create_first" datatype="html">
+        <source>Crear mi primer ticket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">66,68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.feature_fast" datatype="html">
+        <source>Rápido</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">74,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.feature_secure" datatype="html">
+        <source>Seguro</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">78,80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.feature_support" datatype="html">
+        <source>Soporte 24/7</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">82,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.stats.open" datatype="html">
+        <source>Tickets Abiertos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.stats.progress" datatype="html">
+        <source>En Progreso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">14,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.stats.resolved" datatype="html">
+        <source>Resueltos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">20,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.stats.sla" datatype="html">
+        <source>SLA Vencidos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">26,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.actions.create_title" datatype="html">
+        <source>Crear nuevo ticket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.actions.btn_new" datatype="html">
+        <source> Nuevo Ticket </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.sla.title" datatype="html">
+        <source>SLA en Riesgo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.sla.due_time" datatype="html">
+        <source>Vence en 1h 22m</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.priority.urgent" datatype="html">
+        <source>Urgente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">50,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.common.view_all" datatype="html">
+        <source>Ver todos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.recent.title" datatype="html">
+        <source>Tickets Recientes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.attention.title" datatype="html">
+        <source>En Atención Ahora</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">77,78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.attention.tickets_count" datatype="html">
+        <source>tickets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">86,87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.attention.active_total" datatype="html">
+        <source>Tickets activos:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.user.open_tickets" datatype="html">
+        <source>Tus tickets abiertos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">105,108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.user.resolved_recent" datatype="html">
+        <source>Resueltos recientemente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">111,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.user.list_title" datatype="html">
+        <source>Tus tickets abiertos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">120,121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.user.opened_since" datatype="html">
+        <source>Abierto desde</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">128,129</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.help.title" datatype="html">
+        <source>¿Necesitas ayuda?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">145,146</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.help.description" datatype="html">
+        <source> ¿Tienes un problema o duda? Crea un nuevo ticket y nuestro equipo te responderá pronto. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">150,151</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.help.btn_create" datatype="html">
+        <source> Crear nuevo ticket </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">153,154</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.user.last_resolved_title" datatype="html">
+        <source>Últimos tickets resueltos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">159,160</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dash.user.resolved_date" datatype="html">
+        <source>Fecha y hora de resolución:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
+          <context context-type="linenumber">166,167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.title_accent" datatype="html">
+        <source>Premium</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.hero_description" datatype="html">
+        <source> Impulsa tu equipo al siguiente nivel con herramientas exclusivas diseñadas para <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-base-content font-semibold&quot;&gt;"/>rapidez, control y colaboración profesional.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">7,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.compare_title" datatype="html">
+        <source>Comparativa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.table.capacity" datatype="html">
+        <source>Capacidad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.plan.standard" datatype="html">
+        <source>Standard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.plan.premium" datatype="html">
+        <source>Premium</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">88,89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.table.tickets" datatype="html">
+        <source>Gestión de tickets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.table.attachments" datatype="html">
+        <source>Adjuntos multimedia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.table.analytics" datatype="html">
+        <source>Analítica de datos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.price_month" datatype="html">
+        <source>/ mes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">68,70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">90,92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.feature.unlimited_tickets" datatype="html">
+        <source>Tickets ilimitados</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">73,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.feature.basic_comments" datatype="html">
+        <source>Comentarios básicos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">77,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.btn.start_now" datatype="html">
+        <source> Empezar ahora </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">82,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.badge_popular" datatype="html">
+        <source>Más popular</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">87,88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.feature.everything_basic" datatype="html">
+        <source>Todo lo del plan básico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">95,97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.feature.multimedia" datatype="html">
+        <source>Adjuntos multimedia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">99,101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.feature.vip_support" datatype="html">
+        <source>Soporte 24/7 VIP</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">103,105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.btn.get_premium" datatype="html">
+        <source> Obtener Premium </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">108,109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="premium.back_home" datatype="html">
+        <source>← Volver al inicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
+          <context context-type="linenumber">114,116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.hero_subtitle" datatype="html">
+        <source> Respuestas claras en <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary italic&quot;&gt;"/>tiempo récord<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home-page/home-page.html</context>
+          <context context-type="linenumber">10,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.hero_description" datatype="html">
+        <source> Gestiona, asigna y resuelve incidencias con una plataforma diseñada para <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-base-content font-semibold&quot;&gt;"/>maximizar la velocidad<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> y potenciar el trabajo en equipo. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home-page/home-page.html</context>
+          <context context-type="linenumber">15,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.btn_demo" datatype="html">
+        <source> Probar Demo </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home-page/home-page.html</context>
+          <context context-type="linenumber">24,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.btn_login" datatype="html">
+        <source> Iniciar sesión </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home-page/home-page.html</context>
+          <context context-type="linenumber">30,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.register_prompt" datatype="html">
+        <source> ¿Aún no tienes una cuenta? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/auth/register&quot;
+      class=&quot;text-primary font-semibold underline underline-offset-2 hover:brightness-110 ml-1&quot;&gt;"/> Regístrate ahora <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home-page/home-page.html</context>
+          <context context-type="linenumber">35,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.premium_banner" datatype="html">
+        <source> Explora el potencial de <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-primary&quot;&gt;"/>Premium<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home-page/home-page.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.hero_subtitle" datatype="html">
+        <source>Accede a tu centro de control</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">8,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.title" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">15,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.label_email" datatype="html">
+        <source> Credencial de acceso </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.placeholder_email" datatype="html">
+        <source>email@example.com</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.error_label_email" datatype="html">
+        <source>El correo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.label_password" datatype="html">
+        <source> Contraseña </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.error_label_password" datatype="html">
+        <source>La contraseña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.forgot_password" datatype="html">
+        <source> ¿Olvidaste tu clave? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.btn_submit" datatype="html">
+        <source> Ingresar al Sistema </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">69,70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.register_prompt" datatype="html">
+        <source> ¿Eres nuevo en DeskFlow? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/auth/register&quot;
+            class=&quot;text-base-content font-bold hover:text-primary transition-colors underline underline-offset-8 ml-1&quot;&gt;"/> Crea una cuenta <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
+          <context context-type="linenumber">75,81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.title" datatype="html">
+        <source> Mi <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>Perfil<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.verified_badge" datatype="html">
+        <source> Cuenta Verificada </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.info_title" datatype="html">
+        <source>Información General</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.label_company" datatype="html">
+        <source>Empresa o Grupo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">49,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.unassigned" datatype="html">
+        <source>Sin asignar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.label_status" datatype="html">
+        <source>Estado de Cuenta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.status_active" datatype="html">
+        <source>Usuario Activo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.security_title" datatype="html">
+        <source>Seguridad y Acceso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">72,73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.perms_header" datatype="html">
+        <source>Permisos de Usuario</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">81,82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.perms_body" datatype="html">
+        <source> Tienes acceso a las herramientas de tickets y reportes de acuerdo a tu nivel de usuario. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.data_header" datatype="html">
+        <source>Protección de Datos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">93,94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.data_body" datatype="html">
+        <source> Tu información personal y profesional está encriptada y protegida bajo estándares de seguridad vigentes. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile-page/profile-page.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.hero_subtitle" datatype="html">
+        <source> Crea tu infraestructura de soporte hoy mismo </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">8,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.title" datatype="html">
+        <source>Registro</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">15,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.label_name" datatype="html">
+        <source> Nombre completo </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.placeholder_name" datatype="html">
+        <source>Juan Pérez</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.error_label_name" datatype="html">
+        <source>El nombre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.label_company" datatype="html">
+        <source> Empresa </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">40,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.placeholder_company" datatype="html">
+        <source>Empresa S.A.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.error_label_company" datatype="html">
+        <source>La empresa</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.label_email" datatype="html">
+        <source> Correo electrónico </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">58,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.error_label_email" datatype="html">
+        <source>El correo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.label_password" datatype="html">
+        <source> Contraseña </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">74,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.error_label_password" datatype="html">
+        <source>La contraseña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.btn_submit" datatype="html">
+        <source> Crear Cuenta </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">95,97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.login_prompt" datatype="html">
+        <source> ¿Ya eres parte de la red? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/auth/login&quot;
+      class=&quot;text-primary font-bold hover:underline underline-offset-8 ml-1 transition-all&quot;&gt;"/> Inicia sesión <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register-page/register-page.html</context>
+          <context context-type="linenumber">102,108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.title" datatype="html">
+        <source> Reportes - <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>SLA<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.subtitle" datatype="html">
+        <source> Panel analítico de rendimiento y cumplimiento de objetivos. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.filter_days" datatype="html">
+        <source> Últimos 30 días </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.btn_download" datatype="html">
+        <source> Descargar </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.chart_activity" datatype="html">
+        <source>Tendencia de Actividad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">47,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.chart_priority" datatype="html">
+        <source>Carga por Prioridad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.priority_critical" datatype="html">
+        <source>Crítico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.chart_sla_cat" datatype="html">
+        <source>SLA por Categoría</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">71,72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.chart_agents" datatype="html">
+        <source>Eficiencia Agentes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">78,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.chart_holistic" datatype="html">
+        <source>Métricas Holísticas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.create.title" datatype="html">
+        <source> Crear <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>Ticket<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.create.subtitle" datatype="html">
+        <source> Completa la información para recibir asistencia. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">17,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.label.title" datatype="html">
+        <source>Título</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">121,122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.placeholder.title" datatype="html">
+        <source>Ej. Error al iniciar sesión</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">122,123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.label.category" datatype="html">
+        <source>Categoría</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.select.category" datatype="html">
+        <source> Seleccione una categoría </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.label.description" datatype="html">
+        <source>Descripción</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">129,130</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.placeholder.description" datatype="html">
+        <source>Describe el problema o solicitud...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">131,132</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.label.priority" datatype="html">
+        <source>Prioridad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.select.priority" datatype="html">
+        <source> Seleccione la prioridad </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.label.file" datatype="html">
+        <source>Adjuntar Archivo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.btn.submit" datatype="html">
+        <source> Enviar Ticket </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">95,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.edit.title" datatype="html">
+        <source> Editar <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>Ticket<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">108,109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.edit.subtitle" datatype="html">
+        <source> Completa la información para recibir asistencia. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">111,113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.form.btn.save" datatype="html">
+        <source> Guardar Cambios </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">139,140</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.title" datatype="html">
+        <source> Detalle del <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>Ticket<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">151,152</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.subtitle" datatype="html">
+        <source>Información completa sobre la solicitud.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">153,155</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.label.title" datatype="html">
+        <source>Título:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">162,163</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.label.date" datatype="html">
+        <source>Fecha de creación:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">167,169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.label.category" datatype="html">
+        <source>Categoría:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">175,176</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.label.priority" datatype="html">
+        <source>Prioridad:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">181,182</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.label.status" datatype="html">
+        <source>Estado actual:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">188,189</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.label.description" datatype="html">
+        <source>Descripción detallada:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">194,195</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.btn.edit" datatype="html">
+        <source> Editar Ticket </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">207,208</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.label.file" datatype="html">
+        <source>Archivo adjunto:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">215,216</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.detail.btn.back" datatype="html">
+        <source>Volver a mis tickets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.html</context>
+          <context context-type="linenumber">230,232</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ticket.create.success" datatype="html">
+        <source>¡Se creó el ticket!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ticket.create.error" datatype="html">
+        <source>Error al crear el ticket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ticket.edit.success" datatype="html">
+        <source>Ticket editado correctamente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ticket.edit.error" datatype="html">
+        <source>Error al editar el ticket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.list.title" datatype="html">
+        <source> Mis <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>Tickets<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.list.count" datatype="html">
+        <source> Actualmente tienes <x id="ICU" equiv-text="{paginationData()?.totalElements, plural, =0 {0 tickets} =1 {1 ticket} other {{{paginationData()?.totalElements}} tickets}}" xid="3286607462816106821"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6585691709007731991" datatype="html">
+        <source>{VAR_PLURAL, plural, =0 {0 tickets} =1 {1 ticket} other {<x id="INTERPOLATION"/> tickets}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.list.btn.new" datatype="html">
+        <source>Nuevo ticket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.table.info" datatype="html">
+        <source>Información de la incidencia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.table.category" datatype="html">
+        <source>Categoría</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.table.priority" datatype="html">
+        <source>Prioridad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.table.status" datatype="html">
+        <source>Estado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.pagination.info" datatype="html">
+        <source> Página <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b class=&quot;text-base-content&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{ currentPage() + 1 }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> de <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b class=&quot;text-base-content&quot;&gt;"/><x id="INTERPOLATION_1" equiv-text="{{ paginationData()?.totalPages || 1 }}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">104,106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.empty.title" datatype="html">
+        <source>No hay tickets disponibles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">130,131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tickets.empty.subtitle" datatype="html">
+        <source>Crea uno nuevo para empezar el seguimiento</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/tickets-page/tickets-page.html</context>
+          <context context-type="linenumber">131,134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.hero.title" datatype="html">
+        <source> Tu soporte, evoluciona. <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/> Tú lideras.<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.hero.subtitle" datatype="html">
+        <source> Descubre la potencia de nuestra interfaz: envía un ticket de prueba y experimenta DeskFlow en acción. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.badge.mode" datatype="html">
+        <source>Simulation Mode</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.label.subject" datatype="html">
+        <source>Asunto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.placeholder.subject" datatype="html">
+        <source>Ej. Error en base de datos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.label.dept" datatype="html">
+        <source>Departamento</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.dept.tech" datatype="html">
+        <source>Soporte Técnico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.dept.infra" datatype="html">
+        <source>Infraestructura</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.dept.dev" datatype="html">
+        <source>Desarrollo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.label.desc" datatype="html">
+        <source>Descripción</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.placeholder.desc" datatype="html">
+        <source>Describe el problema...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.label.priority" datatype="html">
+        <source>Prioridad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.priority.low" datatype="html">
+        <source>Baja</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.priority.medium" datatype="html">
+        <source>Media</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">57,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.priority.high" datatype="html">
+        <source>Alta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.priority.critical" datatype="html">
+        <source>⭐ Crítica (Premium)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.label.attach" datatype="html">
+        <source>Adjuntos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.attach.locked" datatype="html">
+        <source>Bloqueado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">69,70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.form.btn.submit" datatype="html">
+        <source> Enviar Ticket de Prueba </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">77,78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.premium.subtitle" datatype="html">
+        <source>Lleva tu gestión al siguiente nivel.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">90,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.premium.feat1" datatype="html">
+        <source>Respuesta en 20 min.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">96,97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.premium.feat2" datatype="html">
+        <source>Archivos ilimitados.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">100,101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.premium.feat3" datatype="html">
+        <source>Analytics avanzados.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">104,105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.premium.btn" datatype="html">
+        <source> Más sobre premium </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">111,112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.modal.title" datatype="html">
+        <source>¡Solicitud Procesada!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">125,126</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.modal.body" datatype="html">
+        <source> En el entorno real, tu equipo recibiría una alerta inmediata. Con <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span
+                    class=&quot;text-primary font-bold&quot;&gt;"/>Premium<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>, tus incidencias críticas tienen un compromiso de respuesta de <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;text-base-content font-bold underline decoration-primary underline-offset-4&quot;&gt;"/>20 minutos<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">127,131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.modal.btn" datatype="html">
+        <source> Obtener DeskFlow Premium </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">136,137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sim.modal.close" datatype="html">
+        <source>close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">142,144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errors.required" datatype="html">
+        <source>Este campo es obligatorio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/form-validations.pipe.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errors.email" datatype="html">
+        <source>Ingresa un correo válido</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/form-validations.pipe.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errors.minlength" datatype="html">
+        <source>Se requieren al menos <x id="requiredLength" equiv-text="requiredLength"/> caracteres</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/form-validations.pipe.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priority.low" datatype="html">
+        <source>Baja</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priority.medium" datatype="html">
+        <source>Media</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priority.high" datatype="html">
+        <source>Alta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priority.critical" datatype="html">
+        <source>Crítica</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="role.guest" datatype="html">
+        <source>Invitado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/role.pipe.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="role.user" datatype="html">
+        <source>Usuario Estándar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/role.pipe.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="role.premium" datatype="html">
+        <source>Usuario Premium</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/role.pipe.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="role.agent" datatype="html">
+        <source>Agente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/role.pipe.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="role.admin" datatype="html">
+        <source>Administrador</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/role.pipe.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="status.open" datatype="html">
+        <source>Pendiente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/status.pipe.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="status.in_progress" datatype="html">
+        <source>En progreso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/status.pipe.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="status.closed" datatype="html">
+        <source>Cerrado o cancelado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/status.pipe.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="status.resolved" datatype="html">
+        <source>Resuelto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/status.pipe.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

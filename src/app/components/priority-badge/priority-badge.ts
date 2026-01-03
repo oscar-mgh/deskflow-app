@@ -1,8 +1,9 @@
 import { Component, input, signal } from '@angular/core';
+import { PriorityPipe } from "../../pipes/priority.pipe";
 
 @Component({
   selector: 'priority-badge',
-  imports: [],
+  imports: [PriorityPipe],
   templateUrl: './priority-badge.html',
 })
 export class PriorityBadge {

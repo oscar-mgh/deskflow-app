@@ -1,7 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject, signal } from '@angular/core';
+import { RolePipe } from '../../pipes/role.pipe';
 import { AuthService } from '../../services/auth.service';
-import { RolePipe } from "../../pipes/role.pipe";
 
 @Component({
   selector: 'app-profile-page',

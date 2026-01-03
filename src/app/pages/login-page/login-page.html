@@ -5,37 +5,39 @@
         <h1 routerLink="/" class="text-5xl font-bold text-base-content tracking-tighter cursor-pointer group">
             Desk<span class="text-primary group-hover:brightness-110 transition-all">Flow</span>
         </h1>
-        <p class="text-base-content/70 font-medium mt-3">Accede a tu centro de control</p>
+        <p class="text-base-content/70 font-medium mt-3" i18n="@@login.hero_subtitle">Accede a tu centro de control</p>
     </div>
 
     <div
         class="w-full max-w-md bg-base-200 border border-base-content/10 p-10 md:p-12 rounded-2xl relative z-10 shadow-none">
 
         <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold text-base-content tracking-tight">Login</h2>
+            <h2 class="text-3xl font-bold text-base-content tracking-tight" i18n="@@login.title">Login</h2>
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-6">
 
             <div class="form-control text-left">
-                <label class="px-1 mb-2 block text-sm font-semibold text-base-content">
+                <label class="px-1 mb-2 block text-sm font-semibold text-base-content" i18n="@@login.label_email">
                     Credencial de acceso
                 </label>
                 <div class="relative">
                     <input type="email" formControlName="email" placeholder="email@example.com"
+                        i18n-placeholder="@@login.placeholder_email"
                         class="w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 pl-12 rounded-xl focus:border-primary focus:outline-none transition-colors"
                         [ngClass]="{'border-error/50 bg-error/5': loginForm.controls['email'].touched && loginForm.controls['email'].invalid}" />
                     <i class="bi bi-envelope absolute left-4 top-1/2 -translate-y-1/2 text-base-content/50"></i>
                 </div>
                 @if (loginForm.controls['email'].touched && loginForm.controls['email'].errors) {
                 <div class="mt-2 px-1 text-sm text-error">
-                    <app-form-error [control]="loginForm.controls['email']" label="El correo"></app-form-error>
+                    <app-form-error [control]="loginForm.controls['email']" 
+                        label="El correo" i18n-label="@@login.error_label_email"></app-form-error>
                 </div>
                 }
             </div>
 
             <div class="form-control text-left">
-                <label class="px-1 mb-2 block text-sm font-semibold text-base-content">
+                <label class="px-1 mb-2 block text-sm font-semibold text-base-content" i18n="@@login.label_password">
                     Contraseña
                 </label>
                 <div class="relative">
@@ -47,11 +49,13 @@
 
                 @if (loginForm.controls['password'].touched && loginForm.controls['password'].errors) {
                 <div class="mt-2 px-1 text-sm text-error">
-                    <app-form-error [control]="loginForm.controls['password']" label="La contraseña"></app-form-error>
+                    <app-form-error [control]="loginForm.controls['password']" 
+                        label="La contraseña" i18n-label="@@login.error_label_password"></app-form-error>
                 </div>
                 }
                 <div class="flex justify-end mt-1 px-1">
-                    <a class="text-xs font-bold text-primary hover:text-base-content transition-colors cursor-pointer">
+                    <a class="text-xs font-bold text-primary hover:text-base-content transition-colors cursor-pointer" 
+                       i18n="@@login.forgot_password">
                         ¿Olvidaste tu clave?
                     </a>
                 </div>
@@ -60,13 +64,14 @@
 
             <button type="submit"
                 class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
-                [disabled]="loginForm.invalid">
+                [disabled]="loginForm.invalid"
+                i18n="@@login.btn_submit">
                 Ingresar al Sistema
             </button>
         </form>
     </div>
 
-    <p class="mt-10 text-base-content/60 font-medium relative z-10">
+    <p class="mt-10 text-base-content/60 font-medium relative z-10" i18n="@@login.register_prompt">
         ¿Eres nuevo en DeskFlow?
         <a routerLink="/auth/register"
             class="text-base-content font-bold hover:text-primary transition-colors underline underline-offset-8 ml-1">

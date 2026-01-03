@@ -1,8 +1,9 @@
 import { Component, input, signal } from '@angular/core';
+import { StatusPipe } from "../../pipes/status.pipe";
 
 @Component({
   selector: 'status-badge',
-  imports: [],
+  imports: [StatusPipe],
   templateUrl: './status-badge.html',
 })
 export class StatusBadge {

@@ -1,22 +1,22 @@
 @switch (status()) {
-@case ('OPEN') {
-<span [class]="styles() + ' bg-info/10 text-info '">
-	Pendiente
-</span>
-}
-@case ('IN_PROGRESS') {
-<span [class]="styles() + ' bg-warning/10 text-warning '">
-	En Progreso
-</span>
-}
-@case ('CLOSED') {
-<span [class]="styles() + ' bg-error/10 text-error '">
-	Cancelado
-</span>
-}
-@case ('RESOLVED') {
-<span [class]="styles() + ' bg-success/10 text-success '">
-	Resuelto
-</span>
-}
+  @case ('OPEN') {
+    <span [class]="styles() + ' bg-info/10 text-info '">
+      {{ status() | status }}
+    </span>
+  }
+  @case ('IN_PROGRESS') {
+    <span [class]="styles() + ' bg-warning/10 text-warning '">
+      {{ status() | status }}
+    </span>
+  }
+  @case ('CLOSED') {
+    <span [class]="styles() + ' bg-error/10 text-error '">
+      {{ status() | status }}
+    </span>
+  }
+  @case ('RESOLVED') {
+    <span [class]="styles() + ' bg-success/10 text-success '">
+      {{ status() | status }}
+    </span>
+  }
 }

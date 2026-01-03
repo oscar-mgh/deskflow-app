@@ -1,20 +1,22 @@
 @switch (priority()) {
-@case ('LOW') {
-<span [class]="styles() + ' bg-info/10 text-info '">
-	Bajo
-</span>
-}
-@case ('MEDIUM') {
-<span [class]="styles() + ' bg-warning/10 text-warning '">
-	Medio
-</span>
-}
-@case ('HIGH') {
-<span [class]="styles() + ' bg-error/10 text-error '">
-	Alto
-</span>
-}
-@case ('CRITICAL') {
-<span [class]="styles() + ' bg-error text-error-content '">Crítico</span>
-}
+  @case ('LOW') {
+    <span [class]="styles() + ' bg-info/10 text-info '">
+      {{ priority() | priority }}
+    </span>
+  }
+  @case ('MEDIUM') {
+    <span [class]="styles() + ' bg-warning/10 text-warning '">
+      {{ priority() | priority }}
+    </span>
+  }
+  @case ('HIGH') {
+    <span [class]="styles() + ' bg-error/10 text-error '">
+      {{ priority() | priority }}
+    </span>
+  }
+  @case ('CRITICAL') {
+    <span [class]="styles() + ' bg-error text-error-content '">
+      {{ priority() | priority }}
+    </span>
+  }
 }

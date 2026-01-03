@@ -8,13 +8,19 @@ export class PriorityPipe implements PipeTransform {
   transform(value: string): string {
     if (!value) return '';
 
-    const translations: { [key: string]: string } = {
-      LOW: 'Baja',
-      MEDIUM: 'Media',
-      HIGH: 'Alta',
-      CRITICAL: 'Crítica',
-    };
+    const val = value.toUpperCase();
 
-    return translations[value.toUpperCase()] || value;
+    switch (val) {
+      case 'LOW':
+        return $localize`:@@priority.low:Baja`;
+      case 'MEDIUM':
+        return $localize`:@@priority.medium:Media`;
+      case 'HIGH':
+        return $localize`:@@priority.high:Alta`;
+      case 'CRITICAL':
+        return $localize`:@@priority.critical:Crítica`;
+      default:
+        return value;
+    }
   }
 }

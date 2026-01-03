@@ -8,6 +8,7 @@ import { StatusBadge } from '../../components/status-badge/status-badge';
 import { Category } from '../../models/category.model';
 import { Comment, Ticket } from '../../models/ticket.model';
 import { PriorityPipe } from '../../pipes/priority.pipe';
+import { StatusPipe } from '../../pipes/status.pipe'; // <-- Importado
 import { AuthService } from '../../services/auth.service';
 import { CategoryService } from '../../services/category.service';
 import { TicketsService } from '../../services/tickets.service';
@@ -15,9 +16,11 @@ import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-ticket',
+  standalone: true,
   imports: [
     DatePipe,
     PriorityPipe,
+    StatusPipe,
     ReactiveFormsModule,
     RouterLink,
     StatusBadge,
@@ -77,7 +80,7 @@ export class TicketPage implements OnInit {
       categoryId: ['', [Validators.required]],
       priority: ['', [Validators.required]],
       status: [this.initialStatus()],
-      file: [File],
+      file: [null],
     });
 
     this._categoryService.getCategories().subscribe((data) => {
@@ -109,11 +112,14 @@ export class TicketPage implements OnInit {
       )
       .subscribe({
         next: () => {
-          this._toastService.show('Se creo el ticket!', 'success');
+          // Traducción con i18n
+          const msg = $localize`:@@ticket.create.success:¡Se creó el ticket!`;
+          this._toastService.show(msg, 'success');
           this._router.navigate(['/dashboard/tickets']);
         },
         error: (err) => {
-          this._toastService.show(err.error?.message || 'Error', 'error');
+          const errMsg = err.error?.message || $localize`:@@ticket.create.error:Error al crear el ticket`;
+          this._toastService.show(errMsg, 'error');
         },
       });
   }
@@ -124,19 +130,18 @@ export class TicketPage implements OnInit {
   }
 
   public onEdit(): void {
-    this.ticketForm.patchValue({
-      title: this.ticketForm.get('title')?.value,
-      description: this.ticketForm.get('description')?.value,
-    });
-
+    this.loading.set(true);
     this._ticketsService.updateTicket(this.id(), this.ticketForm.value).subscribe({
       next: () => {
-        this._toastService.show('Ticket editado correctamente', 'success');
+        // Traducción con i18n
+        const msg = $localize`:@@ticket.edit.success:Ticket editado correctamente`;
+        this._toastService.show(msg, 'success');
         this._router.navigate(['/dashboard/tickets']);
       },
       error: (error) => {
         console.error(error);
-        this._toastService.show(error.message, 'error');
+        const errMsg = error.message || $localize`:@@ticket.edit.error:Error al editar el ticket`;
+        this._toastService.show(errMsg, 'error');
       },
       complete: () => {
         this.loading.set(false);

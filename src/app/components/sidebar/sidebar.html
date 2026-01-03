@@ -12,13 +12,7 @@
     </div>
 
     <nav class="flex-1 px-2 flex flex-col gap-1.5 select-none">
-        @for (item of [
-        { link: '/dashboard', icon: 'bi-grid-1x2-fill', label: 'Panel', exact: true },
-        { link: '/dashboard/ticket-create', icon: 'bi-plus-square-fill', label: 'Nuevo Ticket' },
-        { link: '/dashboard/tickets', icon: 'bi-ticket-detailed-fill', label: 'Mis Tickets' },
-        { link: '/dashboard/reports', icon: 'bi-pie-chart-fill', label: 'Estadísticas' },
-        { link: '/dashboard/profile', icon: 'bi-person-badge-fill', label: 'Mi Perfil' }
-        ]; track item.link) {
+        @for (item of menuItems; track item.link) {
         <a [routerLink]="item.link" routerLinkActive="bg-primary/10 text-primary border-primary/20"
             [routerLinkActiveOptions]="{ exact: item.exact || false }"
             class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-base-200 hover:text-primary custom:hover:text-secondary group/item overflow-hidden">
@@ -40,7 +34,8 @@
                 <i class="bi bi-shield-lock-fill text-base"></i>
             </div>
             <span
-                class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
+                class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm"
+                i18n="@@nav.admin">
                 Administrador
             </span>
         </a>
@@ -57,7 +52,12 @@
                 </div>
                 <span
                     class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
-                    Tema - {{ config.currentTheme() === 'custom' ? 'Oscuro' : 'Claro' }}
+                    <ng-container i18n="@@nav.theme">Tema</ng-container> -
+                    @if (config.currentTheme() === 'custom') {
+                    <ng-container i18n="@@nav.theme.dark">Oscuro</ng-container>
+                    } @else {
+                    <ng-container i18n="@@nav.theme.light">Claro</ng-container>
+                    }
                 </span>
             </button>
 
@@ -68,7 +68,12 @@
                 </div>
                 <span
                     class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
-                    Idioma - {{ config.currentLang() === 'es' ? 'Español' : 'English' }}
+                    <ng-container i18n="@@nav.lang">Idioma</ng-container> -
+                    @if (config.currentLang() === 'es') {
+                    <ng-container i18n="@@nav.lang.es">Español</ng-container>
+                    } @else {
+                    <ng-container i18n="@@nav.lang.en">English</ng-container>
+                    }
                 </span>
             </button>
         </div>
@@ -80,7 +85,8 @@
             </div>
             <div
                 class="ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden whitespace-nowrap text-left">
-                <p class="text-[10px] font-semibold text-base-content/50 leading-none mb-1">Usuario</p>
+                <p class="text-[10px] font-semibold text-base-content/50 leading-none mb-1" i18n="@@nav.user.label">
+                    Usuario</p>
                 <p class="text-xs font-bold text-base-content truncate w-28 leading-none">{{ userName() }}</p>
             </div>
         </div>
@@ -91,7 +97,8 @@
                 <i class="bi bi-power text-lg"></i>
             </div>
             <span
-                class="font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                class="font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+                i18n="@@nav.logout">
                 Cerrar sesión
             </span>
         </button>

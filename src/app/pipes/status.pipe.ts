@@ -8,13 +8,19 @@ export class StatusPipe implements PipeTransform {
   transform(value: string): string {
     if (!value) return '';
 
-    const translations: { [key: string]: string } = {
-      OPEN: 'Pendiente',
-      IN_PROGRESS: 'En progreso',
-      CLOSED: 'Cerrado o cancelado',
-      RESOLVED: 'Resuelto',
-    };
+    const val = value.toUpperCase();
 
-    return translations[value.toUpperCase()] || value;
+    switch (val) {
+      case 'OPEN':
+        return $localize`:@@status.open:Pendiente`;
+      case 'IN_PROGRESS':
+        return $localize`:@@status.in_progress:En progreso`;
+      case 'CLOSED':
+        return $localize`:@@status.closed:Cerrado o cancelado`;
+      case 'RESOLVED':
+        return $localize`:@@status.resolved:Resuelto`;
+      default:
+        return value;
+    }
   }
 }

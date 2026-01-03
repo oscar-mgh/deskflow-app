@@ -1,7 +1,7 @@
 <section class="px-8 lg:p-22 lg:max-w-7xl lg:m-auto min-h-[calc(100vh-4rem)] bg-base-100 text-base-content relative lg:pl-24 overflow-hidden fade">
 
     <header class="mb-12 mt-6">
-        <h1 class="text-center md:text-left text-4xl font-bold tracking-tight">
+        <h1 class="text-center md:text-left text-4xl font-bold tracking-tight" i18n="@@profile.title">
             Mi <span class="text-primary">Perfil</span>
         </h1>
     </header>
@@ -29,7 +29,7 @@
                     <span class="bg-primary/10 text-primary text-sm font-bold py-2 px-4 rounded-xl border border-primary/20">
                         {{ userInfo().role | rolePipe }}
                     </span>
-                    <span class="bg-base-200 text-base-content/70 text-sm font-bold py-2 px-4 rounded-xl border border-base-content/10">
+                    <span class="bg-base-200 text-base-content/70 text-sm font-bold py-2 px-4 rounded-xl border border-base-content/10" i18n="@@profile.verified_badge">
                         Cuenta Verificada
                     </span>
                 </div>
@@ -40,22 +40,27 @@
 
             <div class="bg-base-200 border border-base-content/10 rounded-2xl p-8 shadow-none">
                 <h3 class="text-sm font-bold text-base-content mb-8 flex items-center gap-2">
-                    <i class="bi bi-info-circle text-primary"></i> Información General
+                    <i class="bi bi-info-circle text-primary"></i>
+                    <ng-container i18n="@@profile.info_title">Información General</ng-container>
                 </h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <p class="text-sm font-bold text-base-content/50 mb-2">Empresa o Grupo</p>
+                        <p class="text-sm font-bold text-base-content/50 mb-2" i18n="@@profile.label_company">Empresa o Grupo</p>
                         <p class="text-lg font-semibold text-base-content flex items-center gap-3">
                             <i class="bi bi-building text-primary/80"></i>
-                            {{ userInfo().company || 'Sin asignar' }}
+                            @if (userInfo().company) {
+                                {{ userInfo().company }}
+                            } @else {
+                                <span class="italic opacity-50 font-normal" i18n="@@profile.unassigned">Sin asignar</span>
+                            }
                         </p>
                     </div>
                     <div>
-                        <p class="text-sm font-bold text-base-content/50 mb-2">Estado de Cuenta</p>
+                        <p class="text-sm font-bold text-base-content/50 mb-2" i18n="@@profile.label_status">Estado de Cuenta</p>
                         <p class="text-lg font-semibold text-base-content flex items-center gap-3">
                             <i class="bi bi-shield-check text-success"></i>
-                            Usuario Activo
+                            <ng-container i18n="@@profile.status_active">Usuario Activo</ng-container>
                         </p>
                     </div>
                 </div>
@@ -63,7 +68,8 @@
 
             <div class="bg-base-200 border border-base-content/10 rounded-2xl p-8 shadow-none">
                 <h3 class="text-sm font-bold text-base-content mb-8 flex items-center gap-2">
-                    <i class="bi bi-lock text-primary"></i> Seguridad y Acceso
+                    <i class="bi bi-lock text-primary"></i>
+                    <ng-container i18n="@@profile.security_title">Seguridad y Acceso</ng-container>
                 </h3>
 
                 <div class="space-y-4">
@@ -72,8 +78,8 @@
                             <i class="bi bi-hdd-stack text-xl"></i>
                         </div>
                         <div class="flex-1">
-                            <h4 class="font-bold text-base-content text-sm mb-1">Permisos de Usuario</h4>
-                            <p class="text-sm text-base-content/60 leading-relaxed">
+                            <h4 class="font-bold text-base-content text-sm mb-1" i18n="@@profile.perms_header">Permisos de Usuario</h4>
+                            <p class="text-sm text-base-content/60 leading-relaxed" i18n="@@profile.perms_body">
                                 Tienes acceso a las herramientas de tickets y reportes de acuerdo a tu nivel de usuario.
                             </p>
                         </div>
@@ -84,8 +90,8 @@
                             <i class="bi bi-safe2 text-xl"></i>
                         </div>
                         <div class="flex-1">
-                            <h4 class="font-bold text-base-content text-sm mb-1">Protección de Datos</h4>
-                            <p class="text-sm text-base-content/60 leading-relaxed">
+                            <h4 class="font-bold text-base-content text-sm mb-1" i18n="@@profile.data_header">Protección de Datos</h4>
+                            <p class="text-sm text-base-content/60 leading-relaxed" i18n="@@profile.data_body">
                                 Tu información personal y profesional está encriptada y protegida bajo estándares de seguridad vigentes.
                             </p>
                         </div>

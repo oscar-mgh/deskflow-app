@@ -10,10 +10,12 @@
     class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
     <div class="w-full max-w-3xl">
         <header class="text-center md:text-left mb-8">
-            <h1 class="text-4xl font-bold tracking-tight">
+            <h1 class="text-4xl font-bold tracking-tight" i18n="@@tickets.create.title">
                 Crear <span class="text-primary">Ticket</span>
             </h1>
-            <p class="text-base-content/70 font-medium text-sm mt-2">Completa la información para recibir asistencia.</p>
+            <p class="text-base-content/70 font-medium text-sm mt-2" i18n="@@tickets.create.subtitle">
+                Completa la información para recibir asistencia.
+            </p>
         </header>
 
         <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-10 shadow-none">
@@ -21,16 +23,21 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="form-control">
-                        <label class="mb-2 block text-sm font-semibold text-base-content">Título</label>
+                        <label class="mb-2 block text-sm font-semibold text-base-content"
+                            i18n="@@tickets.form.label.title">Título</label>
                         <input type="text" formControlName="title" placeholder="Ej. Error al iniciar sesión"
+                            i18n-placeholder="@@tickets.form.placeholder.title"
                             class="w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
                     </div>
 
                     <div class="form-control">
-                        <label class="mb-2 block text-sm font-semibold text-base-content">Categoría</label>
+                        <label class="mb-2 block text-sm font-semibold text-base-content"
+                            i18n="@@tickets.form.label.category">Categoría</label>
                         <select formControlName="categoryId"
                             class="select w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl transition-colors">
-                            <option value="" class="text-base-content font-regular bg-base-100">Seleccione una categoría
+                            <option value="" class="text-base-content font-regular bg-base-100"
+                                i18n="@@tickets.form.select.category">
+                                Seleccione una categoría
                             </option>
                             @for (category of categories(); track category.id) {
                             <option [value]="category.id" class="text-base-content font-regular bg-base-100">{{
@@ -41,17 +48,22 @@
                 </div>
 
                 <div class="form-control">
-                    <label class="mb-2 block text-sm font-semibold text-base-content">Descripción</label>
+                    <label class="mb-2 block text-sm font-semibold text-base-content"
+                        i18n="@@tickets.form.label.description">Descripción</label>
                     <textarea formControlName="description" rows="5" placeholder="Describe el problema o solicitud..."
+                        i18n-placeholder="@@tickets.form.placeholder.description"
                         class="w-full bg-base-100 border border-base-content/10 text-base-content p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none"></textarea>
                 </div>
 
                 <div class="grid gap-6" [class]="this.isPremium() ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'">
                     <div class="form-control">
-                        <label class="mb-2 block text-sm font-semibold text-base-content">Prioridad</label>
+                        <label class="mb-2 block text-sm font-semibold text-base-content"
+                            i18n="@@tickets.form.label.priority">Prioridad</label>
                         <select formControlName="priority"
                             class="select w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
-                            <option value="" class="text-base-content font-regular bg-base-100">Seleccione la prioridad
+                            <option value="" class="text-base-content font-regular bg-base-100"
+                                i18n="@@tickets.form.select.priority">
+                                Seleccione la prioridad
                             </option>
                             @if (this.isPremium()) {
                             @for (priority of premiumPriorities(); track priority) {
@@ -69,7 +81,8 @@
 
                     @if (this.isPremium()) {
                     <div class="form-control">
-                        <label class="mb-2 block text-sm font-semibold text-base-content">Adjuntar Archivo</label>
+                        <label class="mb-2 block text-sm font-semibold text-base-content"
+                            i18n="@@tickets.form.label.file">Adjuntar Archivo</label>
                         <input type="file" (change)="onFileSelected($event)"
                             class="file-input bg-base-100 border border-base-content/10 text-base-content rounded-xl w-full h-12 text-sm" />
                     </div>
@@ -77,7 +90,8 @@
                 </div>
 
                 <button type="submit"
-                    class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80">
+                    class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
+                    i18n="@@tickets.form.btn.submit">
                     Enviar Ticket
                 </button>
             </form>
@@ -90,10 +104,12 @@
     class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
     <div class="w-full max-w-3xl">
         <header class="text-center md:text-left mb-8">
-            <h1 class="text-4xl font-bold tracking-tight">
+            <h1 class="text-4xl font-bold tracking-tight" i18n="@@tickets.edit.title">
                 Editar <span class="text-primary">Ticket</span>
             </h1>
-            <p class="text-base-content/70 font-medium text-sm mt-2">Completa la información para recibir asistencia.</p>
+            <p class="text-base-content/70 font-medium text-sm mt-2" i18n="@@tickets.edit.subtitle">
+                Completa la información para recibir asistencia.
+            </p>
         </header>
 
         <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-10 shadow-none">
@@ -101,21 +117,26 @@
 
                 <div class="grid grid-cols-1 gap-6">
                     <div class="form-control">
-                        <label class="mb-2 block text-sm font-semibold text-base-content">Título</label>
+                        <label class="mb-2 block text-sm font-semibold text-base-content"
+                            i18n="@@tickets.form.label.title">Título</label>
                         <input type="text" formControlName="title" placeholder="Ej. Error al iniciar sesión"
+                            i18n-placeholder="@@tickets.form.placeholder.title"
                             class="w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
                     </div>
 
                     <div class="form-control">
-                        <label class="mb-2 block text-sm font-semibold text-base-content">Descripción</label>
+                        <label class="mb-2 block text-sm font-semibold text-base-content"
+                            i18n="@@tickets.form.label.description">Descripción</label>
                         <textarea formControlName="description" rows="5"
                             placeholder="Describe el problema o solicitud..."
+                            i18n-placeholder="@@tickets.form.placeholder.description"
                             class="w-full bg-base-100 border border-base-content/10 text-base-content p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none"></textarea>
                     </div>
 
                     <button type="submit"
-                        class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80">
-                        Enviar Ticket
+                        class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
+                        i18n="@@tickets.form.btn.save">
+                        Guardar Cambios
                     </button>
                 </div>
             </form>
@@ -123,48 +144,54 @@
     </div>
 </section>
 } @else {
-
 <section class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center">
     <div class="w-full max-w-3xl">
         <header class="mb-10 text-center md:text-left">
-            <h1 class="text-4xl font-bold tracking-tight">
+            <h1 class="text-4xl font-bold tracking-tight" i18n="@@tickets.detail.title">
                 Detalle del <span class="text-primary">Ticket</span>
             </h1>
-            <p class="text-base-content/70 font-medium text-sm mt-2">Información completa sobre la solicitud.</p>
+            <p class="text-base-content/70 font-medium text-sm mt-2" i18n="@@tickets.detail.subtitle">Información
+                completa sobre la solicitud.</p>
         </header>
 
         <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-10 shadow-none">
             @if (ticket()) {
             <div class="space-y-4">
                 <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-                    <span class="text-sm font-bold text-base-content/60">Título:</span>
+                    <span class="text-sm font-bold text-base-content/60"
+                        i18n="@@tickets.detail.label.title">Título:</span>
                     <span class="text-sm font-semibold text-base-content">{{ ticket()?.title }}</span>
                 </div>
 
                 <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-                    <span class="text-sm font-bold text-base-content/60">Fecha de creación:</span>
+                    <span class="text-sm font-bold text-base-content/60" i18n="@@tickets.detail.label.date">Fecha de
+                        creación:</span>
                     <span class="text-sm font-semibold text-base-content">{{ ticket()?.createdAt | date:'mediumDate'
                         }}</span>
                 </div>
 
                 <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-                    <span class="text-sm font-bold text-base-content/60">Categoría:</span>
+                    <span class="text-sm font-bold text-base-content/60"
+                        i18n="@@tickets.detail.label.category">Categoría:</span>
                     <span class="text-sm font-semibold text-primary">{{ ticket()?.categoryName | titlecase }}</span>
                 </div>
 
                 <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-                    <span class="text-sm font-bold text-base-content/60">Prioridad:</span>
+                    <span class="text-sm font-bold text-base-content/60"
+                        i18n="@@tickets.detail.label.priority">Prioridad:</span>
                     <span class="text-sm font-semibold text-base-content">{{ ticket()?.priority! | priority }}</span>
                 </div>
 
                 <div
                     class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1 items-start md:items-center">
-                    <span class="text-sm font-bold text-base-content/60">Estado actual:</span>
+                    <span class="text-sm font-bold text-base-content/60" i18n="@@tickets.detail.label.status">Estado
+                        actual:</span>
                     <status-badge [status]="ticket()?.status!"></status-badge>
                 </div>
 
                 <div class="pt-4">
-                    <span class="text-sm font-bold text-base-content/60 block mb-3">Descripción detallada:</span>
+                    <span class="text-sm font-bold text-base-content/60 block mb-3"
+                        i18n="@@tickets.detail.label.description">Descripción detallada:</span>
                     <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl">
                         <p class="text-sm text-base-content leading-relaxed">
                             {{ ticket()?.description }}
@@ -176,7 +203,7 @@
                 <div class="pt-2">
                     <button
                         class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
-                        (click)="setTicketForm()">
+                        (click)="setTicketForm()" i18n="@@tickets.detail.btn.edit">
                         Editar Ticket
                     </button>
                 </div>
@@ -184,7 +211,8 @@
 
                 @if (ticket()?.file) {
                 <div class="pt-4">
-                    <span class="text-sm font-bold text-base-content/60 block mb-3">Archivo adjunto:</span>
+                    <span class="text-sm font-bold text-base-content/60 block mb-3"
+                        i18n="@@tickets.detail.label.file">Archivo adjunto:</span>
                     <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl">
                         <p class="text-sm text-base-content leading-relaxed">
                             {{ ticket()?.file }}
@@ -199,7 +227,8 @@
         <div class="mt-8 flex justify-center md:justify-start">
             <button routerLink="/dashboard/tickets"
                 class="text-sm font-bold text-base-content/60 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
-                <i class="bi bi-arrow-left"></i> Volver a mis tickets
+                <i class="bi bi-arrow-left"></i> <ng-container i18n="@@tickets.detail.btn.back">Volver a mis
+                    tickets</ng-container>
             </button>
         </div>
     </div>

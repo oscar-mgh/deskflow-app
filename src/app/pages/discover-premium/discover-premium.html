@@ -1,9 +1,9 @@
 <section class="relative w-full min-h-screen bg-base-100 flex flex-col items-center text-center px-6 py-24 fade">
     <div class="relative z-10 mb-16">
         <h1 class="text-4xl md:text-5xl mb-4 font-bold text-base-content tracking-tight">
-            DeskFlow <span class="text-primary">Premium</span>
+            DeskFlow <span class="text-primary" i18n="@@premium.title_accent">Premium</span>
         </h1>
-        <p class="text-lg text-base-content/70 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto leading-relaxed" i18n="@@premium.hero_description">
             Impulsa tu equipo al siguiente nivel con herramientas exclusivas diseñadas para 
             <span class="text-base-content font-semibold">rapidez, control y colaboración profesional.</span>
         </p>
@@ -11,47 +11,47 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mb-24">
         @for (feature of [
-            {t: 'Gestión de archivos', d: 'Adjunta imágenes, PDFs y Excel con total libertad de subida.', i: 'bi-cloud-arrow-up'},
-            {t: 'Soporte prioritario', d: 'Tus incidencias saltan al frente. Asistencia inmediata 24/7.', i: 'bi-lightning-charge'},
-            {t: 'Historial infinito', d: 'Visualiza cada cambio y comentario sin límites de tiempo.', i: 'bi-clock-history'},
-            {t: 'KPIs avanzados', d: 'Dashboards dinámicos para una toma de decisiones inteligente.', i: 'bi-graph-up-arrow'},
-            {t: 'Automatizaciones', d: 'Asigna tickets y crea recordatorios sin mover un dedo.', i: 'bi-robot'},
-            {t: 'Modo enfoque', d: 'Interfaz despejada full-screen para máxima productividad.', i: 'bi-fullscreen-exit'}
+            {t: 'Gestión de archivos', d: 'Adjunta imágenes, PDFs y Excel con total libertad de subida.', i: 'bi-cloud-arrow-up', id: 'files'},
+            {t: 'Soporte prioritario', d: 'Tus incidencias saltan al frente. Asistencia inmediata 24/7.', i: 'bi-lightning-charge', id: 'support'},
+            {t: 'Historial infinito', d: 'Visualiza cada cambio y comentario sin límites de tiempo.', i: 'bi-clock-history', id: 'history'},
+            {t: 'KPIs avanzados', d: 'Dashboards dinámicos para una toma de decisiones inteligente.', i: 'bi-graph-up-arrow', id: 'kpis'},
+            {t: 'Automatizaciones', d: 'Asigna tickets y crea recordatorios sin mover un dedo.', i: 'bi-robot', id: 'autos'},
+            {t: 'Modo enfoque', d: 'Interfaz despejada full-screen para máxima productividad.', i: 'bi-fullscreen-exit', id: 'focus'}
         ]; track feature.t) {
             <div class="p-8 rounded-2xl bg-base-200 border border-base-content/10 hover:border-primary/50 transition-all text-left group">
                 <div class="w-12 h-12 rounded-lg bg-base-300 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-content transition-colors">
                     <i class="bi {{feature.i}} text-xl"></i>
                 </div>
-                <h3 class="text-lg font-semibold text-base-content mb-2">{{feature.t}}</h3>
-                <p class="text-base-content/60 text-sm leading-relaxed">{{feature.d}}</p>
+                <h3 class="text-lg font-semibold text-base-content mb-2" [attr.i18n]="'@@premium.feature_title_' + feature.id">{{feature.t}}</h3>
+                <p class="text-base-content/60 text-sm leading-relaxed" [attr.i18n]="'@@premium.feature_desc_' + feature.id">{{feature.d}}</p>
             </div>
         }
     </div>
 
     <div class="w-full max-w-4xl mb-24">
-        <h3 class="text-sm font-semibold text-base-content/40 tracking-widest mb-6">Comparativa</h3>
+        <h3 class="text-sm font-semibold text-base-content/40 tracking-widest mb-6" i18n="@@premium.compare_title">Comparativa</h3>
         <div class="bg-base-200 border border-base-content/10 rounded-2xl overflow-hidden">
             <table class="table w-full border-collapse">
                 <thead>
                     <tr class="border-b border-base-content/10">
-                        <th class="p-4 text-left text-base-content text-xs font-bold">Capacidad</th>
-                        <th class="p-4 text-center text-base-content text-xs font-bold">Standard</th>
-                        <th class="p-4 text-center text-primary text-xs font-bold bg-primary/5">Premium</th>
+                        <th class="p-4 text-left text-base-content text-xs font-bold" i18n="@@premium.table.capacity">Capacidad</th>
+                        <th class="p-4 text-center text-base-content text-xs font-bold" i18n="@@premium.plan.standard">Standard</th>
+                        <th class="p-4 text-center text-primary text-xs font-bold bg-primary/5" i18n="@@premium.plan.premium">Premium</th>
                     </tr>
                 </thead>
                 <tbody class="text-sm">
                     <tr class="border-b border-base-content/10">
-                        <td class="p-4 text-left text-base-content font-medium">Gestión de tickets</td>
+                        <td class="p-4 text-left text-base-content font-medium" i18n="@@premium.table.tickets">Gestión de tickets</td>
                         <td class="p-4 text-center text-base-content/60"><i class="bi bi-check-lg text-lg"></i></td>
                         <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all text-xl"></i></td>
                     </tr>
                     <tr class="border-b border-base-content/10">
-                        <td class="p-4 text-left text-base-content font-medium">Adjuntos multimedia</td>
+                        <td class="p-4 text-left text-base-content font-medium" i18n="@@premium.table.attachments">Adjuntos multimedia</td>
                         <td class="p-4 text-center text-base-content/20">—</td>
                         <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all text-xl"></i></td>
                     </tr>
                     <tr class="border-none">
-                        <td class="p-4 text-left text-base-content font-medium">Analítica de datos</td>
+                        <td class="p-4 text-left text-base-content font-medium" i18n="@@premium.table.analytics">Analítica de datos</td>
                         <td class="p-4 text-center text-base-content/20">—</td>
                         <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all text-xl"></i></td>
                     </tr>
@@ -63,34 +63,55 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl mb-16">
         
         <div class="bg-base-200 border border-base-content/10 p-10 rounded-3xl flex flex-col text-left">
-            <h3 class="text-sm font-bold text-base-content/40 mb-2">Standard</h3>
-            <p class="text-3xl font-bold text-base-content mb-6">$0 <span class="text-sm font-normal text-base-content/50">/ mes</span></p>
+            <h3 class="text-sm font-bold text-base-content/40 mb-2" i18n="@@premium.plan.standard">Standard</h3>
+            <p class="text-3xl font-bold text-base-content mb-6">
+                $0 <span class="text-sm font-normal text-base-content/50" i18n="@@premium.price_month">/ mes</span>
+            </p>
             <ul class="space-y-4 mb-8 flex-1">
-                <li class="flex items-center gap-3 text-sm text-base-content/80"><i class="bi bi-check2 text-primary"></i> Tickets ilimitados</li>
-                <li class="flex items-center gap-3 text-sm text-base-content/80"><i class="bi bi-check2 text-primary"></i> Comentarios básicos</li>
+                <li class="flex items-center gap-3 text-sm text-base-content/80">
+                    <i class="bi bi-check2 text-primary"></i> 
+                    <ng-container i18n="@@premium.feature.unlimited_tickets">Tickets ilimitados</ng-container>
+                </li>
+                <li class="flex items-center gap-3 text-sm text-base-content/80">
+                    <i class="bi bi-check2 text-primary"></i> 
+                    <ng-container i18n="@@premium.feature.basic_comments">Comentarios básicos</ng-container>
+                </li>
             </ul>
-            <a routerLink="/auth/register" class="btn btn-secondary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none shadow-none hover:bg-secondary/60 transition-colors">
+            <a routerLink="/auth/register" class="btn btn-secondary w-full h-12 text-base font-bold rounded-xl mt-4 border-none shadow-none hover:bg-secondary/60 transition-colors" 
+               i18n="@@premium.btn.start_now">
                 Empezar ahora
             </a>
         </div>
 
         <div class="bg-base-200 border-2 border-primary p-10 rounded-3xl flex flex-col text-left relative overflow-hidden shadow-xl shadow-primary/5">
-            <div class="absolute top-0 right-0 bg-primary text-primary-content text-[10px] font-black px-4 py-1 rounded-bl-xl">Más popular</div>
-            <h3 class="text-sm font-bold text-primary mb-2">Premium</h3>
-            <p class="text-4xl font-bold text-base-content mb-6">$9 <span class="text-sm font-normal text-base-content/50">/ mes</span></p>
+            <div class="absolute top-0 right-0 bg-primary text-primary-content text-[10px] font-black px-4 py-1 rounded-bl-xl" i18n="@@premium.badge_popular">Más popular</div>
+            <h3 class="text-sm font-bold text-primary mb-2" i18n="@@premium.plan.premium">Premium</h3>
+            <p class="text-4xl font-bold text-base-content mb-6">
+                $9 <span class="text-sm font-normal text-base-content/50" i18n="@@premium.price_month">/ mes</span>
+            </p>
             <ul class="space-y-4 mb-8 flex-1">
-                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium"><i class="bi bi-check-circle-fill text-primary"></i> Todo lo del plan básico</li>
-                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium"><i class="bi bi-check-circle-fill text-primary"></i> Adjuntos multimedia</li>
-                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium"><i class="bi bi-check-circle-fill text-primary"></i> Soporte 24/7 VIP</li>
+                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium">
+                    <i class="bi bi-check-circle-fill text-primary"></i> 
+                    <ng-container i18n="@@premium.feature.everything_basic">Todo lo del plan básico</ng-container>
+                </li>
+                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium">
+                    <i class="bi bi-check-circle-fill text-primary"></i> 
+                    <ng-container i18n="@@premium.feature.multimedia">Adjuntos multimedia</ng-container>
+                </li>
+                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium">
+                    <i class="bi bi-check-circle-fill text-primary"></i> 
+                    <ng-container i18n="@@premium.feature.vip_support">Soporte 24/7 VIP</ng-container>
+                </li>
             </ul>
-            <button (click)="openCheckout()" class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow-xl">
+            <button (click)="openCheckout()" class="btn btn-primary w-full h-12 text-base font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow-xl" 
+                    i18n="@@premium.btn.get_premium">
                 Obtener Premium
             </button>
         </div>
     </div>
 
     <a routerLink="/" class="text-base-content/40 hover:text-primary transition-colors text-sm font-bold tracking-widest">
-        ← Volver al inicio
+        <ng-container i18n="@@premium.back_home">← Volver al inicio</ng-container>
     </a>
 </section>
 

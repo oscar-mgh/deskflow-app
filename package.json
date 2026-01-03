@@ -29,16 +29,19 @@
     "@angular/forms": "^21.0.0",
     "@angular/platform-browser": "^21.0.0",
     "@angular/router": "^21.0.0",
+    "@vercel/edge": "^1.2.2",
     "aos": "^2.3.4",
     "bootstrap-icons": "^1.13.1",
     "echarts": "^6.0.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zone.js": "^0.16.0"
   },
   "devDependencies": {
     "@angular/build": "^21.0.3",
     "@angular/cli": "^21.0.3",
     "@angular/compiler-cli": "^21.0.0",
+    "@angular/localize": "^21.0.6",
     "@tailwindcss/postcss": "^4.1.12",
     "@types/aos": "^3.0.7",
     "jsdom": "^27.1.0",
