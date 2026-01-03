@@ -8,7 +8,6 @@ import { StatusBadge } from '../../components/status-badge/status-badge';
 import { Category } from '../../models/category.model';
 import { Comment, Ticket } from '../../models/ticket.model';
 import { PriorityPipe } from '../../pipes/priority.pipe';
-import { StatusPipe } from '../../pipes/status.pipe'; // <-- Importado
 import { AuthService } from '../../services/auth.service';
 import { CategoryService } from '../../services/category.service';
 import { TicketsService } from '../../services/tickets.service';
@@ -20,7 +19,6 @@ import { ToastService } from '../../services/toast.service';
   imports: [
     DatePipe,
     PriorityPipe,
-    StatusPipe,
     ReactiveFormsModule,
     RouterLink,
     StatusBadge,
@@ -118,7 +116,8 @@ export class TicketPage implements OnInit {
           this._router.navigate(['/dashboard/tickets']);
         },
         error: (err) => {
-          const errMsg = err.error?.message || $localize`:@@ticket.create.error:Error al crear el ticket`;
+          const errMsg =
+            err.error?.message || $localize`:@@ticket.create.error:Error al crear el ticket`;
           this._toastService.show(errMsg, 'error');
         },
       });
