@@ -16,13 +16,8 @@ export class ThemeLangBtns {
     const currentLang = this.currentLocale.substring(0, 2);
     const nextLang = currentLang === 'es' ? 'en' : 'es';
 
-    const path = window.location.pathname;
-
-    let newPath = path.replace(`/${currentLang}`, `/${nextLang}`);
-
-    if (!newPath.startsWith(`/${nextLang}`)) {
-      newPath = `/${nextLang}${path}`;
-    }
+    const pathWithoutLang = window.location.pathname.replace(`/${currentLang}`, '');
+    const newPath = `/${nextLang}${pathWithoutLang}`.replace(/\/+/g, '/');
 
     window.location.href = newPath;
   }

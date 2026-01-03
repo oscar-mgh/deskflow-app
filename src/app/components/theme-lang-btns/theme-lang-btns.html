@@ -1,7 +1,9 @@
 <div class="fixed top-6 lg:right-56 flex gap-3 z-50">
 	<button (click)="switchLanguage()"
 		class="btn btn-ghost bg-base-200/50 backdrop-blur border border-base-content/10 rounded-xl px-4 normal-case text-base-content">
-		<span class="text-primary font-bold text-base">{{ currentLocale.split('-')[0].toUpperCase() }}</span>
+		<span class="text-primary font-bold text-base">
+			{{ currentLocale.substring(0, 2).toUpperCase() }}
+		</span>
 	</button>
 
 	<button (click)="config.toggleTheme()"
