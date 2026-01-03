@@ -13,18 +13,15 @@ export class ThemeLangBtns {
   currentLocale = inject(LOCALE_ID);
 
   switchLanguage() {
-    const nextLocale = this.currentLocale.startsWith('es') ? 'en' : 'es';
+    const currentLang = this.currentLocale.substring(0, 2);
+    const nextLang = currentLang === 'es' ? 'en' : 'es';
 
-    const currentPath = window.location.pathname;
+    const path = window.location.pathname;
 
-    let newPath: string;
+    let newPath = path.replace(`/${currentLang}`, `/${nextLang}`);
 
-    if (currentPath.includes(`/${this.currentLocale}/`)) {
-      newPath = currentPath.replace(`/${this.currentLocale}/`, `/${nextLocale}/`);
-    } else if (currentPath.endsWith(`/${this.currentLocale}`)) {
-      newPath = currentPath.replace(`/${this.currentLocale}`, `/${nextLocale}`);
-    } else {
-      newPath = `/${nextLocale}${currentPath}`;
+    if (!newPath.startsWith(`/${nextLang}`)) {
+      newPath = `/${nextLang}${path}`;
     }
 
     window.location.href = newPath;
