@@ -109,7 +109,7 @@ export class TicketPage implements OnInit {
       )
       .subscribe({
         next: () => {
-          this._toastService.show('Ticket procesado', 'success');
+          this._toastService.show('Se creo el ticket!', 'success');
           this._router.navigate(['/dashboard/tickets']);
         },
         error: (err) => {

@@ -1,33 +1,65 @@
 <section
-	class="w-full flex-1 flex flex-col items-center justify-center bg-base-100 rounded-2xl shadow-xl border border-dashed border-base-300 text-center min-h-screen fade px-8">
+    class="w-full flex-1 flex flex-col items-center justify-center bg-base-100 rounded-2xl shadow-xl border border-dashed border-base-300 text-center min-h-screen fade px-8">
 
-	<div class="relative mb-6">
-		<i class="bi bi-ticket-perforated text-9xl text-base-300"></i>
-		<i class="bi bi-search absolute -bottom-2 -right-2 text-4xl text-primary animate-bounce"></i>
-	</div>
+    @if (isAgentOrAdmin()) {
+        
+        <div class="relative mb-6">
+            <i class="bi bi-shield-check text-9xl text-base-300 opacity-50"></i>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <i class="bi bi-check2-all text-6xl text-success animate-pulse"></i>
+            </div>
+        </div>
 
-	<h2 class="text-3xl font-bold text-base-content mb-10">Nada por aquí</h2>
-	<p class="text-sm text-base-content/70 leading-relaxed max-w-lg mb-8">
-		En <span class="text-primary font-bold">DeskFlow</span>, nuestro objetivo es que nada te detenga.
-		Si tienes un problema técnico, una duda o necesitas soporte especializado,
-		estamos a un solo clic de distancia para darte la solución que necesitas.
-	</p>
-	<p class="text-sm text-base-content/60 max-w-sm mb-12">
-		Recuerda que en cualquier momento puedes crear tus tickets desde el menú lateral
-	</p>
+        <h2 class="text-3xl font-bold text-base-content mb-4">¡Todo al día, equipo!</h2>
+        <p class="text-sm text-base-content/70 leading-relaxed max-w-lg mb-8">
+            No tienes tickets pendientes de gestión en este momento. 
+            Has procesado todas tus solicitudes asignadas. Tómate un respiro o revisa el historial.
+        </p>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md mb-12">
+            <div class="bg-base-200 p-4 rounded-2xl border border-base-content/5">
+                <p class="text-xs font-bold text-base-content/40">Estatus</p>
+                <p class="text-lg font-bold text-success">Disponible</p>
+            </div>
+            <div class="bg-base-200 p-4 rounded-2xl border border-base-content/5">
+                <p class="text-xs font-bold text-base-content/40">Pendientes</p>
+                <p class="text-lg font-bold text-base-content">0</p>
+            </div>
+        </div>
 
-	<div class="flex flex-col sm:flex-row gap-4">
-		<a routerLink="/dashboard/ticket-create" class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none shadow-none hover:bg-primary/70 transition-colors">
-			<i class="bi bi-plus-circle-fill"></i>
-			Crear mi primer ticket
-		</a>
-	</div>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a routerLink="/dashboard/reports" class="btn btn-ghost hover:bg-base-200 w-full h-12 text-base text-base-content font-bold rounded-xl border border-base-content/10 transition-all">
+                <i class="bi bi-graph-up"></i>
+                Ver mis métricas
+            </a>
+        </div>
+    } @else {
+        <div class="relative mb-6">
+            <i class="bi bi-ticket-perforated text-9xl text-base-300"></i>
+            <i class="bi bi-search absolute -bottom-2 -right-2 text-4xl text-primary animate-bounce"></i>
+        </div>
 
-	<div class="mt-12 grid grid-cols-3 gap-8 opacity-50 grayscale md:flex">
-		<div class="flex items-center gap-2 text-sm"><i class="bi bi-lightning-charge"></i> Rápido</div>
-		<div class="flex items-center gap-2 text-sm"><i class="bi bi-shield-check"></i> Seguro</div>
-		<div class="flex items-center gap-2 text-sm"><i class="bi bi-headset"></i>
-			Soporte 24/7</div>
-	</div>
+        <h2 class="text-3xl font-bold text-base-content mb-10">Nada por aquí</h2>
+        <p class="text-sm text-base-content/70 leading-relaxed max-w-lg mb-8">
+            En <span class="text-primary font-bold">DeskFlow</span>, nuestro objetivo es que nada te detenga.
+            Si tienes un problema técnico, una duda o necesitas soporte especializado,
+            estamos a un solo clic de distancia para darte la solución que necesitas.
+        </p>
+        <p class="text-sm text-base-content/60 max-w-sm mb-12">
+            Recuerda que en cualquier momento puedes crear tus tickets desde el menú lateral
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a routerLink="/dashboard/ticket-create" class="btn btn-primary w-full h-12 text-base text-primary-content font-bold rounded-xl mt-4 border-none shadow-none hover:opacity-90 transition-all">
+                <i class="bi bi-plus-circle-fill"></i>
+                Crear mi primer ticket
+            </a>
+        </div>
+    }
+
+    <div class="mt-12 grid grid-cols-3 gap-8 opacity-40 grayscale md:flex">
+        <div class="flex items-center gap-2 text-sm"><i class="bi bi-lightning-charge"></i> Rápido</div>
+        <div class="flex items-center gap-2 text-sm"><i class="bi bi-shield-check"></i> Seguro</div>
+        <div class="flex items-center gap-2 text-sm"><i class="bi bi-headset"></i> Soporte 24/7</div>
+    </div>
 </section>

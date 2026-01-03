@@ -1,1 +1,124 @@
-<p>admin-page works!</p>
+<main class="w-full min-h-full flex flex-col flex-1 p-4 mx-auto max-w-7xl md:p-8 gap-8 px-4 md:px-8 lg:pl-24 pb-20 fade">
+
+	<header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+		<div>
+			<div class="flex items-center gap-2 mb-1">
+				<span class="badge badge-error badge-sm font-bold text-white px-3">ADMIN CONTROL</span>
+			</div>
+			<h1 class="text-3xl font-bold text-base-content ">Panel de Administración</h1>
+			<p class="text-base-content/60 text-sm">Supervisión global de infraestructura y recursos humanos.</p>
+		</div>
+
+		<div class="flex gap-2">
+			<button class="btn btn-ghost border-base-content/10 rounded-xl font-bold"><i class="bi bi-gear"></i>
+				Configuración</button>
+			<button class="btn btn-primary rounded-xl font-bold px-6">Exportar Auditoría</button>
+		</div>
+	</header>
+
+	<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+		@for (stat of systemStats(); track stat.label) {
+		<div class="bg-base-200 border border-base-content/10 p-6 rounded-2xl transition-all hover:bg-base-300">
+			<div class="flex items-center gap-4">
+				<div
+					class="w-12 h-12 rounded-2xl bg-base-100 flex items-center justify-center {{stat.color}} shadow-sm">
+					<i class="bi {{stat.icon}} text-xl"></i>
+				</div>
+				<div>
+					<p class="text-[10px] font-bold  text-base-content/40">{{stat.label}}</p>
+					<h2 class="text-2xl font-bold text-base-content">{{stat.val}}</h2>
+				</div>
+			</div>
+		</div>
+		}
+	</section>
+
+	<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+		<div class="lg:col-span-8 bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 overflow-hidden">
+			<h3 class="text-lg font-bold text-base-content mb-6 flex items-center gap-2">
+				<i class="bi bi-person-badge text-primary"></i> Rendimiento de Agentes
+			</h3>
+
+			<div class="overflow-x-auto">
+				<table class="table w-full">
+					<thead>
+						<tr class="border-base-content/5 text-base-content/40 text-[10px] ">
+							<th>Agente</th>
+							<th>Estado</th>
+							<th>Carga de Trabajo</th>
+							<th>Acción</th>
+						</tr>
+					</thead>
+					<tbody class="text-base-content">
+						@for (agent of activeAgents(); track agent.name) {
+						<tr class="border-base-content/5 hover:bg-base-300/30 transition-colors">
+							<td>
+								<div class="flex items-center gap-3">
+									<div
+										class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">
+										{{agent.name.charAt(0)}}
+									</div>
+									<div>
+										<p class="text-sm font-bold">{{agent.name}}</p>
+										<p class="text-[10px] opacity-50">{{agent.role}}</p>
+									</div>
+								</div>
+							</td>
+							<td>
+								<div class="flex items-center gap-2">
+									<span
+										class="w-2 h-2 rounded-full {{agent.status === 'Online' ? 'bg-success' : 'bg-warning'}}"></span>
+									<span class="text-sm">{{agent.status}}</span>
+								</div>
+							</td>
+							<td class="w-48">
+								<div class="flex flex-col gap-1">
+									<div class="flex justify-between text-[10px] font-bold">
+										<span>{{agent.load}}%</span>
+									</div>
+									<progress class="progress progress-primary w-full h-1.5" [value]="agent.load"
+										max="100"></progress>
+								</div>
+							</td>
+							<td>
+								<button class="btn btn-ghost btn-xs text-primary font-bold">Detalles</button>
+							</td>
+						</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="lg:col-span-4 space-y-6">
+			<div
+				class="bg-primary text-primary-content rounded-2xl p-8 relative overflow-hidden shadow-xl shadow-primary/20">
+				<i class="bi bi-shield-lock absolute -right-6 -bottom-6 text-9xl opacity-10"></i>
+				<h3 class="text-xl font-bold mb-2">Logs de Seguridad</h3>
+				<p class="text-sm opacity-80 mb-6">Revisa intentos de login y accesos inusuales.</p>
+				<button
+					class="btn bg-white/20 border-none text-white hover:bg-white/30 rounded-xl w-full font-bold">Abrir
+					Logs</button>
+			</div>
+
+			<div class="bg-base-200 border border-base-content/10 rounded-2xl p-6">
+				<h3 class="text-sm font-bold text-base-content mb-4  opacity-50">Estado de API
+				</h3>
+				<div class="space-y-3">
+					<div class="flex justify-between items-center text-sm">
+						<span class="flex items-center gap-2"><i class="bi bi-database text-info"></i> Base de
+							Datos</span>
+						<span class="text-success font-bold text-sm">99.9%</span>
+					</div>
+					<div class="flex justify-between items-center text-sm">
+						<span class="flex items-center gap-2"><i class="bi bi-cloud-upload text-primary"></i>
+							Cloudinary</span>
+						<span class="text-success font-bold text-sm">Online</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</main>

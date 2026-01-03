@@ -1,5 +1,16 @@
-@if (tickets().length <= 0) {
-	<dash-empty></dash-empty>
+@if (loading()) {
+<div class="min-h-screen flex items-center justify-center bg-base-100 px-4">
+    <loading></loading>
+</div>
 } @else {
-	<dash-info></dash-info>
+	@if (totalTickets() <= 0) { 
+		<dash-empty
+		[isAgentOrAdmin]="isAdmin() || isAgent()"
+		></dash-empty> 
+		} @else {
+		<dash-info 
+		[isAgentOrAdmin]="isAdmin() || isAgent()" 
+		[allTickets]="totalTickets()"
+		></dash-info> 
+	}
 }

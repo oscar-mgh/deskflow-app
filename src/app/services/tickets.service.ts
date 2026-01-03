@@ -37,7 +37,6 @@ export class TicketsService {
   }
 
   public updateTicket(id: string, changes: Partial<Ticket>): Observable<Ticket> {
-    console.log(this._api.endpoint(`/tickets/${id}`));
     return this._http.patch<Ticket>(this._api.endpoint(`/tickets/${id}`), changes, {
       headers: { Authorization: `Bearer ${this._authService.getToken()}` },
     });
