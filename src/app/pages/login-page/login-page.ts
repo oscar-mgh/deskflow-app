@@ -4,12 +4,13 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { FormError } from '../../components/form-error/form-error';
+import { ThemeLangBtns } from '../../components/theme-lang-btns/theme-lang-btns';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-login-page',
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormError],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormError, ThemeLangBtns],
   templateUrl: './login-page.html',
 })
 export class LoginPage implements OnInit {

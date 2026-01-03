@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { ThemeLangBtns } from '../../components/theme-lang-btns/theme-lang-btns';
 
 @Component({
   selector: 'app-trial-page',
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, ThemeLangBtns],
   templateUrl: './trial-page.html',
 })
 export class TrialPage {
