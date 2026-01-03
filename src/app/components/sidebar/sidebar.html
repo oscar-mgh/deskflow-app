@@ -1,43 +1,99 @@
 <aside
-    class="hidden lg:flex fixed top-0 left-0 h-screen w-16 hover:w-56 bg-neutral-900 border-r border-neutral-700 flex-col transition-[width] duration-500 z-50 overflow-hidden group">
+    class="group fixed top-0 left-0 h-screen w-16 hover:w-56 bg-base-100 border-r border-base-content/10 flex flex-col transition-[width] duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] z-50 overflow-hidden shadow-none">
 
-    <div class="h-20 flex items-center px-4 mb-2 relative">
+    <div class="h-20 flex items-center px-4 mb-2 relative overflow-hidden">
         <div class="min-w-8 flex justify-center">
-            <i class="bi bi-fan text-xl text-primary animate-spin"></i>
+            <i class="bi bi-fan text-xl text-primary animate-[spin_4s_linear_infinite]"></i>
         </div>
         <h1
-            class="ml-4 text-xl font-bold text-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            class="ml-4 text-xl font-bold text-base-content tracking-tighter opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap select-none">
             Desk<span class="text-primary">Flow</span>
         </h1>
     </div>
 
     <nav class="flex-1 px-2 flex flex-col gap-1.5 select-none">
-        @for (item of menuItems; track item.link) {
-        <a [routerLink]="item.link" routerLinkActive="bg-primary/10 text-primary"
-            class="flex items-center h-10 px-3 rounded-xl transition-all hover:bg-neutral-800 overflow-hidden">
+        @for (item of [
+        { link: '/dashboard', icon: 'bi-grid-1x2-fill', label: 'Panel', exact: true },
+        { link: '/dashboard/ticket-create', icon: 'bi-plus-square-fill', label: 'Nuevo Ticket' },
+        { link: '/dashboard/tickets', icon: 'bi-ticket-detailed-fill', label: 'Mis Tickets' },
+        { link: '/dashboard/reports', icon: 'bi-pie-chart-fill', label: 'Estadísticas' },
+        { link: '/dashboard/profile', icon: 'bi-person-badge-fill', label: 'Mi Perfil' }
+        ]; track item.link) {
+        <a [routerLink]="item.link" routerLinkActive="bg-primary/10 text-primary border-primary/20"
+            [routerLinkActiveOptions]="{ exact: item.exact || false }"
+            class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-base-200 hover:text-primary custom:hover:text-secondary group/item overflow-hidden">
             <div class="min-w-6 flex justify-center items-center">
-                <i class="bi {{item.icon}} text-base"></i>
+                <i class="bi {{item.icon}} text-base transition-transform group-hover/item:scale-110"></i>
             </div>
-            <span class="ml-4 font-bold opacity-0 group-hover:opacity-100 text-sm whitespace-nowrap">
+            <span
+                class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
                 {{item.label}}
             </span>
         </a>
         }
+
+        @if (isAdmin()) {
+        <div class="my-2 mx-4 h-px bg-base-content/10"></div>
+        <a routerLink="/dashboard/admin" routerLinkActive="bg-accent/10 text-accent"
+            class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-base-200 hover:text-accent group/item overflow-hidden">
+            <div class="min-w-6 flex justify-center items-center">
+                <i class="bi bi-shield-lock-fill text-base"></i>
+            </div>
+            <span
+                class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
+                Administrador
+            </span>
+        </a>
+        }
     </nav>
+
+    <div class="p-2 border-t border-base-content/10">
+        <div class="mb-2 flex flex-col gap-1.5">
+            <button (click)="config.toggleTheme()"
+                class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-base-200 hover:text-primary group/item overflow-hidden w-full cursor-pointer text-base-content/70">
+                <div class="min-w-6 flex justify-center items-center">
+                    <i class="bi"
+                        [class]="config.currentTheme() === 'custom' ? 'bi-moon-stars-fill' : 'bi-sun-fill'"></i>
+                </div>
+                <span
+                    class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
+                    Tema - {{ config.currentTheme() === 'custom' ? 'Oscuro' : 'Claro' }}
+                </span>
+            </button>
+
+            <button (click)="config.toggleLang()"
+                class="flex items-center h-10 px-3 rounded-xl transition-all duration-300 border border-transparent hover:bg-base-200 hover:text-base-content group/item overflow-hidden w-full cursor-pointer text-base-content/70">
+                <div class="min-w-6 flex justify-center items-center">
+                    <span class="text-xs font-black">{{ config.currentLang().toUpperCase() }}</span>
+                </div>
+                <span
+                    class="ml-4 font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap text-sm">
+                    Idioma - {{ config.currentLang() === 'es' ? 'Español' : 'English' }}
+                </span>
+            </button>
+        </div>
+
+        <div class="flex items-center p-2 rounded-xl transition-colors duration-300 group-hover:bg-base-200">
+            <div
+                class="min-w-8 h-8 rounded-lg bg-primary text-base-content flex items-center justify-center text-xs font-bold shadow-none">
+                {{ userName().charAt(0).toUpperCase() }}
+            </div>
+            <div
+                class="ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden whitespace-nowrap text-left">
+                <p class="text-[10px] font-semibold text-base-content/50 leading-none mb-1">Usuario</p>
+                <p class="text-xs font-bold text-base-content truncate w-28 leading-none">{{ userName() }}</p>
+            </div>
+        </div>
+
+        <button (click)="logout()"
+            class="mt-2 flex items-center h-10 w-full rounded-xl bg-error/5 text-error hover:bg-error hover:text-error-content transition-all duration-300 overflow-hidden group/btn relative shadow-none border-none cursor-pointer">
+            <div class="min-w-10 h-full flex items-center justify-center">
+                <i class="bi bi-power text-lg"></i>
+            </div>
+            <span
+                class="font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                Cerrar sesión
+            </span>
+        </button>
+    </div>
 </aside>
-
-<nav
-    class="flex lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-neutral-900 border-t border-neutral-800 px-4 z-100 justify-around items-center shadow-[0_-4px_10px_rgba(0,0,0,0.5)]">
-    @for (item of menuItems.slice(0, 4); track item.link) {
-    <a [routerLink]="item.link" routerLinkActive="text-primary"
-        class="flex flex-col items-center justify-center gap-1 text-neutral-500 flex-1">
-        <i class="bi {{item.icon}} text-xl"></i>
-        <span class="text-[9px] font-bold uppercase">{{item.label.split(' ')[0]}}</span>
-    </a>
-    }
-
-    <button (click)="logout()" class="flex flex-col items-center justify-center gap-1 text-red-500/70 flex-1">
-        <i class="bi bi-power text-xl"></i>
-        <span class="text-[9px] font-bold uppercase">Salir</span>
-    </button>
-</nav>

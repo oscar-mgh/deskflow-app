@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Ticket, TicketPagination } from '../models/ticket.model';
+import { Comment, Ticket, TicketPagination } from '../models/ticket.model';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 
@@ -37,6 +37,7 @@ export class TicketsService {
   }
 
   public updateTicket(id: string, changes: Partial<Ticket>): Observable<Ticket> {
+    console.log(this._api.endpoint(`/tickets/${id}`));
     return this._http.patch<Ticket>(this._api.endpoint(`/tickets/${id}`), changes, {
       headers: { Authorization: `Bearer ${this._authService.getToken()}` },
     });
@@ -66,6 +67,18 @@ export class TicketsService {
 
   public deleteFile(id: string): Observable<void> {
     return this._http.delete<void>(this._api.endpoint(`/tickets/${id}/files`), {
+      headers: { Authorization: `Bearer ${this._authService.getToken()}` },
+    });
+  }
+
+  public getComments(id: string): Observable<Comment[]> {
+    return this._http.get<Comment[]>(this._api.endpoint(`/tickets/${id}/comments`), {
+      headers: { Authorization: `Bearer ${this._authService.getToken()}` },
+    });
+  }
+
+  public newComment(id: string, comment: Comment): Observable<Comment> {
+    return this._http.post<Comment>(this._api.endpoint(`/tickets/${id}/comments`), comment, {
       headers: { Authorization: `Bearer ${this._authService.getToken()}` },
     });
   }

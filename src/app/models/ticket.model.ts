@@ -1,5 +1,5 @@
 export interface Ticket {
-  id: string;  
+  id: number;
   code: string;
   title: string;
   description: string;
@@ -9,6 +9,7 @@ export interface Ticket {
   createdAt: string;
   updatedAt?: string;
   file?: File;
+  userId: string;
 }
 
 export interface TicketPagination {
@@ -18,4 +19,11 @@ export interface TicketPagination {
   size?: number;
   totalElements: number;
   totalPages?: number;
+}
+
+export interface Comment {
+  id: number;
+  content: string;
+  createdAt: string;
+  userId: string;
 }

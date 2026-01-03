@@ -15,9 +15,9 @@ export class ReportPage implements OnInit, OnDestroy {
 
   private charts: echarts.ECharts[] = [];
 
-  public totalTickets = signal(1250);
-  public slaCompliance = signal(98.4);
-  public avgResolutionTime = signal('14m 20s');
+  public totalTickets = signal(951);
+  public slaCompliance = signal(94.4);
+  public avgResolutionTime = signal('19m 20s');
 
   constructor() {
     effect(() => {
@@ -95,15 +95,15 @@ export class ReportPage implements OnInit, OnDestroy {
       series: [
         {
           type: 'pie',
-          radius: ['60%', '85%'],
+          radius: ['60%', '80%'],
           avoidLabelOverlap: false,
           itemStyle: { borderRadius: 10 },
           label: { show: false },
           data: [
-            { value: 1048, name: 'Baja', itemStyle: { color: s.primary } },
-            { value: 735, name: 'Media', itemStyle: { color: '#84cc16' } },
-            { value: 580, name: 'Alta', itemStyle: { color: '#facc15' } },
-            { value: 484, name: 'Crítica', itemStyle: { color: '#ef4444' } },
+            { value: 401, name: 'Baja', itemStyle: { color: s.primary } },
+            { value: 245, name: 'Media', itemStyle: { color: '#c4cc16' } },
+            { value: 125, name: 'Alta', itemStyle: { color: '#ffcc15' } },
+            { value: 180, name: 'Crítica', itemStyle: { color: '#ef4444' } },
           ],
         },
       ],
@@ -118,7 +118,7 @@ export class ReportPage implements OnInit, OnDestroy {
       series: [
         {
           type: 'bar',
-          data: [98, 92, 85, 99],
+          data: [94, 92, 85, 99],
           itemStyle: { color: s.primary, borderRadius: [0, 5, 5, 0] },
         },
       ],
@@ -129,7 +129,7 @@ export class ReportPage implements OnInit, OnDestroy {
     return {
       backgroundColor: 'transparent',
       grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
-      xAxis: { type: 'category', data: ['Ana', 'Luis', 'Marta', 'Juan'] },
+      xAxis: { type: 'category', data: ['Ana', 'Luis', 'Karla', 'Juan'] },
       yAxis: { type: 'value' },
       series: [
         { type: 'bar', barWidth: '40%', data: [45, 38, 52, 30], itemStyle: { color: '#3f3f46' } },

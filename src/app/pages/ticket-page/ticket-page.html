@@ -1,150 +1,208 @@
 @if (loading()) {
 <div
-	class="min-h-screen flex items-center justify-center bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 pb-10 overflow-y-auto fade">
-	<loading></loading>
+    class="min-h-screen flex items-center justify-center bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 pb-10 overflow-y-auto fade">
+    <loading></loading>
 </div>
 } @else {
 
 @if (!id()) {
 <section
-	class="min-h-screen bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
-	<div class="w-full max-w-3xl">
-		<header class="text-center md:text-left mb-8">
-			<h1 class="text-4xl font-bold tracking-tight">
-				Crear <span class="text-primary">Ticket</span>
-			</h1>
-			<p class="text-neutral-500 font-medium text-sm mt-2">Completa la información para recibir asistencia.</p>
-		</header>
+    class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
+    <div class="w-full max-w-3xl">
+        <header class="text-center md:text-left mb-8">
+            <h1 class="text-4xl font-bold tracking-tight">
+                Crear <span class="text-primary">Ticket</span>
+            </h1>
+            <p class="text-base-content/70 font-medium text-sm mt-2">Completa la información para recibir asistencia.</p>
+        </header>
 
-		<div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 md:p-10 shadow-none">
-			<form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-10 shadow-none">
+            <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="space-y-6">
 
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-					<div class="form-control">
-						<label class="mb-2 block text-sm font-semibold text-neutral-400">Título</label>
-						<input type="text" formControlName="title" placeholder="Ej. Error al iniciar sesión"
-							class="w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
-					</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-control">
+                        <label class="mb-2 block text-sm font-semibold text-base-content">Título</label>
+                        <input type="text" formControlName="title" placeholder="Ej. Error al iniciar sesión"
+                            class="w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
+                    </div>
 
-					<div class="form-control">
-						<label class="mb-2 block text-sm font-semibold text-neutral-400">Categoría</label>
-						<select formControlName="categoryId"
-							class="select w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl transition-colors">
-							<option value="" class="text-zinc-200 font-regular bg-neutral-800">Seleccione una categoría
-							</option>
-							@for (category of categories(); track category.id) {
-							<option [value]="category.id" class="text-zinc-200 font-regular bg-neutral-800">{{
-								category.name }}</option>
-							}
-						</select>
-					</div>
-				</div>
+                    <div class="form-control">
+                        <label class="mb-2 block text-sm font-semibold text-base-content">Categoría</label>
+                        <select formControlName="categoryId"
+                            class="select w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl transition-colors">
+                            <option value="" class="text-base-content font-regular bg-base-100">Seleccione una categoría
+                            </option>
+                            @for (category of categories(); track category.id) {
+                            <option [value]="category.id" class="text-base-content font-regular bg-base-100">{{
+                                category.name }}</option>
+                            }
+                        </select>
+                    </div>
+                </div>
 
-				<div class="form-control">
-					<label class="mb-2 block text-sm font-semibold text-neutral-400">Descripción</label>
-					<textarea formControlName="description" rows="5" placeholder="Describe el problema o solicitud..."
-						class="w-full bg-neutral-800 border border-neutral-700 text-zinc-200 p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none"></textarea>
-				</div>
+                <div class="form-control">
+                    <label class="mb-2 block text-sm font-semibold text-base-content">Descripción</label>
+                    <textarea formControlName="description" rows="5" placeholder="Describe el problema o solicitud..."
+                        class="w-full bg-base-100 border border-base-content/10 text-base-content p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none"></textarea>
+                </div>
 
-				<div class="grid gap-6" [class]="this.isPremium() ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'">
-					<div class="form-control">
-						<label class="mb-2 block text-sm font-semibold text-neutral-400">Prioridad</label>
-						<select formControlName="priority"
-							class="select w-full bg-neutral-800 border border-neutral-700 text-zinc-200 h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
-							<option value="" class="text-zinc-200 font-regular bg-neutral-800">Seleccione la prioridad
-							</option>
-							@if (this.isPremium()) {
-							@for (priority of premiumPriorities(); track priority) {
-							<option [value]="priority" class="text-zinc-200 font-regular bg-neutral-800">{{ priority |
-								priority }}</option>
-							}
-							} @else {
-							@for (priority of priorities(); track priority) {
-							<option [value]="priority" class="text-zinc-200 font-regular bg-neutral-800">{{ priority |
-								priority }}</option>
-							}
-							}
-						</select>
-					</div>
+                <div class="grid gap-6" [class]="this.isPremium() ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'">
+                    <div class="form-control">
+                        <label class="mb-2 block text-sm font-semibold text-base-content">Prioridad</label>
+                        <select formControlName="priority"
+                            class="select w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
+                            <option value="" class="text-base-content font-regular bg-base-100">Seleccione la prioridad
+                            </option>
+                            @if (this.isPremium()) {
+                            @for (priority of premiumPriorities(); track priority) {
+                            <option [value]="priority" class="text-base-content font-regular bg-base-100">{{ priority |
+                                priority }}</option>
+                            }
+                            } @else {
+                            @for (priority of priorities(); track priority) {
+                            <option [value]="priority" class="text-base-content font-regular bg-base-100">{{ priority |
+                                priority }}</option>
+                            }
+                            }
+                        </select>
+                    </div>
 
-					@if (this.isPremium()) {
-					<div class="form-control">
-						<label class="mb-2 block text-sm font-semibold text-neutral-400">Adjuntar Archivo</label>
-						<input type="file" (change)="onFileSelected($event)"
-							class="file-input bg-neutral-800 border border-neutral-700 text-zinc-200 rounded-xl w-full h-12 text-sm" />
-					</div>
-					}
-				</div>
+                    @if (this.isPremium()) {
+                    <div class="form-control">
+                        <label class="mb-2 block text-sm font-semibold text-base-content">Adjuntar Archivo</label>
+                        <input type="file" (change)="onFileSelected($event)"
+                            class="file-input bg-base-100 border border-base-content/10 text-base-content rounded-xl w-full h-12 text-sm" />
+                    </div>
+                    }
+                </div>
 
-				<button type="submit"
-					class="btn btn-primary w-full h-12 text-base disabled:text-zinc-500 text-zinc-900 font-bold rounded-xl mt-4 border-none shadow-none hover:bg-primary/70 transition-colors">
-					Enviar Ticket
-				</button>
-			</form>
-		</div>
-	</div>
+                <button type="submit"
+                    class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80">
+                    Enviar Ticket
+                </button>
+            </form>
+        </div>
+    </div>
 </section>
 
+} @else if(editMode()) {
+<section
+    class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
+    <div class="w-full max-w-3xl">
+        <header class="text-center md:text-left mb-8">
+            <h1 class="text-4xl font-bold tracking-tight">
+                Editar <span class="text-primary">Ticket</span>
+            </h1>
+            <p class="text-base-content/70 font-medium text-sm mt-2">Completa la información para recibir asistencia.</p>
+        </header>
+
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-10 shadow-none">
+            <form [formGroup]="ticketForm" (ngSubmit)="onEdit()" class="space-y-6">
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="form-control">
+                        <label class="mb-2 block text-sm font-semibold text-base-content">Título</label>
+                        <input type="text" formControlName="title" placeholder="Ej. Error al iniciar sesión"
+                            class="w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="mb-2 block text-sm font-semibold text-base-content">Descripción</label>
+                        <textarea formControlName="description" rows="5"
+                            placeholder="Describe el problema o solicitud..."
+                            class="w-full bg-base-100 border border-base-content/10 text-base-content p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80">
+                        Enviar Ticket
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 } @else {
 
-<section class="min-h-screen bg-base-100 text-neutral-100 px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center">
-	<div class="w-full max-w-3xl">
-		<header class="mb-10 text-center md:text-left">
-			<h1 class="text-4xl font-bold tracking-tight">
-				Detalle del <span class="text-primary">Ticket</span>
-			</h1>
-			<p class="text-neutral-500 font-medium text-sm mt-2">Información completa sobre la solicitud.</p>
-		</header>
+<section class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center">
+    <div class="w-full max-w-3xl">
+        <header class="mb-10 text-center md:text-left">
+            <h1 class="text-4xl font-bold tracking-tight">
+                Detalle del <span class="text-primary">Ticket</span>
+            </h1>
+            <p class="text-base-content/70 font-medium text-sm mt-2">Información completa sobre la solicitud.</p>
+        </header>
 
-		<div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 md:p-10 shadow-none">
-			@if (ticket()) {
-			<div class="space-y-4">
-				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
-					<span class="text-sm font-bold text-neutral-500">Título:</span>
-					<span class="text-sm font-semibold text-zinc-200">{{ ticket()?.title }}</span>
-				</div>
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-10 shadow-none">
+            @if (ticket()) {
+            <div class="space-y-4">
+                <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
+                    <span class="text-sm font-bold text-base-content/60">Título:</span>
+                    <span class="text-sm font-semibold text-base-content">{{ ticket()?.title }}</span>
+                </div>
 
-				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
-					<span class="text-sm font-bold text-neutral-500">Fecha de creación:</span>
-					<span class="text-sm font-semibold text-zinc-200">{{ ticket()?.createdAt | date:'mediumDate'
-						}}</span>
-				</div>
+                <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
+                    <span class="text-sm font-bold text-base-content/60">Fecha de creación:</span>
+                    <span class="text-sm font-semibold text-base-content">{{ ticket()?.createdAt | date:'mediumDate'
+                        }}</span>
+                </div>
 
-				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
-					<span class="text-sm font-bold text-neutral-500">Categoría:</span>
-					<span class="text-sm font-semibold text-primary">{{ ticket()?.categoryName | titlecase }}</span>
-				</div>
+                <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
+                    <span class="text-sm font-bold text-base-content/60">Categoría:</span>
+                    <span class="text-sm font-semibold text-primary">{{ ticket()?.categoryName | titlecase }}</span>
+                </div>
 
-				<div class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1">
-					<span class="text-sm font-bold text-neutral-500">Prioridad:</span>
-					<span class="text-sm font-semibold text-zinc-200">{{ ticket()?.priority! | priority }}</span>
-				</div>
+                <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
+                    <span class="text-sm font-bold text-base-content/60">Prioridad:</span>
+                    <span class="text-sm font-semibold text-base-content">{{ ticket()?.priority! | priority }}</span>
+                </div>
 
-				<div
-					class="flex flex-col md:flex-row md:justify-between border-b border-neutral-800 py-4 gap-1 items-start md:items-center">
-					<span class="text-sm font-bold text-neutral-500">Estado actual:</span>
-					<status-badge [status]="ticket()?.status!"></status-badge>
-				</div>
+                <div
+                    class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1 items-start md:items-center">
+                    <span class="text-sm font-bold text-base-content/60">Estado actual:</span>
+                    <status-badge [status]="ticket()?.status!"></status-badge>
+                </div>
 
-				<div class="pt-4">
-					<span class="text-sm font-bold text-neutral-500 block mb-3">Descripción detallada:</span>
-					<div class="bg-neutral-800 border border-neutral-700 p-4 rounded-xl">
-						<p class="text-sm text-neutral-300 leading-relaxed">
-							{{ ticket()?.description }}
-						</p>
-					</div>
-				</div>
-			</div>
-			}
-		</div>
+                <div class="pt-4">
+                    <span class="text-sm font-bold text-base-content/60 block mb-3">Descripción detallada:</span>
+                    <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl">
+                        <p class="text-sm text-base-content leading-relaxed">
+                            {{ ticket()?.description }}
+                        </p>
+                    </div>
+                </div>
 
-		<div class="mt-8 flex justify-center md:justify-start">
-			<button routerLink="/dashboard/tickets"
-				class="text-sm font-bold text-neutral-500 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
-				<i class="bi bi-arrow-left"></i> Volver a mis tickets
-			</button>
-		</div>
-	</div>
+                @if (isOwner()) {
+                <div class="pt-2">
+                    <button
+                        class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
+                        (click)="setTicketForm()">
+                        Editar Ticket
+                    </button>
+                </div>
+                }
+
+                @if (ticket()?.file) {
+                <div class="pt-4">
+                    <span class="text-sm font-bold text-base-content/60 block mb-3">Archivo adjunto:</span>
+                    <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl">
+                        <p class="text-sm text-base-content leading-relaxed">
+                            {{ ticket()?.file }}
+                        </p>
+                    </div>
+                </div>
+                }
+            </div>
+            }
+        </div>
+
+        <div class="mt-8 flex justify-center md:justify-start">
+            <button routerLink="/dashboard/tickets"
+                class="text-sm font-bold text-base-content/60 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
+                <i class="bi bi-arrow-left"></i> Volver a mis tickets
+            </button>
+        </div>
+    </div>
 </section>
 }
 

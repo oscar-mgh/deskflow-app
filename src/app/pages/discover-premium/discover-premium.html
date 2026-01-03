@@ -1,16 +1,14 @@
 <section class="relative w-full min-h-screen bg-base-100 flex flex-col items-center text-center px-6 py-24 fade">
-    <!-- Encabezado -->
     <div class="relative z-10 mb-16">
-        <h1 class="text-4xl md:text-5xl mb-4 font-bold text-zinc-200 tracking-tight">
+        <h1 class="text-4xl md:text-5xl mb-4 font-bold text-base-content tracking-tight">
             DeskFlow <span class="text-primary">Premium</span>
         </h1>
-        <p class="text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto leading-relaxed">
             Impulsa tu equipo al siguiente nivel con herramientas exclusivas diseñadas para 
-            <span class="text-zinc-200 font-semibold">rapidez, control y colaboración profesional.</span>
+            <span class="text-base-content font-semibold">rapidez, control y colaboración profesional.</span>
         </p>
     </div>
 
-    <!-- Features -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mb-24">
         @for (feature of [
             {t: 'Gestión de archivos', d: 'Adjunta imágenes, PDFs y Excel con total libertad de subida.', i: 'bi-cloud-arrow-up'},
@@ -20,78 +18,78 @@
             {t: 'Automatizaciones', d: 'Asigna tickets y crea recordatorios sin mover un dedo.', i: 'bi-robot'},
             {t: 'Modo enfoque', d: 'Interfaz despejada full-screen para máxima productividad.', i: 'bi-fullscreen-exit'}
         ]; track feature.t) {
-            <div class="p-8 rounded-2xl bg-neutral-900 border border-neutral-700 hover:border-primary transition-colors text-left">
-                <div class="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center mb-6 hover:bg-primary hover:text-neutral-950 transition-colors">
+            <div class="p-8 rounded-2xl bg-base-200 border border-base-content/10 hover:border-primary/50 transition-all text-left group">
+                <div class="w-12 h-12 rounded-lg bg-base-300 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-content transition-colors">
                     <i class="bi {{feature.i}} text-xl"></i>
                 </div>
-                <h3 class="text-lg font-semibold text-zinc-200 mb-2">{{feature.t}}</h3>
-                <p class="text-neutral-500 text-sm leading-relaxed">{{feature.d}}</p>
+                <h3 class="text-lg font-semibold text-base-content mb-2">{{feature.t}}</h3>
+                <p class="text-base-content/60 text-sm leading-relaxed">{{feature.d}}</p>
             </div>
         }
     </div>
 
-    <!-- Tabla comparativa -->
     <div class="w-full max-w-4xl mb-24">
-        <h3 class="text-sm font-semibold text-neutral-400 mb-6">Comparativa</h3>
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl overflow-hidden">
+        <h3 class="text-sm font-semibold text-base-content/40 uppercase tracking-widest mb-6">Comparativa</h3>
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl overflow-hidden">
             <table class="table w-full border-collapse">
                 <thead>
-                    <tr class="border-b border-neutral-700">
-                        <th class="p-4 text-left text-neutral-400 text-xs font-medium">Capacidad</th>
-                        <th class="p-4 text-center text-neutral-400 text-xs font-medium">Standard</th>
-                        <th class="p-4 text-center text-primary text-xs font-medium bg-primary/5">Premium</th>
+                    <tr class="border-b border-base-content/10">
+                        <th class="p-4 text-left text-base-content text-xs font-bold uppercase">Capacidad</th>
+                        <th class="p-4 text-center text-base-content text-xs font-bold uppercase">Standard</th>
+                        <th class="p-4 text-center text-primary text-xs font-bold uppercase bg-primary/5">Premium</th>
                     </tr>
                 </thead>
                 <tbody class="text-sm">
-                    <tr class="border-b border-neutral-700">
-                        <td class="p-4 text-left text-neutral-200 font-medium">Gestión de tickets</td>
-                        <td class="p-4 text-center text-neutral-600"><i class="bi bi-check-lg"></i></td>
-                        <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all"></i></td>
+                    <tr class="border-b border-base-content/10">
+                        <td class="p-4 text-left text-base-content font-medium">Gestión de tickets</td>
+                        <td class="p-4 text-center text-base-content/60"><i class="bi bi-check-lg text-lg"></i></td>
+                        <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all text-xl"></i></td>
                     </tr>
-                    <tr class="border-b border-neutral-700">
-                        <td class="p-4 text-left text-neutral-200 font-medium">Adjuntos multimedia</td>
-                        <td class="p-4 text-center text-neutral-700">—</td>
-                        <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all"></i></td>
+                    <tr class="border-b border-base-content/10">
+                        <td class="p-4 text-left text-base-content font-medium">Adjuntos multimedia</td>
+                        <td class="p-4 text-center text-base-content/20">—</td>
+                        <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all text-xl"></i></td>
                     </tr>
-                    <tr>
-                        <td class="p-4 text-left text-neutral-200 font-medium">Analítica de datos</td>
-                        <td class="p-4 text-center text-neutral-700">—</td>
-                        <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all"></i></td>
+                    <tr class="border-none">
+                        <td class="p-4 text-left text-base-content font-medium">Analítica de datos</td>
+                        <td class="p-4 text-center text-base-content/20">—</td>
+                        <td class="p-4 text-center text-primary bg-primary/5"><i class="bi bi-check-all text-xl"></i></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- Planes -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl mb-16">
         
-        <div class="bg-neutral-900 border border-neutral-700 p-10 rounded-2xl flex flex-col text-left">
-            <h3 class="text-sm font-medium text-neutral-400 mb-2">Standard</h3>
-            <p class="text-3xl font-bold text-zinc-200 mb-6">$0 <span class="text-sm text-neutral-500">/ mes</span></p>
-            <ul class="space-y-3 mb-8 flex-1">
-                <li class="flex items-center gap-2 text-sm text-neutral-400"><i class="bi bi-check2 text-neutral-600"></i> Tickets ilimitados</li>
-                <li class="flex items-center gap-2 text-sm text-neutral-400"><i class="bi bi-check2 text-neutral-600"></i> Comentarios básicos</li>
+        <div class="bg-base-200 border border-base-content/10 p-10 rounded-3xl flex flex-col text-left">
+            <h3 class="text-sm font-bold text-base-content/40 uppercase mb-2">Standard</h3>
+            <p class="text-3xl font-bold text-base-content mb-6">$0 <span class="text-sm font-normal text-base-content/50">/ mes</span></p>
+            <ul class="space-y-4 mb-8 flex-1">
+                <li class="flex items-center gap-3 text-sm text-base-content/80"><i class="bi bi-check2 text-primary"></i> Tickets ilimitados</li>
+                <li class="flex items-center gap-3 text-sm text-base-content/80"><i class="bi bi-check2 text-primary"></i> Comentarios básicos</li>
             </ul>
-            <a routerLink="/auth/register" class="btn border border-neutral-700 text-zinc-200 h-12 rounded-xl hover:bg-neutral-800 font-bold">Empezar ahora</a>
+            <a routerLink="/auth/register" class="btn btn-secondary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none shadow-none hover:bg-secondary/60 transition-colors">
+                Empezar ahora
+            </a>
         </div>
 
-        <div class="bg-neutral-900 border border-primary p-10 rounded-2xl flex flex-col text-left">
-            <h3 class="text-sm font-medium text-primary mb-2">Premium</h3>
-            <p class="text-4xl font-bold text-zinc-200 mb-6">$9 <span class="text-sm text-neutral-500">/ mes</span></p>
-            <ul class="space-y-3 mb-8 flex-1">
-                <li class="flex items-center gap-2 text-sm text-neutral-200"><i class="bi bi-check-circle-fill text-primary"></i> Todo lo del plan básico</li>
-                <li class="flex items-center gap-2 text-sm text-neutral-200"><i class="bi bi-check-circle-fill text-primary"></i> Adjuntos multimedia</li>
-                <li class="flex items-center gap-2 text-sm text-neutral-200"><i class="bi bi-check-circle-fill text-primary"></i> Soporte 24/7 VIP</li>
+        <div class="bg-base-200 border-2 border-primary p-10 rounded-3xl flex flex-col text-left relative overflow-hidden shadow-xl shadow-primary/5">
+            <div class="absolute top-0 right-0 bg-primary text-primary-content text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase">Más popular</div>
+            <h3 class="text-sm font-bold text-primary uppercase mb-2">Premium</h3>
+            <p class="text-4xl font-bold text-base-content mb-6">$9 <span class="text-sm font-normal text-base-content/50">/ mes</span></p>
+            <ul class="space-y-4 mb-8 flex-1">
+                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium"><i class="bi bi-check-circle-fill text-primary"></i> Todo lo del plan básico</li>
+                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium"><i class="bi bi-check-circle-fill text-primary"></i> Adjuntos multimedia</li>
+                <li class="flex items-center gap-3 text-sm text-base-content/90 font-medium"><i class="bi bi-check-circle-fill text-primary"></i> Soporte 24/7 VIP</li>
             </ul>
-            <button (click)="openCheckout()" class="btn bg-primary text-zinc-900 font-bold h-12 text-base rounded-xl hover:bg-primary/90">
+            <button (click)="openCheckout()" class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow-xl">
                 Obtener Premium
             </button>
         </div>
     </div>
 
-    <!-- Volver -->
-    <a routerLink="/" class="text-neutral-500 hover:text-neutral-200 transition-colors text-sm font-bold">
-        ← Salir al inicio
+    <a routerLink="/" class="text-base-content/40 hover:text-primary transition-colors text-sm font-bold uppercase tracking-widest">
+        ← Volver al inicio
     </a>
 </section>

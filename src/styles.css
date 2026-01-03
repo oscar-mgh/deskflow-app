@@ -9,36 +9,50 @@
   prefersdark: true;
   color-scheme: dark;
 
-  --color-base-100: oklch(19% 0 0);
-  --color-base-200: oklch(22% 0 0);
+  --color-base-100: oklch(17.7% 0 0);
+  --color-base-200: oklch(20.6% 0 0);
   --color-base-300: oklch(28% 0 0);
-  --color-base-content: oklch(86% 0 30);
+  --color-base-content: oklch(100% 0 0);
 
-  --color-primary: oklch(69% 0.18 135);
-  --color-primary-content: oklch(22% 0.007 139);
+  --color-primary: oklch(64% 0.24 246);
+  --color-primary-content: oklch(10% 0 0);
 
-  --color-secondary: oklch(26% 0 0);
-  --color-secondary-content: oklch(98% 0 140);
+  --color-secondary: oklch(33% 0 0);
+  --color-secondary-content: oklch(90% 0 0);
 
-  --color-accent: oklch(55% 0.22 260);
-  --color-accent-content: oklch(100% 0 0);
+  --color-accent: oklch(65% 0.2 146);
+  --color-neutral: oklch(40% 0 0);
 
-  --color-neutral: oklch(86% 0 0);
-  --color-neutral-content: oklch(9% 0.01 30);
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
 
-  --color-info: oklch(70% 0.12 210);
-  --color-success: oklch(75% 0.15 150);
-  --color-warning: oklch(85% 0.15 85);
-  --color-error: oklch(65% 0.2 25);
+  scrollbar-color: var(--color-primary) transparent;
+}
 
-  --radius-selector: 1rem;
-  --radius-field: 0.75rem;
-  --radius-box: 1.5rem;
-  --border: 1px;
-  --depth: 1;
-  --noise: 0;
+@plugin "daisyui/theme" {
+  name: 'garden';
+  color-scheme: light;
 
-  --font-sans: 'Source Sans 3', ui-sans-serif, system-ui;
+  --color-base-100: oklch(97% 0 0);
+  --color-base-200: oklch(92% 0 0);
+  --color-base-300: oklch(88% 0 0);
+  --color-base-content: oklch(25% 0 250);
+
+  --color-primary: oklch(77% 0.14 164);
+  --color-primary-content: oklch(100% 0 0);
+
+  --color-secondary: oklch(88% 0.005 250);
+  --color-secondary-content: oklch(100% 0 0);
+
+  --color-accent: oklch(60% 0.2 250);
+  --color-warning: oklch(60% 0.3 100);
+
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+
+  scrollbar-color: var(--color-primary) transparent;
 }
 
 :root {
@@ -47,25 +61,7 @@
 
 html {
   scrollbar-width: auto;
-  scrollbar-color: var(--primary) transparent;
   scroll-behavior: smooth;
-}
-
-::selection {
-  background: var(--primary);
-  color: #212121;
-  text-shadow: none;
-}
-
-.select-neutral *::selection {
-  background: #dfdfdf;
-  color: #212121;
-}
-
-::-moz-selection {
-  background: var(--primary);
-  color: #eee;
-  text-shadow: none;
 }
 
 @keyframes fadeInLeft {

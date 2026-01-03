@@ -16,6 +16,7 @@ export interface AuthResponse {
 }
 
 export interface UserClaims {
+  id: string;
   sub: string;
   username: string;
   company: string;

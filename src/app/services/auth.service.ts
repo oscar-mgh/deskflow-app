@@ -53,6 +53,7 @@ export class AuthService {
   public getUserInfo(): UserClaims {
     const token = this.getToken();
     const emptyUser: UserClaims = {
+      id: '',
       sub: '',
       username: '',
       role: '',
@@ -63,6 +64,7 @@ export class AuthService {
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
       return {
+        id: payload.id || '',
         sub: payload.sub || '',
         username: payload.username || '',
         role: payload.role || '',
@@ -80,6 +82,8 @@ export class AuthService {
         return 'Algo salió mal, verifica que los datos ingresados sean validos';
       case 401:
         return 'Credenciales inválidas, verifica tu correo y contraseña';
+      case 404:
+        return 'Usuario no encontrado';
       case 409:
         return 'El correo electrónico ya está registrado';
       case 0:

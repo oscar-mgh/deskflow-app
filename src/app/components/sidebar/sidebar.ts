@@ -1,13 +1,16 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ConfigService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-sidebar',
   imports: [RouterLink, RouterLinkActive],
+  providers: [ConfigService],
   templateUrl: './sidebar.html',
 })
 export class Sidebar {
+  public config = inject(ConfigService);
   menuItems = [
     { link: '/dashboard', icon: 'bi-grid-1x2-fill', label: 'Panel', exact: true },
     { link: '/dashboard/ticket-create', icon: 'bi-plus-square-fill', label: 'Nuevo' },

@@ -1,106 +1,101 @@
 <main class="w-full min-h-full flex flex-col flex-1 p-4 md:p-8 gap-8 px-4 md:px-8 lg:pl-24 pb-20 fade">
     
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-amber-500/30">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-amber-500/40">
             <i class="bi bi-ticket-perforated text-3xl text-amber-400 mb-2"></i>
-            <h2 class="text-3xl font-bold text-zinc-200">24</h2>
-            <p class="text-sm font-bold text-neutral-500">Tickets Abiertos</p>
+            <h2 class="text-3xl font-bold text-base-content">24</h2>
+            <p class="text-sm font-bold text-base-content/60">Tickets Abiertos</p>
         </div>
 
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-purple-500/30">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-purple-500/40">
             <i class="bi bi-hourglass-split text-3xl text-purple-500 mb-2"></i>
-            <h2 class="text-3xl font-bold text-zinc-200">12</h2>
-            <p class="text-sm font-bold text-neutral-500">En Progreso</p>
+            <h2 class="text-3xl font-bold text-base-content">12</h2>
+            <p class="text-sm font-bold text-base-content/60">En Progreso</p>
         </div>
 
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-lime-500/30">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-lime-500/40">
             <i class="bi bi-check-circle text-3xl text-lime-500 mb-2"></i>
-            <h2 class="text-3xl font-bold text-zinc-200">8</h2>
-            <p class="text-sm font-bold text-neutral-500">Resueltos</p>
+            <h2 class="text-3xl font-bold text-base-content">8</h2>
+            <p class="text-sm font-bold text-base-content/60">Resueltos</p>
         </div>
 
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-red-500/30">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-red-500/40">
             <i class="bi bi-exclamation-triangle text-3xl text-red-400 mb-2"></i>
-            <h2 class="text-3xl font-bold text-zinc-200">5</h2>
-            <p class="text-sm font-bold text-neutral-500">SLA Vencidos</p>
+            <h2 class="text-3xl font-bold text-base-content">5</h2>
+            <p class="text-sm font-bold text-base-content/60">SLA Vencidos</p>
         </div>
     </section>
 
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 md:p-8 flex flex-col shadow-none">
-            <h3 class="text-lg font-bold text-zinc-200 mb-6 flex items-center gap-2">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 flex flex-col shadow-none">
+            <h3 class="text-lg font-bold text-base-content mb-6 flex items-center gap-2">
                 <span class="w-1.5 h-6 bg-primary rounded-full"></span>
                 Tickets Recientes
             </h3>
             
-            <ul class="divide-y divide-neutral-800 flex-1">
-                <li class="py-4 flex justify-between items-center transition-colors hover:bg-neutral-800/50 px-2 rounded-xl">
-                    <span class="text-sm font-medium text-neutral-200">#1023 - Error en login</span>
+            <ul class="divide-y divide-base-content/5 flex-1">
+                <li class="py-4 flex justify-between items-center transition-colors hover:bg-base-300/50 px-2 rounded-xl">
+                    <span class="text-sm font-medium text-base-content">#1023 - Error en login</span>
                     <status-badge status="IN_PROGRESS"></status-badge>
                 </li>
-                <li class="py-4 flex justify-between items-center transition-colors hover:bg-neutral-800/50 px-2 rounded-xl">
-                    <span class="text-sm font-medium text-neutral-200">#1024 - Nueva funcionalidad</span>
+                <li class="py-4 flex justify-between items-center transition-colors hover:bg-base-300/50 px-2 rounded-xl">
+                    <span class="text-sm font-medium text-base-content">#1024 - Nueva funcionalidad</span>
                     <status-badge status="OPEN"></status-badge>
                 </li>
-                <li class="py-4 flex justify-between items-center transition-colors hover:bg-neutral-800/50 px-2 rounded-xl">
-                    <span class="text-sm font-medium text-neutral-200">#1025 - Bug en dashboard</span>
+                <li class="py-4 flex justify-between items-center transition-colors hover:bg-base-300/50 px-2 rounded-xl">
+                    <span class="text-sm font-medium text-base-content">#1025 - Bug en dashboard</span>
                     <status-badge status="RESOLVED"></status-badge>
                 </li>
-                <li class="py-4 flex justify-between items-center transition-colors hover:bg-neutral-800/50 px-2 rounded-xl">
-                    <span class="text-sm font-medium text-neutral-200">#1026 - Error de conexión</span>
+                <li class="py-4 flex justify-between items-center transition-colors hover:bg-base-300/50 px-2 rounded-xl">
+                    <span class="text-sm font-medium text-base-content">#1026 - Error de conexión</span>
                     <status-badge status="CLOSED"></status-badge>
                 </li>
             </ul>
 
-            <button routerLink="/tickets" 
-                class="mt-6 text-sm font-bold text-primary hover:text-zinc-200 transition-colors flex items-center gap-2 self-start">
+            <button routerLink="/dashboard/tickets" 
+                class="mt-6 text-sm font-bold text-primary hover:text-base-content transition-colors flex items-center gap-2 self-start cursor-pointer">
                 Ver todo el listado <i class="bi bi-arrow-right"></i>
             </button>
         </div>
 
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 md:p-8 flex flex-col shadow-none">
-            <h3 class="text-lg font-bold text-zinc-200 mb-6 flex items-center gap-2">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 flex flex-col shadow-none">
+            <h3 class="text-lg font-bold text-base-content mb-6 flex items-center gap-2">
                 <span class="w-1.5 h-6 bg-primary rounded-full"></span>
                 Tickets siendo atendidos
             </h3>
             
             <ul class="space-y-3 flex-1">
-                <li class="flex justify-between items-center p-4 bg-neutral-800/40 border border-neutral-800 rounded-xl hover:border-neutral-700 transition-colors">
+                <li class="flex justify-between items-center p-4 bg-base-100 border border-base-content/5 rounded-xl hover:border-base-content/20 transition-colors">
                     <div class="flex items-center gap-3">
                         <i class="bi bi-ticket-perforated-fill text-sky-400 text-lg"></i>
-                        <span class="text-sm font-bold text-neutral-200">#1245 - Error de Login</span>
+                        <span class="text-sm font-bold text-base-content">#1245 - Error de Login</span>
                     </div>
-                    <span class="bg-neutral-900 text-neutral-400 text-sm font-bold py-1.5 px-3 rounded-lg border border-neutral-700 flex items-center gap-2">
+                    <span class="bg-base-300 text-base-content text-sm font-bold py-1.5 px-3 rounded-lg border border-base-content/10 flex items-center gap-2">
                         <i class="bi bi-person-circle text-primary"></i> Juan Pérez
                     </span>
                 </li>
 
-                <li class="flex justify-between items-center p-4 bg-neutral-800/40 border border-neutral-800 rounded-xl hover:border-neutral-700 transition-colors">
+                <li class="flex justify-between items-center p-4 bg-base-100 border border-base-content/5 rounded-xl hover:border-base-content/20 transition-colors">
                     <div class="flex items-center gap-3">
                         <i class="bi bi-ticket-perforated-fill text-sky-400 text-lg"></i>
-                        <span class="text-sm font-bold text-neutral-200">#1246 - Caída Servidor</span>
+                        <span class="text-sm font-bold text-base-content">#1246 - Caída Servidor</span>
                     </div>
-                    <span class="bg-neutral-900 text-neutral-400 text-sm font-bold py-1.5 px-3 rounded-lg border border-neutral-700 flex items-center gap-2">
+                    <span class="bg-base-300 text-base-content text-sm font-bold py-1.5 px-3 rounded-lg border border-base-content/10 flex items-center gap-2">
                         <i class="bi bi-person-circle text-primary"></i> María García
                     </span>
                 </li>
 
-                <li class="flex justify-between items-center p-4 bg-neutral-800/40 border border-neutral-800 rounded-xl hover:border-neutral-700 transition-colors">
+                <li class="flex justify-between items-center p-4 bg-base-100 border border-base-content/5 rounded-xl hover:border-base-content/20 transition-colors">
                     <div class="flex items-center gap-3">
                         <i class="bi bi-ticket-perforated-fill text-sky-400 text-lg"></i>
-                        <span class="text-sm font-bold text-neutral-200">#1247 - Reset Password</span>
+                        <span class="text-sm font-bold text-base-content">#1247 - Reset Password</span>
                     </div>
-                    <span class="bg-neutral-900 text-neutral-400 text-sm font-bold py-1.5 px-3 rounded-lg border border-neutral-700 flex items-center gap-2">
+                    <span class="bg-base-300 text-base-content text-sm font-bold py-1.5 px-3 rounded-lg border border-base-content/10 flex items-center gap-2">
                         <i class="bi bi-person-circle text-primary"></i> Ricardo Soto
                     </span>
                 </li>
             </ul>
-
-            <button routerLink="/tickets" 
-                class="mt-6 text-sm font-bold text-primary hover:text-zinc-200 transition-colors flex items-center gap-2 self-start">
-                Gestionar asignaciones <i class="bi bi-arrow-right"></i>
-            </button>
         </div>
 
     </section>

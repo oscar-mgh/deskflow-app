@@ -7,5 +7,5 @@ import { Component, input, signal } from '@angular/core';
 })
 export class PriorityBadge {
   public priority = input.required<string>();
-  public styles = signal<string>('badge badge-sm font-medium');
+  public styles = signal<string>('badge badge-sm font-semibold p-2.5');
 }

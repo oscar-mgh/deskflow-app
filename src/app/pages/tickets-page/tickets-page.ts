@@ -29,8 +29,7 @@ export class TicketsPage implements OnInit {
     this.loading.set(true);
     this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
       next: (response) => {
-        console.log(response);
-        this.tickets.set(response.content);
+        this.tickets.set(response.content.sort((a, b) => a.id - b.id));
         this.paginationData.set(response);
         this.currentPage.set(page);
         this.loading.set(false);
