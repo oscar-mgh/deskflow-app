@@ -6,8 +6,8 @@ export interface Ticket {
   categoryName: string;
   priority: string;
   status: string;
-  createdAt: string;
-  updatedAt?: string;
+  createdAt: Date;
+  updatedAt?: Date;
   file?: File;
   agentId?: string;
   userId: string;
@@ -25,6 +25,13 @@ export interface TicketPagination {
 export interface Comment {
   id: number;
   content: string;
-  createdAt: string;
+  createdAt: Date;
   userId: string;
+}
+
+export interface KPI {
+  id: string;
+  label: string;
+  val: string | number;
+  color: string;
 }

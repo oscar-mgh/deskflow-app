@@ -10,7 +10,7 @@
 
         <div class="lg:col-span-4 flex flex-col items-center lg:items-start">
             <div class="mb-8">
-                <div class="w-40 h-40 bg-base-200 border border-base-content/10 rounded-2xl flex items-center justify-center shadow-none">
+                <div class="w-40 h-40 bg-base-200 border border-base-content/10 rounded-2xl flex items-center justify-center shadow-lg">
                     <span class="text-6xl font-bold text-base-content">
                         {{ userInfo().username.charAt(0).toUpperCase() }}
                     </span>
@@ -38,7 +38,7 @@
 
         <div class="lg:col-span-8 space-y-6">
 
-            <div class="bg-base-200 border border-base-content/10 rounded-2xl p-8 shadow-none">
+            <div class="bg-base-200 border border-base-content/10 rounded-2xl p-8 shadow-xl">
                 <h3 class="text-sm font-bold text-base-content mb-8 flex items-center gap-2">
                     <i class="bi bi-info-circle text-primary"></i>
                     <ng-container i18n="@@profile.info_title">Información General</ng-container>
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="bg-base-200 border border-base-content/10 rounded-2xl p-8 shadow-none">
+            <div class="bg-base-200 border border-base-content/10 rounded-2xl p-8 shadow-xl">
                 <h3 class="text-sm font-bold text-base-content mb-8 flex items-center gap-2">
                     <i class="bi bi-lock text-primary"></i>
                     <ng-container i18n="@@profile.security_title">Seguridad y Acceso</ng-container>

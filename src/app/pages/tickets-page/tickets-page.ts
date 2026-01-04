@@ -42,7 +42,7 @@ export class TicketsPage implements OnInit {
     this.loading.set(true);
     this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
       next: (response) => {
-        this.tickets.set(response.content.sort((a, b) => a.id - b.id));
+        this.tickets.set(response.content);
         this.paginationData.set(response);
         this.currentPage.set(page);
         this.loading.set(false);
@@ -58,7 +58,7 @@ export class TicketsPage implements OnInit {
     this.loading.set(true);
     this._ticketsService.getTicketsByAgent().subscribe({
       next: (response) => {
-        this.tickets.set(response.content.sort((a, b) => a.id - b.id));
+        this.tickets.set(response.content);
         this.paginationData.set(response);
         this.currentPage.set(0);
         this.loading.set(false);

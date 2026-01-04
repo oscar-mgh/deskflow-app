@@ -7,5 +7,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './dash-empty.html',
 })
 export class DashEmpty {
-  isAgentOrAdmin = input.required<boolean>();
+  isAdmin = input.required<boolean>();
+  isAgent = input.required<boolean>();
 }

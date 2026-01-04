@@ -6,14 +6,16 @@ import { Ticket, TicketPagination } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
 import { TicketsService } from '../../services/tickets.service';
 import { ToastService } from '../../services/toast.service';
+import { DashAdmin } from "../../components/dash-admin/dash-admin";
 
 @Component({
   selector: 'dash-info',
-  imports: [StatusBadge, RouterLink, DatePipe],
+  imports: [StatusBadge, RouterLink, DatePipe, DashAdmin],
   templateUrl: './dash-info.html',
 })
 export class DashInfo {
-  isAgentOrAdmin = input.required<boolean>();
+  isAgent = input.required<boolean>();
+  isAdmin = input.required<boolean>();
   allTickets = input.required<number>();
   loadAgentTickets = input.required<boolean>();
 
@@ -58,20 +60,14 @@ export class DashInfo {
             },
           });
           this.openTickets.set(
-            this.tickets()
-              .filter(
-                (ticket) =>
-                  ticket.status === 'OPEN' && ticket.agentId === this._authService.getUserInfo().id
-              )
-              .sort((a, b) => a.id - b.id)
+            this.tickets().filter(
+              (ticket) =>
+                ticket.status === 'OPEN' && ticket.agentId === this._authService.getUserInfo().id
+            )
           );
         } else {
           this.tickets.set(response.content);
-          this.openTickets.set(
-            this.tickets()
-              .filter((ticket) => ticket.status === 'OPEN')
-              .sort((a, b) => a.id - b.id)
-          );
+          this.openTickets.set(this.tickets().filter((ticket) => ticket.status === 'OPEN'));
           this.paginationData.set(response);
           this.currentPage.set(0);
         }

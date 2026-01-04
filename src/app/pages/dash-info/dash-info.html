@@ -1,31 +1,31 @@
-@if (isAgentOrAdmin()) {
+@if (isAgent()) {
 <main
     class="w-full min-h-full flex flex-col flex-1 p-4 md:p-8 gap-8 px-4 mx-auto max-w-7xl md:px-8 lg:px-24 pb-20 fade">
 
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
-            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-amber-500/40">
+            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center  transition-all shadow-xl hover:border-amber-500/40">
             <i class="bi bi-ticket-perforated text-3xl text-amber-400 mb-2"></i>
             <h2 class="text-3xl font-bold text-base-content">{{allTickets()}}</h2>
             <p class="text-sm font-bold text-base-content/60" i18n="@@dash.stats.open">Tickets Asignados</p>
         </div>
 
         <div
-            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-slate-400/40">
-            <i class="bi bi-hourglass-split text-3xl text-slate-400 mb-2"></i>
+            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center  transition-all shadow-xl hover:border-slate-400/40">
+            <i class="bi bi-hourglass-split text-3xl text-sky-400/80 mb-2"></i>
             <h2 class="text-3xl font-bold text-base-content">{{inProgressTickets().length}}</h2>
             <p class="text-sm font-bold text-base-content/60" i18n="@@dash.stats.progress">En Progreso</p>
         </div>
 
         <div
-            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-lime-500/40">
+            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center  transition-all shadow-xl hover:border-lime-500/40">
             <i class="bi bi-check-circle text-3xl text-lime-500 mb-2"></i>
             <h2 class="text-3xl font-bold text-base-content">{{resolvedTickets().length}}</h2>
             <p class="text-sm font-bold text-base-content/60" i18n="@@dash.stats.resolved">Resueltos</p>
         </div>
 
         <div
-            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-red-500/40">
+            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center  transition-all shadow-xl hover:border-red-500/40">
             <i class="bi bi-exclamation-triangle text-3xl text-red-400 mb-2"></i>
             <h2 class="text-3xl font-bold text-base-content">{{slaTickets().length}}</h2>
             <p class="text-sm font-bold text-base-content/60" i18n="@@dash.stats.sla">SLA Vencidos</p>
@@ -35,7 +35,7 @@
 
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div
-            class="lg:col-span-1 bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 flex flex-col shadow-none">
+            class="lg:col-span-1 bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 flex flex-col shadow-xl">
             <h3 class="text-lg font-bold text-base-content mb-6 flex items-center gap-2">
                 <span class="w-1.5 h-6 bg-primary rounded-full"></span>
                 <ng-container i18n="@@dash.recent.title">Tickets por asistir</ng-container>
@@ -51,13 +51,13 @@
             <button routerLink="/dash/tickets"
                 class="mt-4 text-sm font-bold text-primary hover:text-base-content transition-colors self-start cursor-pointer">
                 @if (tickets().length > 9) {
-                <ng-container i18n="@@dash.common.view_all">Ver todos</ng-container> <i class="bi bi-arrow-right"></i>
+                <ng-container i18n="@@dash.common.view_all">Ver todos</ng-container>
                 }
             </button>
         </div>
 
         <div
-            class="lg:col-span-1 bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 flex flex-col shadow-none">
+            class="lg:col-span-1 bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 flex flex-col shadow-xl">
             <h3 class="text-lg font-bold text-base-content mb-6 flex items-center gap-2">
                 <span class="w-1.5 h-6 bg-green-500 rounded-full"></span>
                 <ng-container i18n="@@dash.attention.title">Estas atendiendo</ng-container>
@@ -84,14 +84,14 @@
     class="w-full min-h-full flex flex-col flex-1 mx-auto max-w-7xl p-4 md:p-8 gap-8 px-4 md:px-8 lg:px-24 lg:pb-0 pb-20 fade">
     <section class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div
-            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-amber-500/40">
+            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center  transition-all shadow-xl hover:border-amber-500/40">
             <i class="bi bi-ticket-perforated text-3xl text-amber-400 mb-2"></i>
             <h2 class="text-3xl font-bold text-base-content">{{openTickets().length}}</h2>
             <p class="text-sm font-bold text-base-content/60" i18n="@@dash.user.open_tickets">Tus tickets abiertos</p>
         </div>
 
         <div
-            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center shadow-none transition-all hover:border-lime-500/40">
+            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 flex flex-col items-center text-center  transition-all shadow-xl hover:border-lime-500/40">
             <i class="bi bi-check-circle text-3xl text-lime-500 mb-2"></i>
             <h2 class="text-3xl font-bold text-base-content">{{lastTicketsResolved().length}}</h2>
             <p class="text-sm font-bold text-base-content/60" i18n="@@dash.user.resolved_recent">Resueltos recientemente
@@ -101,14 +101,15 @@
 
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 h-auto">
         @if (openTickets().length > 0) {
-        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 lg:pb-4 flex flex-col shadow-none">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 lg:pb-4 flex flex-col shadow-xl">
             <h3 class="text-lg font-bold text-base-content mb-6 flex items-center gap-2">
                 <span class="w-1.5 h-6 bg-amber-400 rounded-full"></span>
                 <ng-container i18n="@@dash.user.list_title">Tus tickets abiertos</ng-container>
             </h3>
             <ul class="divide-y divide-base-content/5 flex-1">
                 @for (ticket of openTickets().slice(0, 6); track ticket.id) {
-                <li class="py-4 flex justify-between items-center px-2 cursor-pointer hover:bg-base-300/20" (click)="openTicket(ticket.id.toString())">
+                <li class="py-4 flex justify-between items-center px-2 cursor-pointer hover:bg-base-300/20"
+                    (click)="openTicket(ticket.id.toString())">
                     <div>
                         <span class="text-sm font-medium text-base-content">#{{ticket.code}} - {{ticket.title}}</span>
                         <p class="text-xs text-base-content/60 mt-1">
@@ -130,7 +131,7 @@
         }
 
         <div
-            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-none">
+            class="bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-xl">
             <h3 class="text-lg font-bold text-base-content mb-6 flex items-center gap-2">
                 <span class="w-1.5 h-6 bg-primary rounded-full"></span>
                 <ng-container i18n="@@dash.help.title">¿Necesitas ayuda?</ng-container>
@@ -153,7 +154,8 @@
                     tickets resueltos</h4>
                 <ul class="text-sm text-base-content divide-y divide-base-300/50">
                     @for (ticket of lastTicketsResolved().slice(0, 2); track ticket.id) {
-                    <li class="py-4 flex justify-between items-center px-2 cursor-pointer" (click)="openTicket(ticket.id.toString())">
+                    <li class="py-4 flex justify-between items-center px-2 cursor-pointer"
+                        (click)="openTicket(ticket.id.toString())">
                         <div>
                             <span class="text-sm font-medium text-base-content">#{{ticket.code}} -
                                 {{ticket.title}}</span>
@@ -172,4 +174,8 @@
         </div>
     </section>
 </main>
+}
+
+@if (isAdmin()) {
+    <dash-admin></dash-admin>
 }

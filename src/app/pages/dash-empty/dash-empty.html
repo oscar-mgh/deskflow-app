@@ -1,85 +1,118 @@
+@if (isAdmin()) {
+<section
+    class="w-full flex-1 flex flex-col items-center justify-center bg-base-100 rounded-2xl shadow-xl border border-dashed border-base-300 text-center min-h-screen fade px-8">
+    <div class="relative mb-6">
+        <i class="bi bi-cpu text-9xl text-base-300 opacity-50"></i>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <i class="bi bi-activity text-6xl text-primary animate-pulse"></i>
+        </div>
+    </div>
+
+    <h2 class="text-3xl font-bold text-base-content mb-4" i18n="@@empty.admin_title">¡Panel de Control Listo!</h2>
+
+    <p class="text-sm text-base-content/70 leading-relaxed max-w-lg mb-8" i18n="@@empty.admin_description">
+        Bienvenido al centro administrativo. El sistema está operando con normalidad.
+        Desde aquí puedes supervisar el rendimiento del equipo, gestionar usuarios y configurar la plataforma.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md mb-12">
+        <div class="bg-base-200 p-4 rounded-2xl border border-base-content/5">
+            <p class="text-xs font-bold text-base-content/40" i18n="@@empty.label_sys_status">Estado del Sistema</p>
+            <p class="text-lg font-bold text-primary" i18n="@@empty.status_optimal">Óptimo</p>
+        </div>
+        <div class="bg-base-200 p-4 rounded-2xl border border-base-content/5">
+            <p class="text-xs font-bold text-base-content/40" i18n="@@empty.label_active_agents">Agentes Activos</p>
+            <p class="text-lg font-bold text-base-content">12</p>
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+        <a routerLink="/dashboard/admin"
+            class="btn btn-primary btn-lg w-full h-12 text-base text-base-content font-bold rounded-xl shadow-lg transition-all">
+            <i class="bi bi-gear-fill"></i>
+            <ng-container i18n="@@empty.btn_config">Configuración</ng-container>
+        </a>
+    </div>
+</section>
+} @else {
 <section
     class="w-full flex-1 flex flex-col items-center justify-center bg-base-100 rounded-2xl shadow-xl border border-dashed border-base-300 text-center min-h-screen fade px-8">
 
-    @if (isAgentOrAdmin()) {
-        
-        <div class="relative mb-6">
-            <i class="bi bi-shield-check text-9xl text-base-300 opacity-50"></i>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <i class="bi bi-check2-all text-6xl text-success animate-pulse"></i>
-            </div>
-        </div>
+    @if (isAgent()) {
 
-        <h2 class="text-3xl font-bold text-base-content mb-4" 
-            i18n="@@empty.agent_title">¡Todo al día, equipo!</h2>
-        
-        <p class="text-sm text-base-content/70 leading-relaxed max-w-lg mb-8" 
-           i18n="@@empty.agent_description">
-            No tienes tickets pendientes de gestión en este momento. 
-            Has procesado todas tus solicitudes asignadas. Tómate un respiro o revisa el historial.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md mb-12">
-            <div class="bg-base-200 p-4 rounded-2xl border border-base-content/5">
-                <p class="text-xs font-bold text-base-content/40" 
-                   i18n="@@empty.label_status">Estatus</p>
-                <p class="text-lg font-bold text-success" 
-                   i18n="@@empty.status_available">Disponible</p>
-            </div>
-            <div class="bg-base-200 p-4 rounded-2xl border border-base-content/5">
-                <p class="text-xs font-bold text-base-content/40" 
-                   i18n="@@empty.label_pending">Pendientes</p>
-                <p class="text-lg font-bold text-base-content">0</p>
-            </div>
+    <div class="relative mb-6">
+        <i class="bi bi-shield-check text-9xl text-base-300 opacity-50"></i>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <i class="bi bi-check2-all text-6xl text-success animate-pulse"></i>
         </div>
+    </div>
 
-        <div class="flex flex-col sm:flex-row gap-4">
-            <a routerLink="/dashboard/reports" class="btn btn-ghost hover:bg-base-200 w-full h-12 text-base text-base-content font-bold rounded-xl border border-base-content/10 transition-all">
-                <i class="bi bi-graph-up"></i>
-                <ng-container i18n="@@empty.btn_metrics">Ver mis métricas</ng-container>
-            </a>
+    <h2 class="text-3xl font-bold text-base-content mb-4" i18n="@@empty.agent_title">¡Todo al día, equipo!</h2>
+
+    <p class="text-sm text-base-content/70 leading-relaxed max-w-lg mb-8" i18n="@@empty.agent_description">
+        No tienes tickets pendientes de gestión en este momento.
+        Has procesado todas tus solicitudes asignadas. Tómate un respiro o revisa el historial.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md mb-12">
+        <div class="bg-base-200 p-4 rounded-2xl border border-base-content/5">
+            <p class="text-xs font-bold text-base-content/40" i18n="@@empty.label_status">Estatus</p>
+            <p class="text-lg font-bold text-success" i18n="@@empty.status_available">Disponible</p>
         </div>
+        <div class="bg-base-200 p-4 rounded-2xl border border-base-content/5">
+            <p class="text-xs font-bold text-base-content/40" i18n="@@empty.label_pending">Pendientes</p>
+            <p class="text-lg font-bold text-base-content">0</p>
+        </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+        <a routerLink="/dashboard/reports"
+            class="btn btn-ghost hover:bg-base-200 w-full h-12 text-base text-base-content font-bold rounded-xl border border-base-content/10 transition-all">
+            <i class="bi bi-graph-up"></i>
+            <ng-container i18n="@@empty.btn_metrics">Ver mis métricas</ng-container>
+        </a>
+    </div>
     } @else {
-        <div class="relative mb-6">
-            <i class="bi bi-ticket-perforated text-9xl text-base-300"></i>
-            <i class="bi bi-search absolute -bottom-2 -right-2 text-4xl text-primary animate-bounce"></i>
-        </div>
+    <div class="relative mb-6">
+        <i class="bi bi-ticket-perforated text-9xl text-base-300"></i>
+        <i class="bi bi-search absolute -bottom-2 -right-2 text-4xl text-primary animate-bounce"></i>
+    </div>
 
-        <h2 class="text-3xl font-bold text-base-content mb-10" 
-            i18n="@@empty.user_title">Nada por aquí</h2>
-        
-        <p class="text-sm text-base-content/70 leading-relaxed max-w-lg mb-8" 
-           i18n="@@empty.user_description">
-            En <span class="text-primary font-bold">DeskFlow</span>, nuestro objetivo es que nada te detenga.
-            Si tienes un problema técnico, una duda o necesitas soporte especializado,
-            estamos a un solo clic de distancia para darte la solución que necesitas.
-        </p>
-        
-        <p class="text-sm text-base-content/60 max-w-sm mb-12" 
-           i18n="@@empty.user_hint">
-            Recuerda que en cualquier momento puedes crear tus tickets desde el menú lateral
-        </p>
+    <h2 class="text-3xl font-bold text-base-content mb-10" i18n="@@empty.user_title">Nada por aquí</h2>
 
-        <div class="flex flex-col sm:flex-row gap-4">
-            <a routerLink="/dashboard/ticket-create" class="btn btn-primary w-full h-12 text-base text-primary-content font-bold rounded-xl mt-4 border-none shadow-none hover:opacity-90 transition-all">
-                <i class="bi bi-plus-circle-fill"></i>
-                <ng-container i18n="@@empty.btn_create_first">Crear mi primer ticket</ng-container>
-            </a>
-        </div>
+    <p class="text-sm text-base-content/70 leading-relaxed max-w-lg mb-8" i18n="@@empty.user_description">
+        En <span class="text-primary font-bold">DeskFlow</span>, nuestro objetivo es que nada te detenga.
+        Si tienes un problema técnico, una duda o necesitas soporte especializado,
+        estamos a un solo clic de distancia para darte la solución que necesitas.
+    </p>
+
+    <p class="text-sm text-base-content/60 max-w-sm mb-12" i18n="@@empty.user_hint">
+        Recuerda que en cualquier momento puedes crear tus tickets desde el menú lateral
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+        <a routerLink="/dashboard/ticket-create"
+            class="btn btn-primary w-full h-12 text-base text-primary-content font-bold rounded-xl mt-4 border-none shadow-none hover:opacity-90 transition-all">
+            <i class="bi bi-plus-circle-fill"></i>
+            <ng-container i18n="@@empty.btn_create_first">Crear mi primer ticket</ng-container>
+        </a>
+    </div>
     }
 
     <div class="mt-12 grid grid-cols-3 gap-8 opacity-40 grayscale md:flex">
         <div class="flex items-center gap-2 text-sm">
-            <i class="bi bi-lightning-charge"></i> 
+            <i class="bi bi-lightning-charge"></i>
             <ng-container i18n="@@empty.feature_fast">Rápido</ng-container>
         </div>
         <div class="flex items-center gap-2 text-sm">
-            <i class="bi bi-shield-check"></i> 
+            <i class="bi bi-shield-check"></i>
             <ng-container i18n="@@empty.feature_secure">Seguro</ng-container>
         </div>
         <div class="flex items-center gap-2 text-sm">
-            <i class="bi bi-headset"></i> 
+            <i class="bi bi-headset"></i>
             <ng-container i18n="@@empty.feature_support">Soporte 24/7</ng-container>
         </div>
     </div>
 </section>
+
+}

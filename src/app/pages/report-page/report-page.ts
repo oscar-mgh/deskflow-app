@@ -1,64 +1,187 @@
-import { Component, ElementRef, OnInit, OnDestroy, signal, effect, viewChild } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  ElementRef,
+  OnDestroy,
+  signal,
+  viewChild,
+} from '@angular/core';
+import { Router } from '@angular/router';
 import * as echarts from 'echarts';
+import { KPI } from '../../models/ticket.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'report-page',
   standalone: true,
   templateUrl: './report-page.html',
 })
-export class ReportPage implements OnInit, OnDestroy {
+export class ReportPage implements OnDestroy {
   private trendChartDom = viewChild<ElementRef>('trendChart');
   private priorityChartDom = viewChild<ElementRef>('priorityChart');
   private slaChartDom = viewChild<ElementRef>('slaChart');
   private agentsChartDom = viewChild<ElementRef>('agentsChart');
   private efficiencyChartDom = viewChild<ElementRef>('efficiencyChart');
 
+  public userRole = computed(() => this._authService.getUserInfo().role);
+  public isAdmin = computed(() => this.userRole() === 'ADMIN');
+
   private charts: echarts.ECharts[] = [];
 
   public totalTickets = signal(951);
   public slaCompliance = signal(94.4);
   public avgResolutionTime = signal('19m 20s');
+  public resolvedCount = signal(128);
+  public openTickets = signal(5);
+  public totalAssigned = signal(25);
 
-  constructor() {
+  public adminKpis = computed<KPI[]>(() => [
+    {
+      id: 'total',
+      label: $localize`:@@reports.kpi_total:Total Tickets`,
+      val: this.totalTickets(),
+      color: 'text-base-content',
+    },
+    {
+      id: 'sla',
+      label: $localize`:@@reports.kpi_sla:SLA Global`,
+      val: `${this.slaCompliance()}%`,
+      color: 'text-primary',
+    },
+    {
+      id: 'resolution',
+      label: $localize`:@@reports.kpi_resolution:Resolución Promedio`,
+      val: this.avgResolutionTime(),
+      color: 'text-base-content',
+    },
+    {
+      id: 'satisfaction',
+      label: $localize`:@@reports.kpi_satisfaction:Satisfacción`,
+      val: '4.8/5',
+      color: 'text-success',
+    },
+  ]);
+
+  public agentKpis = computed<KPI[]>(() => [
+    {
+      id: 'resolved',
+      label: $localize`:@@agent_reports.kpi_resolved:Tickets Resueltos`,
+      val: this.resolvedCount(),
+      color: 'text-base-content',
+    },
+    {
+      id: 'my_sla',
+      label: $localize`:@@agent_reports.kpi_my_sla:Mi Cumplimiento SLA`,
+      val: '94%',
+      color: 'text-primary',
+    },
+    {
+      id: 'my_speed',
+      label: $localize`:@@agent_reports.kpi_my_speed:Tiempo de Respuesta`,
+      val: '1h 20m',
+      color: 'text-base-content',
+    },
+    {
+      id: 'my_rating',
+      label: $localize`:@@agent_reports.kpi_my_rating:Mi Calificación`,
+      val: '4.9/5',
+      color: 'text-success',
+    },
+  ]);
+
+  public openPercentage = computed(() =>
+    this.totalAssigned() > 0 ? (this.openTickets() * 100) / this.totalAssigned() : 0
+  );
+
+  constructor(private _authService: AuthService, private router: Router) {
     effect(() => {
-      const resizeObserver = new ResizeObserver(() => {
-        this.charts.forEach((chart) => chart.resize());
-      });
+      const resizeObserver = new ResizeObserver(() => this.charts.forEach((c) => c.resize()));
       resizeObserver.observe(document.body);
+    });
+
+    effect(() => {
+      if (this.trendChartDom()) {
+        setTimeout(() => this.initCharts(), 50);
+      }
     });
   }
 
-  ngOnInit() {
-    setTimeout(() => this.initCharts(), 0);
+  private initCharts() {
+    this.charts.forEach((c) => c.dispose());
+    this.charts = [];
+    const s = { primary: '#a3e635', secondary: 'rgba(0, 211, 113, 0.45)', grid: '#27272a' };
+
+    this.renderChart(this.trendChartDom(), this.getTrendOption(s));
+
+    this.renderChart(this.priorityChartDom(), this.getPriorityOption(s, this.isAdmin()));
+
+    if (this.isAdmin()) {
+      this.renderChart(this.slaChartDom(), this.getSlaOption(s));
+      this.renderChart(this.agentsChartDom(), this.getAgentsOption(s));
+      this.renderChart(this.efficiencyChartDom(), this.getEfficiencyOption(s));
+    } else {
+      this.renderChart(this.slaChartDom(), this.getAgentCategoriesOption(s));
+      this.renderChart(this.efficiencyChartDom(), this.getAgentSatisfactionOption(s));
+    }
   }
 
-  private initCharts() {
-    const commonStyle = {
-      primary: '#a3e635',
-      secondary: '#3f3f46',
-      text: '#94a3b8',
-      grid: '#27272a',
+  private getPriorityOption(s: any, isAdmin: boolean) {
+    const adminData = [
+      { value: 401, name: $localize`:@@priority.low:Baja`, itemStyle: { color: s.primary } },
+      { value: 245, name: $localize`:@@priority.medium:Media`, itemStyle: { color: '#fbbf24' } },
+      { value: 125, name: $localize`:@@priority.high:Alta`, itemStyle: { color: '#f97316' } },
+      {
+        value: 180,
+        name: $localize`:@@priority.critical:Crítica`,
+        itemStyle: { color: '#ef4444' },
+      },
+    ];
+
+    const agentData = [
+      { value: 65, name: $localize`:@@priority.low:Baja`, itemStyle: { color: s.primary } },
+      { value: 40, name: $localize`:@@priority.medium:Media`, itemStyle: { color: '#fbbf24' } },
+      { value: 21, name: $localize`:@@priority.high:Alta`, itemStyle: { color: '#f97316' } },
+      { value: 12, name: $localize`:@@priority.critical:Crítica`, itemStyle: { color: '#ef4444' } },
+    ];
+
+    return {
+      backgroundColor: 'transparent',
+      tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)',
+      },
+      legend: {
+        orient: 'horizontal',
+        bottom: '0',
+        textStyle: { color: '#94a3b8', fontSize: 10 },
+        itemWidth: 10,
+        itemHeight: 10,
+      },
+      series: [
+        {
+          name: isAdmin ? 'Total Tickets' : 'Mis Tickets',
+          type: 'pie',
+          radius: ['55%', '75%'],
+          avoidLabelOverlap: false,
+          itemStyle: { borderRadius: 10 },
+          label: { show: false },
+          data: isAdmin ? adminData : agentData,
+        },
+      ],
     };
+  }
 
-    const trend = echarts.init(this.trendChartDom()?.nativeElement, 'dark');
-    trend.setOption(this.getTrendOption(commonStyle));
-    this.charts.push(trend);
+  private renderChart(el: ElementRef | undefined, option: any) {
+    if (el?.nativeElement) {
+      const chart = echarts.init(el.nativeElement, 'dark');
+      chart.setOption(option);
+      this.charts.push(chart);
+    }
+  }
 
-    const priority = echarts.init(this.priorityChartDom()?.nativeElement, 'dark');
-    priority.setOption(this.getPriorityOption(commonStyle));
-    this.charts.push(priority);
-
-    const sla = echarts.init(this.slaChartDom()?.nativeElement, 'dark');
-    sla.setOption(this.getSlaOption(commonStyle));
-    this.charts.push(sla);
-
-    const agents = echarts.init(this.agentsChartDom()?.nativeElement, 'dark');
-    agents.setOption(this.getAgentsOption(commonStyle));
-    this.charts.push(agents);
-
-    const efficiency = echarts.init(this.efficiencyChartDom()?.nativeElement, 'dark');
-    efficiency.setOption(this.getEfficiencyOption(commonStyle));
-    this.charts.push(efficiency);
+  ngOnDestroy() {
+    this.charts.forEach((c) => c.dispose());
   }
 
   private getTrendOption(s: any) {
@@ -77,34 +200,8 @@ export class ReportPage implements OnInit, OnDestroy {
           type: 'line',
           smooth: true,
           data: [150, 230, 224, 218, 135, 147, 260],
-          itemStyle: { color: s.primary },
-          areaStyle: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: 'rgba(163, 230, 53, 0.3)' },
-              { offset: 1, color: 'transparent' },
-            ]),
-          },
-        },
-      ],
-    };
-  }
-
-  private getPriorityOption(s: any) {
-    return {
-      backgroundColor: 'transparent',
-      series: [
-        {
-          type: 'pie',
-          radius: ['60%', '80%'],
-          avoidLabelOverlap: false,
-          itemStyle: { borderRadius: 10 },
-          label: { show: false },
-          data: [
-            { value: 401, name: 'Baja', itemStyle: { color: s.primary } },
-            { value: 245, name: 'Media', itemStyle: { color: '#c4cc16' } },
-            { value: 125, name: 'Alta', itemStyle: { color: '#ffcc15' } },
-            { value: 180, name: 'Crítica', itemStyle: { color: '#ef4444' } },
-          ],
+          itemStyle: { color: "#fbbf24" },
+          areaStyle: { color: "#fbbf24" },
         },
       ],
     };
@@ -114,12 +211,12 @@ export class ReportPage implements OnInit, OnDestroy {
     return {
       backgroundColor: 'transparent',
       xAxis: { type: 'value', splitLine: { show: false } },
-      yAxis: { type: 'category', data: ['Seguridad', 'Rendimiento', 'Interfaz', 'Funcionalidad'] },
+      yAxis: { type: 'category', data: ['Seguridad', 'UI', 'Red', 'Apps'] },
       series: [
         {
           type: 'bar',
-          data: [94, 92, 85, 99],
-          itemStyle: { color: s.primary, borderRadius: [0, 5, 5, 0] },
+          data: [94, 85, 92, 99],
+          itemStyle: { color: s.f97316, borderRadius: [0, 5, 5, 0] },
         },
       ],
     };
@@ -128,12 +225,9 @@ export class ReportPage implements OnInit, OnDestroy {
   private getAgentsOption(s: any) {
     return {
       backgroundColor: 'transparent',
-      grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
       xAxis: { type: 'category', data: ['Ana', 'Luis', 'Karla', 'Juan'] },
       yAxis: { type: 'value' },
-      series: [
-        { type: 'bar', barWidth: '40%', data: [45, 38, 52, 30], itemStyle: { color: '#3f3f46' } },
-      ],
+      series: [{ type: 'bar', data: [45, 38, 52, 30], itemStyle: { color: "#f97316" } }],
     };
   }
 
@@ -142,32 +236,39 @@ export class ReportPage implements OnInit, OnDestroy {
       backgroundColor: 'transparent',
       radar: {
         indicator: [
-          { name: 'Velocidad', max: 100 },
+          { name: 'Vel.', max: 100 },
           { name: 'SLA', max: 100 },
-          { name: 'Calidad', max: 100 },
-          { name: 'Carga', max: 100 },
           { name: 'Feedback', max: 100 },
         ],
         splitArea: { show: false },
-        axisLine: { lineStyle: { color: s.grid } },
       },
+      series: [{ type: 'radar', data: [{ value: [80, 95, 90], itemStyle: { color: "#f97316" } }] }],
+    };
+  }
+
+  private getAgentCategoriesOption(s: any) {
+    return {
+      backgroundColor: 'transparent',
+      xAxis: {
+        type: 'category',
+        data: ['Soporte', 'Ventas', 'Técnico'],
+        axisLine: { show: false },
+      },
+      yAxis: { type: 'value', splitLine: { show: false } },
       series: [
-        {
-          type: 'radar',
-          data: [
-            {
-              value: [80, 98, 90, 70, 95],
-              name: 'Actual',
-              itemStyle: { color: s.primary },
-              areaStyle: { color: 'rgba(163, 230, 53, 0.2)' },
-            },
-          ],
-        },
+        { type: 'bar', data: [45, 22, 63], itemStyle: { color: s.secondary, borderRadius: 5 } },
       ],
     };
   }
 
-  ngOnDestroy() {
-    this.charts.forEach((chart) => chart.dispose());
+  private getAgentSatisfactionOption(s: any) {
+    return {
+      backgroundColor: 'transparent',
+      xAxis: { type: 'category', data: ['S1', 'S2', 'S3', 'S4'], axisLine: { show: false } },
+      yAxis: { type: 'value', min: 0, max: 5 },
+      series: [
+        { type: 'line', smooth: true, data: [4.2, 4.5, 4.8, 4.9], itemStyle: { color: '#f97316' } },
+      ],
+    };
   }
 }

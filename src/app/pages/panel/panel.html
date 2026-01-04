@@ -5,11 +5,13 @@
 } @else {
 	@if (totalTickets() <= 0) { 
 		<dash-empty
-		[isAgentOrAdmin]="isAdmin() || isAgent()"
+		[isAdmin]="isAdmin()"
+		[isAgent]="isAgent()"
 		></dash-empty> 
 		} @else {
 		<dash-info 
-		[isAgentOrAdmin]="isAdmin() || isAgent()" 
+		[isAgent]="isAgent()"
+		[isAdmin]="isAdmin()"
 		[allTickets]="totalTickets()"
 		[loadAgentTickets]="isAgent()"
 		></dash-info> 

@@ -3,8 +3,6 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ConfigService } from '../../services/theme.service';
 
-declare var $localize: any;
-
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -16,7 +14,7 @@ export class Sidebar {
   public config = inject(ConfigService);
   public currentLocale = inject(LOCALE_ID);
 
-  adminOrAgentMenuItems = [
+  public agentMenuItems = [
     {
       link: '/dashboard',
       icon: 'bi-grid-1x2-fill',
@@ -27,6 +25,25 @@ export class Sidebar {
       link: '/dashboard/tickets',
       icon: 'bi-ticket-detailed-fill',
       label: $localize`:@@nav.myTickets:Mis Tickets`,
+    },
+    {
+      link: '/dashboard/reports',
+      icon: 'bi-pie-chart-fill',
+      label: $localize`:@@nav.stats:Estadísticas`,
+    },
+    {
+      link: '/dashboard/profile',
+      icon: 'bi-person-badge-fill',
+      label: $localize`:@@nav.profile:Mi Perfil`,
+    },
+  ];
+
+  public adminMenuItems = [
+    {
+      link: '/dashboard',
+      icon: 'bi-grid-1x2-fill',
+      label: $localize`:@@nav.dashboard:Panel`,
+      exact: true,
     },
     {
       link: '/dashboard/reports',
@@ -66,21 +83,10 @@ export class Sidebar {
 
   public userName = computed<string>(() => this._authService.getUserInfo().username);
   public userRole = computed<string>(() => this._authService.getUserInfo().role);
-  public isAdminOrAgent = computed<boolean>(
-    () => this.userRole() === 'ADMIN' || this.userRole() === 'AGENT'
-  );
+  public isAdmin = computed<boolean>(() => this.userRole() === 'ADMIN');
+  public isAgent = computed<boolean>(() => this.userRole() === 'AGENT');
 
   constructor(private _authService: AuthService, private router: Router) {}
-
-  switchLanguage() {
-    const currentLang = this.currentLocale.substring(0, 2);
-    const nextLang = currentLang === 'es' ? 'en' : 'es';
-    const path = window.location.pathname;
-    const pathWithoutLang = path.replace(`/${currentLang}`, '');
-    const newPath = `/${nextLang}${pathWithoutLang}`.replace(/\/+/g, '/');
-
-    window.location.href = newPath;
-  }
 
   logout(): void {
     this._authService.clearToken();

@@ -20,7 +20,7 @@
 
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         @for (stat of systemStats(); track stat.label) {
-        <div class="bg-base-200 border border-base-content/10 p-6 rounded-2xl transition-all hover:bg-base-300">
+        <div class="bg-base-200 border border-base-content/10 p-6 rounded-2xl transition-all hover:bg-base-300 shadow-lg">
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 rounded-2xl bg-base-100 flex items-center justify-center {{stat.color}} shadow-sm">
                     <i class="bi {{stat.icon}} text-xl"></i>
@@ -36,7 +36,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-        <div class="lg:col-span-8 bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 overflow-hidden">
+        <div class="lg:col-span-8 bg-base-200 border border-base-content/10 rounded-2xl p-6 md:p-8 overflow-hidden shadow-lg">
             <h3 class="text-lg font-bold text-base-content mb-6 flex items-center gap-2">
                 <i class="bi bi-person-badge text-primary"></i> 
                 <ng-container i18n="@@admin.agents_performance">Rendimiento de Agentes</ng-container>
@@ -92,7 +92,7 @@
         </div>
 
         <div class="lg:col-span-4 space-y-6">
-            <div class="bg-primary text-primary-content rounded-2xl p-8 relative overflow-hidden shadow-xl shadow-primary/20">
+            <div class="bg-primary text-primary-content rounded-2xl p-8 relative overflow-hidden shadow-xl shadow-primary/20 shadow-lg">
                 <i class="bi bi-shield-lock absolute -right-6 -bottom-6 text-9xl opacity-10"></i>
                 <h3 class="text-xl font-bold mb-2" i18n="@@admin.logs_title">Logs de Seguridad</h3>
                 <p class="text-sm opacity-80 mb-6" i18n="@@admin.logs_desc">Revisa intentos de login y accesos inusuales.</p>
@@ -100,7 +100,7 @@
                         i18n="@@admin.btn_open_logs">Abrir Logs</button>
             </div>
 
-            <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6">
+            <div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 shadow-lg">
                 <h3 class="text-sm font-bold text-base-content mb-4 opacity-50" 
                     i18n="@@admin.api_status">Estado de API</h3>
                 <div class="space-y-3">
