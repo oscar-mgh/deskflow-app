@@ -1870,6 +1870,59 @@
           <context context-type="linenumber">92</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="empty.admin_title" datatype="html">
+        <source>¡Panel de Control Listo!</source>
+        <target>Admin Dashboard Ready!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="empty.admin_description" datatype="html">
+        <source> Bienvenido al centro administrativo. El sistema está operando con normalidad. Desde aquí puedes supervisar el rendimiento del equipo, gestionar usuarios y configurar la plataforma. </source>
+        <target> Welcome to the administrative center. The system is operating normally. From here, you can monitor team performance, manage users, and configure the platform. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">14,18</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="empty.label_sys_status" datatype="html">
+        <source>Estado del Sistema</source>
+        <target>System Status</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="empty.status_optimal" datatype="html">
+        <source>Óptimo</source>
+        <target>Optimal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="empty.label_active_agents" datatype="html">
+        <source>Agentes Activos</source>
+        <target>Active Agents</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="empty.btn_config" datatype="html">
+        <source>Configuración</source>
+        <target>Settings</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">33,35</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

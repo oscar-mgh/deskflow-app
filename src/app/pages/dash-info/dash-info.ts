@@ -6,11 +6,10 @@ import { Ticket, TicketPagination } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
 import { TicketsService } from '../../services/tickets.service';
 import { ToastService } from '../../services/toast.service';
-import { DashAdmin } from "../../components/dash-admin/dash-admin";
 
 @Component({
   selector: 'dash-info',
-  imports: [StatusBadge, RouterLink, DatePipe, DashAdmin],
+  imports: [StatusBadge, RouterLink, DatePipe],
   templateUrl: './dash-info.html',
 })
 export class DashInfo {

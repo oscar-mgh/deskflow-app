@@ -6,98 +6,101 @@
         <source> Administrador </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">39,40</context>
+          <context context-type="linenumber">69,70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.theme" datatype="html">
         <source>Tema</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">55,56</context>
+          <context context-type="linenumber">85,86</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.theme.dark" datatype="html">
         <source>Oscuro</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">57,58</context>
+          <context context-type="linenumber">87,88</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.theme.light" datatype="html">
         <source>Claro</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">59,60</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="nav.lang" datatype="html">
-        <source>Idioma</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">71,72</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="nav.lang.es" datatype="html">
-        <source>Español</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">73,74</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="nav.lang.en" datatype="html">
-        <source>English</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">75,76</context>
+          <context context-type="linenumber">89,90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.user.label" datatype="html">
         <source> Usuario</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">89,90</context>
+          <context context-type="linenumber">103,104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.logout" datatype="html">
         <source> Cerrar sesión </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.html</context>
-          <context context-type="linenumber">102,103</context>
+          <context context-type="linenumber">116,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.dashboard" datatype="html">
         <source>Panel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">21</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="nav.newTicket" datatype="html">
-        <source>Nuevo Ticket</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.myTickets" datatype="html">
         <source>Mis Tickets</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.stats" datatype="html">
         <source>Estadísticas</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.profile" datatype="html">
         <source>Mi Perfil</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.newTicket" datatype="html">
+        <source>Nuevo Ticket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.ts</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.title" datatype="html">
@@ -206,270 +209,263 @@
         </context-group>
       </trans-unit>
       <trans-unit id="admin.online" datatype="html">
-        <source>Online</source>
+        <source>En línea</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/admin-page/admin-page.html</context>
           <context context-type="linenumber">119,120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.admin_title" datatype="html">
+        <source>¡Panel de Control Listo!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.admin_description" datatype="html">
+        <source> Bienvenido al centro administrativo. El sistema está operando con normalidad. Desde aquí puedes supervisar el rendimiento del equipo, gestionar usuarios y configurar la plataforma. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">14,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.label_sys_status" datatype="html">
+        <source>Estado del Sistema</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.status_optimal" datatype="html">
+        <source>Óptimo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.label_active_agents" datatype="html">
+        <source>Agentes Activos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="empty.btn_config" datatype="html">
+        <source>Configuración</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
+          <context context-type="linenumber">33,35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.agent_title" datatype="html">
         <source>¡Todo al día, equipo!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">14,16</context>
+          <context context-type="linenumber">50,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.agent_description" datatype="html">
         <source> No tienes tickets pendientes de gestión en este momento. Has procesado todas tus solicitudes asignadas. Tómate un respiro o revisa el historial. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">18,20</context>
+          <context context-type="linenumber">53,57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.label_status" datatype="html">
         <source>Estatus</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">25,26</context>
+          <context context-type="linenumber">59,60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.status_available" datatype="html">
         <source>Disponible</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">27,29</context>
+          <context context-type="linenumber">60,62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.label_pending" datatype="html">
         <source>Pendientes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">63,64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.btn_metrics" datatype="html">
         <source>Ver mis métricas</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">39,40</context>
+          <context context-type="linenumber">72,74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.user_title" datatype="html">
         <source>Nada por aquí</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">49,51</context>
+          <context context-type="linenumber">81,83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.user_description" datatype="html">
         <source> En <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary font-bold&quot;&gt;"/>DeskFlow<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>, nuestro objetivo es que nada te detenga. Si tienes un problema técnico, una duda o necesitas soporte especializado, estamos a un solo clic de distancia para darte la solución que necesitas. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">53,55</context>
+          <context context-type="linenumber">84,86</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.user_hint" datatype="html">
         <source> Recuerda que en cualquier momento puedes crear tus tickets desde el menú lateral </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">60,63</context>
+          <context context-type="linenumber">90,93</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.btn_create_first" datatype="html">
         <source>Crear mi primer ticket</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">66,68</context>
+          <context context-type="linenumber">97,99</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.feature_fast" datatype="html">
         <source>Rápido</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">74,76</context>
+          <context context-type="linenumber">105,107</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.feature_secure" datatype="html">
         <source>Seguro</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">78,80</context>
+          <context context-type="linenumber">109,111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="empty.feature_support" datatype="html">
         <source>Soporte 24/7</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-empty/dash-empty.html</context>
-          <context context-type="linenumber">82,84</context>
+          <context context-type="linenumber">113,115</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.stats.open" datatype="html">
-        <source>Tickets Abiertos</source>
+        <source>Tickets Asignados</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">8,11</context>
+          <context context-type="linenumber">10,13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.stats.progress" datatype="html">
         <source>En Progreso</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">14,17</context>
+          <context context-type="linenumber">17,20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.stats.resolved" datatype="html">
         <source>Resueltos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">20,23</context>
+          <context context-type="linenumber">24,27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.stats.sla" datatype="html">
         <source>SLA Vencidos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">26,29</context>
+          <context context-type="linenumber">31,34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="dash.actions.create_title" datatype="html">
-        <source>Crear nuevo ticket</source>
+      <trans-unit id="dash.recent.title" datatype="html">
+        <source>Tickets por asistir</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">31,32</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="dash.actions.btn_new" datatype="html">
-        <source> Nuevo Ticket </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">33,34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="dash.sla.title" datatype="html">
-        <source>SLA en Riesgo</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">42,43</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="dash.sla.due_time" datatype="html">
-        <source>Vence en 1h 22m</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">48,49</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="dash.priority.urgent" datatype="html">
-        <source>Urgente</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">50,52</context>
+          <context context-type="linenumber">41,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.common.view_all" datatype="html">
         <source>Ver todos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">54,55</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">76</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">136</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="dash.recent.title" datatype="html">
-        <source>Tickets Recientes</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">61,62</context>
+          <context context-type="linenumber">126,127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.attention.title" datatype="html">
-        <source>En Atención Ahora</source>
+        <source>Estas atendiendo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">77,78</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="dash.attention.tickets_count" datatype="html">
-        <source>tickets</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">86,87</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="dash.attention.active_total" datatype="html">
-        <source>Tickets activos:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">92,93</context>
+          <context context-type="linenumber">63,64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.user.open_tickets" datatype="html">
         <source>Tus tickets abiertos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">105,108</context>
+          <context context-type="linenumber">90,93</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.user.resolved_recent" datatype="html">
-        <source>Resueltos recientemente</source>
+        <source>Resueltos recientemente </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">111,115</context>
+          <context context-type="linenumber">97,100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.user.list_title" datatype="html">
         <source>Tus tickets abiertos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">120,121</context>
+          <context context-type="linenumber">107,108</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.user.opened_since" datatype="html">
         <source>Abierto desde</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">128,129</context>
+          <context context-type="linenumber">116,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.help.title" datatype="html">
         <source>¿Necesitas ayuda?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">145,146</context>
+          <context context-type="linenumber">137,138</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.help.description" datatype="html">
         <source> ¿Tienes un problema o duda? Crea un nuevo ticket y nuestro equipo te responderá pronto. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">150,151</context>
+          <context context-type="linenumber">142,143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.help.btn_create" datatype="html">
         <source> Crear nuevo ticket </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">153,154</context>
+          <context context-type="linenumber">148,149</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.user.last_resolved_title" datatype="html">
         <source>Últimos tickets resueltos</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">159,160</context>
+          <context context-type="linenumber">154,155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="dash.user.resolved_date" datatype="html">
         <source>Fecha y hora de resolución:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/dash-info/dash-info.html</context>
-          <context context-type="linenumber">166,167</context>
+          <context context-type="linenumber">163,164</context>
         </context-group>
       </trans-unit>
       <trans-unit id="premium.title_accent" datatype="html">
@@ -616,6 +612,10 @@
           <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
           <context context-type="linenumber">114,116</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
+          <context context-type="linenumber">117,119</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="home.hero_subtitle" datatype="html">
         <source> Respuestas claras en <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary italic&quot;&gt;"/>tiempo récord<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
@@ -654,7 +654,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="home.premium_banner" datatype="html">
-        <source> Explora el potencial de <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-primary&quot;&gt;"/>Premium<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <source> Explora el potencial con <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong class=&quot;text-primary&quot;&gt;"/>Premium<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/home-page/home-page.html</context>
           <context context-type="linenumber">46,48</context>
@@ -915,73 +915,210 @@
         </context-group>
       </trans-unit>
       <trans-unit id="reports.title" datatype="html">
-        <source> Reportes - <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>SLA<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <source>Reportes - <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>SLA<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">6,8</context>
+          <context context-type="linenumber">5,6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reports.subtitle" datatype="html">
-        <source> Panel analítico de rendimiento y cumplimiento de objetivos. </source>
+        <source>Panel analítico de rendimiento y cumplimiento de objetivos.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">9,11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="reports.filter_days" datatype="html">
-        <source> Últimos 30 días </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">15,17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="reports.btn_download" datatype="html">
-        <source> Descargar </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">21,23</context>
+          <context context-type="linenumber">6,9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reports.chart_activity" datatype="html">
         <source>Tendencia de Actividad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">47,49</context>
+          <context context-type="linenumber">21,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reports.chart_priority" datatype="html">
-        <source>Carga por Prioridad</source>
+        <source>Prioridades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">55,56</context>
+          <context context-type="linenumber">25,26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="reports.priority_critical" datatype="html">
-        <source>Crítico</source>
+      <trans-unit id="reports.chart_sla" datatype="html">
+        <source>SLA Categoría</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">61,62</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="reports.chart_sla_cat" datatype="html">
-        <source>SLA por Categoría</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">71,72</context>
+          <context context-type="linenumber">29,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reports.chart_agents" datatype="html">
-        <source>Eficiencia Agentes</source>
+        <source>Agentes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">78,79</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="reports.chart_holistic" datatype="html">
-        <source>Métricas Holísticas</source>
+      <trans-unit id="reports.chart_eff" datatype="html">
+        <source>Eficiencia</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
-          <context context-type="linenumber">85,86</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.title" datatype="html">
+        <source>Mis Métricas - <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;&gt;"/>Agente<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.subtitle" datatype="html">
+        <source>Seguimiento individual de objetivos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">47,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.chart_activity" datatype="html">
+        <source>Actividad Semanal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.open_tickets" datatype="html">
+        <source>Tickets en Curso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.categories" datatype="html">
+        <source>Más atendidas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">79,80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.satisfaction" datatype="html">
+        <source>Satisfacción</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.html</context>
+          <context context-type="linenumber">83,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.kpi_total" datatype="html">
+        <source>Total Tickets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.kpi_sla" datatype="html">
+        <source>SLA Global</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.kpi_resolution" datatype="html">
+        <source>Resolución Promedio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reports.kpi_satisfaction" datatype="html">
+        <source>Satisfacción</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.kpi_resolved" datatype="html">
+        <source>Tickets Resueltos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.kpi_my_sla" datatype="html">
+        <source>Mi Cumplimiento SLA</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.kpi_my_speed" datatype="html">
+        <source>Tiempo de Respuesta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="agent_reports.kpi_my_rating" datatype="html">
+        <source>Mi Calificación</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priority.low" datatype="html">
+        <source>Baja</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priority.medium" datatype="html">
+        <source>Media</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">132</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priority.high" datatype="html">
+        <source>Alta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">133</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priority.critical" datatype="html">
+        <source>Crítica</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/report-page/report-page.ts</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tickets.create.title" datatype="html">
@@ -1186,28 +1323,28 @@
         <source>¡Se creó el ticket!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">113</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ticket.create.error" datatype="html">
         <source>Error al crear el ticket</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
-          <context context-type="linenumber">120</context>
+          <context context-type="linenumber">119</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ticket.edit.success" datatype="html">
         <source>Ticket editado correctamente</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
-          <context context-type="linenumber">136</context>
+          <context context-type="linenumber">134</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ticket.edit.error" datatype="html">
         <source>Error al editar el ticket</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/ticket-page/ticket-page.ts</context>
-          <context context-type="linenumber">142</context>
+          <context context-type="linenumber">140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tickets.list.title" datatype="html">
@@ -1459,7 +1596,7 @@
         <source>¡Solicitud Procesada!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
-          <context context-type="linenumber">125,126</context>
+          <context context-type="linenumber">128,129</context>
         </context-group>
       </trans-unit>
       <trans-unit id="sim.modal.body" datatype="html">
@@ -1467,21 +1604,21 @@
                     class=&quot;text-primary font-bold&quot;&gt;"/>Premium<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>, tus incidencias críticas tienen un compromiso de respuesta de <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;text-base-content font-bold underline decoration-primary underline-offset-4&quot;&gt;"/>20 minutos<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
-          <context context-type="linenumber">127,131</context>
+          <context context-type="linenumber">130,134</context>
         </context-group>
       </trans-unit>
       <trans-unit id="sim.modal.btn" datatype="html">
         <source> Obtener DeskFlow Premium </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
-          <context context-type="linenumber">136,137</context>
+          <context context-type="linenumber">139,140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="sim.modal.close" datatype="html">
         <source>close</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/trial-page/trial-page.html</context>
-          <context context-type="linenumber">142,144</context>
+          <context context-type="linenumber">145,147</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errors.required" datatype="html">
@@ -1503,34 +1640,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pipes/form-validations.pipe.ts</context>
           <context context-type="linenumber">23</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="priority.low" datatype="html">
-        <source>Baja</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="priority.medium" datatype="html">
-        <source>Media</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="priority.high" datatype="html">
-        <source>Alta</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="priority.critical" datatype="html">
-        <source>Crítica</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pipes/priority.pipe.ts</context>
-          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="role.guest" datatype="html">
