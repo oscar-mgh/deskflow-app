@@ -5,8 +5,9 @@ import { Loading } from '../../components/loading/loading';
 import { PriorityBadge } from '../../components/priority-badge/priority-badge';
 import { StatusBadge } from '../../components/status-badge/status-badge';
 import { Ticket, TicketPagination } from '../../models/ticket.model';
-import { TicketsService } from '../../services/tickets.service';
 import { AuthService } from '../../services/auth.service';
+import { TicketsService } from '../../services/tickets.service';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-tickets-page',
@@ -25,7 +26,8 @@ export class TicketsPage implements OnInit {
   constructor(
     private _ticketsService: TicketsService,
     private _router: Router,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _toastService: ToastService
   ) {}
 
   public ngOnInit(): void {
@@ -46,7 +48,7 @@ export class TicketsPage implements OnInit {
         this.loading.set(false);
       },
       error: (err) => {
-        console.error('Error cargando tickets', err);
+        this._toastService.show(err.error?.message, 'error');
         this.loading.set(false);
       },
     });
@@ -62,7 +64,7 @@ export class TicketsPage implements OnInit {
         this.loading.set(false);
       },
       error: (err) => {
-        console.error('Error cargando tickets', err);
+        this._toastService.show(err.error?.message, 'error');
         this.loading.set(false);
       },
     });

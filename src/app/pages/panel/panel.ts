@@ -1,8 +1,9 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { Loading } from '../../components/loading/loading';
-import { TicketPagination } from '../../models/ticket.model';
+import { Ticket, TicketPagination } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
 import { TicketsService } from '../../services/tickets.service';
+import { ToastService } from '../../services/toast.service';
 import { DashEmpty } from '../dash-empty/dash-empty';
 import { DashInfo } from '../dash-info/dash-info';
 
@@ -14,6 +15,7 @@ import { DashInfo } from '../dash-info/dash-info';
 export class Panel {
   private _authService = inject(AuthService);
   private _ticketsService = inject(TicketsService);
+  private _toastService = inject(ToastService);
 
   public userRole = computed<string>(() => this._authService.getUserInfo().role);
   public isAgent = computed<boolean>(() => this.userRole() === 'AGENT');
@@ -32,12 +34,24 @@ export class Panel {
     this.loading.set(true);
     this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
       next: (response) => {
+        if (this.isAgent()) {
+          this._ticketsService.getTicketsByAgent().subscribe({
+            next: (response) => {
+              this.paginationData.set(response);
+              this.currentPage.set(page);
+              this.loading.set(false);
+            },
+            error: (err) => {
+              this._toastService.show(err.error?.message, 'error');
+            },
+          });
+        }
         this.paginationData.set(response);
         this.currentPage.set(page);
         this.loading.set(false);
       },
       error: (err) => {
-        console.error('Error cargando tickets', err);
+        this._toastService.show(err.error?.message, 'error');
         this.loading.set(false);
       },
     });

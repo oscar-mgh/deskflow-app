@@ -9,6 +9,7 @@ export interface Ticket {
   createdAt: string;
   updatedAt?: string;
   file?: File;
+  agentId?: string;
   userId: string;
 }
 
