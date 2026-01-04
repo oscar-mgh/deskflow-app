@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './guard/auth.guard';
 import { Layout } from './pages/layout/layout';
+import { roleGuard } from './guard/role.guard';
 
 export const routes: Routes = [
   {
@@ -36,9 +37,14 @@ export const routes: Routes = [
               import('./pages/ticket-page/ticket-page').then((m) => m.TicketPage),
           },
           {
+            path: 'ticket/:id/comments',
+            loadComponent: () => import('./pages/comments/comments').then((m) => m.Comments),
+          },
+          {
             path: 'reports',
             loadComponent: () =>
               import('./pages/report-page/report-page').then((m) => m.ReportPage),
+            canActivate: [roleGuard],
           },
           {
             path: 'profile',
@@ -47,8 +53,8 @@ export const routes: Routes = [
           },
           {
             path: 'admin',
-            loadComponent: () =>
-              import('./pages/admin-page/admin-page').then((m) => m.AdminPage),
+            loadComponent: () => import('./pages/admin-page/admin-page').then((m) => m.AdminPage),
+            canActivate: [roleGuard],
           },
         ],
         canActivate: [authGuard],

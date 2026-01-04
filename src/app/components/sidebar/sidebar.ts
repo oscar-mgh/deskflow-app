@@ -24,11 +24,6 @@ export class Sidebar {
       exact: true,
     },
     {
-      link: '/dashboard/ticket-create',
-      icon: 'bi-plus-square-fill',
-      label: $localize`:@@nav.newTicket:Nuevo Ticket`,
-    },
-    {
       link: '/dashboard/tickets',
       icon: 'bi-ticket-detailed-fill',
       label: $localize`:@@nav.myTickets:Mis Tickets`,

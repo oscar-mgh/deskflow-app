@@ -81,4 +81,13 @@ export class TicketsService {
       headers: { Authorization: `Bearer ${this._authService.getToken()}` },
     });
   }
+
+  public getTicketsByAgent(): Observable<TicketPagination> {
+    return this._http.get<TicketPagination>(
+      this._api.endpoint(`/tickets/agent/${this._authService.getUserInfo().id}`),
+      {
+        headers: { Authorization: `Bearer ${this._authService.getToken()}` },
+      }
+    );
+  }
 }

@@ -18,12 +18,12 @@ import { ToastService } from '../../services/toast.service';
   standalone: true,
   imports: [
     DatePipe,
+    Loading,
     PriorityPipe,
     ReactiveFormsModule,
     RouterLink,
     StatusBadge,
     TitleCasePipe,
-    Loading,
   ],
   templateUrl: './ticket-page.html',
 })
@@ -110,7 +110,6 @@ export class TicketPage implements OnInit {
       )
       .subscribe({
         next: () => {
-          // Traducción con i18n
           const msg = $localize`:@@ticket.create.success:¡Se creó el ticket!`;
           this._toastService.show(msg, 'success');
           this._router.navigate(['/dashboard/tickets']);
@@ -132,7 +131,6 @@ export class TicketPage implements OnInit {
     this.loading.set(true);
     this._ticketsService.updateTicket(this.id(), this.ticketForm.value).subscribe({
       next: () => {
-        // Traducción con i18n
         const msg = $localize`:@@ticket.edit.success:Ticket editado correctamente`;
         this._toastService.show(msg, 'success');
         this._router.navigate(['/dashboard/tickets']);

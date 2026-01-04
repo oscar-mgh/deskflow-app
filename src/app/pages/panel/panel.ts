@@ -22,7 +22,7 @@ export class Panel {
   public paginationData = signal<TicketPagination | null>(null);
   public currentPage = signal<number>(0);
   public loading = signal<boolean>(false);
-  public pageSize = 9;
+  public pageSize = 8;
 
   public ngOnInit(): void {
     this.loadTickets(0);

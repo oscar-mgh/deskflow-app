@@ -17,7 +17,7 @@ export class AdminPage {
     { label: 'Usuarios Totales', val: '1,284', icon: 'bi-people', color: 'text-primary' },
     { label: 'Tiempo de Respuesta', val: '22m', icon: 'bi-clock-history', color: 'text-success' },
     { label: 'Carga del Servidor', val: '14%', icon: 'bi-cpu', color: 'text-info' },
-    { label: 'Ingresos Mensuales', val: '$12.4k', icon: 'bi-cash-stack', color: 'text-amber-500' },
+    { label: 'Ingresos Mensuales', val: '$22.4k', icon: 'bi-cash-stack', color: 'text-amber-500' },
   ]);
 
   activeAgents = signal([
