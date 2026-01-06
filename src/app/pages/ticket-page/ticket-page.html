@@ -158,39 +158,39 @@
             @if (ticket()) {
             <div class="space-y-4">
                 <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-                    <span class="text-sm font-bold text-base-content/60"
+                    <span class="text-sm font-semibold text-base-content/60"
                         i18n="@@tickets.detail.label.title">Título:</span>
                     <span class="text-sm font-semibold text-base-content">{{ ticket()?.title }}</span>
                 </div>
 
                 <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-                    <span class="text-sm font-bold text-base-content/60" i18n="@@tickets.detail.label.date">Fecha de
+                    <span class="text-sm font-semibold text-base-content/60" i18n="@@tickets.detail.label.date">Fecha de
                         creación:</span>
                     <span class="text-sm font-semibold text-base-content">{{ ticket()?.createdAt | date:'mediumDate'
                         }}</span>
                 </div>
 
                 <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-                    <span class="text-sm font-bold text-base-content/60"
+                    <span class="text-sm font-semibold text-base-content/60"
                         i18n="@@tickets.detail.label.category">Categoría:</span>
                     <span class="text-sm font-semibold text-primary">{{ ticket()?.categoryName | titlecase }}</span>
                 </div>
 
                 <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-                    <span class="text-sm font-bold text-base-content/60"
+                    <span class="text-sm font-semibold text-base-content/60"
                         i18n="@@tickets.detail.label.priority">Prioridad:</span>
                     <span class="text-sm font-semibold text-base-content">{{ ticket()?.priority! | priority }}</span>
                 </div>
 
                 <div
                     class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1 items-start md:items-center">
-                    <span class="text-sm font-bold text-base-content/60" i18n="@@tickets.detail.label.status">Estado
+                    <span class="text-sm font-semibold text-base-content/60" i18n="@@tickets.detail.label.status">Estado
                         actual:</span>
                     <status-badge [status]="ticket()?.status!"></status-badge>
                 </div>
 
                 <div class="pt-4">
-                    <span class="text-sm font-bold text-base-content/60 block mb-3"
+                    <span class="text-sm font-semibold text-base-content/60 block mb-3"
                         i18n="@@tickets.detail.label.description">Descripción detallada:</span>
                     <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl mt-4">
                         <p class="text-sm text-base-content leading-relaxed">
@@ -211,7 +211,7 @@
 
                 @if (ticket()?.file) {
                 <div class="pt-4">
-                    <span class="text-sm font-bold text-base-content/60 block mb-3"
+                    <span class="text-sm font-semibold text-base-content/60 block mb-3"
                         i18n="@@tickets.detail.label.file">Archivo adjunto:</span>
                     <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl">
                         <p class="text-sm text-base-content leading-relaxed">
@@ -224,11 +224,15 @@
             }
         </div>
 
-        <div class="mt-8 flex justify-center md:justify-start">
+        <div class="mt-8 flex justify-between">
             <button routerLink="/dashboard/tickets"
-                class="text-sm font-bold text-base-content/60 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
-                <i class="bi bi-arrow-left"></i> <ng-container i18n="@@tickets.detail.btn.back">Volver a mis
+                class="text-sm ml-3 font-bold text-base-content/60 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"><ng-container
+                    i18n="@@tickets.detail.btn.back"> Volver a mis
                     tickets</ng-container>
+            </button>
+            <button [routerLink]="`/dashboard/ticket/${ticket()?.id}/comments`"
+                class="text-sm ml-3 font-bold text-base-content/60 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"><ng-container
+                    i18n="@@tickets.detail.btn.comments"> Ver comentarios</ng-container>
             </button>
         </div>
     </div>

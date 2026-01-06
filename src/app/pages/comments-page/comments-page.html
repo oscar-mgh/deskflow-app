@@ -1,0 +1,95 @@
+<section class="min-h-screen bg-base-100 text-base-content px-8 lg:pl-24 py-12 flex flex-col items-center fade">
+	<div class="w-full max-w-3xl flex flex-col h-[calc(100vh-8rem)]">
+
+		<header class="mb-6 flex justify-between items-end">
+			<div>
+				<h1 class="text-3xl font-bold tracking-tight">
+					<span i18n="@@comments.title">Conversación</span>
+					<span class="text-primary ml-2">#{{ ticketId() }}</span>
+				</h1>
+				<p class="text-base-content/70 font-medium text-sm mt-1" i18n="@@comments.subtitle">
+					Historial de mensajes entre soporte y cliente.
+				</p>
+			</div>
+			<button routerLink=".."
+				class="btn btn-secondary border-none shadow-none btn-sm gap-2 text-base-content/60 hover:text-base-content">
+				<i class="bi bi-arrow-left"></i>
+				<span i18n="@@comments.btn.back">Volver</span>
+			</button>
+		</header>
+
+		<div #scrollContainer
+			class="flex-1 overflow-y-auto bg-base-200 border border-base-content/10 rounded-2xl p-6 shadow-xl mb-4 space-y-4 custom-scrollbar">
+
+			@for (comment of comments(); track comment.id) {
+
+			<div class="chat gap-6 mb-2" [class.chat-end]="+comment.userId === currentUserId()"
+				[class.chat-start]="+comment.userId !== currentUserId()">
+
+				<div class="chat-image avatar self-end">
+					<div class="w-8 h-8 rounded-full flex items-center justify-center
+               text-[10px] font-semibold shadow" [ngClass]="+comment.userId === currentUserId()
+          ? 'bg-primary text-primary-content'
+          : 'bg-base-300 text-base-content'">
+						{{ +comment.userId === currentUserId() ? userName().slice(0, 1) : 'AG' }}
+					</div>
+				</div>
+
+				<div class="chat-header text-[10px] px-2 opacity-60">
+					<i class="bi bi-person-fill"></i>
+					@if (+comment.userId === currentUserId()) {
+					<span i18n="@@comments.you" class="font-medium">
+						Tú
+					</span>
+					} @else {
+					<span i18n="@@comments.support" class="font-medium">
+						Soporte
+					</span>
+					}
+					<time class="ml-1 opacity-40">
+						{{ comment.createdAt | date:'HH:mm' }}
+					</time>
+				</div>
+
+				<div class="chat-bubble max-w-[75%] px-4 py-2.5 text-sm leading-relaxed
+             shadow border border-base-content/10" [ngClass]="+comment.userId === currentUserId()
+        ? 'bg-primary text-base-content border-primary rounded-2xl rounded-br-sm shadow-lg'
+        : 'bg-base-200 text-base-content border-base-content/10 rounded-2xl rounded-bl-sm'">
+
+					{{ comment.content }}
+				</div>
+
+				<div class="chat-footer text-[9px] px-2 opacity-30">
+					{{ comment.createdAt | date:'d MMM yyyy' }}
+				</div>
+
+			</div>
+			}
+			@empty {
+			<div class="h-full flex flex-col items-center justify-center text-base-content/40 space-y-2">
+				<i class="bi bi-chat-dots text-5xl"></i>
+				<p i18n="@@comments.empty">No hay mensajes todavía.</p>
+			</div>
+			}
+		</div>
+
+		<div class="bg-base-200 border border-base-content/10 rounded-2xl p-4 shadow-lg">
+			<form [formGroup]="commentForm" (ngSubmit)="sendComment()" class="flex h-auto gap-3 items-center">
+				<div class="form-control flex-1">
+					<textarea formControlName="content" placeholder="Escribe un mensaje..."
+						i18n-placeholder="@@comments.form.placeholder"
+						class="textarea w-full bg-base-100 border-base-content/10 focus:border-primary focus:outline-none rounded-xl text-sm resize-none h-12 py-3 scrollbar-hide"
+						rows="1"></textarea>
+				</div>
+				<button type="submit" [disabled]="commentForm.invalid || isSending()"
+					class="btn btn-primary btn-circle shadow-md">
+					@if (isSending()) {
+					<span class="loading loading-spinner loading-xs"></span>
+					} @else {
+					<i class="bi bi-send-fill text-lg"></i>
+					}
+				</button>
+			</form>
+		</div>
+	</div>
+</section>

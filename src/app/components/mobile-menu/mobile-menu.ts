@@ -8,7 +8,6 @@ import { ConfigService } from '../../services/theme.service';
   selector: 'mobile-menu',
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './mobile-menu.html',
-  styles: ``,
 })
 export class MobileMenu {
   public sidebarOpen = false;

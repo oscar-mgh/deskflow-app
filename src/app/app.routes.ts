@@ -38,7 +38,7 @@ export const routes: Routes = [
           },
           {
             path: 'ticket/:id/comments',
-            loadComponent: () => import('./pages/comments/comments').then((m) => m.Comments),
+            loadComponent: () => import('./pages/comments-page/comments-page').then((m) => m.CommentsPage),
           },
           {
             path: 'reports',

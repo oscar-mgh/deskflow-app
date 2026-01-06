@@ -22,13 +22,6 @@ export interface TicketPagination {
   totalPages?: number;
 }
 
-export interface Comment {
-  id: number;
-  content: string;
-  createdAt: Date;
-  userId: string;
-}
-
 export interface KPI {
   id: string;
   label: string;
@@ -41,4 +34,11 @@ export interface MenuItem {
   icon: string;
   label: string;
   exact?: boolean;
+}
+
+export interface Comment {
+  id: number;
+  content: string;
+  userId: number;
+  createdAt: Date;
 }
