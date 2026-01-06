@@ -21,7 +21,7 @@ export class TicketsPage implements OnInit {
   public loading = signal<boolean>(false);
   public userRole = computed<string>(() => this._authService.getUserInfo().role);
   public isAgent = computed<boolean>(() => this.userRole() === 'AGENT');
-  public pageSize = 8;
+  public pageSize = 7;
 
   constructor(
     private _ticketsService: TicketsService,

@@ -3,7 +3,7 @@
     <loading></loading>
 </div>
 } @else {
-<section class="h-full bg-base-100 text-base-content px-8 lg:pl-24 pb-10 md:pb-8 overflow-y-auto fade">
+<section class="h-full bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 pb-10 md:pb-8 overflow-y-auto fade">
     <div class="mt-6 max-w-6xl mx-auto">
 
         <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
@@ -17,18 +17,17 @@
             </div>
 
             <button routerLink="/dashboard/ticket-create"
-                class="w-full sm:w-auto btn btn-primary text-sm disabled:text-base-content/60 text-base-content font-bold rounded-xl border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80 flex items-center justify-center gap-2">
+                class="w-full sm:w-auto btn btn-primary text-sm disabled:text-base-content/60 text-base-content font-bold rounded-xl border-none hover:bg-primary/70 transition-colors shadow flex items-center justify-center gap-2">
                 <i class="bi bi-plus-lg"></i> <ng-container i18n="@@tickets.list.btn.new">Nuevo ticket</ng-container>
             </button>
         </header>
 
         @if (tickets().length > 0) {
-        <div class="bg-base-200 border border-base-content/10 rounded-2xl overflow-hidden shadow-xl flex flex-col max-h-[calc(100vh-180px)]">
+        <div class="bg-base-200 border border-base-content/10 rounded-2xl shadow-xl flex flex-col">
 
             <div class="hidden md:block overflow-x-auto">
-                <div class="min-w-200">
-                    <div
-                        class="sticky top-0 left-0 w-full z-50 grid grid-cols-12 gap-4 px-6 py-4 bg-base-300 border-b border-base-content/10 text-base-content/70 text-xs font-bold">
+                <div class="min-w-full">
+                    <div class="sticky top-0 w-full z-10 grid grid-cols-12 gap-4 px-6 py-4 bg-base-300 border-b border-base-content/10 text-base-content/70 text-xs font-bold">
                         <div class="col-span-5" i18n="@@tickets.table.info">Información de la incidencia</div>
                         <div class="col-span-2 text-center" i18n="@@tickets.table.category">Categoría</div>
                         <div class="col-span-2 text-center" i18n="@@tickets.table.priority">Prioridad</div>
@@ -36,13 +35,12 @@
                         <div class="col-span-1"></div>
                     </div>
 
-                    <div class="divide-y divide-base-content/5">
+                    <div class="divide-y divide-base-content/5 max-h-[60vh] overflow-y-auto">
                         @for (ticket of tickets(); track ticket.id.toString()) {
                         <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-base-content/5 transition-all cursor-pointer group"
                             (click)="openTicket(ticket.id.toString())">
                             <div class="col-span-5 flex flex-col">
-                                <span
-                                    class="font-bold text-base-content text-sm truncate group-hover:text-primary transition-colors">
+                                <span class="font-bold text-base-content text-sm truncate group-hover:text-primary transition-colors">
                                     {{ ticket.title }}
                                 </span>
                                 <div class="text-[11px] text-base-content/50 flex items-center gap-2 mt-1">
@@ -52,8 +50,7 @@
                                 </div>
                             </div>
                             <div class="col-span-2 text-center">
-                                <span
-                                    class="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary/10 border border-primary/20 rounded-md whitespace-nowrap">
+                                <span class="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary/10 border border-primary/20 rounded-md whitespace-nowrap">
                                     {{ ticket.categoryName }}
                                 </span>
                             </div>
@@ -72,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="md:hidden divide-y divide-base-content/5">
+            <div class="md:hidden divide-y divide-base-content/5 max-h-[60vh] overflow-y-auto">
                 @for (ticket of tickets(); track ticket.id.toString()) {
                 <div class="p-5 active:bg-base-300 transition-colors cursor-pointer"
                     (click)="openTicket(ticket.id.toString())">
@@ -86,8 +83,7 @@
 
                     <div class="flex flex-wrap items-center gap-3 mt-4">
                         <priority-badge [priority]="ticket.priority"></priority-badge>
-                        <span
-                            class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 border border-primary/20 rounded-lg">
+                        <span class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 border border-primary/20 rounded-lg">
                             {{ ticket.categoryName }}
                         </span>
                         <span class="text-[11px] text-base-content/40 ml-auto">
@@ -98,34 +94,32 @@
                 }
             </div>
 
-            <div
-                class="px-6 py-2 bg-base-300/30 border-t border-base-content/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <span class="text-xs text-base-content/50 font-medium order-2 sm:order-1" i18n="@@tickets.pagination.info">
+            <div class="px-4 py-3 bg-base-300/50 border-t border-base-content/10 flex items-center justify-between">
+                <span class="text-xs text-base-content/50 font-medium" i18n="@@tickets.pagination.info">
                     Página <b class="text-base-content">{{ currentPage() + 1 }}</b> de
                     <b class="text-base-content">{{ paginationData()?.totalPages || 1 }}</b>
                 </span>
 
-                <div class="flex items-center gap-2 order-1 sm:order-2 w-full sm:w-auto justify-center">
+                <div class="flex items-center gap-2">
                     <button [disabled]="currentPage() === 0" (click)="goToPage(currentPage() - 1)"
-                        class="flex-1 sm:flex-none p-2 mr-1 text-base-content rounded-xl disabled:opacity-20 transition-all cursor-pointer bg-base-200 hover:bg-base-300/50">
+                        class="btn btn-sm btn-square bg-base-200 hover:bg-base-300 border-none disabled:opacity-30">
                         <i class="bi bi-chevron-left"></i>
                     </button>
 
-                    <div class="bg-base-300/50 text-base-content px-4 py-2 rounded-xl text-sm font-bold">
+                    <div class="bg-primary text-primary-content px-3 py-1 rounded-lg text-xs font-bold">
                         {{ currentPage() + 1 }}
                     </div>
 
                     <button [disabled]="currentPage() === (paginationData()?.totalPages ?? 1) - 1"
                         (click)="goToPage(currentPage() + 1)"
-                        class="flex-1 sm:flex-none p-2 ml-1 text-base-content rounded-xl disabled:opacity-20 transition-all cursor-pointer bg-base-200 hover:bg-base-300/50">
+                        class="btn btn-sm btn-square bg-base-200 hover:bg-base-300 border-none disabled:opacity-30">
                         <i class="bi bi-chevron-right"></i>
                     </button>
                 </div>
             </div>
         </div>
         } @else {
-        <div
-            class="min-h-[60vh] flex flex-col items-center justify-center p-8 text-base-content bg-base-200/50 border border-dashed border-base-content/10 rounded-3xl">
+        <div class="min-h-[60vh] flex flex-col items-center justify-center p-8 text-base-content bg-base-200/50 border border-dashed border-base-content/10 rounded-3xl">
             <i class="bi bi-ticket-detailed text-6xl mb-4 opacity-10"></i>
             <p class="text-lg font-bold" i18n="@@tickets.empty.title">No hay tickets disponibles</p>
             <p class="text-sm opacity-50" i18n="@@tickets.empty.subtitle">Crea uno nuevo para empezar el seguimiento</p>
