@@ -12,7 +12,8 @@
                     Mis <span class="text-primary">Tickets</span>
                 </h1>
                 <p class="text-base-content/60 text-sm mt-1" i18n="@@tickets.list.count">
-                    Actualmente tienes {paginationData()?.totalElements, plural, =0 {0 tickets} =1 {1 ticket} other {{{paginationData()?.totalElements}} tickets}}
+                    Actualmente tienes {paginationData()?.totalElements, plural, =0 {0 tickets} =1 {1 ticket} other
+                    {{{paginationData()?.totalElements}} tickets}}
                 </p>
             </div>
 
@@ -27,7 +28,8 @@
 
             <div class="hidden md:block overflow-x-auto">
                 <div class="min-w-full">
-                    <div class="sticky top-0 w-full z-10 grid grid-cols-12 gap-4 px-6 py-4 bg-base-300 border-b border-base-content/10 text-base-content/70 text-xs font-bold">
+                    <div
+                        class="sticky top-0 w-full z-10 grid grid-cols-12 gap-4 px-6 py-4 bg-base-300 border-b border-base-content/10 text-base-content/70 text-xs font-bold">
                         <div class="col-span-5" i18n="@@tickets.table.info">Información de la incidencia</div>
                         <div class="col-span-2 text-center" i18n="@@tickets.table.category">Categoría</div>
                         <div class="col-span-2 text-center" i18n="@@tickets.table.priority">Prioridad</div>
@@ -40,17 +42,20 @@
                         <div class="grid grid-cols-12 gap-4 px-6 py-4 items-center hover:bg-base-content/5 transition-all cursor-pointer group"
                             (click)="openTicket(ticket.id.toString())">
                             <div class="col-span-5 flex flex-col">
-                                <span class="font-bold text-base-content text-sm truncate group-hover:text-primary transition-colors">
+                                <span
+                                    class="font-bold text-base-content text-sm truncate group-hover:text-primary transition-colors">
                                     {{ ticket.title }}
                                 </span>
                                 <div class="text-[11px] text-base-content/50 flex items-center gap-2 mt-1">
-                                    <span class="text-base-content font-mono bg-base-300 px-1.5 rounded">#{{ ticket.code }}</span>
+                                    <span class="text-base-content font-mono bg-base-300 px-1.5 rounded">#{{ ticket.code
+                                        }}</span>
                                     <span class="w-1 h-1 rounded-full bg-base-content/20"></span>
-                                    {{ ticket.createdAt | date:'mediumDate' }}
+                                    {{ ticket.createdAt | date:'MM/dd/yyyy' }} - {{ ticket.createdAt | date:'h:mm a' }}
                                 </div>
                             </div>
                             <div class="col-span-2 text-center">
-                                <span class="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary/10 border border-primary/20 rounded-md whitespace-nowrap">
+                                <span
+                                    class="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary/10 border border-primary/20 rounded-md whitespace-nowrap">
                                     {{ ticket.categoryName }}
                                 </span>
                             </div>
@@ -61,7 +66,8 @@
                                 <status-badge [status]="ticket.status"></status-badge>
                             </div>
                             <div class="col-span-1 text-right">
-                                <i class="bi bi-chevron-right text-base-content/20 group-hover:text-primary transition-all"></i>
+                                <i
+                                    class="bi bi-chevron-right text-base-content/20 group-hover:text-primary transition-all"></i>
                             </div>
                         </div>
                         }
@@ -83,7 +89,8 @@
 
                     <div class="flex flex-wrap items-center gap-3 mt-4">
                         <priority-badge [priority]="ticket.priority"></priority-badge>
-                        <span class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 border border-primary/20 rounded-lg">
+                        <span
+                            class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 border border-primary/20 rounded-lg">
                             {{ ticket.categoryName }}
                         </span>
                         <span class="text-[11px] text-base-content/40 ml-auto">
@@ -119,7 +126,8 @@
             </div>
         </div>
         } @else {
-        <div class="min-h-[60vh] flex flex-col items-center justify-center p-8 text-base-content bg-base-200/50 border border-dashed border-base-content/10 rounded-3xl">
+        <div
+            class="min-h-[60vh] flex flex-col items-center justify-center p-8 text-base-content bg-base-200/50 border border-dashed border-base-content/10 rounded-3xl">
             <i class="bi bi-ticket-detailed text-6xl mb-4 opacity-10"></i>
             <p class="text-lg font-bold" i18n="@@tickets.empty.title">No hay tickets disponibles</p>
             <p class="text-sm opacity-50" i18n="@@tickets.empty.subtitle">Crea uno nuevo para empezar el seguimiento</p>
