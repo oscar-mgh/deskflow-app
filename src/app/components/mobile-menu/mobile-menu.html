@@ -1,27 +1,30 @@
-<button class="absolute top-4 right-8 z-50 lg:hidden" (click)="toggleSidebar()">
-	<i class="bi bi-list text-3xl"></i>
-</button>
+
+<div class="fixed top-0 left-0 w-full h-13 border-b border-base-300/50 z-50 bg-base-100">
+	<button class="fixed top-2 right-8 z-50 lg:hidden" (click)="toggleSidebar()">
+		<i class="bi bi-list text-3xl"></i>
+	</button>
+</div>
 
 <div (click)="toggleSidebar()"
 	class="fixed inset-0 bg-black/90 z-40 md:hidden opacity-0 pointer-events-none transition-opacity duration-300"
 	[class.opacity-100]="sidebarOpen" [class.pointer-events-auto]="sidebarOpen">
 </div>
 
-<nav class="fixed top-0 right-0 z-50 h-screen w-72 bg-base-100 shadow-xl
+<nav class="fixed top-0 right-0 z-100 h-screen w-72 bg-base-100 shadow-xl
          flex flex-col
          translate-x-0 transition-transform duration-200 ease-out" [class.translate-x-0]="sidebarOpen"
 	[class.translate-x-full]="!sidebarOpen">
 
-	<button class="fixed top-2 right-4 text-2xl z-50 h-10 w-10 flex items-center justify-center bg-base-100 lg:hidden"
+	<button class="fixed top-2 right-4 text-2xl z-100 h-10 w-10 flex items-center justify-center bg-base-100 lg:hidden"
 		(click)="toggleSidebar()">✕</button>
 
-	<div class="h-16 flex items-center px-8 border-b border-base-content/10">
+	<div class="h-16 flex items-center px-8">
 		<h1 class="text-lg font-bold tracking-tight">
 			Desk<span class="text-primary">Flow</span>
 		</h1>
 	</div>
 
-	<ul class="flex-1 px-4 py-4 space-y-2">
+	<ul class="flex-1 px-4 py-4 space-y-1">
 		@if (isAdmin()) {
 		@for (item of adminMenuItems(); track item.link) {
 		<li>
@@ -63,7 +66,7 @@
 		}
 	</ul>
 
-	<div class="px-4 pb-3 border-t border-base-content/10">
+	<div class="p-4 border-b border-base-300/50">
 		<button (click)="config.toggleTheme()" class="flex items-center gap-3 w-full h-11 px-4 rounded-xl
                font-semibold text-base-content
                hover:bg-base-200 transition-colors">
@@ -87,7 +90,7 @@
 	</div>
 
 
-	<div class="p-4 border-t border-base-content/10">
+	<div class="p-4">
 		<button class="flex items-center justify-center gap-2 w-full h-11 rounded-xl
              bg-error/10 text-error font-bold
              hover:bg-error hover:text-error-content transition" (click)="logout()">
