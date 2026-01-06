@@ -5,13 +5,14 @@ import { AuthService } from '../../services/auth.service';
 import { ConfigService } from '../../services/theme.service';
 
 @Component({
-  selector: 'app-sidebar',
-  standalone: true,
+  selector: 'mobile-menu',
   imports: [RouterLink, RouterLinkActive],
-  providers: [ConfigService],
-  templateUrl: './sidebar.html',
+  templateUrl: './mobile-menu.html',
+  styles: ``,
 })
-export class Sidebar {
+export class MobileMenu {
+  public sidebarOpen = false;
+
   public agentMenuItems = input.required<MenuItem[]>();
   public adminMenuItems = input.required<MenuItem[]>();
   public menuItems = input.required<MenuItem[]>();
@@ -26,6 +27,10 @@ export class Sidebar {
     private _router: Router,
     public config: ConfigService
   ) {}
+
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
 
   logout(): void {
     this._authService.clearToken();

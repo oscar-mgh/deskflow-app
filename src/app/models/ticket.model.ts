@@ -35,3 +35,10 @@ export interface KPI {
   val: string | number;
   color: string;
 }
+
+export interface MenuItem {
+  link: string;
+  icon: string;
+  label: string;
+  exact?: boolean;
+}

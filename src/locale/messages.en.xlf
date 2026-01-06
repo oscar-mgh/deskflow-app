@@ -817,8 +817,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="login.btn_submit" datatype="html">
-        <source> Ingresar al Sistema </source>
-        <target> Sign Into System </target>
+        <source> Ingresar </source>
+        <target> Sign In </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
           <context context-type="linenumber">69,70</context>

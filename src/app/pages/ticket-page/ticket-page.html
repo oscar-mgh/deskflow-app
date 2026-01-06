@@ -1,13 +1,13 @@
 @if (loading()) {
 <div
-    class="min-h-screen flex items-center justify-center bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 pb-10 overflow-y-auto fade">
+    class="min-h-screen flex items-center justify-center bg-base-100 text-base-content px-4 lg:pl-24 pb-10 overflow-y-auto fade">
     <loading></loading>
 </div>
 } @else {
 
 @if (!id()) {
 <section
-    class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
+    class="min-h-screen bg-base-100 text-base-content px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
     <div class="w-full max-w-3xl">
         <header class="text-center md:text-left mb-8">
             <h1 class="text-4xl font-bold tracking-tight" i18n="@@tickets.create.title">
@@ -101,7 +101,7 @@
 
 } @else if(editMode()) {
 <section
-    class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
+    class="min-h-screen bg-base-100 text-base-content px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
     <div class="w-full max-w-3xl">
         <header class="text-center md:text-left mb-8">
             <h1 class="text-4xl font-bold tracking-tight" i18n="@@tickets.edit.title">
@@ -144,7 +144,7 @@
     </div>
 </section>
 } @else {
-<section class="min-h-screen bg-base-100 text-base-content px-4 md:px-8 lg:pl-24 py-12 flex flex-col items-center">
+<section class="min-h-screen bg-base-100 text-base-content px-8 lg:pl-24 py-12 flex flex-col items-center">
     <div class="w-full max-w-3xl">
         <header class="mb-10 text-center md:text-left">
             <h1 class="text-4xl font-bold tracking-tight" i18n="@@tickets.detail.title">
