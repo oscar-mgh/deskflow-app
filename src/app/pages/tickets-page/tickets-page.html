@@ -17,10 +17,13 @@
                 </p>
             </div>
 
+            @if (!isAgent()) {
             <button routerLink="/dashboard/ticket-create"
                 class="w-full sm:w-auto btn btn-primary text-sm disabled:text-base-content/60 text-base-content font-semibold rounded-xl border-none hover:bg-primary/70 transition-colors shadow flex items-center justify-center gap-2">
-                <i class="bi bi-plus-lg"></i> <ng-container i18n="@@tickets.list.btn.new">Nuevo ticket</ng-container>
+                <ng-container i18n="@@tickets.list.btn.new">Nuevo ticket</ng-container>
+                <i class="bi bi-plus-lg"></i>
             </button>
+            }
         </header>
 
         @if (tickets().length > 0) {
@@ -82,7 +85,8 @@
                     <div class="flex justify-between items-start mb-3">
                         <div class="flex flex-col gap-1 pr-4">
                             <span class="text-[10px] font-mono text-base-content/40">#{{ ticket.code }}</span>
-                            <h3 class="font-semibold text-base-content leading-snug line-clamp-2">{{ ticket.title }}</h3>
+                            <h3 class="font-semibold text-base-content leading-snug line-clamp-2">{{ ticket.title }}
+                            </h3>
                         </div>
                         <status-badge [status]="ticket.status"></status-badge>
                     </div>

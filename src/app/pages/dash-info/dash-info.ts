@@ -46,33 +46,33 @@ export class DashInfo {
   public loadTickets(page: number) {
     this.loading.set(true);
 
-    this._ticketsService.getTicketsPaginated(0, this.allTickets()).subscribe({
+    const ticketsObservable = this.loadAgentTickets()
+      ? this._ticketsService.getTicketsByAgent()
+      : this._ticketsService.getTicketsPaginated(page, this.allTickets());
+
+    ticketsObservable.subscribe({
       next: (response) => {
+        const ticketsContent = this.loadAgentTickets() ? response.content : response.content;
+
+        this.tickets.set(ticketsContent);
+
         if (this.loadAgentTickets()) {
-          this._ticketsService.getTicketsByAgent().subscribe({
-            next: (response) => {
-              this.tickets.set(response.content);
-            },
-            error: (err) => {
-              this._toastService.show(err.error?.message, 'error');
-              console.error('Error cargando tickets', err);
-            },
-          });
           this.openTickets.set(
-            this.tickets().filter(
+            ticketsContent.filter(
               (ticket) =>
                 ticket.status === 'OPEN' && ticket.agentId === this._authService.getUserInfo().id
             )
           );
         } else {
-          this.tickets.set(response.content);
-          this.openTickets.set(this.tickets().filter((ticket) => ticket.status === 'OPEN'));
+          this.openTickets.set(ticketsContent.filter((ticket) => ticket.status === 'OPEN'));
           this.paginationData.set(response);
-          this.currentPage.set(0);
+          this.currentPage.set(page);
         }
+
         this.lastTicketsResolved.set(
-          this.openTickets().filter((ticket) => ticket.status === 'RESOLVED')
+          this.tickets().filter((ticket) => ticket.status === 'RESOLVED')
         );
+
         this.loading.set(false);
       },
       error: (err) => {
