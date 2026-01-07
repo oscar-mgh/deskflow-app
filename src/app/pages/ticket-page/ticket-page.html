@@ -226,12 +226,12 @@
 
         <div class="mt-8 flex justify-between">
             <button routerLink="/dashboard/tickets"
-                class="text-sm ml-3 font-bold text-base-content/60 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"><ng-container
+                class="btn btn-secondary border-none shadow-none btn-sm text-base-content/60 hover:text-base-content"><ng-container
                     i18n="@@tickets.detail.btn.back"> Volver a mis
                     tickets</ng-container>
             </button>
             <button [routerLink]="`/dashboard/ticket/${ticket()?.id}/comments`"
-                class="text-sm ml-3 font-bold text-base-content/60 hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"><ng-container
+                class="btn btn-secondary border-none shadow-none btn-sm text-base-content/60 hover:text-base-content"><ng-container
                     i18n="@@tickets.detail.btn.comments"> Ver comentarios</ng-container>
             </button>
         </div>

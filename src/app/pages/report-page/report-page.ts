@@ -7,7 +7,6 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import * as echarts from 'echarts';
 import { KPI } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
@@ -94,7 +93,7 @@ export class ReportPage implements OnDestroy {
     this.totalAssigned() > 0 ? (this.openTickets() * 100) / this.totalAssigned() : 0
   );
 
-  constructor(private _authService: AuthService, private router: Router) {
+  constructor(private _authService: AuthService) {
     effect(() => {
       const resizeObserver = new ResizeObserver(() => this.charts.forEach((c) => c.resize()));
       resizeObserver.observe(document.body);
@@ -128,28 +127,28 @@ export class ReportPage implements OnDestroy {
 
   private getPriorityOption(s: any, isAdmin: boolean) {
     const adminData = [
-      { value: 401, name: $localize`:@@priority.low:Baja`, itemStyle: { color: s.primary } },
+      { value: 401, name: $localize`:@@priority.low:Baja`, itemStyle: { color: '#a3cf22' } },
       { value: 245, name: $localize`:@@priority.medium:Media`, itemStyle: { color: '#fbbf24' } },
       { value: 125, name: $localize`:@@priority.high:Alta`, itemStyle: { color: '#f97316' } },
       {
         value: 180,
         name: $localize`:@@priority.critical:Crítica`,
-        itemStyle: { color: '#ef4444' },
+        itemStyle: { color: '#ff4444' },
       },
     ];
 
     const agentData = [
-      { value: 65, name: $localize`:@@priority.low:Baja`, itemStyle: { color: s.primary } },
+      { value: 65, name: $localize`:@@priority.low:Baja`, itemStyle: { color: '#a3cf22' } },
       { value: 40, name: $localize`:@@priority.medium:Media`, itemStyle: { color: '#fbbf24' } },
       { value: 21, name: $localize`:@@priority.high:Alta`, itemStyle: { color: '#f97316' } },
-      { value: 12, name: $localize`:@@priority.critical:Crítica`, itemStyle: { color: '#ef4444' } },
+      { value: 12, name: $localize`:@@priority.critical:Crítica`, itemStyle: { color: '#ff4444' } },
     ];
 
     return {
       backgroundColor: 'transparent',
+
       tooltip: {
-        trigger: 'item',
-        formatter: '{b}: {c} ({d}%)',
+        show: false,
       },
       legend: {
         orient: 'horizontal',
@@ -162,10 +161,21 @@ export class ReportPage implements OnDestroy {
         {
           name: isAdmin ? 'Total Tickets' : 'Mis Tickets',
           type: 'pie',
-          radius: ['55%', '75%'],
-          avoidLabelOverlap: false,
+          radius: ['42%', '75%'],
+          avoidLabelOverlap: true,
           itemStyle: { borderRadius: 10 },
-          label: { show: false },
+
+          label: {
+            show: true,
+            position: 'inside',
+            formatter: '{d}%',
+            fontSize: 12,
+            fontWeight: 'bold',
+            color: '#EEEEEE',
+          },
+          labelLine: {
+            show: false,
+          },
           data: isAdmin ? adminData : agentData,
         },
       ],
@@ -200,34 +210,70 @@ export class ReportPage implements OnDestroy {
           type: 'line',
           smooth: true,
           data: [150, 230, 224, 218, 135, 147, 260],
-          itemStyle: { color: "#fbbf24" },
-          areaStyle: { color: "#fbbf24" },
+          itemStyle: { color: '#fbbf24' },
+          areaStyle: { color: '#fbbf24' },
         },
       ],
     };
   }
 
   private getSlaOption(s: any) {
+    const rawData = [
+      { name: 'Seguridad', value: 94 },
+      { name: 'UI', value: 85 },
+      { name: 'Red', value: 92 },
+      { name: 'Apps', value: 99 },
+    ];
+
+    const sortedData = rawData.sort((a, b) => a.value - b.value);
+
     return {
       backgroundColor: 'transparent',
+      grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
       xAxis: { type: 'value', splitLine: { show: false } },
-      yAxis: { type: 'category', data: ['Seguridad', 'UI', 'Red', 'Apps'] },
+      yAxis: {
+        type: 'category',
+        data: sortedData.map((d) => d.name),
+        axisLine: { show: false },
+        axisTick: { show: false },
+      },
       series: [
         {
           type: 'bar',
-          data: [94, 85, 92, 99],
-          itemStyle: { color: s.f97316, borderRadius: [0, 5, 5, 0] },
+          data: sortedData.map((d) => d.value),
+
+          itemStyle: { color: '#f97316', borderRadius: [0, 5, 5, 0] },
+          label: { show: true, position: 'right', formatter: '{c}%', color: '#94a3b8' },
         },
       ],
     };
   }
 
   private getAgentsOption(s: any) {
+    const rawData = [
+      { name: 'Ana', value: 45 },
+      { name: 'Luis', value: 38 },
+      { name: 'Karla', value: 52 },
+      { name: 'Juan', value: 30 },
+    ];
+
+    const sortedData = rawData.sort((a, b) => b.value - a.value);
+
     return {
       backgroundColor: 'transparent',
-      xAxis: { type: 'category', data: ['Ana', 'Luis', 'Karla', 'Juan'] },
-      yAxis: { type: 'value' },
-      series: [{ type: 'bar', data: [45, 38, 52, 30], itemStyle: { color: "#f97316" } }],
+      xAxis: {
+        type: 'category',
+        data: sortedData.map((d) => d.name),
+        axisTick: { show: false },
+      },
+      yAxis: { type: 'value', splitLine: { lineStyle: { color: s.grid } } },
+      series: [
+        {
+          type: 'bar',
+          data: sortedData.map((d) => d.value),
+          itemStyle: { color: '#f97316', borderRadius: [5, 5, 0, 0] },
+        },
+      ],
     };
   }
 
@@ -242,21 +288,33 @@ export class ReportPage implements OnDestroy {
         ],
         splitArea: { show: false },
       },
-      series: [{ type: 'radar', data: [{ value: [80, 95, 90], itemStyle: { color: "#f97316" } }] }],
+      series: [{ type: 'radar', data: [{ value: [80, 95, 90], itemStyle: { color: '#f97316' } }] }],
     };
   }
 
   private getAgentCategoriesOption(s: any) {
+    const rawData = [
+      { name: 'Soporte', value: 45 },
+      { name: 'Ventas', value: 22 },
+      { name: 'Técnico', value: 63 },
+    ];
+
+    const sortedData = rawData.sort((a, b) => b.value - a.value);
+
     return {
       backgroundColor: 'transparent',
       xAxis: {
         type: 'category',
-        data: ['Soporte', 'Ventas', 'Técnico'],
+        data: sortedData.map((d) => d.name),
         axisLine: { show: false },
       },
       yAxis: { type: 'value', splitLine: { show: false } },
       series: [
-        { type: 'bar', data: [45, 22, 63], itemStyle: { color: s.secondary, borderRadius: 5 } },
+        {
+          type: 'bar',
+          data: sortedData.map((d) => d.value),
+          itemStyle: { color: '#f97316', borderRadius: 5 },
+        },
       ],
     };
   }

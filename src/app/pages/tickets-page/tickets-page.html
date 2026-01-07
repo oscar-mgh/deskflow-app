@@ -8,7 +8,7 @@
 
         <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
             <div>
-                <h1 class="text-3xl md:text-4xl font-bold tracking-tight" i18n="@@tickets.list.title">
+                <h1 class="text-3xl md:text-4xl font-semibold tracking-tight" i18n="@@tickets.list.title">
                     Mis <span class="text-primary">Tickets</span>
                 </h1>
                 <p class="text-base-content/60 text-sm mt-1" i18n="@@tickets.list.count">
@@ -18,7 +18,7 @@
             </div>
 
             <button routerLink="/dashboard/ticket-create"
-                class="w-full sm:w-auto btn btn-primary text-sm disabled:text-base-content/60 text-base-content font-bold rounded-xl border-none hover:bg-primary/70 transition-colors shadow flex items-center justify-center gap-2">
+                class="w-full sm:w-auto btn btn-primary text-sm disabled:text-base-content/60 text-base-content font-semibold rounded-xl border-none hover:bg-primary/70 transition-colors shadow flex items-center justify-center gap-2">
                 <i class="bi bi-plus-lg"></i> <ng-container i18n="@@tickets.list.btn.new">Nuevo ticket</ng-container>
             </button>
         </header>
@@ -29,7 +29,7 @@
             <div class="hidden md:block overflow-x-auto">
                 <div class="min-w-full">
                     <div
-                        class="sticky top-0 w-full z-10 grid grid-cols-12 gap-4 px-6 py-4 bg-base-300 border-b border-base-content/10 text-base-content/70 text-xs font-bold">
+                        class="sticky top-0 w-full z-10 grid grid-cols-12 gap-4 px-6 py-4 bg-base-300 border-b border-base-content/10 text-base-content/70 text-xs font-semibold">
                         <div class="col-span-5" i18n="@@tickets.table.info">Información de la incidencia</div>
                         <div class="col-span-2 text-center" i18n="@@tickets.table.category">Categoría</div>
                         <div class="col-span-2 text-center" i18n="@@tickets.table.priority">Prioridad</div>
@@ -43,7 +43,7 @@
                             (click)="openTicket(ticket.id.toString())">
                             <div class="col-span-5 flex flex-col">
                                 <span
-                                    class="font-bold text-base-content text-sm truncate group-hover:text-primary transition-colors">
+                                    class="font-semibold text-base-content text-sm truncate group-hover:text-primary transition-colors">
                                     {{ ticket.title }}
                                 </span>
                                 <div class="text-[11px] text-base-content/50 flex items-center gap-2 mt-1">
@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-span-2 text-center">
                                 <span
-                                    class="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary/10 border border-primary/20 rounded-md whitespace-nowrap">
+                                    class="text-[10px] font-semibold text-primary px-2 py-0.5 bg-primary/10 border border-primary/20 rounded-md whitespace-nowrap">
                                     {{ ticket.categoryName }}
                                 </span>
                             </div>
@@ -82,7 +82,7 @@
                     <div class="flex justify-between items-start mb-3">
                         <div class="flex flex-col gap-1 pr-4">
                             <span class="text-[10px] font-mono text-base-content/40">#{{ ticket.code }}</span>
-                            <h3 class="font-bold text-base-content leading-snug line-clamp-2">{{ ticket.title }}</h3>
+                            <h3 class="font-semibold text-base-content leading-snug line-clamp-2">{{ ticket.title }}</h3>
                         </div>
                         <status-badge [status]="ticket.status"></status-badge>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="flex flex-wrap items-center gap-3 mt-4">
                         <priority-badge [priority]="ticket.priority"></priority-badge>
                         <span
-                            class="text-[10px] font-bold text-primary px-2 py-1 bg-primary/10 border border-primary/20 rounded-lg">
+                            class="text-[10px] font-semibold text-primary px-2 py-1 bg-primary/10 border border-primary/20 rounded-lg">
                             {{ ticket.categoryName }}
                         </span>
                         <span class="text-[11px] text-base-content/40 ml-auto">
@@ -109,17 +109,17 @@
 
                 <div class="flex items-center gap-2">
                     <button [disabled]="currentPage() === 0" (click)="goToPage(currentPage() - 1)"
-                        class="btn btn-sm btn-square bg-base-200 hover:bg-base-300 border-none disabled:opacity-30">
+                        class="btn btn-sm btn-primary border-none shadow-none text-base-content">
                         <i class="bi bi-chevron-left"></i>
                     </button>
 
-                    <div class="bg-base-300 text-base-content px-3 py-1 rounded-lg text-xs font-bold">
+                    <div class="bg-base-300 text-base-content px-3 py-1 rounded-lg text-xs font-semibold">
                         {{ currentPage() + 1 }}
                     </div>
 
                     <button [disabled]="currentPage() === (paginationData()?.totalPages ?? 1) - 1"
                         (click)="goToPage(currentPage() + 1)"
-                        class="btn btn-sm btn-square bg-base-200 hover:bg-base-300 border-none disabled:opacity-30">
+                        class="btn btn-sm btn-primary border-none shadow-none text-base-content">
                         <i class="bi bi-chevron-right"></i>
                     </button>
                 </div>
@@ -129,7 +129,7 @@
         <div
             class="min-h-[60vh] flex flex-col items-center justify-center p-8 text-base-content bg-base-200/50 border border-dashed border-base-content/10 rounded-3xl">
             <i class="bi bi-ticket-detailed text-6xl mb-4 opacity-10"></i>
-            <p class="text-lg font-bold" i18n="@@tickets.empty.title">No hay tickets disponibles</p>
+            <p class="text-lg font-semibold" i18n="@@tickets.empty.title">No hay tickets disponibles</p>
             <p class="text-sm opacity-50" i18n="@@tickets.empty.subtitle">Crea uno nuevo para empezar el seguimiento</p>
         </div>
         }

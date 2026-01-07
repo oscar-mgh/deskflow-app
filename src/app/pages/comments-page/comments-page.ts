@@ -1,5 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, ElementRef, inject, OnInit, signal, ViewChild } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  ElementRef,
+  inject,
+  OnInit,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Comment } from '../../models/ticket.model';
@@ -24,6 +33,10 @@ export class CommentsPage implements OnInit {
   public isSending = signal<boolean>(false);
   public currentUserId = signal<number>(0);
   public userName = signal<string>('');
+
+  public userRole = computed<string>(() => this._authService.getUserInfo().role);
+  public isAdmin = computed<boolean>(() => this.userRole() === 'ADMIN');
+  public isAgent = computed<boolean>(() => this.userRole() === 'AGENT');
 
   public commentForm: FormGroup;
 
@@ -58,19 +71,19 @@ export class CommentsPage implements OnInit {
   }
 
   private loadComments() {
-  this.loading.set(true);
-  this._ticketService.getComments(this.ticketId()).subscribe({
-    next: (data) => {
-      const formattedComments = data.map(c => ({
-        ...c,
-        userId: Number(c.userId)
-      }));
-      this.comments.set(formattedComments);
-      this.loading.set(false);
-    },
-    error: () => this.loading.set(false),
-  });
-}
+    this.loading.set(true);
+    this._ticketService.getComments(this.ticketId()).subscribe({
+      next: (data) => {
+        const formattedComments = data.map((c) => ({
+          ...c,
+          userId: Number(c.userId),
+        }));
+        this.comments.set(formattedComments);
+        this.loading.set(false);
+      },
+      error: () => this.loading.set(false),
+    });
+  }
 
   public sendComment() {
     if (this.commentForm.invalid) return;

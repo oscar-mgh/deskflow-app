@@ -1,5 +1,5 @@
 <section class="min-h-screen bg-base-100 text-base-content px-8 lg:pl-24 py-12 flex flex-col items-center fade">
-	<div class="w-full max-w-3xl flex flex-col h-[calc(100vh-8rem)]">
+	<div class="w-full max-w-3xl flex flex-col h-full">
 
 		<header class="mb-6 flex justify-between items-end">
 			<div>
@@ -11,19 +11,19 @@
 					Historial de mensajes entre soporte y cliente.
 				</p>
 			</div>
-			<button routerLink=".."
+			<!-- <button routerLink=".."
 				class="btn btn-secondary border-none shadow-none btn-sm gap-2 text-base-content/60 hover:text-base-content">
 				<i class="bi bi-arrow-left"></i>
 				<span i18n="@@comments.btn.back">Volver</span>
-			</button>
+			</button> -->
 		</header>
 
 		<div #scrollContainer
-			class="flex-1 overflow-y-auto bg-base-200 border border-base-content/10 rounded-2xl p-6 shadow-xl mb-4 space-y-4 custom-scrollbar">
+			class="overflow-y-auto bg-base-200 border border-base-content/10 rounded-2xl p-5 shadow-xl mb-4 space-y-4 custom-scrollbar">
 
 			@for (comment of comments(); track comment.id) {
 
-			<div class="chat gap-6 mb-2" [class.chat-end]="+comment.userId === currentUserId()"
+			<div class="chat gap-x-6 gap-y-2 mb-2" [class.chat-end]="+comment.userId === currentUserId()"
 				[class.chat-start]="+comment.userId !== currentUserId()">
 
 				<div class="chat-image avatar self-end">
@@ -42,9 +42,15 @@
 						Tú
 					</span>
 					} @else {
-					<span i18n="@@comments.support" class="font-medium">
-						Soporte
-					</span>
+						@if (!isAgent()) {
+							<span i18n="@@comments.support" class="font-medium">
+								Soporte
+							</span>
+						} @else {
+							<span i18n="@@comments.customer" class="font-medium">
+								Cliente
+							</span>
+						}
 					}
 					<time class="ml-1 opacity-40">
 						{{ comment.createdAt | date:'HH:mm' }}
@@ -91,5 +97,11 @@
 				</button>
 			</form>
 		</div>
+	</div>
+	<div class="flex items-center mt-6 lg:mt-8">
+		<button routerLink=".."
+			class="btn btn-secondary border-none shadow-none btn-sm text-base-content/60 hover:text-base-content">
+			<span i18n="@@comments.btn.back">Volver</span>
+		</button>
 	</div>
 </section>

@@ -695,8 +695,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="premium.back_home" datatype="html">
-        <source>← Volver al inicio</source>
-        <target>← Back to home</target>
+        <source>Volver al inicio</source>
+        <target>Back to home</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/discover-premium/discover-premium.html</context>
           <context context-type="linenumber">114,116</context>
