@@ -9,10 +9,10 @@
     </div>
 
     <div
-        class="w-full max-w-md bg-base-200 border border-base-content/10 p-10 md:p-12 rounded-2xl relative z-10 shadow-none">
+        class="w-full max-w-md bg-base-200 border border-base-content/10 p-6 md:p-8 rounded-2xl relative z-10 shadow-none">
 
         <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold text-base-content tracking-tight" i18n="@@login.title">Login</h2>
+            <h2 class="text-3xl font-bold text-base-content tracking-tight" i18n="@@login.title">Ingresar</h2>
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-6">
@@ -30,8 +30,8 @@
                 </div>
                 @if (loginForm.controls['email'].touched && loginForm.controls['email'].errors) {
                 <div class="mt-2 px-1 text-sm text-error">
-                    <app-form-error [control]="loginForm.controls['email']" 
-                        label="El correo" i18n-label="@@login.error_label_email"></app-form-error>
+                    <app-form-error [control]="loginForm.controls['email']" label="El correo"
+                        i18n-label="@@login.error_label_email"></app-form-error>
                 </div>
                 }
             </div>
@@ -49,13 +49,13 @@
 
                 @if (loginForm.controls['password'].touched && loginForm.controls['password'].errors) {
                 <div class="mt-2 px-1 text-sm text-error">
-                    <app-form-error [control]="loginForm.controls['password']" 
-                        label="La contraseña" i18n-label="@@login.error_label_password"></app-form-error>
+                    <app-form-error [control]="loginForm.controls['password']" label="La contraseña"
+                        i18n-label="@@login.error_label_password"></app-form-error>
                 </div>
                 }
                 <div class="flex justify-end mt-1 px-1">
-                    <a class="text-xs font-bold text-primary hover:text-base-content transition-colors cursor-pointer" 
-                       i18n="@@login.forgot_password">
+                    <a class="text-xs font-bold text-primary hover:text-base-content transition-colors cursor-pointer"
+                        i18n="@@login.forgot_password">
                         ¿Olvidaste tu clave?
                     </a>
                 </div>
@@ -64,11 +64,36 @@
 
             <button type="submit"
                 class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-4 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
-                [disabled]="loginForm.invalid"
-                i18n="@@login.btn_submit">
-                Ingresar al Sistema
+                [disabled]="loginForm.invalid" i18n="@@login.btn_submit">
+                Acceder
             </button>
         </form>
+
+        <div class="mt-4 pt-2 border-t border-base-content/5">
+            <p class="text-[10px] font-bold text-base-content/40 uppercase tracking-widest mb-4">fast access</p>
+            <div class="grid grid-cols-2 gap-2">
+                <button (click)="fillForm('user@deskflow.com')" type="button"
+                    class="flex flex-col items-start p-2 rounded-lg bg-base-100 border border-base-content/5 hover:border-primary/40 transition-all group cursor-pointer">
+                    <span class="text-[10px] font-bold text-primary uppercase">User</span>
+                    <span class="text-[11px] text-base-content/60">user@deskflow.com</span>
+                </button>
+                <button (click)="fillForm('admin@deskflow.com')" type="button"
+                    class="flex flex-col items-start p-2 rounded-lg bg-base-100 border border-base-content/5 hover:border-error/40 transition-all group cursor-pointer">
+                    <span class="text-[10px] font-bold text-error uppercase">Admin</span>
+                    <span class="text-[11px] text-base-content/60">admin@deskflow.com</span>
+                </button>
+                <button (click)="fillForm('agent@deskflow.com')" type="button"
+                    class="flex flex-col items-start p-2 rounded-lg bg-base-100 border border-base-content/5 hover:border-accent/40 transition-all group cursor-pointer">
+                    <span class="text-[10px] font-bold text-accent uppercase">Agent</span>
+                    <span class="text-[11px] text-base-content/60">agent@deskflow.com</span>
+                </button>
+                <button (click)="fillForm('premium@deskflow.com')" type="button"
+                    class="flex flex-col items-start p-2 rounded-lg bg-base-100 border border-base-content/5 hover:border-warning/40 transition-all group cursor-pointer">
+                    <span class="text-[10px] font-bold text-warning uppercase">Premium</span>
+                    <span class="text-[11px] text-base-content/60">premium@deskflow.com</span>
+                </button>
+            </div>
+        </div>
     </div>
 
     <p class="mt-10 text-base-content/60 font-medium relative z-10" i18n="@@login.register_prompt">

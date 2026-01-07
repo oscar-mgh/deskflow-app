@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
     });
   }
 
-  onLogin() {
+  public onLogin() {
     if (this.loginForm.invalid) return;
     this._authService.login(this.loginForm.value).subscribe({
       next: ({ token }) => {
@@ -43,5 +43,14 @@ export class LoginPage implements OnInit {
         this._cdr.detectChanges();
       },
     });
+  }
+
+  public fillForm(email: string): void {
+    this.loginForm.patchValue({
+      email: email,
+      password: 'DeskflowUser',
+    });
+
+    this.loginForm.markAllAsTouched();
   }
 }

@@ -761,8 +761,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="login.title" datatype="html">
-        <source>Login</source>
-        <target>Login</target>
+        <source>Ingresar</source>
+        <target>Sign in</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/login-page/login-page.html</context>
           <context context-type="linenumber">15,18</context>
