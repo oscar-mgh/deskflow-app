@@ -38,7 +38,7 @@ export class TicketsPage implements OnInit {
     }
   }
 
-  public loadTickets(page: number) {
+  public loadTickets(page: number): void {
     this.loading.set(true);
     this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
       next: (response) => {
@@ -54,7 +54,7 @@ export class TicketsPage implements OnInit {
     });
   }
 
-  public loadTicketsByAgent() {
+  public loadTicketsByAgent(): void {
     this.loading.set(true);
     this._ticketsService.getTicketsByAgent().subscribe({
       next: (response) => {
@@ -80,11 +80,11 @@ export class TicketsPage implements OnInit {
     this.loadTickets(page);
   }
 
-  public openTicket(id: string) {
+  public openTicket(id: string): void {
     this._router.navigate(['/dashboard/ticket', id]);
   }
 
-  public changePage(delta: number) {
+  public changePage(delta: number): void {
     const nextPage = (this.paginationData()?.page ?? 0) + delta;
     this.loadTickets(nextPage);
   }

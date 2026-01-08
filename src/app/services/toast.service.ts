@@ -6,11 +6,11 @@ type ToastType = 'primary' | 'success' | 'error' | 'warning' | 'info';
   providedIn: 'root',
 })
 export class ToastService {
-  message = signal<string | null>(null);
-  type = signal<ToastType>('primary');
-  visible = signal(false);
+  public message = signal<string | null>(null);
+  public type = signal<ToastType>('primary');
+  public visible = signal(false);
 
-  public show(message: string, type: ToastType = 'primary', duration: number = 4000) {
+  public show(message: string, type: ToastType = 'primary', duration: number = 4000): void {
     this.message.set(message);
     this.type.set(type);
     this.visible.set(true);
@@ -18,7 +18,7 @@ export class ToastService {
     setTimeout(() => this.close(), duration);
   }
 
-  public close() {
+  public close(): void {
     this.visible.set(false);
   }
 }

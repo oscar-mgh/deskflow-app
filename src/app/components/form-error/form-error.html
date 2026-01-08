@@ -1,5 +1,5 @@
-@if (control && control.touched && control.errors) {
+@if (control() && control()?.touched && control()?.errors) {
 <p class="text-error text-xs mt-1 px-2">
-	{{ control.errors | errorMsg }}
+	{{ control()?.errors | errorMsg }}
 </p>
 }

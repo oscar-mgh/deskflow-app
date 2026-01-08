@@ -13,7 +13,7 @@ import { ToastService } from '../../services/toast.service';
   templateUrl: './login-page.html',
 })
 export class LoginPage implements OnInit {
-  loginForm!: FormGroup;
+  public loginForm!: FormGroup;
 
   constructor(
     private _fb: FormBuilder,
@@ -23,14 +23,14 @@ export class LoginPage implements OnInit {
     private _toastService: ToastService
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loginForm = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
-  public onLogin() {
+  public onLogin(): void {
     if (this.loginForm.invalid) return;
     this._authService.login(this.loginForm.value).subscribe({
       next: ({ token }) => {

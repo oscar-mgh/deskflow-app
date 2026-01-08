@@ -27,7 +27,7 @@ export class Sidebar {
     public config: ConfigService
   ) {}
 
-  logout(): void {
+  public logout(): void {
     this._authService.clearToken();
     this._router.navigate(['/']);
   }

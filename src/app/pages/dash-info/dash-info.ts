@@ -13,10 +13,10 @@ import { ToastService } from '../../services/toast.service';
   templateUrl: './dash-info.html',
 })
 export class DashInfo {
-  isAgent = input.required<boolean>();
-  isAdmin = input.required<boolean>();
-  allTickets = input.required<number>();
-  loadAgentTickets = input.required<boolean>();
+  public isAgent = input.required<boolean>();
+  public isAdmin = input.required<boolean>();
+  public allTickets = input.required<number>();
+  public loadAgentTickets = input.required<boolean>();
 
   public paginationData = signal<TicketPagination | null>(null);
   public currentPage = signal<number>(0);
@@ -24,6 +24,7 @@ export class DashInfo {
   public lastTicketsResolved = signal<Ticket[]>([]);
   public openTickets = signal<Ticket[]>([]);
   public tickets = signal<Ticket[]>([]);
+  
   public inProgressTickets = computed(() =>
     this.tickets().filter((ticket) => ticket.status === 'IN_PROGRESS')
   );
@@ -43,7 +44,7 @@ export class DashInfo {
     this.loadTickets(0);
   }
 
-  public loadTickets(page: number) {
+  public loadTickets(page: number): void {
     this.loading.set(true);
 
     const ticketsObservable = this.loadAgentTickets()

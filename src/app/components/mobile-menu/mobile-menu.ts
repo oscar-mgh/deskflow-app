@@ -27,11 +27,11 @@ export class MobileMenu {
     public config: ConfigService
   ) {}
 
-  toggleSidebar() {
+  public toggleSidebar(): void {
     this.sidebarOpen = !this.sidebarOpen;
   }
 
-  logout(): void {
+  public logout(): void {
     this._authService.clearToken();
     this._router.navigate(['/']);
   }

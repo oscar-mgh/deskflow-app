@@ -1,6 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { Loading } from '../../components/loading/loading';
-import { Ticket, TicketPagination } from '../../models/ticket.model';
+import { TicketPagination } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
 import { TicketsService } from '../../services/tickets.service';
 import { ToastService } from '../../services/toast.service';
@@ -30,7 +30,7 @@ export class Panel {
     this.loadTickets(0);
   }
 
-  public loadTickets(page: number) {
+  public loadTickets(page: number): void {
     this.loading.set(true);
     this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
       next: (response) => {

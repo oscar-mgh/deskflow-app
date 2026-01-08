@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { UserClaims } from '../../models/auth.model';
 import { RolePipe } from '../../pipes/role.pipe';
 import { AuthService } from '../../services/auth.service';
 
@@ -10,7 +11,9 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './profile-page.html',
 })
 export class ProfilePage {
-  private _authService = inject(AuthService);
+  public userInfo = signal<UserClaims | undefined>(undefined);
 
-  userInfo = signal(this._authService.getUserInfo());
+  constructor(private _authService: AuthService) {
+    this.userInfo.set(this._authService.getUserInfo());
+  }
 }

@@ -12,22 +12,22 @@
             <div class="mb-8">
                 <div class="w-40 h-40 bg-base-200 border border-base-content/10 rounded-2xl flex items-center justify-center shadow-lg">
                     <span class="text-6xl font-bold text-base-content">
-                        {{ userInfo().username.charAt(0).toUpperCase() }}
+                        {{ userInfo()?.username?.charAt(0)?.toUpperCase() }}
                     </span>
                 </div>
             </div>
 
             <div class="text-center lg:text-left w-full">
                 <h2 class="text-3xl font-bold text-base-content mb-1">
-                    {{ userInfo().username }}
+                    {{ userInfo()?.username }}
                 </h2>
                 <p class="text-base-content/60 font-medium mb-6 text-sm">
-                    {{ userInfo().sub }}
+                    {{ userInfo()?.sub }}
                 </p>
 
                 <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
                     <span class="bg-primary/10 text-primary text-sm font-bold py-2 px-4 rounded-xl border border-primary/20">
-                        {{ userInfo().role | rolePipe }}
+                        {{ userInfo()?.role! | rolePipe }}
                     </span>
                     <span class="bg-base-200 text-base-content/70 text-sm font-bold py-2 px-4 rounded-xl border border-base-content/10" i18n="@@profile.verified_badge">
                         Cuenta Verificada
@@ -49,8 +49,8 @@
                         <p class="text-sm font-bold text-base-content/50 mb-2" i18n="@@profile.label_company">Empresa o Grupo</p>
                         <p class="text-lg font-semibold text-base-content flex items-center gap-3">
                             <i class="bi bi-building text-primary/80"></i>
-                            @if (userInfo().company) {
-                                {{ userInfo().company }}
+                            @if (userInfo()?.company) {
+                                {{ userInfo()?.company }}
                             } @else {
                                 <span class="italic opacity-50 font-normal" i18n="@@profile.unassigned">Sin asignar</span>
                             }

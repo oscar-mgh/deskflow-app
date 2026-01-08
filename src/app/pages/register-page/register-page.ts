@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { FormError } from '../../components/form-error/form-error';
@@ -13,8 +13,8 @@ import { ToastService } from '../../services/toast.service';
   imports: [RouterLink, ReactiveFormsModule, CommonModule, FormError],
   templateUrl: './register-page.html',
 })
-export class RegisterPage {
-  registerForm: FormGroup;
+export class RegisterPage implements OnInit {
+  public registerForm!: FormGroup;
 
   constructor(
     private _fb: FormBuilder,
@@ -22,7 +22,9 @@ export class RegisterPage {
     private _router: Router,
     private _cdr: ChangeDetectorRef,
     private _toastService: ToastService
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.registerForm = this._fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],

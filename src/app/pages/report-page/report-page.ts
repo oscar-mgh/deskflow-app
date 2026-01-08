@@ -17,14 +17,11 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './report-page.html',
 })
 export class ReportPage implements OnDestroy {
-  private trendChartDom = viewChild<ElementRef>('trendChart');
-  private priorityChartDom = viewChild<ElementRef>('priorityChart');
-  private slaChartDom = viewChild<ElementRef>('slaChart');
-  private agentsChartDom = viewChild<ElementRef>('agentsChart');
-  private efficiencyChartDom = viewChild<ElementRef>('efficiencyChart');
-
-  public userRole = computed(() => this._authService.getUserInfo().role);
-  public isAdmin = computed(() => this.userRole() === 'ADMIN');
+  private _trendChartDom = viewChild<ElementRef>('trendChart');
+  private _priorityChartDom = viewChild<ElementRef>('priorityChart');
+  private _slaChartDom = viewChild<ElementRef>('slaChart');
+  private _agentsChartDom = viewChild<ElementRef>('agentsChart');
+  private _efficiencyChartDom = viewChild<ElementRef>('efficiencyChart');
 
   private charts: echarts.ECharts[] = [];
 
@@ -35,6 +32,8 @@ export class ReportPage implements OnDestroy {
   public openTickets = signal(5);
   public totalAssigned = signal(25);
 
+  public userRole = computed(() => this._authService.getUserInfo().role);
+  public isAdmin = computed(() => this.userRole() === 'ADMIN');
   public adminKpis = computed<KPI[]>(() => [
     {
       id: 'total',
@@ -100,7 +99,7 @@ export class ReportPage implements OnDestroy {
     });
 
     effect(() => {
-      if (this.trendChartDom()) {
+      if (this._trendChartDom()) {
         setTimeout(() => this.initCharts(), 50);
       }
     });
@@ -111,17 +110,17 @@ export class ReportPage implements OnDestroy {
     this.charts = [];
     const s = { primary: '#a3e635', secondary: 'rgba(0, 211, 113, 0.45)', grid: '#27272a' };
 
-    this.renderChart(this.trendChartDom(), this.getTrendOption(s));
+    this.renderChart(this._trendChartDom(), this.getTrendOption(s));
 
-    this.renderChart(this.priorityChartDom(), this.getPriorityOption(s, this.isAdmin()));
+    this.renderChart(this._priorityChartDom(), this.getPriorityOption(s, this.isAdmin()));
 
     if (this.isAdmin()) {
-      this.renderChart(this.slaChartDom(), this.getSlaOption(s));
-      this.renderChart(this.agentsChartDom(), this.getAgentsOption(s));
-      this.renderChart(this.efficiencyChartDom(), this.getEfficiencyOption(s));
+      this.renderChart(this._slaChartDom(), this.getSlaOption(s));
+      this.renderChart(this._agentsChartDom(), this.getAgentsOption(s));
+      this.renderChart(this._efficiencyChartDom(), this.getEfficiencyOption(s));
     } else {
-      this.renderChart(this.slaChartDom(), this.getAgentCategoriesOption(s));
-      this.renderChart(this.efficiencyChartDom(), this.getAgentSatisfactionOption(s));
+      this.renderChart(this._slaChartDom(), this.getAgentCategoriesOption(s));
+      this.renderChart(this._efficiencyChartDom(), this.getAgentSatisfactionOption(s));
     }
   }
 
@@ -190,7 +189,7 @@ export class ReportPage implements OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy() {
     this.charts.forEach((c) => c.dispose());
   }
 

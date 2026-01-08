@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { FormValidationsPipe } from "../../pipes/form-validations.pipe";
 
@@ -8,6 +8,6 @@ import { FormValidationsPipe } from "../../pipes/form-validations.pipe";
   templateUrl: './form-error.html',
 })
 export class FormError {
-  @Input() control!: AbstractControl | null;
-  @Input() label: string = '';
+control = input<AbstractControl>();
+label = input<string>();
 }

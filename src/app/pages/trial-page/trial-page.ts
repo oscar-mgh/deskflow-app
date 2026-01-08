@@ -8,16 +8,18 @@ import { RouterLink } from '@angular/router';
   templateUrl: './trial-page.html',
 })
 export class TrialPage {
-  fileName = signal<string>('');
-  openCheckout() {}
-  onFileSimulated(event: any) {
+  public fileName = signal<string>('');
+
+  public openCheckout(): void {}
+  
+  public onFileSimulated(event: any): void {
     const file = event.target.files[0];
     if (file) {
       this.fileName.set(file.name);
     }
   }
 
-  onDialogClick(event: MouseEvent) {
+  public onDialogClick(event: MouseEvent): void {
     const dialog = event.target as HTMLDialogElement;
     if (dialog.nodeName === 'DIALOG') {
       dialog.close();

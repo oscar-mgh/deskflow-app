@@ -10,9 +10,9 @@ import { ConfigService } from '../../services/theme.service';
 })
 export class ThemeLangBtns {
   public config = inject(ConfigService);
-  currentLocale = inject(LOCALE_ID);
+  public currentLocale = inject(LOCALE_ID);
 
-  switchLanguage() {
+  public switchLanguage(): void {
     const currentLang = this.currentLocale.substring(0, 2);
     const nextLang = currentLang === 'es' ? 'en' : 'es';
 

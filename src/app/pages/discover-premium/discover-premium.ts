@@ -9,9 +9,9 @@ import { RouterLink } from '@angular/router';
 export class DiscoverPremium {
   @ViewChild('checkoutModal') checkoutModal!: HTMLDialogElement;
 
-  upgradeToPremium() {}
+  public upgradeToPremium(): void {}
 
-  openCheckout() {}
+  public openCheckout(): void {}
 
-  confirmUpgrade() {}
+  public confirmUpgrade(): void {}
 }

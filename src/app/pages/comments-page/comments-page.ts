@@ -54,7 +54,7 @@ export class CommentsPage implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const id = this._route.snapshot.paramMap.get('id');
     if (id) {
       this.ticketId.set(id);
@@ -63,14 +63,14 @@ export class CommentsPage implements OnInit {
     }
   }
 
-  private loadUserInfo() {
+  private loadUserInfo(): void {
     const user = this._authService.getUserInfo();
     const id = Number(user.id);
     this.currentUserId.set(id);
     this.userName.set(user.username || 'User');
   }
 
-  private loadComments() {
+  private loadComments(): void {
     this.loading.set(true);
     this._ticketService.getComments(this.ticketId()).subscribe({
       next: (data) => {
@@ -85,7 +85,7 @@ export class CommentsPage implements OnInit {
     });
   }
 
-  public sendComment() {
+  public sendComment(): void {
     if (this.commentForm.invalid) return;
 
     this.isSending.set(true);

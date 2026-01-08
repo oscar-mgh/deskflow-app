@@ -36,13 +36,14 @@ export class TicketPage implements OnInit {
   public premiumPriorities = signal<string[]>(['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']);
   public categories = signal<Category[]>([]);
   public comments = signal<Comment[]>([]);
+  public editMode = signal<boolean>(false);
+  public loading = signal<boolean>(false);
+
   public userRole = computed<string>(() => this._authService.getUserInfo().role);
   public isPremium = computed<boolean>(() => this.userRole() === 'PREMIUM');
   public isOwner = computed<boolean>(
     () => this.ticket()?.userId === this._authService.getUserInfo().id
   );
-  public editMode = signal<boolean>(false);
-  public loading = signal<boolean>(false);
 
   constructor(
     private _fb: FormBuilder,
@@ -86,7 +87,7 @@ export class TicketPage implements OnInit {
     });
   }
 
-  onFileSelected(event: any) {
+  public onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
       this.ticketForm.patchValue({ file });
