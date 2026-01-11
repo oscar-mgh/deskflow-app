@@ -6,7 +6,7 @@ import { PriorityBadge } from '../../components/priority-badge/priority-badge';
 import { StatusBadge } from '../../components/status-badge/status-badge';
 import { Ticket, TicketPagination } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
-import { TicketsService } from '../../services/tickets.service';
+import { TicketService } from '../../services/tickets.service';
 import { ToastService } from '../../services/toast.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class TicketsPage implements OnInit {
   public pageSize = 7;
 
   constructor(
-    private _ticketsService: TicketsService,
+    private _ticketService: TicketService,
     private _router: Router,
     private _authService: AuthService,
     private _toastService: ToastService
@@ -40,15 +40,15 @@ export class TicketsPage implements OnInit {
 
   public loadTickets(page: number): void {
     this.loading.set(true);
-    this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
+    this._ticketService.getTicketsPaginated(page, this.pageSize).subscribe({
       next: (response) => {
         this.tickets.set(response.content);
         this.paginationData.set(response);
         this.currentPage.set(page);
         this.loading.set(false);
       },
-      error: (err) => {
-        this._toastService.show(err.error?.message, 'error');
+      error: () => {
+        this._toastService.show('error');
         this.loading.set(false);
       },
     });
@@ -56,7 +56,7 @@ export class TicketsPage implements OnInit {
 
   public loadTicketsByAgent(): void {
     this.loading.set(true);
-    this._ticketsService.getTicketsByAgent().subscribe({
+    this._ticketService.getTicketsByAgent().subscribe({
       next: (response) => {
         this.tickets.set(response.content);
         this.paginationData.set(response);
@@ -64,7 +64,7 @@ export class TicketsPage implements OnInit {
         this.loading.set(false);
       },
       error: (err) => {
-        this._toastService.show(err.error?.message, 'error');
+        this._toastService.show('error');
         this.loading.set(false);
       },
     });

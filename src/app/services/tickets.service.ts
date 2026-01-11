@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class TicketsService {
+export class TicketService {
   public headers;
 
   constructor(

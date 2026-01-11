@@ -10,8 +10,8 @@ export class ToastService {
   public type = signal<ToastType>('primary');
   public visible = signal(false);
 
-  public show(message: string, type: ToastType = 'primary', duration: number = 4000): void {
-    this.message.set(message);
+  public show(message?: string, type: ToastType = 'primary', duration: number = 4000): void {
+    this.message.set(message || $localize`:@@ticket.load.error:Error al cargar la información`);
     this.type.set(type);
     this.visible.set(true);
 

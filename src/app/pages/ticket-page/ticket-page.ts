@@ -1,8 +1,8 @@
 import { DatePipe, TitleCasePipe } from '@angular/common';
-import { Component, computed, OnInit, signal } from '@angular/core';
+import { Component, computed, input, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { finalize, of, switchMap } from 'rxjs';
+import { Router, RouterLink } from '@angular/router';
+import { finalize, forkJoin, of, switchMap } from 'rxjs';
 import { Loading } from '../../components/loading/loading';
 import { StatusBadge } from '../../components/status-badge/status-badge';
 import { Category } from '../../models/category.model';
@@ -10,7 +10,7 @@ import { Comment, Ticket } from '../../models/ticket.model';
 import { PriorityPipe } from '../../pipes/priority.pipe';
 import { AuthService } from '../../services/auth.service';
 import { CategoryService } from '../../services/category.service';
-import { TicketsService } from '../../services/tickets.service';
+import { TicketService } from '../../services/tickets.service';
 import { ToastService } from '../../services/toast.service';
 
 @Component({
@@ -28,7 +28,7 @@ import { ToastService } from '../../services/toast.service';
   templateUrl: './ticket-page.html',
 })
 export class TicketPage implements OnInit {
-  public id = signal<string>('');
+  public ticketId = input<string>();
   public ticket = signal<Ticket | null>(null);
   public ticketForm!: FormGroup;
   public initialStatus = signal<string>('OPEN');
@@ -48,31 +48,39 @@ export class TicketPage implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private _authService: AuthService,
-    private _activatedRoute: ActivatedRoute,
-    private _ticketsService: TicketsService,
+    private _ticketService: TicketService,
     private _categoryService: CategoryService,
     private _toastService: ToastService,
     private _router: Router
   ) {}
 
   public ngOnInit(): void {
-    this._activatedRoute.params
-      .pipe(
-        switchMap((params) => {
-          if (params['id']) {
-            this.id.set(params['id']);
-            this._ticketsService.getComments(this.id()).subscribe((data) => {
-              this.comments.set(data);
-            });
-            return this._ticketsService.getTicketById(params['id']);
-          }
-          return of(null);
-        })
-      )
-      .subscribe((data) => {
-        this.ticket.set(data);
-      });
+    console.log(this.ticketId());
+    this.initForm();
+    this.loadInitialData();
+  }
 
+  private loadInitialData(): void {
+    if (!this.ticketId()) return;
+    const id = this.ticketId();
+    forkJoin({
+      ticket: this._ticketService.getTicketById(id!),
+      comments: this._ticketService.getComments(id!),
+      categories: this._categoryService.getCategories(),
+    }).subscribe({
+      next: (res) => {
+        this.ticket.set(res.ticket);
+        this.comments.set(res.comments);
+        this.categories.set(res.categories);
+      },
+      error: () => {
+        this._toastService.show('error');
+        this.loading.set(false);
+      },
+    });
+  }
+
+  private initForm(): void {
     this.ticketForm = this._fb.group({
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -80,10 +88,6 @@ export class TicketPage implements OnInit {
       priority: ['', [Validators.required]],
       status: [this.initialStatus()],
       file: [null],
-    });
-
-    this._categoryService.getCategories().subscribe((data) => {
-      this.categories.set(data);
     });
   }
 
@@ -98,12 +102,12 @@ export class TicketPage implements OnInit {
     this.loading.set(true);
     const fileToUpload = this.ticketForm.get('file')?.value;
 
-    this._ticketsService
+    this._ticketService
       .newTicket(this.ticketForm.value)
       .pipe(
         switchMap((ticket) => {
           if (fileToUpload instanceof File) {
-            return this._ticketsService.newFile(ticket.id.toString(), fileToUpload);
+            return this._ticketService.newFile(ticket.id.toString(), fileToUpload);
           }
           return of(null);
         }),
@@ -129,8 +133,10 @@ export class TicketPage implements OnInit {
   }
 
   public onEdit(): void {
+    if (!this.ticketId()) return;
+    const id = this.ticketId();
     this.loading.set(true);
-    this._ticketsService.updateTicket(this.id(), this.ticketForm.value).subscribe({
+    this._ticketService.updateTicket(id!, this.ticketForm.value).subscribe({
       next: () => {
         const msg = $localize`:@@ticket.edit.success:Ticket editado correctamente`;
         this._toastService.show(msg, 'success');

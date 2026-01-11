@@ -5,6 +5,7 @@ import {
   effect,
   ElementRef,
   inject,
+  input,
   OnInit,
   signal,
   ViewChild,
@@ -13,7 +14,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Comment } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
-import { TicketsService } from '../../services/tickets.service';
+import { TicketService } from '../../services/tickets.service';
 
 @Component({
   selector: 'app-comments-page',
@@ -22,12 +23,7 @@ import { TicketsService } from '../../services/tickets.service';
   templateUrl: './comments-page.html',
 })
 export class CommentsPage implements OnInit {
-  private _route = inject(ActivatedRoute);
-  private _fb = inject(FormBuilder);
-  private _ticketService = inject(TicketsService);
-  private _authService = inject(AuthService);
-
-  public ticketId = signal<string>('');
+  public ticketId = input<string>('');
   public comments = signal<Comment[]>([]);
   public loading = signal<boolean>(true);
   public isSending = signal<boolean>(false);
@@ -42,7 +38,11 @@ export class CommentsPage implements OnInit {
 
   @ViewChild('scrollContainer') private scrollContainer!: ElementRef;
 
-  constructor() {
+  constructor(
+    private _fb: FormBuilder,
+    private _ticketService: TicketService,
+    private _authService: AuthService
+  ) {
     this.commentForm = this._fb.group({
       content: ['', [Validators.required, Validators.minLength(1)]],
     });
@@ -55,9 +55,7 @@ export class CommentsPage implements OnInit {
   }
 
   public ngOnInit(): void {
-    const id = this._route.snapshot.paramMap.get('id');
-    if (id) {
-      this.ticketId.set(id);
+    if (this.ticketId()) {
       this.loadUserInfo();
       this.loadComments();
     }

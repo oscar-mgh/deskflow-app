@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { StatusBadge } from '../../components/status-badge/status-badge';
 import { Ticket, TicketPagination } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
-import { TicketsService } from '../../services/tickets.service';
+import { TicketService } from '../../services/tickets.service';
 import { ToastService } from '../../services/toast.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class DashInfo {
   public lastTicketsResolved = signal<Ticket[]>([]);
   public openTickets = signal<Ticket[]>([]);
   public tickets = signal<Ticket[]>([]);
-  
+
   public inProgressTickets = computed(() =>
     this.tickets().filter((ticket) => ticket.status === 'IN_PROGRESS')
   );
@@ -34,7 +34,7 @@ export class DashInfo {
   public slaTickets = computed(() => this.tickets().filter((ticket) => ticket.status === 'CLOSED'));
 
   constructor(
-    private _ticketsService: TicketsService,
+    private _ticketService: TicketService,
     private _router: Router,
     private _authService: AuthService,
     private _toastService: ToastService
@@ -48,8 +48,8 @@ export class DashInfo {
     this.loading.set(true);
 
     const ticketsObservable = this.loadAgentTickets()
-      ? this._ticketsService.getTicketsByAgent()
-      : this._ticketsService.getTicketsPaginated(page, this.allTickets());
+      ? this._ticketService.getTicketsByAgent()
+      : this._ticketService.getTicketsPaginated(page, this.allTickets());
 
     ticketsObservable.subscribe({
       next: (response) => {
@@ -76,9 +76,8 @@ export class DashInfo {
 
         this.loading.set(false);
       },
-      error: (err) => {
-        this._toastService.show(err.error?.message, 'error');
-        console.error('Error cargando tickets', err);
+      error: () => {
+        this._toastService.show('error');
         this.loading.set(false);
       },
     });

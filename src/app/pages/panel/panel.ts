@@ -2,7 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { Loading } from '../../components/loading/loading';
 import { TicketPagination } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
-import { TicketsService } from '../../services/tickets.service';
+import { TicketService } from '../../services/tickets.service';
 import { ToastService } from '../../services/toast.service';
 import { DashEmpty } from '../dash-empty/dash-empty';
 import { DashInfo } from '../dash-info/dash-info';
@@ -13,10 +13,6 @@ import { DashInfo } from '../dash-info/dash-info';
   templateUrl: './panel.html',
 })
 export class Panel {
-  private _authService = inject(AuthService);
-  private _ticketsService = inject(TicketsService);
-  private _toastService = inject(ToastService);
-
   public userRole = computed<string>(() => this._authService.getUserInfo().role);
   public isAgent = computed<boolean>(() => this.userRole() === 'AGENT');
   public isAdmin = computed<boolean>(() => this.userRole() === 'ADMIN');
@@ -26,16 +22,22 @@ export class Panel {
   public loading = signal<boolean>(false);
   public pageSize = 8;
 
+  constructor(
+    private _authService: AuthService,
+    private _ticketService: TicketService,
+    private _toastService: ToastService
+  ) {}
+
   public ngOnInit(): void {
     this.loadTickets(0);
   }
 
   public loadTickets(page: number): void {
     this.loading.set(true);
-    this._ticketsService.getTicketsPaginated(page, this.pageSize).subscribe({
+    this._ticketService.getTicketsPaginated(page, this.pageSize).subscribe({
       next: (response) => {
         if (this.isAgent()) {
-          this._ticketsService.getTicketsByAgent().subscribe({
+          this._ticketService.getTicketsByAgent().subscribe({
             next: (response) => {
               this.paginationData.set(response);
               this.currentPage.set(page);
@@ -50,8 +52,8 @@ export class Panel {
         this.currentPage.set(page);
         this.loading.set(false);
       },
-      error: (err) => {
-        this._toastService.show(err.error?.message, 'error');
+      error: () => {
+        this._toastService.show('error');
         this.loading.set(false);
       },
     });

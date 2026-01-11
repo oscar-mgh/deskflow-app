@@ -32,12 +32,12 @@ export const routes: Routes = [
               import('./pages/ticket-page/ticket-page').then((m) => m.TicketPage),
           },
           {
-            path: 'ticket/:id',
+            path: 'ticket/:ticketId',
             loadComponent: () =>
               import('./pages/ticket-page/ticket-page').then((m) => m.TicketPage),
           },
           {
-            path: 'ticket/:id/comments',
+            path: 'ticket/:ticketId/comments',
             loadComponent: () => import('./pages/comments-page/comments-page').then((m) => m.CommentsPage),
           },
           {

@@ -22,8 +22,9 @@ export class ReportPage implements OnDestroy {
   private _slaChartDom = viewChild<ElementRef>('slaChart');
   private _agentsChartDom = viewChild<ElementRef>('agentsChart');
   private _efficiencyChartDom = viewChild<ElementRef>('efficiencyChart');
+  private _resizeObserver?: ResizeObserver;
 
-  private charts: echarts.ECharts[] = [];
+  private charts: Map<string, echarts.ECharts> = new Map();
 
   public totalTickets = signal(951);
   public slaCompliance = signal(94.4);
@@ -93,21 +94,78 @@ export class ReportPage implements OnDestroy {
   );
 
   constructor(private _authService: AuthService) {
+    this._resizeObserver = new ResizeObserver(() => {
+      this.charts.forEach((chart) => chart.resize());
+    });
+    this._resizeObserver.observe(document.body);
     effect(() => {
       const resizeObserver = new ResizeObserver(() => this.charts.forEach((c) => c.resize()));
       resizeObserver.observe(document.body);
     });
 
     effect(() => {
-      if (this._trendChartDom()) {
-        setTimeout(() => this.initCharts(), 50);
+      const trendDom = this._trendChartDom()?.nativeElement;
+      if (trendDom) {
+        setTimeout(() => this.updateAllCharts(), 50);
       }
     });
   }
 
+  private updateAllCharts() {
+    const s = { primary: '#a3e635', secondary: 'rgba(0, 211, 113, 0.45)', grid: '#27272a' };
+
+    const chartConfigs = [
+      { ref: this._trendChartDom(), opt: this.getTrendOption(s), id: 'trend' },
+      {
+        ref: this._priorityChartDom(),
+        opt: this.getPriorityOption(s, this.isAdmin()),
+        id: 'priority',
+      },
+      {
+        ref: this._slaChartDom(),
+        opt: this.isAdmin() ? this.getSlaOption(s) : this.getAgentCategoriesOption(s),
+        id: 'sla',
+      },
+      {
+        ref: this._agentsChartDom(),
+        opt: this.isAdmin() ? this.getAgentsOption(s) : null,
+        id: 'agents',
+      },
+      {
+        ref: this._efficiencyChartDom(),
+        opt: this.isAdmin() ? this.getEfficiencyOption(s) : this.getAgentSatisfactionOption(s),
+        id: 'efficiency',
+      },
+    ];
+
+    chartConfigs.forEach((cfg) => {
+      if (cfg.ref && cfg.opt) {
+        this.renderOrUpdate(cfg.id, cfg.ref, cfg.opt);
+      }
+    });
+  }
+
+  private renderOrUpdate(id: string, el: ElementRef, option: any) {
+    const dom = el.nativeElement;
+    let chart = this.charts.get(id);
+
+    if (!chart) {
+      chart = echarts.init(dom, 'dark');
+      this.charts.set(id, chart);
+    }
+
+    chart.setOption(option, true);
+  }
+
+  public ngOnDestroy() {
+    this._resizeObserver?.disconnect();
+    this.charts.forEach((c) => c.dispose());
+    this.charts.clear();
+  }
+
   private initCharts() {
     this.charts.forEach((c) => c.dispose());
-    this.charts = [];
+    this.charts.clear();
     const s = { primary: '#a3e635', secondary: 'rgba(0, 211, 113, 0.45)', grid: '#27272a' };
 
     this.renderChart(this._trendChartDom(), this.getTrendOption(s));
@@ -185,12 +243,8 @@ export class ReportPage implements OnDestroy {
     if (el?.nativeElement) {
       const chart = echarts.init(el.nativeElement, 'dark');
       chart.setOption(option);
-      this.charts.push(chart);
+      this.charts.set(el.nativeElement.id, chart);
     }
-  }
-
-  public ngOnDestroy() {
-    this.charts.forEach((c) => c.dispose());
   }
 
   private getTrendOption(s: any) {
