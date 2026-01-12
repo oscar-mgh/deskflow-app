@@ -4,13 +4,12 @@ import { RouterLink } from '@angular/router';
 import { Ticket } from '../../models/ticket.model';
 import { PriorityPipe } from '../../pipes/priority.pipe';
 import { StatusBadge } from '../status-badge/status-badge';
-import { Loading } from "../loading/loading";
 
 @Component({
   selector: 'app-ticket-detail',
   standalone: true,
   templateUrl: './ticket-detail.html',
-  imports: [RouterLink, StatusBadge, PriorityPipe, CommonModule, DatePipe, Loading],
+  imports: [RouterLink, StatusBadge, PriorityPipe, CommonModule, DatePipe],
 })
 export class TicketDetailComponent {
   public ticket = input.required<Ticket>();
