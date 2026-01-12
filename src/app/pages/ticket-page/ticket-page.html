@@ -1,25 +1,17 @@
 @if (loading()) {
-  <loading />
+<div class="min-h-screen flex items-center justify-center bg-base-100 px-4">
+  <loading></loading>
+</div>
 }
 
 @if (isCreate()) {
-  <app-ticket-form
-    mode="create"
-    [categories]="categories()"
-    [isPremium]="isPremium()" />
+<app-ticket-form mode="create" [categories]="categories()" [isPremium]="isPremium()" />
 }
 
 @if (isEdit()) {
-  <app-ticket-form
-    mode="edit"
-    [ticket]="ticket()!"
-    [categories]="categories()"
-    [isPremium]="isPremium()" />
+<app-ticket-form mode="edit" [ticket]="ticket()!" [categories]="categories()" [isPremium]="isPremium()" />
 }
 
 @if (isView()) {
-  <app-ticket-detail
-    [ticket]="ticket()!"
-    [isOwner]="isOwner()"
-    (edit)="enableEdit()" />
+<app-ticket-detail [ticket]="ticket()!" [isOwner]="isOwner()" (edit)="enableEdit()" />
 }
