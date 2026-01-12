@@ -1,21 +1,19 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Ticket } from '../../models/ticket.model';
 import { PriorityPipe } from '../../pipes/priority.pipe';
-import { AuthService } from '../../services/auth.service';
 import { StatusBadge } from '../status-badge/status-badge';
+import { Loading } from "../loading/loading";
 
 @Component({
   selector: 'app-ticket-detail',
   standalone: true,
   templateUrl: './ticket-detail.html',
-  imports: [RouterLink, StatusBadge, PriorityPipe, CommonModule, DatePipe],
+  imports: [RouterLink, StatusBadge, PriorityPipe, CommonModule, DatePipe, Loading],
 })
 export class TicketDetailComponent {
-  @Input({ required: true }) ticket!: Ticket;
-  @Input() isOwner!: boolean;
-  @Output() edit = new EventEmitter<void>();
-
-  constructor(private auth: AuthService) {}
+  public ticket = input.required<Ticket>();
+  public isOwner = input.required<boolean>();
+  public edit = output<void>();
 }

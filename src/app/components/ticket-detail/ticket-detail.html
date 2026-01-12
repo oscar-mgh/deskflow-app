@@ -1,5 +1,8 @@
-<section
-  class="min-h-screen bg-base-100 text-base-content px-8 lg:pl-24 py-12 flex flex-col items-center">
+@if (!ticket()) {
+<loading />
+} @else {
+
+<section class="min-h-screen bg-base-100 text-base-content px-8 lg:pl-24 py-12 flex flex-col items-center">
 
   <div class="w-full max-w-3xl">
 
@@ -8,9 +11,7 @@
         Detalle del <span class="text-primary">Ticket</span>
       </h1>
 
-      <p
-        class="text-base-content/70 font-medium text-sm mt-2"
-        i18n="@@tickets.detail.subtitle">
+      <p class="text-base-content/70 font-medium text-sm mt-2" i18n="@@tickets.detail.subtitle">
         Información completa sobre la solicitud.
       </p>
     </header>
@@ -20,105 +21,95 @@
       <div class="space-y-4">
 
         <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-          <span class="text-sm font-semibold text-base-content/60"
-            i18n="@@tickets.detail.label.title">
+          <span class="text-sm font-semibold text-base-content/60" i18n="@@tickets.detail.label.title">
             Título:
           </span>
           <span class="text-sm font-semibold text-base-content">
-            {{ ticket.title }}
+            {{ ticket().title }}
           </span>
         </div>
 
         <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-          <span class="text-sm font-semibold text-base-content/60"
-            i18n="@@tickets.detail.label.date">
+          <span class="text-sm font-semibold text-base-content/60" i18n="@@tickets.detail.label.date">
             Fecha de creación:
           </span>
           <span class="text-sm font-semibold text-base-content">
-            {{ ticket.createdAt | date:'mediumDate' }}
+            {{ ticket().createdAt | date:'mediumDate' }}
           </span>
         </div>
 
         <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-          <span class="text-sm font-semibold text-base-content/60"
-            i18n="@@tickets.detail.label.category">
+          <span class="text-sm font-semibold text-base-content/60" i18n="@@tickets.detail.label.category">
             Categoría:
           </span>
           <span class="text-sm font-semibold text-primary">
-            {{ ticket.categoryName | titlecase }}
+            {{ ticket().categoryName | titlecase }}
           </span>
         </div>
 
         <div class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1">
-          <span class="text-sm font-semibold text-base-content/60"
-            i18n="@@tickets.detail.label.priority">
+          <span class="text-sm font-semibold text-base-content/60" i18n="@@tickets.detail.label.priority">
             Prioridad:
           </span>
           <span class="text-sm font-semibold text-base-content">
-            {{ ticket.priority | priority }}
+            {{ ticket().priority | priority }}
           </span>
         </div>
 
         <div
           class="flex flex-col md:flex-row md:justify-between border-b border-base-content/5 py-4 gap-1 items-start md:items-center">
-          <span class="text-sm font-semibold text-base-content/60"
-            i18n="@@tickets.detail.label.status">
+          <span class="text-sm font-semibold text-base-content/60" i18n="@@tickets.detail.label.status">
             Estado actual:
           </span>
 
-          <status-badge [status]="ticket.status"></status-badge>
+          <status-badge [status]="ticket().status"></status-badge>
         </div>
 
         <div class="pt-4">
-          <span class="text-sm font-semibold text-base-content/60 block mb-3"
-            i18n="@@tickets.detail.label.description">
+          <span class="text-sm font-semibold text-base-content/60 block mb-3" i18n="@@tickets.detail.label.description">
             Descripción detallada:
           </span>
 
           <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl mt-4">
             <p class="text-sm text-base-content leading-relaxed">
-              {{ ticket.description }}
+              {{ ticket().description }}
             </p>
           </div>
         </div>
 
-        @if (isOwner) {
-          <button
-            class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-2 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
-            (click)="edit.emit()"
-            i18n="@@tickets.detail.btn.edit">
-            Editar Ticket
-          </button>
+        @if (isOwner()) {
+        <button
+          class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-2 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80"
+          (click)="edit.emit()" i18n="@@tickets.detail.btn.edit">
+          Editar Ticket
+        </button>
         }
 
-        @if (ticket.file) {
-          <div class="pt-4">
-            <span class="text-sm font-semibold text-base-content/60 block mb-3"
-              i18n="@@tickets.detail.label.file">
-              Archivo adjunto:
-            </span>
+        @if (ticket().file) {
+        <div class="pt-4">
+          <span class="text-sm font-semibold text-base-content/60 block mb-3" i18n="@@tickets.detail.label.file">
+            Archivo adjunto:
+          </span>
 
-            <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl">
-              <p class="text-sm text-base-content leading-relaxed">
-                {{ ticket.file }}
-              </p>
-            </div>
+          <div class="bg-base-100 border border-base-content/10 p-4 rounded-xl">
+            <p class="text-sm text-base-content leading-relaxed">
+              {{ ticket().file }}
+            </p>
           </div>
+        </div>
         }
       </div>
     </div>
 
     <div class="mt-8 flex justify-between">
-      <button
-        routerLink="/dashboard/tickets"
+      <button routerLink="/dashboard/tickets"
         class="btn btn-secondary border-none shadow-none btn-sm text-base-content/60 hover:text-base-content">
         <ng-container i18n="@@tickets.detail.btn.back">
           Volver a mis tickets
         </ng-container>
       </button>
 
-      <button
-        [routerLink]="`/dashboard/ticket/${ticket.id}/comments`"
+      <button [routerLink]="`/dashboard/ticket/${ticket().id}/comments`"
         class="btn btn-secondary border-none shadow-none btn-sm text-base-content/60 hover:text-base-content">
         <ng-container i18n="@@tickets.detail.btn.comments">
           Ver comentarios
@@ -128,3 +119,5 @@
 
   </div>
 </section>
+
+}
