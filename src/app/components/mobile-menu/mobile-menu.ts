@@ -32,7 +32,6 @@ export class MobileMenu {
   }
 
   public logout(): void {
-    this._authService.clearToken();
-    this._router.navigate(['/']);
+    this._authService.logout();
   }
 }

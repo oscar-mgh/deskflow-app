@@ -90,7 +90,6 @@ export class Dashboard {
   constructor(private _authService: AuthService, private _router: Router) {}
 
   public logout(): void {
-    this._authService.clearToken();
-    this._router.navigate(['/']);
+    this._authService.logout();
   }
 }

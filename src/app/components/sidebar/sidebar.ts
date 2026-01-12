@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from '../../models/ticket.model';
 import { AuthService } from '../../services/auth.service';
 import { ConfigService } from '../../services/theme.service';
@@ -21,14 +21,9 @@ export class Sidebar {
   public isAdmin = input.required<boolean>();
   public isAgent = input.required<boolean>();
 
-  constructor(
-    private _authService: AuthService,
-    private _router: Router,
-    public config: ConfigService
-  ) {}
+  constructor(private _authService: AuthService, public config: ConfigService) {}
 
   public logout(): void {
-    this._authService.clearToken();
-    this._router.navigate(['/']);
+    this._authService.logout();
   }
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Comment, Ticket, TicketPagination } from '../models/ticket.model';
@@ -22,7 +22,7 @@ export class TicketService {
     };
   }
 
-  public getTicketsPaginated(page: number = 1, size: number = 9): Observable<TicketPagination> {
+  public getTicketsPaginated(page: number = 0, size: number = 8): Observable<TicketPagination> {
     return this._http.get<TicketPagination>(
       this._api.endpoint(`/tickets?page=${page}&size=${size}`),
       {
@@ -73,13 +73,19 @@ export class TicketService {
     });
   }
   public newComment(id: string, content: string): Observable<Comment> {
-    return this._http.post<Comment>(this._api.endpoint(`/tickets/${id}/comments`), {content}, {
-      headers: this.headers,
-    });
+    return this._http.post<Comment>(
+      this._api.endpoint(`/tickets/${id}/comments`),
+      { content },
+      {
+        headers: this.headers,
+      }
+    );
   }
-  public getTicketsByAgent(): Observable<TicketPagination> {
+  public getTicketsByAgent(page: number = 0, size: number = 8): Observable<TicketPagination> {
     return this._http.get<TicketPagination>(
-      this._api.endpoint(`/tickets/agent/${this._authService.getUserInfo().id}`),
+      this._api.endpoint(
+        `/tickets/agent/${this._authService.getUserInfo().id}?page=${page}&size=${size}`
+      ),
       {
         headers: this.headers,
       }

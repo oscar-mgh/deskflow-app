@@ -1,0 +1,139 @@
+<section
+	class="min-h-screen bg-base-100 text-base-content px-8 lg:pl-24 py-12 flex flex-col items-center justify-center fade">
+
+	<div class="w-full max-w-3xl">
+
+		<header class="text-center md:text-left mb-8">
+			<h1 class="text-4xl font-bold tracking-tight">
+				@if (mode() === 'create') {
+				<ng-container i18n="@@tickets.create.title">
+					Crear <span class="text-primary">Ticket</span>
+				</ng-container>
+				} @else {
+				<ng-container i18n="@@tickets.edit.title">
+					Editar <span class="text-primary">Ticket</span>
+				</ng-container>
+				}
+			</h1>
+
+			<p class="text-base-content/70 font-medium text-sm mt-2">
+				@if (mode() === 'create') {
+				<ng-container i18n="@@tickets.create.subtitle">
+					Completa la información para recibir asistencia.
+				</ng-container>
+				} @else {
+				<ng-container i18n="@@tickets.edit.subtitle">
+					Completa la información para recibir asistencia.
+				</ng-container>
+				}
+			</p>
+		</header>
+
+		<div class="bg-base-200 border border-base-content/10 rounded-2xl p-6 shadow-xl">
+
+			<form [formGroup]="form" (ngSubmit)="submit()" class="space-y-6">
+
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+					<div class="form-control">
+						<label class="mb-2 block text-sm font-semibold text-base-content"
+							i18n="@@tickets.form.label.title">
+							Título
+						</label>
+						<input type="text" formControlName="title" placeholder="Ej. Error al iniciar sesión"
+							i18n-placeholder="@@tickets.form.placeholder.title"
+							class="w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm" />
+					</div>
+
+					<div class="form-control">
+						<label class="mb-2 block text-sm font-semibold text-base-content"
+							i18n="@@tickets.form.label.category">
+							Categoría
+						</label>
+
+						<select formControlName="categoryId"
+							class="select w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl transition-colors">
+
+							<option value="" class="text-base-content font-regular bg-base-100"
+								i18n="@@tickets.form.select.category">
+								Seleccione una categoría
+							</option>
+
+							@for (category of categories(); track category.id) {
+							<option [value]="category.id" class="text-base-content font-regular bg-base-100">
+								{{ category.name }}
+							</option>
+							}
+						</select>
+					</div>
+				</div>
+
+
+				<div class="form-control">
+					<label class="mb-2 block text-sm font-semibold text-base-content"
+						i18n="@@tickets.form.label.description">
+						Descripción
+					</label>
+
+					<textarea formControlName="description" rows="5" placeholder="Describe el problema o solicitud..."
+						i18n-placeholder="@@tickets.form.placeholder.description"
+						class="w-full bg-base-100 border border-base-content/10 text-base-content p-4 rounded-xl focus:border-primary focus:outline-none transition-colors text-sm resize-none">
+          </textarea>
+				</div>
+
+				<div class="grid gap-6" [class]="isPremium() ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'">
+
+					<div class="form-control">
+						<label class="mb-2 block text-sm font-semibold text-base-content"
+							i18n="@@tickets.form.label.priority">
+							Prioridad
+						</label>
+
+						<select formControlName="priority"
+							class="select w-full bg-base-100 border border-base-content/10 text-base-content h-12 px-4 rounded-xl focus:border-primary focus:outline-none cursor-pointer transition-colors">
+
+							<option value="" class="text-base-content font-regular bg-base-100"
+								i18n="@@tickets.form.select.priority">
+								Seleccione la prioridad
+							</option>
+
+							@for (priority of isPremium() ? premiumPriorities : priorities; track priority) {
+							<option [value]="priority" class="text-base-content font-regular bg-base-100">
+								{{ priority | priority }}
+							</option>
+							}
+						</select>
+					</div>
+
+					@if (isPremium() && mode() === 'create') {
+					<div class="form-control">
+						<label class="mb-2 block text-sm font-semibold text-base-content"
+							i18n="@@tickets.form.label.file">
+							Adjuntar Archivo
+						</label>
+
+						<input type="file" (change)="onFileSelected($event)"
+							class="file-input bg-base-100 border border-base-content/10 text-base-content rounded-xl w-full h-12 text-sm" />
+					</div>
+					}
+				</div>
+
+				<button type="submit"
+					class="btn btn-primary w-full h-12 text-base disabled:text-base-content/60 text-base-content font-bold rounded-xl mt-2 border-none hover:bg-primary/70 transition-colors shadow hover:text-base-content/80">
+
+					@if (mode() === 'create') {
+					<ng-container i18n="@@tickets.form.btn.submit">
+						Enviar Ticket
+					</ng-container>
+					} @else {
+					<ng-container i18n="@@tickets.form.btn.save">
+						Guardar Cambios
+					</ng-container>
+					}
+				</button>
+
+			</form>
+		</div>
+	</div>
+</section>

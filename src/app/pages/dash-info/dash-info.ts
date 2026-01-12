@@ -18,20 +18,24 @@ export class DashInfo {
   public allTickets = input.required<number>();
   public loadAgentTickets = input.required<boolean>();
 
+  public tickets = signal<Ticket[]>([]);
   public paginationData = signal<TicketPagination | null>(null);
   public currentPage = signal<number>(0);
   public loading = signal<boolean>(false);
-  public lastTicketsResolved = signal<Ticket[]>([]);
-  public openTickets = signal<Ticket[]>([]);
-  public tickets = signal<Ticket[]>([]);
+
+  public openTickets = computed(() => this.tickets().filter((ticket) => ticket.status === 'OPEN'));
 
   public inProgressTickets = computed(() =>
     this.tickets().filter((ticket) => ticket.status === 'IN_PROGRESS')
   );
+
   public resolvedTickets = computed(() =>
     this.tickets().filter((ticket) => ticket.status === 'RESOLVED')
   );
+
   public slaTickets = computed(() => this.tickets().filter((ticket) => ticket.status === 'CLOSED'));
+
+  public lastTicketsResolved = computed(() => this.resolvedTickets().slice(0, 5));
 
   constructor(
     private _ticketService: TicketService,
@@ -48,52 +52,39 @@ export class DashInfo {
     this.loading.set(true);
 
     const ticketsObservable = this.loadAgentTickets()
-      ? this._ticketService.getTicketsByAgent()
-      : this._ticketService.getTicketsPaginated(page, this.allTickets());
+      ? this._ticketService.getTicketsByAgent(page, 20)
+      : this._ticketService.getTicketsPaginated(page, 20);
 
     ticketsObservable.subscribe({
       next: (response) => {
-        const ticketsContent = this.loadAgentTickets() ? response.content : response.content;
+        this.tickets.set(response.content || []);
 
-        this.tickets.set(ticketsContent);
-
-        if (this.loadAgentTickets()) {
-          this.openTickets.set(
-            ticketsContent.filter(
-              (ticket) =>
-                ticket.status === 'OPEN' && ticket.agentId === this._authService.getUserInfo().id
-            )
-          );
-        } else {
-          this.openTickets.set(ticketsContent.filter((ticket) => ticket.status === 'OPEN'));
+        if (!this.loadAgentTickets()) {
           this.paginationData.set(response);
-          this.currentPage.set(page);
         }
 
-        this.lastTicketsResolved.set(
-          this.tickets().filter((ticket) => ticket.status === 'RESOLVED')
-        );
-
+        this.currentPage.set(page);
         this.loading.set(false);
       },
       error: () => {
         this._toastService.show('error');
         this.loading.set(false);
+        this.tickets.set([]);
       },
     });
   }
 
   public goToPage(page: number): void {
-    if (
-      page < 0 ||
-      (this.paginationData()?.totalPages && page >= this.paginationData()!.totalPages!)
-    ) {
+    const totalPages = this.paginationData()?.totalPages ?? 0;
+
+    if (page < 0 || page >= totalPages) {
       return;
     }
+
     this.loadTickets(page);
   }
 
-  public openTicket(id: string) {
+  public openTicket(id: string): void {
     this._router.navigate(['/dashboard/ticket', id]);
   }
 }

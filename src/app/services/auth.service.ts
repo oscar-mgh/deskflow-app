@@ -1,8 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { AuthResponse, LoginRequest, RegisterRequest, UserClaims } from '../models/auth.model';
 import { ApiService } from './api.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { ApiService } from './api.service';
 export class AuthService {
   private _tokenKey = 'identity';
 
-  constructor(private _http: HttpClient, private _api: ApiService) {}
+  constructor(private _http: HttpClient, private _api: ApiService, private _router: Router) {}
 
   public login({ email, password }: LoginRequest): Observable<AuthResponse> {
     return this._http.post<AuthResponse>(this._api.endpoint('/auth/login'), { email, password });
@@ -34,8 +35,15 @@ export class AuthService {
     localStorage.setItem(this._tokenKey, token);
   }
 
-  public clearToken(): void {
-    localStorage.removeItem(this._tokenKey);
+  public logout(): void {
+    localStorage.clear();
+    sessionStorage.clear();
+
+    this._router.navigate(['/auth/login']);
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 10);
   }
 
   public isLoggedIn(): boolean {
